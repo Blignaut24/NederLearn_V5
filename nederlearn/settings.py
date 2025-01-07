@@ -25,7 +25,20 @@ SECRET_KEY = "django-insecure-98w^=am#q06qbby6us$r4rb!w1pp8s*!!z=8wagmyp3azlgdoi
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [nederlearn / settings.py]
+# ==============================================
+# ALLOWED HOSTS CONFIGURATION
+# ==============================================
+# Defines which host/domain names can serve this Django site
+# For security, Django requires this to be explicitly set
+
+ALLOWED_HOSTS = [
+    # Gitpod workspace URL - Development environment
+    "8000-blignaut24-nederlearnv5-7k1vcbuxc2s.ws-eu117.gitpod.io",
+    # Local development server
+    "localhost",
+    # IPv4 loopback address - Also for local development
+    "127.0.0.1",
+]
 
 
 # Application definition
