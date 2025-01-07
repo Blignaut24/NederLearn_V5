@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     # Heroku deployment URL
     "nederlearn-v5.herokuapp.com",
+    'nederlearn-v5-c628536a9899.herokuapp.com',
 ]
 
 
