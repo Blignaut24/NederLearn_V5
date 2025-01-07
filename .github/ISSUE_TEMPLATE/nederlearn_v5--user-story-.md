@@ -1,5 +1,5 @@
 ---
-name: 'User Story '
+name: 'NederLearn_v5: User Story '
 about: Create a standardized user story template to document requirements in a consistent
   format
 title: ''
