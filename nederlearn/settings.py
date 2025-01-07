@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-98w^=am#q06qbby6us$r4rb!w1pp8s*!!z=8wagmyp3azlgdoi"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ==============================================
 # ALLOWED HOSTS CONFIGURATION
@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     # Gitpod workspace URL - Development environment
-    "8000-blignaut24-nederlearnv5-7k1vcbuxc2s.ws-eu117.gitpod.io",
+    "8000-blignaut24-nederlearnv5-pnp1ak6o6t5.ws-eu117.gitpod.io",
     # Local development server
     "localhost",
     # IPv4 loopback address - Also for local development
