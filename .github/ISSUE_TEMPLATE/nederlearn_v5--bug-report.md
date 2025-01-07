@@ -1,5 +1,5 @@
 ---
-name: 'NederLearn_5: Bug Report'
+name: 'NederLearn_v5: Bug Report'
 about: A user-friendly bug report template with emojis and examples, featuring sections
   for describing issues, reproduction steps, expected behavior, additional details,
   and optional fix suggestions.
