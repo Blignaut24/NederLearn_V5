@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-98w^=am#q06qbby6us$r4rb!w1pp8s*!!z=8wagmyp3azlgdoi"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ==============================================
 # ALLOWED HOSTS CONFIGURATION
@@ -38,6 +38,8 @@ ALLOWED_HOSTS = [
     "localhost",
     # IPv4 loopback address - Also for local development
     "127.0.0.1",
+    # Heroku deployment URL
+    "nederlearn-v5.herokuapp.com",
 ]
 
 
