@@ -1,7 +1,9 @@
 from django import forms
 from django_summernote.utils import get_attachment_model
+
 try:
     from PIL import Image  # noqa: F401
+
     FIELD = forms.ImageField
 except ImportError:
     FIELD = forms.FileField
@@ -16,4 +18,4 @@ class AttachmentAdminForm(forms.ModelForm):
 
     class Meta:
         model = get_attachment_model()
-        fields = '__all__'
+        fields = "__all__"
