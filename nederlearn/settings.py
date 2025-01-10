@@ -45,6 +45,7 @@ DEBUG = False  # Enable debugging mode
 ALLOWED_HOSTS = [
     "nederlearn-v4.herokuapp.com",  # Production server
     "localhost",  # Local development
+    "8000-blignaut24-nederlearnv5-dw2vkkchlmv.ws-eu117.gitpod.io",
 ]
 
 # =======================================
