@@ -1,9 +1,32 @@
-core.Microsoft*
-core.mongo*
-core.python*
-env.py
-__pycache__/
-*.py[cod]
-node_modules/
-.github/
-cloudinary_python.txt
+# =================================
+# GITIGNORE FILE FOR PYTHON PROJECT
+# =================================
+
+# Microsoft-specific files
+# -----------------------
+core.Microsoft*    # Ignores Microsoft-specific temporary files
+
+# Database files
+# -------------
+core.mongo*        # MongoDB database files
+core.python*       # Python database files
+
+# Environment & Security
+# ---------------------
+env.py            # Python environment configuration
+env/              # Virtual environment folder
+.env              # Environment variables (contains secrets!)
+
+# Cached & Compiled Files
+# ----------------------
+__pycache__/      # Python cache directory
+*.py[cod]         # Python compiled files (*.pyc, *.pyo, *.pyd)
+
+# Dependencies & Version Control
+# ----------------------------
+node_modules/     # Node.js packages
+.github/          # GitHub specific files
+
+# Cloud Services
+# -------------
+cloudinary_python.txt  # Cloudinary configuration file
