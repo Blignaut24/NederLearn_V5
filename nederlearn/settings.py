@@ -37,7 +37,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = "django-insecure-&m%gu-ez==#b@$+_t99xi_wgv()$4vr7#$-og^=x4rdhx6lh6j"
-DEBUG = True  # Enable debugging mode
+DEBUG = False  # Enable debugging mode
 
 # Host Configuration
 # -----------------
@@ -46,6 +46,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v4.herokuapp.com",  # Production server
     "localhost",  # Local development
     "8000-blignaut24-nederlearnv5-cxy96i1lj06.ws-eu117.gitpod.io",
+    "nederlearn-v5-c628536a9899.herokuapp.com",
 ]
 
 # =======================================
