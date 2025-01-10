@@ -31,5 +31,4 @@ node_modules/     # Node.js packages
 # -------------
 cloudinary_python.txt  # Cloudinary configuration file
 __pycache__/
-
-nederlearn/__pycache__/settings.cpython-312.pyc
+nederlearn/__pycache__/
