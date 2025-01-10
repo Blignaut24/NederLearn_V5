@@ -31,3 +31,4 @@ node_modules/     # Node.js packages
 # -------------
 cloudinary_python.txt  # Cloudinary configuration file
 __pycache__/
+
