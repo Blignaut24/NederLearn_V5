@@ -1,35 +1,16 @@
-# Core Imports
+# =================================================================
+# IMPORTS AND CONFIGURATIONS
+# =================================================================
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
-""""
-Agenda Outline:
-1. [X] Set up imports
-2. [X] Draft or Published status options
-3. [X] Create blogpost model
-4. [X] Create comment model
-5. [X] Create media categories model
-6. [X] Create profile model
-7. [] Remove unnecessary commented code 
-
-Remember:
-- model ⇒ python class
-- model represents a table in the db
-- attrs are the fields in the table
-- makemigrations: creates instructions telling django how the db have changed
-    - python manage.py makemigrations
-- migrate: Applies the above changes
-    - python manage.py migrate
-- model manager → objects : CRUD operations in Python
-- Django shell: python manage.py shell
-"""
 
 # =======================================
 # Create Models Here
 # =======================================
 
-# Constants: Draft or Published status options
+# Constants for post status
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # =================================================================
