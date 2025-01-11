@@ -8,7 +8,7 @@ Agenda Outline:
 1. [X] Set up imports
 2. [X] Draft or Published status options
 3. [X] Create blogpost model
-4. [] Create comment model
+4. [X] Create comment model
 5. [X] Create media categories model
 6. [X] Create profile model
 7. [] Remove unnecessary commented code 
@@ -144,3 +144,29 @@ class UserProfile(models.Model):
     def __str__(self):
         """Returns username as string representation"""
         return self.user.username
+
+
+# =================================================================
+# COMMENTS
+# =================================================================
+# Purpose: A model that enables users to comment on blog posts, with a moderation system for approving comments before they appear
+
+
+class Comment(models.Model):
+    """
+    Lets users leave comments on posts and requires approval before they show up
+    """
+
+    # Comment content and metadata
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    # Relationships
+    post = models.ForeignKey(
+        "Blogpost", on_delete=models.CASCADE, related_name="comments"
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.user.username}"
