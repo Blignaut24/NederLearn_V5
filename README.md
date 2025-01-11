@@ -40,7 +40,7 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
   - [**Supporting Libraries and Packages**](#supporting-libraries-and-packages)
   - [Methodology](#methodology)
   - [Testing](#testing)
-  - [Bugs](#bugs)
+  - [Bug Reports](#bugs)
   - [Deployment](#deployment)
   - [Credits](#credits)
   - [Acknowledgments](#acknowledgments)
@@ -320,7 +320,27 @@ During the planning phase of the NederLearn project, I utilized [**Whimsical**](
 
 ---
 
-## Bugs
+## Bug Reports
+I've added links to the bug reports from my GitHub Project in my README.md. Each issue number is clickable and will take you to the full details of the bug and how it was fixed.
+
+### Known bugs ❌ 
+**Known bugs** are issues in the code that still need to be fixed. These include problems that have been identified but require further investigation, resources, or future updates to resolve.
+
+| Bug Description | Bug Report Link |Bug Type |
+| --- | --- |--- |
+| |  ||  |
+
+
+### Fixed bugs ✅
+**Fixed bugs** are issues that have been successfully resolved. Documenting fixed bugs helps track progress and provides solutions for similar issues that may arise in the future.
+
+| Bug Description | Bug Report Link |Bug Type |
+| --- | --- |--- |
+| 🐞 Bug: PostgreSQL Database Connection Error on Heroku| [#40](https://github.com/Blignaut24/NederLearn_V5/issues/40) |🔌 Connection Bug ⚙️ Configuration Bug |
+
+
+
+
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
