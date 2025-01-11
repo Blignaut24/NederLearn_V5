@@ -64,8 +64,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",  # User messages
     # Third-party apps
     "cloudinary_storage",  # Cloud storage
-    "django.contrib.staticfiles",
-    "cloudinary",
+    "django.contrib.staticfiles",  # Static file handler
+    "cloudinary",  # Media management
+    "django_summernote",  # Rich text editor
     # Local apps
     "blog",  # Blog functionality
 ]

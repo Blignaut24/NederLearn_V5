@@ -46,9 +46,8 @@ class Blogpost(models.Model):
 
     # Media Details
     # ------------
-    media_category = models.ForeignKey(
-        "MediaCategory", on_delete=models.CASCADE, related_name="blog_posts"
-    )
+    media_category = models.ForeignKey('MediaCategory', on_delete=models.SET_NULL, related_name='blog_posts', blank=True, null=True) # Temporarily disabled required field validation - will be re-enabled in future update
+
     release_year = models.IntegerField()
     media_link = models.URLField()
 
