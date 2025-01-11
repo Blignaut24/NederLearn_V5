@@ -354,6 +354,31 @@ I've added links to the bug reports from my GitHub Project in my README.md. Each
 
 ## Credits
 
+<details>
+  <summary><b>Bootstrap Documentation</b></summary>
+</details>
+
+<details>
+  <summary><b>Content</b></summary>
+</details>
+
+<details>
+  <summary><b>Django Documentation</b></summary>
+</details>
+
+<details>
+  <summary><b>Media</b></summary>
+</details>
+
+<details>
+  <summary><b>Tutorials</b></summary>
+
+  - [**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.
+
+  - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
+
+</details>
+
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
