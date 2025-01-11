@@ -1,3 +1,113 @@
+# Core Imports
 from django.db import models
+from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
-# Create your models here.
+""""
+Agenda Outline:
+1. [X] Set up imports
+2. [X] Draft or Published status options
+3. [X] Create blogpost model
+4. [] Create comment model
+5. [] Create media categories model
+6. [] Create social features model
+7. [] Remove unnecessary commented code 
+
+Remember:
+- model ⇒ python class
+- model represents a table in the db
+- attrs are the fields in the table
+- makemigrations: creates instructions telling django how the db have changed
+    - python manage.py makemigrations
+- migrate: Applies the above changes
+    - python manage.py migrate
+- model manager → objects : CRUD operations in Python
+- Django shell: python manage.py shell
+"""
+
+# =======================================
+# Create Models Here
+# =======================================
+
+# Constants: Draft or Published status options
+STATUS = ((0, "Draft"), (1, "Published"))
+
+# =================================================================
+# PRIMARY MODEL: Blog Post
+# =================================================================
+# Purpose: Stores blog posts with user interactions and media info
+
+
+class Blogpost(models.Model):
+    """
+    Stores blog posts with user interactions and media info
+    """
+
+    # Core Fields
+    # -----------
+    blog_title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts"
+    )
+
+    # Timestamps
+    # ----------
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    # Content
+    # -------
+    content = models.TextField()
+    excerpt = models.TextField(blank=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    featured_image = CloudinaryField("image", default="placeholder")
+
+    # Media Details
+    # ------------
+    media_category = models.ForeignKey(
+        "MediaCategory", on_delete=models.CASCADE, related_name="blog_posts"
+    )
+    release_year = models.IntegerField()
+    media_link = models.URLField()
+
+    # User Engagement
+    # --------------
+    likes = models.ManyToManyField(User, related_name="blogpost_likes", blank=True)
+    bookmarks = models.ManyToManyField(
+        User, related_name="blogpost_bookmarks", blank=True
+    )
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        """Returns the blog title as string representation"""
+        return self.blog_title
+
+    def number_of_likes(self):
+        """Returns the total number of likes"""
+        return self.likes.count()
+
+    def number_of_bookmarks(self):
+        """Returns the total number of bookmarks"""
+        return self.bookmarks.count()
+
+
+# =================================================================
+# SUPPORTING MODEL: Media Category
+# =================================================================
+# Purpose: Groups content by media type (e.g. movies, books) to organize blog posts.
+class MediaCategory(models.Model):
+    """
+    A way to group different types of content like movies and books. This helps organize     blog posts based on what type of media they're about.
+    """
+
+    media_name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        """Returns the media category name as string representation"""
+        return self.media_name
+
+    class Meta:
+        verbose_name_plural = "Media Categories"
