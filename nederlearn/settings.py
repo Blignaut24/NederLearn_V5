@@ -128,6 +128,11 @@ WSGI_APPLICATION = "nederlearn.wsgi.application"
 # Supports easy switching between development/production
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
+CSRF_TRUSTED_ORIGINS = [
+    ""https://*.gitpod.io/",",
+    "https://*.herokuapp.com"
+]
+
 # =======================================
 # Password Validation
 # =======================================
