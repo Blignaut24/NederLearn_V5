@@ -9,8 +9,8 @@ Agenda Outline:
 2. [X] Draft or Published status options
 3. [X] Create blogpost model
 4. [] Create comment model
-5. [] Create media categories model
-6. [] Create social features model
+5. [X] Create media categories model
+6. [X] Create profile model
 7. [] Remove unnecessary commented code 
 
 Remember:
@@ -111,3 +111,36 @@ class MediaCategory(models.Model):
 
     class Meta:
         verbose_name_plural = "Media Categories"
+
+
+# =================================================================
+# USER PROFILE MODEL
+# =================================================================
+# Purpose: Adds extra features to the basic Django user profile, letting users save their favorite media and customize their profile details.
+
+
+class UserProfile(models.Model):
+    """
+    This model adds extra features to regular user accounts, letting people share th  eir favorite media and personal details.
+    """
+
+    # Core User Data
+    # -------------
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image = CloudinaryField("image", default="placeholder")
+    bio = models.TextField(blank=True)
+    country = models.CharField(max_length=100, blank=True)
+
+    # Media Preferences
+    # ----------------
+    # All fields are optional (blank=True) and store user's favorite content
+    top_movies = models.CharField(max_length=255, blank=True)
+    top_series = models.CharField(max_length=255, blank=True)
+    top_music_albums = models.CharField(max_length=255, blank=True)
+    top_books = models.CharField(max_length=255, blank=True)
+    top_podcasts = models.CharField(max_length=255, blank=True)
+    top_miscellaneous = models.CharField(max_length=255, blank=True)
+
+    def __str__(self):
+        """Returns username as string representation"""
+        return self.user.username
