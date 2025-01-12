@@ -1,34 +1,51 @@
-# =================================
-# GITIGNORE FILE FOR PYTHON PROJECT
-# =================================
+# =================================================================
+# GITIGNORE CONFIGURATION FOR PYTHON PROJECTS
+# Project: NederLearn
+# Last Updated: 2025-01-12
+# =================================================================
 
-# Microsoft-specific files
+# SYSTEM AND IDE FILES
+# -------------------
+# Microsoft temporary and system-specific files
+core.Microsoft*
+
+# DATABASE AND STORAGE
+# -------------------
+# Database management system files
+core.mongo*        # MongoDB
+core.python*       # Python DB
+
+# ENVIRONMENT AND SECURITY
 # -----------------------
-core.Microsoft*    # Ignores Microsoft-specific temporary files
+# Configuration and sensitive data
+env.py            # Environment settings
+env/              # Virtual environment
+.env              # Secret environment variables
 
-# Database files
-# -------------
-core.mongo*        # MongoDB database files
-core.python*       # Python database files
+# BUILD AND COMPILATION
+# --------------------
+# Temporary and generated files
+__pycache__/      # Python bytecode cache
+*.py[cod]         # Compiled Python files
 
-# Environment & Security
-# ---------------------
-env.py            # Python environment configuration
-env/              # Virtual environment folder
-.env              # Environment variables (contains secrets!)
+# DEPENDENCIES
+# -----------
+# Third-party packages and version control
+node_modules/     # NPM packages
+.github/          # GitHub configuration
 
-# Cached & Compiled Files
-# ----------------------
-__pycache__/      # Python cache directory
-*.py[cod]         # Python compiled files (*.pyc, *.pyo, *.pyd)
-
-# Dependencies & Version Control
-# ----------------------------
-node_modules/     # Node.js packages
-.github/          # GitHub specific files
-
-# Cloud Services
-# -------------
-cloudinary_python.txt  # Cloudinary configuration file
+# CLOUD AND SERVICES
+# -----------------
+# Cloud service configurations
+cloudinary_python.txt
 __pycache__/
 nederlearn/__pycache__/
+
+# =======================
+# DEVELOPMENT CREDENTIALS
+# =======================
+# Django Admin Access
+# ------------------
+# Username: blign
+# Email: blignaut24@gmail.com
+# Password: NederLearn@1985
