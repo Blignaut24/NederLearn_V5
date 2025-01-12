@@ -1,63 +1,62 @@
-# Django imports
+# Core Django imports
 from django.contrib import admin
-from .models import Blogpost, Comment
+from .models import Blogpost, Comment, MediaCategory
 from django_summernote.admin import SummernoteModelAdmin
 
-# ------------------------------------------------------------------------
-# Blog Post Admin Configuration
-# ------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
+# Media Category Admin
+# -----------------------------------------------------------------------------
+@admin.register(MediaCategory)
+class MediaCategoryAdmin(admin.ModelAdmin):
+    """Handles media category management in admin panel"""
+
+    list_display = ("media_name",)
+    search_fields = ("media_name",)
 
 
+# -----------------------------------------------------------------------------
+# Blog Post Admin
+# -----------------------------------------------------------------------------
 @admin.register(Blogpost)
 class PostAdmin(SummernoteModelAdmin):
     """
-    Admin configuration for managing blog posts.
-    Includes rich text editing via Summernote.
+    Blog post management configuration
+    Features:
+    - Rich text editing with Summernote
+    - Automatic slug generation
+    - Filtering and search capabilities
     """
 
-    # Display settings for admin list view
+    # Admin list view configuration
     list_display = ("blog_title", "slug", "status", "created_on")
-
-    # Search functionality configuration
     search_fields = ("blog_title", "content")
-
-    # Auto-populate slug field from blog title
     prepopulated_fields = {"slug": ("blog_title",)}
-
-    # Filter options in admin sidebar
     list_filter = ("status", "created_on")
 
-    # Enable Summernote rich text editor for content field
+    # Rich text editor field
     summernote_fields = "content"
 
 
-# ------------------------------------------------------------------------
-# Comment Admin Configuration
-# ------------------------------------------------------------------------
-
-
+# -----------------------------------------------------------------------------
+# Comment Admin
+# -----------------------------------------------------------------------------
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """
-    Admin configuration for managing user comments.
-    Includes comment moderation capabilities.
+    Comment management configuration
+    Features:
+    - Comment moderation system
+    - Bulk approval functionality
+    - Filtering and search capabilities
     """
 
-    # Display settings for admin list view
+    # Admin list view configuration
     list_display = ("user", "body", "post", "created_on", "approved")
-
-    # Filter options in admin sidebar
     list_filter = ("approved", "created_on")
-
-    # Search functionality configuration
     search_fields = ("user", "body", "post")
-
-    # Available admin actions
     actions = ["approved_comments"]
 
     def approved_comments(self, request, queryset):
-        """
-        Bulk action to approve selected comments.
-        Updates approved status to True for all selected comments.
-        """
+        """Bulk approve selected comments"""
         queryset.update(approved=True)
