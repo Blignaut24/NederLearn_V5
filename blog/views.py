@@ -16,7 +16,8 @@ class PostList(generic.ListView):
     """
     Shows a list of blog posts with 6 posts per page, using the Blogpost model to get only published posts.
     """
+
     model = Blogpost
-    queryset = Blogpost.objects.filter(status=1).order_by('created_on')
-    template_name = 'index.html'
+    queryset = Blogpost.objects.filter(status=1).order_by("created_on")
+    template_name = "index.html"
     paginate_by = 6
