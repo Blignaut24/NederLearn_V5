@@ -1,0 +1,99 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+    
+# ==================================
+ # Meta Information and Title
+ # ================================== 
+    <title>NederLearn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+ # ==================================
+ # External Resources
+ # ================================== 
+ {# --- Google Fonts Configuration  --- #}
+ #Initialize preconnect for faster font loading
+ <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+# Load font families with weights and styles
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+		    
+    {# --- CSS Dependencies --- #}
+    # Bootstrap CSS - Main UI framework
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    
+    # Font Awesome - Icon library
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    # Custom styles
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {# --- JavaScript Dependencies --- #}
+    # Load Bootstrap Bundle (includes Popper.js)
+		# This provides:
+		# - Core Bootstrap functionality
+		# - Interactive components
+		# - Dropdown menus
+		# - Modal dialogs
+		# - Tooltips
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="d-flex flex-column h-100">
+    {# Navigation Bar #}
+    # Primary navigation container with responsive design
+    # Implements Bootstrap navbar with mobile-first approach
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            {# Brand Logo/Name #}
+            <a class="navbar-brand" href="{% url 'home' %}">NederLearn/a>
+            
+            {# Mobile Navigation Toggle #}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            {# Navigation Links #}
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if user.is_authenticated %}
+                        {# Authenticated User Menu Items #}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'create_post' %}">Create New Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'my_posts' %}">My Posts</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'saved_for_later' %}">Saved for Later</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                        {# Guest User Menu Items #}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Join the Club</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'about_us' %}">About Us</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {# Main Content Area #}
+    <main class="flex-shrink-0">
+        {% block content %}
+        {# Content from child templates will be inserted here #}
+        {% endblock content %}
+    </main>
+
+    {# Footer Section #}
+     <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+            <p class="m-0">© 2023 NederLearn</p>
+        </div>
+    </footer>
+</body>
+
+</html>
