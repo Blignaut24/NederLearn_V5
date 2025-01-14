@@ -23,8 +23,6 @@ from blog.views import index
 urlpatterns = [
     # Core administrative interface
     path("admin/", admin.site.urls),
-    # Main landing page
-    path("", index),
     # Rich text editor functionality
     path("summernote/", include("django_summernote.urls")),
 ]
