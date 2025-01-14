@@ -16,10 +16,10 @@
                             # Featured Image Section
                             <div class="image-container">
                                 {% if "placeholder" in blogpost.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+                                <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                src="https://github.com/Blignaut24/NederLearn_V5/raw/static/images/nederlearn_logo.webp">
                                 {% else %}
-                                <img class="card-img-top"
+                                <img class="card-img-top img-fluid aspect-ratio-3-2"
                                     src=" {{ blogpost.featured_image.url }}">
                                 {% endif %}
                                 # Author Attribution
