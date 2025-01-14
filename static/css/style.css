@@ -76,3 +76,73 @@ text-decoration: none;
 color: var(--accent-color);
 text-decoration: underline;
 }
+
+/* 
+ * Card Component Styles
+ * -------------------
+ * Defines styles for blog post cards including hover effects,
+ * image containers and author information
+ */
+
+/* Base card structure */
+.card {
+    border: none;
+    background-color: var(--dark-bg);
+    margin-bottom: 1rem;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Card content area */
+.card-body {
+    padding: 1rem;
+}
+
+/* Typography */
+.card-title {
+    color: var(--light-text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--light-text);
+    font-size: 1rem;
+}
+
+/* Image handling and animation */
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom effect on hover */
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Author attribution overlay */
+.author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: var(--light-text);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Icon styling */
+.fa-heart {
+    color: var(--secondary-color);
+}
