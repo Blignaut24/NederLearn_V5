@@ -28,8 +28,8 @@ color: var(--light-text);
 background-color: var(--primary-color);
 }
 
-.navbar-brand {
-color: var(--accent-color);
+.navbar-dark .navbar-brand {
+    color: var(--accent-color);
 }
 
 .nav-link {

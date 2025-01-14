@@ -23,8 +23,8 @@ from blog.views import index
 urlpatterns = [
     # Core administrative interface
     path("admin/", admin.site.urls),
+    # Maps root URL to blog.urls patterns
+    path("", include("blog.urls"), name="blog-urls"),
     # Rich text editor functionality
     path("summernote/", include("django_summernote.urls")),
-    # Maps root URL to blog.urls patterns
-    path('', include('blog.urls'), name='blog_urls'),
 ]

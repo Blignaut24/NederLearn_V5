@@ -41,7 +41,7 @@ class Blogpost(models.Model):
     # -------
     content = models.TextField()
     excerpt = models.TextField(blank=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     featured_image = CloudinaryField("image", default="placeholder")
 
     # Media Details

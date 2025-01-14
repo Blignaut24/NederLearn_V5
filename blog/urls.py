@@ -6,5 +6,5 @@ from django.urls import path
 urlpatterns = [
     # Root URL pattern "/" maps to PostList view
     # Main landing page: displays list of blog posts
-    path("", views.PostList.as_view(), name="home"),
+    path("", views.BlogpostPostList.as_view(), name="home"),
 ]
