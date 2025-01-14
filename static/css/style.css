@@ -99,6 +99,12 @@ text-decoration: underline;
 /* Card content area */
 .card-body {
     padding: 1rem;
+    -webkit-box-shadow: 5px 5px 5px 0px #000000,
+    inset 4px 4px 15px 0px #000000,
+    15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+box-shadow: 5px 5px 5px 0px #000000,
+    inset 4px 4px 15px 0px #000000,
+    15px 4px 48px 15px rgba(18, 18, 18, 0.55);
 }
 
 /* Typography */
@@ -113,22 +119,43 @@ text-decoration: underline;
     font-size: 1rem;
 }
 
+/* Container settings */
+/* ----------------------------------------
+   Image Aspect Ratio Controller (3:2)
+   Used for maintaining consistent image proportions
+   ---------------------------------------- */
+.aspect-ratio-3-2 {
+    /* Position the image absolutely within container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    /* Set dimensions */
+    width: 100%;    /* Full width of container */
+    height: auto;   /* Height adjusts automatically */
+    
+    /* Image fitting behavior */
+    object-fit: cover;  /* Ensures image covers area without distortion */
+}
+
 /* Image handling and animation */
 .image-container {
     position: relative;
+    width: 100%;
+    padding-top: 66.67%;
     overflow: hidden;
 }
 
-.image-container img {
-    width: 100%;
-    height: auto;
+/* Image Hover Animation */
+.image-container .aspect-ratio-3-2 {
     transition: transform 0.5s ease;
 }
 
 /* Zoom effect on hover */
-.image-container:hover img {
+.image-container:hover .aspect-ratio-3-2 {
     transform: scale(1.1);
 }
+
 
 /* Author attribution overlay */
 .author {
