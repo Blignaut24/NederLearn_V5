@@ -1,0 +1,78 @@
+/* Global Color Variables
+-------------------------------------------------- */
+
+:root {
+    /* Primary Theme Colors */
+--primary-color: #408fb9;    /* Base brand color - Boston Blue */
+--secondary-color: #EF972C;  /* Support color: Secondary brand color - Carrot Or ange */
+--accent-color: #c85c86;     /* Accent/Highlight color - Mulberry */
+
+/* Theme Context Colors */
+--dark-text: #191919;       /* Dark theme text - Revolver */ 
+--light-text: #F5F6F3;      /* Light theme text - Cararra */
+--dark-bg: #283072;         /* Dark theme background - Astronaut Blue */
+--light-bg: #f8fafa;        /*Box background - Black Haze */
+}
+
+/* Base Styles
+-------------------------------------------------- */
+body {
+font-family: 'Open Sans', sans-serif;
+background-color: var(--dark-bg);
+color: var(--light-text);
+}
+
+/* Navigation Components
+-------------------------------------------------- */
+.navbar {
+background-color: var(--primary-color);
+}
+
+.navbar-brand {
+color: var(--accent-color);
+}
+
+.nav-link {
+color: var(--light-text);
+}
+
+.nav-link:hover {
+color: var(--secondary-color);
+}
+
+/* Footer Component
+-------------------------------------------------- */
+.footer {
+background-color: var(--primary-color);
+color: var(--light-text);
+}
+
+/* Interactive Elements
+-------------------------------------------------- */
+/* Primary action buttons */
+.btn-primary,
+.btn-signup {
+background-color: var(--secondary-color);
+color: var(--light-text);
+}
+
+.btn-primary:hover,
+.btn-signup:hover {
+background-color: var(--accent-color);
+color: var(--dark-bg);
+}
+
+/* Hyperlink styling */
+.link,
+.post-link,
+.page-link {
+color: var(--secondary-color);
+text-decoration: none;
+}
+
+.link:hover,
+.post-link:hover,
+.page-link:hover {
+color: var(--accent-color);
+text-decoration: underline;
+}
