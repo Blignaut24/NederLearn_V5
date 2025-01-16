@@ -1,0 +1,107 @@
+# Template Extension
+{% extends 'base.html' %}
+{% block content %}
+
+# Main Blog Post Container
+# -----------------------
+# Responsive container for blog post content
+<div class="container col-md-6">
+    
+    # Masthead Section
+    # ---------------
+    # Header area containing post title and featured image
+    <div class="masthead">
+        <div class="container">
+            <div class="row g-0">
+                # Post Title and Author Info
+                <div class="col-md-6 masthead-text">
+                    <h1 class="post-title">{{ blogpost.blog_title }}</h1>
+                    <p class="post-subtitle">{{ blogpost.author }} |
+                        {{ blogpost.created_on }}</p>
+                </div>
+                
+                # Featured Image Display
+                # --------------------
+                # Handles both placeholder and custom images
+                <div class="d-none d-md-block col-md-6 masthead-image">
+                    {% if "placeholder" in blogpost.featured_image.url %}
+                    <img class="card-img-top img-fluid aspect-ratio-3-2"
+                        src="https://github.com/Blignaut24/NederLearn_V5/blob/main/static/images/nederlearn_logo.webp"
+                        width="100%">
+                    {% else %}
+                    <img class="card-img-top img-fluid aspect-ratio-3-2"
+                        src="{{ blogpost.featured_image.url }}" width="100%">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    # Post Content Section
+    # ------------------
+    # Main blog content and interaction metrics
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4 mt-3 left top">
+                <div class="card-body">
+                    <p class="card-text ">
+                        {{ blogpost.content | safe }}
+                    </p>
+                    
+                    # Engagement Metrics
+                    # -----------------
+                    # Display likes and comments count
+                    <div class="row">
+                        <div class="col-1">
+                            <strong class="text-secondary"><i
+                                    class="far fa-heart"></i>
+                                {{ blogpost.number_of_likes }}</strong>
+                        </div>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i
+                                    class="far fa-comments"></i>
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        # Divider
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+
+        # Comments Section
+        # ---------------
+        # Display user comments with timestamps
+        <div class="row">
+            <div class="col-md-8 card mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.user.username }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4 card mb-4 mt-3">
+                <div class="card-body">
+                    <!--TODO: Add implementation code here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
