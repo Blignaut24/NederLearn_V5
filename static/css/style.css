@@ -1,113 +1,163 @@
-/* Global Color Variables
--------------------------------------------------- */
+/*==================================
+  GLOBAL THEME CONFIGURATION
+==================================*/
 
-:root {
-    /* Primary Theme Colors */
---primary-color: #408fb9;    /* Base brand color - Boston Blue */
---secondary-color: #EF972C;  /* Support color: Secondary brand color - Carrot Or ange */
---accent-color: #c85c86;     /* Accent/Highlight color - Mulberry */
+/* Core Color Palette
+   -----------------------------
+   Defines the main color scheme used throughout the application */
+   :root {
+    /* Brand Colors */
+    --primary-color: #408fb9;      /* Primary interface elements */
+    --secondary-color: #EF972C;    /* Action buttons and highlights */
+    --accent-color: #c85c86;       /* Visual emphasis elements */
 
-/* Theme Context Colors */
---dark-text: #191919;       /* Dark theme text - Revolver */ 
---light-text: #F5F6F3;      /* Light theme text - Cararra */
---dark-bg: #283072;         /* Dark theme background - Astronaut Blue */
---light-bg: #f8fafa;        /*Box background - Black Haze */
+    /* Theme Colors */
+    --dark-text: #191919;          /* Dark mode text */
+    --light-text: #F5F6F3;         /* Light mode text */
+    --dark-bg: #283072;            /* Dark theme background */
+    --light-bg: #f8fafa;           /* Light theme background */
 }
 
-/* Base Styles
--------------------------------------------------- */
+/*==================================
+  BASE STYLES
+==================================*/
+
+/* Document Foundation
+   Sets core typography and colors */
 body {
-font-family: 'Open Sans', sans-serif;
-background-color: var(--dark-bg);
-color: var(--light-text);
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
 }
 
-/* Navigation Components
--------------------------------------------------- */
+/*==================================
+  NAVIGATION
+==================================*/
+
+/* Main Navigation Bar */
 .navbar {
-background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
-.navbar-dark{
+.navbar-dark {
     color: var(--accent-color);
 }
 
+/* Brand Logo */
+.navbar-logo {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Navigation Links */
 .nav-link {
-color: var(--light-text);
+    color: var(--light-text);
 }
 
 .nav-link:hover {
-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
-/* Footer Component
--------------------------------------------------- */
+/*==================================
+  FOOTER
+==================================*/
+
 .footer {
-background-color: var(--primary-color);
-color: var(--light-text);
+    background-color: var(--primary-color);
+    color: var(--light-text);
 }
 
-/* Interactive Elements
--------------------------------------------------- */
-/* Primary action buttons */
+/*==================================
+  INTERACTIVE ELEMENTS
+==================================*/
+
+/* Primary Buttons */
 .btn-primary,
 .btn-signup {
-background-color: var(--secondary-color);
-color: var(--light-text);
+    background-color: var(--secondary-color);
+    color: var(--light-text);
 }
 
 .btn-primary:hover,
 .btn-signup:hover {
-background-color: var(--accent-color);
-color: var(--dark-bg);
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
 }
 
-/* Hyperlink styling */
+/* Like Button */
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+/* Hyperlinks */
 .link,
 .post-link,
 .page-link {
-color: var(--secondary-color);
-text-decoration: none;
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
 .link:hover,
 .post-link:hover,
 .page-link:hover {
-color: var(--accent-color);
-text-decoration: underline;
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
-/* 
- * Card Component Styles
- * -------------------
- * Defines styles for blog post cards including hover effects,
- * image containers and author information
- */
+/*==================================
+  BLOG POST COMPONENTS
+==================================*/
 
-/* Base card structure */
+/* Post Headers */
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+/*==================================
+  CARD COMPONENTS
+==================================*/
+
+/* Card Base */
 .card {
     border: none;
     background-color: var(--dark-bg);
     margin-bottom: 1rem;
 }
 
-/* Hover effect for cards */
 .card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Card content area */
+/* Card Content */
 .card-body {
     padding: 1rem;
     -webkit-box-shadow: 5px 5px 5px 0px #000000,
-    inset 4px 4px 15px 0px #000000,
-    15px 4px 48px 15px rgba(18, 18, 18, 0.55);
-box-shadow: 5px 5px 5px 0px #000000,
-    inset 4px 4px 15px 0px #000000,
-    15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+        inset 4px 4px 15px 0px #000000,
+        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+    box-shadow: 5px 5px 5px 0px #000000,
+        inset 4px 4px 15px 0px #000000,
+        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
 }
 
-/* Typography */
+/* Card Text */
 .card-title {
     color: var(--light-text);
     font-size: 1.2rem;
@@ -119,26 +169,21 @@ box-shadow: 5px 5px 5px 0px #000000,
     font-size: 1rem;
 }
 
-/* Container settings */
-/* ----------------------------------------
-   Image Aspect Ratio Controller (3:2)
-   Used for maintaining consistent image proportions
-   ---------------------------------------- */
+/*==================================
+  IMAGE HANDLING
+==================================*/
+
+/* Image Aspect Ratio */
 .aspect-ratio-3-2 {
-    /* Position the image absolutely within container */
     position: absolute;
     top: 0;
     left: 0;
-    
-    /* Set dimensions */
-    width: 100%;    /* Full width of container */
-    height: auto;   /* Height adjusts automatically */
-    
-    /* Image fitting behavior */
-    object-fit: cover;  /* Ensures image covers area without distortion */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-/* Image handling and animation */
+/* Image Wrapper */
 .image-container {
     position: relative;
     width: 100%;
@@ -146,30 +191,68 @@ box-shadow: 5px 5px 5px 0px #000000,
     overflow: hidden;
 }
 
-/* Image Hover Animation */
+/* Image Hover */
 .image-container .aspect-ratio-3-2 {
     transition: transform 0.5s ease;
 }
 
-/* Zoom effect on hover */
 .image-container:hover .aspect-ratio-3-2 {
     transform: scale(1.1);
 }
 
-
-/* Author attribution overlay */
+/* Author Tag */
 .author {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: -5px;
+    left: 6px;
     color: var(--light-text);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    background-color: var(--dark-bg);
+    padding: 3px;
+    border-radius: 2px;
+    font-size: 0.7rem;
 }
 
-/* Icon styling */
+/* Icons */
 .fa-heart {
     color: var(--secondary-color);
+}
+
+/*==================================
+  MASTHEAD
+==================================*/
+
+/* Main Header */
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+/* Header Text */
+.masthead-text {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    position: relative;
+}
+
+/* Header Image */
+.masthead-image {
+    position: relative;
+}
+
+/* Diagonal Effect */
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background-color: var(--dark-bg);
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    transform: skew(20deg);
 }
