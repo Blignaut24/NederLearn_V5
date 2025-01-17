@@ -24,6 +24,7 @@ urlpatterns = [
     # Core administrative interface
     path("admin/", admin.site.urls),
     # Maps root URL to blog.urls patterns
+    # FIXME: Django Import Error - Can't Find My Index Function
     path("", include("blog.urls"), name="blog-urls"),
     # Rich text editor functionality
     path("summernote/", include("django_summernote.urls")),
