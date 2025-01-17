@@ -51,7 +51,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "localhost",  # Local development server
-    "8000-blignaut24-nederlearnv5-vi37j6cc7rs.ws-eu117.gitpod.io",  # GitPod workspace
+    "8000-blignaut24-nederlearnv5-v4r0vtolsgt.ws-eu117.gitpod.io",  # GitPod workspace
 ]
 
 # =======================================
@@ -178,7 +178,9 @@ STATIC_URL = "/static/"
 # Cloudinary - Django intergration
 import os
 
-os.environ["CLOUDINARY_URL"] = "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+os.environ["CLOUDINARY_URL"] = (
+    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+)
 
 # =======================================
 # Model Configuration

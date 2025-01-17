@@ -6,10 +6,8 @@ from .models import Blogpost, Comment, MediaCategory
 # Import models from current directory
 from .models import Blogpost, Comment, MediaCategory
 
-# FIXME: Django Import Error - Can't Find My Index Function
-# Test Basic view function to test server connectivity
-# def index(request):
-#    return HttpResponse("Hello, World!")
+def index(request):
+    return render(request, 'index.html')
 
 
 # List View for Blog Posts
@@ -21,7 +19,7 @@ class BlogpostPostList(generic.ListView):
     model = Blogpost
     queryset = Blogpost.objects.filter(status=1).order_by("created_on")
     context_object_name = "blogposts"
-    template_name = "index.html" #FIXME: Django Import Error - Can't Find My Index Function
+    template_name = "index.html" 
     paginate_by = 6
 
 
