@@ -174,6 +174,11 @@ USE_TZ = True  # Enable timezone support
 # =======================================
 # Configuration for CSS, JavaScript, Images
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Cloudinary - Django intergration
 import os
