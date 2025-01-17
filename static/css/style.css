@@ -17,6 +17,7 @@
     --dark-bg: #283072;            /* Dark theme background */
     --light-bg: #f8fafa;           /* Light theme background */
 }
+    
 
 /*==================================
   BASE STYLES
@@ -149,12 +150,13 @@ body {
 /* Card Content */
 .card-body {
     padding: 1rem;
-    -webkit-box-shadow: 5px 5px 5px 0px #000000,
-        inset 4px 4px 15px 0px #000000,
-        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
-    box-shadow: 5px 5px 5px 0px #000000,
-        inset 4px 4px 15px 0px #000000,
-        15px 4px 48px 15px rgba(18, 18, 18, 0.55);
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    background-color: var(--light-bg);
 }
 
 /* Card Text */
@@ -165,9 +167,10 @@ body {
 }
 
 .card-text {
-    color: var(--light-text);
+    color: var(--dark-text);
     font-size: 1rem;
 }
+
 
 /*==================================
   IMAGE HANDLING

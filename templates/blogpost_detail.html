@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{# Comments Section #}
-{# --------------- #}
-{# Display user comments with timestamps #}
+
+{# SECTION: Main Comment Container #}
 <div class="row">
+    {# SECTION: Comment List (8 cols) #}
     <div class="col-md-8 card mb-4 mt-3">
         <h3>Comments:</h3>
         <div class="card-body">
+            {# Loop: Render Individual Comments #}
             {% for comment in comments %}
             <div class="comments" style="padding: 10px;">
+                {# Comment Metadata #}
                 <p class="font-weight-bold">
                     {{ comment.user.username }}
-                    <span class=" text-muted font-weight-normal">
+                    <span class="text-muted font-weight-normal">
                         {{ comment.created_on }}
                     </span> wrote:
                 </p>
+                {# Comment Content #}
                 {{ comment.body | linebreaks }}
             </div>
             {% endfor %}
         </div>
     </div>
+
+    {# SECTION: Sidebar Content (4 cols) #}
     <div class="col-md-4 card mb-4 mt-3">
         <div class="card-body">
             <!--TODO: Add implementation code here -->

@@ -67,8 +67,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",  # User messages
     # Third-party apps
     "cloudinary_storage",  # Cloud storage
-    "django.contrib.staticfiles",  # Static file handler
     "cloudinary",  # Media management
+    "django.contrib.staticfiles",  # Static file handler
     "django_summernote",  # Rich text editor
     # Local apps
     "blog",  # Blog functionality
@@ -181,10 +181,10 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Cloudinary - Django intergration
-import os
-
-os.environ["CLOUDINARY_URL"] = (
-    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME", "dki11spup"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY", "651583882481459"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
 )
 
 # =======================================

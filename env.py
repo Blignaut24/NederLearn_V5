@@ -34,8 +34,5 @@ if os.path.exists("env.py"):
 # -----------------------------
 # Handles media file storage and delivery
 # Configure cloud name, API key, and secret for Cloudinary service
-cloudinary.config(
-    cloud_name = os.environ.get('CLOUDINARY_CLOUD_NAME', 'dki11spup'),
-    api_key = os.environ.get('CLOUDINARY_API_KEY', '651583882481459'),
-    api_secret = os.environ.get('CLOUDINARY_API_SECRET', 'oVB9sTCGPjJCl05vx3bjBNEZ0Eg')
-)
+
+CLOUDINARY_URL = "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
