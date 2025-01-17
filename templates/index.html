@@ -20,7 +20,8 @@
                                 src="https://github.com/Blignaut24/NederLearn_V5/raw/static/images/nederlearn_logo.webp">
                                 {% else %}
                                 <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                    src=" {{ blogpost.featured_image.url }}">
+                                src=" {{ blogpost.featured_image.url }}"
+                                alt="Blog Post Image">
                                 {% endif %}
                                 # Author Attribution
                                 <div class="image-flash">
@@ -30,8 +31,10 @@
                                 </div>
                             </div>
                             # Post Content Preview
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ blogpost.title }}
+                            <a href="{% url 'blogpost_detail' blogpost.slug  %}"
+                            class="post-link">
+                            <h2 class="card-title">
+                                {{ blogpost.blog_title }}
                                 </h2>
                                 <p class="card-text">{{ blogpost.excerpt }}</p>
                             </a>
