@@ -17,6 +17,9 @@ from pathlib import Path
 import os
 import dj_database_url
 from django.contrib.messages import constants as messages
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Load environment variables if env.py exists
 if os.path.isfile("env.py"):
@@ -71,18 +74,25 @@ INSTALLED_APPS = [
     "blog",  # Blog functionality
 ]
 
-# =======================================
-# Middleware Configuration
-# =======================================
-# Request/response modification chain
+# =================================================================
+# MIDDLEWARE CONFIGURATION
+# =================================================================
+# Django's request/response processing pipeline
+# Middleware executes in order (top to bottom) for requests
+# and reverse order for responses
+
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",  # Security
-    "django.contrib.sessions.middleware.SessionMiddleware",  # Sessions
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",  # CSRF protection
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Security & Protection
+    "django.middleware.security.SecurityMiddleware",  # Basic security features
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Static file serving
+    # Session & Authentication
+    "django.contrib.sessions.middleware.SessionMiddleware",  # Session handling
+    "django.middleware.common.CommonMiddleware",  # Common features
+    "django.middleware.csrf.CsrfViewMiddleware",  # Cross-Site Request Forgery
+    "django.contrib.auth.middleware.AuthenticationMiddleware",  # User authentication
+    # User Interface & Experience
+    "django.contrib.messages.middleware.MessageMiddleware",  # Flash messages
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Clickjacking protection
 ]
 
 # =======================================
@@ -164,6 +174,11 @@ USE_TZ = True  # Enable timezone support
 # =======================================
 # Configuration for CSS, JavaScript, Images
 STATIC_URL = "/static/"
+
+# Cloudinary - Django intergration
+import os
+
+os.environ["CLOUDINARY_URL"] = "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
 
 # =======================================
 # Model Configuration
