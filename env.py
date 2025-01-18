@@ -36,8 +36,7 @@ if os.path.exists("env.py"):
 # Configure cloud name, API key, and secret for Cloudinary service
 
 os.environ.setdefault(
-    "CLOUDINARY_URL",
-    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup",
+    "CLOUDINARY_URL", "651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
 )
 
-#CLOUDINARY_URL = "cloudinary://#651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+# CLOUDINARY_URL = "cloudinary://#651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
