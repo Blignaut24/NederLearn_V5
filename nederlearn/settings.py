@@ -40,7 +40,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = True  # Enable debugging mode
+DEBUG = False  # Enable debugging mode
 
 # Host Configuration
 # -----------------
@@ -51,7 +51,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "localhost",  # Local development server
-    "8000-blignaut24-nederlearnv5-8f8r4xmdfvq.ws-eu117.gitpod.io",  # GitPod workspace
+    "8000-blignaut24-nederlearnv5-eye7koqludb.ws-eu117.gitpod.io",  # GitPod workspace
 ]
 
 # =======================================
@@ -82,17 +82,24 @@ INSTALLED_APPS = [
 # and reverse order for responses
 
 MIDDLEWARE = [
-    # Security & Protection
-    "django.middleware.security.SecurityMiddleware",  # Basic security features
+    # -------------
+    # Security
+    # -------------
+    "django.middleware.security.SecurityMiddleware",  # Core security features
+    "cloudinary_storage.middleware.CloudinaryMiddleware",  # Media file handling
     "whitenoise.middleware.WhiteNoiseMiddleware",  # Static file serving
-    # Session & Authentication
-    "django.contrib.sessions.middleware.SessionMiddleware",  # Session handling
-    "django.middleware.common.CommonMiddleware",  # Common features
-    "django.middleware.csrf.CsrfViewMiddleware",  # Cross-Site Request Forgery
-    "django.contrib.auth.middleware.AuthenticationMiddleware",  # User authentication
-    # User Interface & Experience
-    "django.contrib.messages.middleware.MessageMiddleware",  # Flash messages
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Clickjacking protection
+    # -------------
+    # Session & Auth
+    # -------------
+    "django.contrib.sessions.middleware.SessionMiddleware",  # Session management
+    "django.middleware.common.CommonMiddleware",  # HTTP features
+    "django.middleware.csrf.CsrfViewMiddleware",  # CSRF protection
+    "django.contrib.auth.middleware.AuthenticationMiddleware",  # User auth
+    # -------------
+    # UI/UX
+    # -------------
+    "django.contrib.messages.middleware.MessageMiddleware",  # System messages
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Frame protection
 ]
 
 # =======================================
