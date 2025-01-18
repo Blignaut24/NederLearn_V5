@@ -40,7 +40,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = False  # Enable debugging mode
+DEBUG = True  # Enable debugging mode
 
 # Host Configuration
 # -----------------
@@ -66,10 +66,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",  # Session handling
     "django.contrib.messages",  # User messages
     # Third-party apps
-    "cloudinary_storage",  # Cloud storage
-    "cloudinary",  # Media management
     "django.contrib.staticfiles",  # Static file handler
+    "cloudinary_storage",  # Cloud storage
     "django_summernote",  # Rich text editor
+    "cloudinary",  # Media management
     # Local apps
     "blog",  # Blog functionality
 ]
@@ -86,7 +86,6 @@ MIDDLEWARE = [
     # Security
     # -------------
     "django.middleware.security.SecurityMiddleware",  # Core security features
-    "cloudinary_storage.middleware.CloudinaryMiddleware",  # Media file handling
     "whitenoise.middleware.WhiteNoiseMiddleware",  # Static file serving
     # -------------
     # Session & Auth

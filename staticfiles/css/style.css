@@ -1,0 +1,261 @@
+/*==================================
+  GLOBAL THEME CONFIGURATION
+==================================*/
+
+/* Core Color Palette
+   -----------------------------
+   Defines the main color scheme used throughout the application */
+   :root {
+    /* Brand Colors */
+    --primary-color: #408fb9;      /* Primary interface elements */
+    --secondary-color: #EF972C;    /* Action buttons and highlights */
+    --accent-color: #c85c86;       /* Visual emphasis elements */
+
+    /* Theme Colors */
+    --dark-text: #191919;          /* Dark mode text */
+    --light-text: #F5F6F3;         /* Light mode text */
+    --dark-bg: #011627;            /* Dark theme background */
+    --light-bg: #f8fafa;           /* Light theme background */
+}
+    
+
+/*==================================
+  BASE STYLES
+==================================*/
+
+/* Document Foundation
+   Sets core typography and colors */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+/*==================================
+  NAVIGATION
+==================================*/
+
+/* Main Navigation Bar */
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.navbar-dark {
+    color: var(--accent-color);
+}
+
+/* Brand Logo */
+.navbar-logo {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: var(--light-text);
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+}
+
+/*==================================
+  FOOTER
+==================================*/
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/*==================================
+  INTERACTIVE ELEMENTS
+==================================*/
+
+/* Primary Buttons */
+.btn-primary,
+.btn-signup {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+
+.btn-primary:hover,
+.btn-signup:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+}
+
+/* Like Button */
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
+}
+
+/* Hyperlinks */
+.link,
+.post-link,
+.page-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.link:hover,
+.post-link:hover,
+.page-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/*==================================
+  BLOG POST COMPONENTS
+==================================*/
+
+/* Post Headers */
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+/*==================================
+  CARD COMPONENTS
+==================================*/
+
+/* Card Base */
+.card {
+    border: none;
+    background-color: var(--dark-bg);
+    margin-bottom: 1rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Card Content */
+.card-body {
+    padding: 1rem;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    background-color: var(--light-bg);
+}
+
+/* Card Text */
+.card-title {
+    color: var(--light-text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    color: var(--dark-text);
+    font-size: 1rem;
+}
+
+
+/*==================================
+  IMAGE HANDLING
+==================================*/
+
+/* Image Aspect Ratio */
+.aspect-ratio-3-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Image Wrapper */
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;
+    overflow: hidden;
+}
+
+/* Image Hover */
+.image-container .aspect-ratio-3-2 {
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover .aspect-ratio-3-2 {
+    transform: scale(1.1);
+}
+
+/* Author Tag */
+.author {
+    position: absolute;
+    bottom: -5px;
+    left: 6px;
+    color: var(--light-text);
+    background-color: var(--dark-bg);
+    padding: 3px;
+    border-radius: 2px;
+    font-size: 0.7rem;
+}
+
+/* Icons */
+.fa-heart {
+    color: var(--secondary-color);
+}
+
+/*==================================
+  MASTHEAD
+==================================*/
+
+/* Main Header */
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+/* Header Text */
+.masthead-text {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    position: relative;
+}
+
+/* Header Image */
+.masthead-image {
+    position: relative;
+}
+
+/* Diagonal Effect */
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background-color: var(--dark-bg);
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    transform: skew(20deg);
+}
