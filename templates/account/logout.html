@@ -1,50 +1,22 @@
+{# Extend base template and load required template tags #}
 {% extends "base.html" %}
-
-{#Import Required Template Libraries#}
 {% load i18n %}
 {% load account socialaccount %}
 
-{# Define Page Title #}
+{# # Define page title block #}
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
-
-{# Begin Main Content Section #}
 {% block content %}
-
-{# Main Container Element #}
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12 mt-3">
-            <div class="card-body text-center m-5">
-                {# Logout Confirmation Header #}
-                <h3>{% trans "Ready to fly the coop? Time to spread your wings and sign out?" %}</h3>
-                <div class="row">
-                    <div class="col">
-                        <hr />
-                    </div>
-                </div>
-                {# User Feedback Message #}
-                <p class="m-4">
-                    {% if condition %}"If 'Yes', congratulations! You will"{% endif %}
-                </p>
-
-                {# User Action Controls #}
-                <div class="text-center m-2">
-                    {# Secure Logout Form #}
-                    <form method="post" action="{% url 'account_logout' %}">
-                        {% csrf_token %}
-                        {# Hidden Redirect Handler #}
-                        {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                        {% endif %}
-
-                        {# Form Submit Controls #}
-                        <button class="btn btn-danger right m-2" type="submit">{% trans 'Yes, Sign Me Out' %}</button>
-
-                        {# Cancel Action Link #}
-                        <a href="{% url 'home' %}" class="btn btn-secondary m-2">No, Go Back</a>
-                    </form>
-                </div>
-            </div>
+    <div class="row">
+        {# Center content with Bootstrap classes #}
+        <div class="col-md-8 mt-3 offset-md-2">
+            {# Logout confirmation message #}
+            <h3>{% trans "See ya later, navigator! You've successfully escaped... I mean, logged out" %}</h3>
+            {# Login redirect link #}
+            <p>{% blocktrans %}Click <a class="link" href="{{ login_url }}">Log
+                    In</a>
+                to re-enter the community.{% endblocktrans %}</p>
+            </p>
         </div>
     </div>
 </div>
