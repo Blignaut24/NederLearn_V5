@@ -337,6 +337,7 @@ I've added links to the bug reports from my GitHub Project in my README.md. Each
 | Bug Description | Bug Report Link |Bug Type |
 | --- | --- |--- |
 | 🐞 Bug: PostgreSQL Database Connection Error on Heroku| [#40](https://github.com/Blignaut24/NederLearn_V5/issues/40) |🔌 Connection Bug ⚙️ Configuration Bug |
+| 🐞 Cloudinary URL Configuration Error in Django Heroku Deployment| [#41](https://github.com/Blignaut24/NederLearn_V5/issues/41) |🔌 Connection Bug ⚙️ Configuration Bug |
 
 
 
