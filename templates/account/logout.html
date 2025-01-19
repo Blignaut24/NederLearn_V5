@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
-<!--Import Required Template Libraries -->
+{#Import Required Template Libraries#}
 {% load i18n %}
 {% load account socialaccount %}
 
-<!--Define Page Title -->
+{# Define Page Title #}
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
 
-<!--Begin Main Content Section -->
+{# Begin Main Content Section #}
 {% block content %}
 
-<!--Main Container Element -->
+{# Main Container Element #}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 col-sm-12 mt-3">
             <div class="card-body text-center m-5">
-                <!-- Logout Confirmation Header -->
+                {# Logout Confirmation Header #}
                 <h3>{% trans "Ready to fly the coop? Time to spread your wings and sign out?" %}</h3>
                 <div class="row">
                     <div class="col">
@@ -27,20 +27,20 @@
                     {% if condition %}"If 'Yes', congratulations! You will"{% endif %}
                 </p>
 
-                <!--User Action Controls -->
+                {# User Action Controls #}
                 <div class="text-center m-2">
-                    <!-- Secure Logout Form -->
+                    {# Secure Logout Form #}
                     <form method="post" action="{% url 'account_logout' %}">
                         {% csrf_token %}
-                        <!-- Hidden Redirect Handler -->
+                        {# Hidden Redirect Handler #}
                         {% if redirect_field_value %}
                         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                         {% endif %}
 
-                        <!-- Form Submit Controls -->
+                        {# Form Submit Controls #}
                         <button class="btn btn-danger right m-2" type="submit">{% trans 'Yes, Sign Me Out' %}</button>
 
-                        <!-- Cancel Action Link -->
+                        {# Cancel Action Link #}
                         <a href="{% url 'home' %}" class="btn btn-secondary m-2">No, Go Back</a>
                     </form>
                 </div>
