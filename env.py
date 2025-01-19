@@ -35,8 +35,12 @@ if os.path.exists("env.py"):
 # Handles media file storage and delivery
 # Configure cloud name, API key, and secret for Cloudinary service
 
-os.environ.setdefault(
-    "CLOUDINARY_URL", "651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+# os.environ.setdefault(
+#     # "CLOUDINARY_URL", "651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+# )
+
+os.environ["CLOUDINARY_URL"] = (
+    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
 )
 
-# CLOUDINARY_URL = "cloudinary://#651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+# CLOUDINARY_URL = "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
