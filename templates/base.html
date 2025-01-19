@@ -34,7 +34,8 @@
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 {# Brand Logo/Name #}
-                <a class="navbar-brand" href="{% url 'home' %}">NederLearn</a>
+                <a class="navbar-logo"
+                href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}">NederLearn</a>
                 {# Mobile Navigation Toggle #}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -54,7 +55,6 @@
                         {# Non-Authenticated User Navigation Options #}
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Join the Club</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                         {% endif %}
                     </ul>
