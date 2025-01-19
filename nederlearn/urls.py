@@ -27,4 +27,6 @@ urlpatterns = [
     path("", include("blog.urls"), name="blog-urls"),
     # Rich text editor functionality
     path("summernote/", include("django_summernote.urls")),
+    # Authentication
+    path("accounts/", include("allauth.urls")),
 ]

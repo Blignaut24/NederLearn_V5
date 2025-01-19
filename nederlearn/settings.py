@@ -40,7 +40,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = False  # Enable debugging mode
+DEBUG = True  # Enable debugging mode
 
 # Host Configuration
 # -----------------
@@ -59,20 +59,44 @@ ALLOWED_HOSTS = [
 # =======================================
 # List of installed Django apps
 INSTALLED_APPS = [
-    # Django built-in apps
-    "django.contrib.admin",  # Admin interface
-    "django.contrib.auth",  # Authentication
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",  # Session handling
-    "django.contrib.messages",  # User messages
-    # Third-party apps
-    "django.contrib.staticfiles",  # Static file handler
-    "cloudinary_storage",  # Cloud storage
-    "django_summernote",  # Rich text editor
-    "cloudinary",  # Media management
-    # Local apps
-    "blog",  # Blog functionality
+    # Core Django Apps
+    # ---------------
+    "django.contrib.admin",  # Django admin interface
+    "django.contrib.auth",  # User authentication system
+    "django.contrib.contenttypes",  # Content type framework
+    "django.contrib.sessions",  # Session framework
+    "django.contrib.messages",  # Messaging framework
+    # Third-Party Apps
+    # ---------------
+    "django.contrib.staticfiles",  # Static file management
+    "cloudinary_storage",  # Cloud-based file storage
+    "cloudinary",  # Media file management
+    "django.contrib.sites",  # Site framework
+    # Authentication Apps
+    # ------------------
+    "allauth",  # Authentication system
+    "allauth.account",  # User account handling
+    "allauth.socialaccount",  # Social media authentication
+    # Rich Text Editor
+    # ---------------
+    "django_summernote",  # WYSIWYG editor
+    # Custom Apps
+    # ----------
+    "blog",  # Blog application
 ]
+
+# Authentication Configuration - Code adapted from Code Institute's "I Think Therefore I Blog" tutorial, Authentication/Django AllAuth section.
+# ----------------------
+# Unique identifier for the current site in a multi-site setup
+SITE_ID = 1
+
+# URL Redirects for User Authentication
+# -----------------------------------
+# Where to send users after successful login
+LOGIN_REDIRECT_URL = "/"
+
+# Where to send users after logout
+LOGOUT_REDIRECT_URL = "/"
 
 # =================================================================
 # MIDDLEWARE CONFIGURATION
@@ -83,22 +107,23 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     # -------------
-    # Security
+    # Security Layer
     # -------------
-    "django.middleware.security.SecurityMiddleware",  # Core security features
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Static file serving
+    "django.middleware.security.SecurityMiddleware",  # Handles security features
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Serves static files efficiently
     # -------------
-    # Session & Auth
+    # Session & Authentication Layer
     # -------------
-    "django.contrib.sessions.middleware.SessionMiddleware",  # Session management
-    "django.middleware.common.CommonMiddleware",  # HTTP features
-    "django.middleware.csrf.CsrfViewMiddleware",  # CSRF protection
-    "django.contrib.auth.middleware.AuthenticationMiddleware",  # User auth
+    "django.contrib.sessions.middleware.SessionMiddleware",  # Manages user sessions
+    "django.middleware.common.CommonMiddleware",  # Common request/response processing
+    "django.middleware.csrf.CsrfViewMiddleware",  # Protects against CSRF attacks
+    "django.contrib.auth.middleware.AuthenticationMiddleware",  # Handles user authentication
     # -------------
-    # UI/UX
+    # User Interface Layer
     # -------------
-    "django.contrib.messages.middleware.MessageMiddleware",  # System messages
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Frame protection
+    "django.contrib.messages.middleware.MessageMiddleware",  # Flash messages system
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Prevents clickjacking
+    "allauth.account.middleware.AccountMiddleware",  # Handles auth accounts
 ]
 
 # =======================================
@@ -145,6 +170,7 @@ WSGI_APPLICATION = "nederlearn.wsgi.application"
 # Supports easy switching between development/production
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
+
 CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/", "https://*.herokuapp.com"]
 
 # =======================================
@@ -166,6 +192,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# ==============================================
+# Email Verification Configuration
+# ==============================================
+# Disable email verification for development
+# ----------------------------------------------
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 # =======================================
 # Internationalization
 # =======================================
@@ -174,6 +207,16 @@ TIME_ZONE = "UTC"  # Timezone setting
 USE_I18N = True  # Enable internationalization
 USE_L10N = True  # Enable localization
 USE_TZ = True  # Enable timezone support
+
+# ===================================
+# Media Storage Configuration
+# ===================================
+
+# Define the URL path for media files
+MEDIA_URL = '/media/'
+
+# Configure Cloudinary as media file storage backend
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # =======================================
 # Static Files Configuration
