@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 
 <!--Import Required Template Libraries -->
-{% load i18n %} {% load account socialaccount %}
+{% load i18n %}
+{% load account socialaccount %}
 
 <!--Define Page Title -->
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
@@ -23,7 +24,7 @@
                 </div>
                 {# User Feedback Message #}
                 <p class="m-4">
-                    {% trans 'If "Yes", congratulations! You'll be whisked away to the login page faster than a Dutch person on a bicycle.' %}
+                    {% if condition %}"If 'Yes', congratulations! You will"{% endif %}
                 </p>
 
                 <!--User Action Controls -->

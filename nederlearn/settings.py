@@ -40,7 +40,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = False  # Enable debugging mode
+DEBUG = True  # Enable debugging mode
 
 # Host Configuration
 # -----------------
@@ -213,10 +213,10 @@ USE_TZ = True  # Enable timezone support
 # ===================================
 
 # Define the URL path for media files
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 
 # Configure Cloudinary as media file storage backend
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 # =======================================
 # Static Files Configuration
