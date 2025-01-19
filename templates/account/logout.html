@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+<!--Import Required Template Libraries -->
+{% load i18n %} {% load account socialaccount %}
+
+<!--Define Page Title -->
+{% block head_title %}{% trans "Sign Up" %}{% endblock %}
+
+<!--Begin Main Content Section -->
+{% block content %}
+
+<!--Main Container Element -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12 mt-3">
+            <div class="card-body text-center m-5">
+                <!-- Logout Confirmation Header -->
+                <h3>{% trans "Ready to fly the coop? Time to spread your wings and sign out?" %}</h3>
+                <div class="row">
+                    <div class="col">
+                        <hr />
+                    </div>
+                </div>
+                {# User Feedback Message #}
+                <p class="m-4">
+                    {% trans 'If "Yes", congratulations! You'll be whisked away to the login page faster than a Dutch person on a bicycle.' %}
+                </p>
+
+                <!--User Action Controls -->
+                <div class="text-center m-2">
+                    <!-- Secure Logout Form -->
+                    <form method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        <!-- Hidden Redirect Handler -->
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+
+                        <!-- Form Submit Controls -->
+                        <button class="btn btn-danger right m-2" type="submit">{% trans 'Yes, Sign Me Out' %}</button>
+
+                        <!-- Cancel Action Link -->
+                        <a href="{% url 'home' %}" class="btn btn-secondary m-2">No, Go Back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
