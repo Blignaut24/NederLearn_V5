@@ -54,8 +54,12 @@
                         <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
                         {# Non-Authenticated User Navigation Options #}
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Join the Club</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Join the Club</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        
                         {% endif %}
                     </ul>
                 </div>
