@@ -112,11 +112,12 @@
                 <div class="card-body">
                     {% if commented %}
                     <div class="alert alert-success" role="alert">
-                        Your comment awaits approval
+                        Your comment is currently doing jumping jacks in our approval gym! 🏋️‍♂️ It'll be ready to show off its muscles soon!
                     </div>
                     {% else %}
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
+                    <h5><em>Share your thoughts (warning: may cause excessive nodding)</em></h5>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}

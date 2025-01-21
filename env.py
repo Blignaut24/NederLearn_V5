@@ -39,4 +39,3 @@ if os.path.exists("env.py"):
 os.environ["CLOUDINARY_URL"] = (
     "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
 )
-
