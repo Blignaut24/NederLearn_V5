@@ -26,19 +26,19 @@ class BlogpostPostList(generic.ListView):
 
     def dispatch(self, request, *args, **kwargs):
         """
-        Override dispatch to check user authentication.
-        
+                Checks if the user is logged in before continuing.
+
         Args:
-            request: HTTP request object
-            *args: Variable length argument list
-            **kwargs: Arbitrary keyword arguments
-            
+            request: The incoming web request
+            *args: Extra input values
+            **kwargs: Extra named values
+
         Returns:
-            Redirect to login if user is not authenticated,
-            otherwise proceeds with normal dispatch
+            If user is not logged in: Sends them to login page
+            If user is logged in: Continues normal operation
         """
         if not request.user.is_authenticated:
-            return redirect('account_login')  # Replace 'account_login' with the name of your login URL
+            return redirect("account_login")
         return super().dispatch(request, *args, **kwargs)
 
 
@@ -80,7 +80,7 @@ class BlogPostDetail(View):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.blogpost = blogpost
-            comment.user = request.user  # Assign the current user to the comment
+            comment.user = request.user
             comment.save()
         else:
             comment_form = CommentForm()
