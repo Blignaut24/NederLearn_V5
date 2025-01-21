@@ -2,79 +2,87 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-{# === MAIN CONTENT WRAPPER === #}
+{# MAIN CONTENT WRAPPER #}
 <div class="container col-md-6">
-    {# --- Header Section --- #}
+    {# HEADER SECTION #}
+    {#Contains post metadata and featured image #}
     <div class="masthead">
         <div class="container">
             <div class="row g-0">
-                {# Title and Author Info #}
+                {# Post Title & Author Info #}
                 <div class="col-md-6 masthead-text">
                     <h1 class="post-title">{{ blogpost.blog_title }}</h1>
-                    <p class="post-subtitle">{{ blogpost.author }} |
-                        {{ blogpost.created_on }}</p>
+                    <p class="post-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
                 </div>
 
                 {# Featured Image Handler #}
                 <div class="d-none d-md-block col-md-6 masthead-image">
                     {% if "placeholder" in blogpost.featured_image.url %}
                     <img class="card-img-top img-fluid aspect-ratio-3-2"
-                    src="https://raw.githubusercontent.com/Blignaut24/NederLearn_V5/refs/heads/main/static/images/nederlearn_logo.webp"
-                        width="100%">
+                         src="https://raw.githubusercontent.com/Blignaut24/NederLearn_V5/refs/heads/main/static/images/nederlearn_logo.webp"
+                         width="100%">
                     {% else %}
                     <img class="card-img-top img-fluid aspect-ratio-3-2"
-                        src="{{ blogpost.featured_image.url }}" width="100%">
+                         src="{{ blogpost.featured_image.url }}" 
+                         width="100%">
                     {% endif %}
                 </div>
             </div>
         </div>
     </div>
 
-    {# === POST CONTENT CONTAINER === #}
+    {# POST CONTENT SECTION #}
+    {#Contains main blog content and interactions #}
     <div class="container">
         <div class="row">
             <div class="col card mb-4 mt-3 left top">
                 <div class="card-body">
-                    <p class="card-text ">
-                        {# Main Post Content #}
+                    {# Blog Content #}
+                    <p class="card-text">
                         {{ blogpost.content | safe }}
                     </p>
 
-                    {# --- User Interaction Section --- #}
+                    {# --- User Interactions Bar --- #}
                     <div class="row">
                         {# Like Button Component #}
                         <div class="col-1">
                             <strong>
                                 {% if user.is_authenticated %}
                                 <form class="d-inline"
-                                    action="{% url 'like_unlike' blogpost.slug %}"
-                                    method="POST">
+                                      action="{% url 'like_unlike' blogpost.slug %}"
+                                      method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
-                                    <button type="submit" name="blogpost_id"
-                                        value="{{blogpost.slug}}"
-                                        class="btn-like"><i
-                                            class="fas fa-heart"></i></button>
+                                    <button type="submit" 
+                                            name="blogpost_id"
+                                            value="{{blogpost.slug}}"
+                                            class="btn-like">
+                                        <i class="fas fa-heart"></i>
+                                    </button>
                                     {% else %}
-                                    <button type="submit" name="blogpost_id"
-                                        value="{{blogpost.slug}}"
-                                        class="btn-like"><i
-                                            class="far fa-heart"></i></button>
+                                    <button type="submit" 
+                                            name="blogpost_id"
+                                            value="{{blogpost.slug}}"
+                                            class="btn-like">
+                                        <i class="far fa-heart"></i>
+                                    </button>
                                     {% endif %}
                                 </form>
                                 {% endif %}
                             </strong>
-                            {# Like Counter #}
-                            <strong class="text-secondary"><i
-                                    class="far fa-heart"></i>
-                                {{ blogpost.number_of_likes }}</strong>
+                            {# Like Counter Display #}
+                            <strong class="text-secondary">
+                                <i class="far fa-heart"></i>
+                                {{ blogpost.number_of_likes }}
+                            </strong>
                         </div>
-                        {# Comment Counter #}
+                        {# Comment Counter Display #}
                         <div class="col-1">
                             {% with comments.count as total_comments %}
-                            <strong class="text-secondary"><i
-                                    class="far fa-comments"></i>
-                                {{ total_comments }}</strong>
+                            <strong class="text-secondary">
+                                <i class="far fa-comments"></i>
+                                {{ total_comments }}
+                            </strong>
                             {% endwith %}
                         </div>
                     </div>
@@ -82,39 +90,52 @@
             </div>
         </div>
 
-        {# === COMMENTS SECTION === #}
+        {# COMMENTS SECTION #}
+        {# Handles comment form and display #}
         <div class="row">
-            <div class="col">
-                <hr>
+            <div class="col"><hr></div>
+        </div>
+        {# --- New Comment Form --- #}
+        <div class="col card mb-4 mt-3">
+            <div class="card-body">
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment awaits approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h3>Post a comment:</h3>
+                <p>from: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
             </div>
         </div>
+        {# --- Comments Display Area --- #}
         <div class="row">
-            {# Comment Display Area #}
-            <div class="col-md-8 card mb-4 mt-3">
+            <div class="col card mb-4 mt-3">
                 <h3>Comments:</h3>
                 <div class="card-body">
                     {% for comment in comments %}
                     <div class="comments" style="padding: 10px;">
                         <p class="font-weight-bold">
                             {{ comment.user.username }}
-                            <span class=" text-muted font-weight-normal">
+                            <span class="text-muted font-weight-normal">
                                 {{ comment.created_on }}
                             </span> wrote:
                         </p>
                         {{ comment.body | linebreaks }}
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
-            
-            {# Comment Form Area #}
-            <div class="col-md-4 card mb-4 mt-3">
-                <div class="card-body">
-                    {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is currently doing jumping jacks in our approval gym! 🏋️‍♂️ It'll be ready to show off its muscles soon!
+                    <div class="row">
+                        <div class="col"><hr></div>
                     </div>
-                    {% else %}
+                    {% endfor %}
+                    
+                    {% if not comments %}
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
                     <h5><em>Share your thoughts (warning: may cause excessive nodding)</em></h5>
@@ -122,8 +143,7 @@
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
-                        <button type="submit"
-                            class="btn btn-signup btn-lg">Submit</button>
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                     </form>
                     {% endif %}
                     {% endif %}
@@ -133,4 +153,4 @@
     </div>
 </div>
 
-{% endblock content %}
+{% endblock content %}ent %}
