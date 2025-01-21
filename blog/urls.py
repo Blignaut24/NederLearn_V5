@@ -2,11 +2,17 @@
 from . import views
 from django.urls import path
 
-# Define URL patterns for blog application
+# URL pattern definitions
 urlpatterns = [
-    # Root URL pattern "/" maps to PostList view
-    # Main landing page: displays list of blog posts
+    # Home route
+    # GET / - Display list of all blog posts
     path("", views.BlogpostPostList.as_view(), name="home"),
-    # Single blog post view using URL slugs to display specific posts
+    
+    # Individual post route
+    # GET /<slug> - Show detailed view of specific post
     path('<slug:slug>/', views.BlogPostDetail.as_view(), name='blogpost_detail'),
+    
+    # Post interaction route
+    # POST /like/<slug> - Handle like/unlike actions
+    path('like/<slug:slug>/', views.LikeUnlike.as_view(), name='like_unlike'),
 ]
