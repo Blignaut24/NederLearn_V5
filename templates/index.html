@@ -14,27 +14,13 @@
                     {# Individual Post Card #}
                     <div class="card mb-4">
                         <div class="card-body">
-                            {# Featured Image Section #}
-                            {% extends "base.html" %}
-
-{% block content %}
-
-<div class="container">
-    <div class="row">
-
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3">
-            <div class="row">
-                {% for blogpost in blogposts %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="image-container-link">
                                 <div class="image-container">
                                     {% if "placeholder" in blogpost.featured_image.url %}
                                     <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                    src="https://github.com/Blignaut24/NederLearn_V5/raw/media/placeholder_images/nederlearn_logo.webp" alt="Blog Post Image"
+                                        src="{% static 'images/nederlearn_logo.webp' %}"
+                                        alt="Blog Post Image">
                                     {% else %}
                                     <img class="card-img-top img-fluid aspect-ratio-3-2"
                                         src="{{ blogpost.featured_image.url }}"
@@ -66,12 +52,11 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
 
-    <!-- Pagination code from code Institute django walkthrough project -->
+    {# Pagination controls #}
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -79,54 +64,6 @@
             <li><a href="?page={{ page_obj.previous_page_number }}"
                     class="page-link">&laquo; PREV </a></li>
             {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"
-                    class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
-{%endblock%}
-                                </div>
-                            </div>
-                            {# Post Content Preview #}
-                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                            class="post-link">
-                            <h2 class="card-title">
-                                {{ blogpost.blog_title }}
-                                </h2>
-                                <p class="card-text">{{ blogpost.excerpt }}</p>
-                            </a>
-                            <hr />
-                            {# Post Metadata #}
-                            <p class="card-text text-muted h6">
-                                {{ blogpost.created_on }} <i
-                                    class="far fa-heart"></i>
-                                {{ blogpost.number_of_likes }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% if forloop.counter|divisibleby:3 %}
-                </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    {# Check if pagination is required #}
-    {% if is_paginated %}
-    {# Navigation controls for moving between pages #}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-        {# Previous page button (if available) #}
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"
-                    class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {# Next page button (if available) #}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}"
                     class="page-link"> NEXT &raquo;</a></li>
