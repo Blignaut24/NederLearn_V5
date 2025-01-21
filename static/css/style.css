@@ -8,7 +8,7 @@
    :root {
     /* Brand Colors */
     --primary-color: #4D6CFA;      /* Primary interface elements */
-    --secondary-color: #bd861f;    /* Action buttons and highlights */
+    --secondary-color: #ff6200;    /* Action buttons and highlights */
     --accent-color: #c85c86;       /* Visual emphasis elements */
 
     /* Theme Colors */
@@ -24,7 +24,7 @@
     --warning:#f79818;             /*Warning (Amber)*/
 
     /*Hover States*/
-    --hover: #007d51;              /* Hover*/
+    --hover: #525199;              /* Hover*/
 }
     
 
@@ -50,7 +50,7 @@ body {
 }
 
 .navbar-dark {
-    color: var(--primary-color);
+    color: var(--light-text);
 }
 
 /* Brand Logo */
@@ -58,18 +58,19 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--light-text);
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
 /*Logo Hover*/
 a:hover {
-    color: var(--primary-color);
+    color: var(--hover);
 }
 
-/* Navigation Links */
-.nav-link {
-    color: var(--secondary-color);
+/* #FIXME: Redundent Code */
+Navigation Links 
+a:hover.nav-link {
+    color: var(--hover);
 }
 
 .nav-link:hover {
@@ -82,7 +83,7 @@ a:hover {
 
 .footer {
     background-color: var(--black-bg);
-    color: var(--light-text);
+    color: var(--secondary-color);
 }
 
 /*==================================
@@ -99,7 +100,7 @@ a:hover {
 .btn-primary:hover,
 .btn-signup:hover {
     background-color: var(--hover);
-    color: var(--dark-bg);
+    color: var(--light-text);
 }
 
 /* Like Button */
