@@ -7,17 +7,24 @@
    Defines the main color scheme used throughout the application */
    :root {
     /* Brand Colors */
-    --primary-color: #408fb9;      /* Primary interface elements */
-    --secondary-color: #EF972C;    /* Action buttons and highlights */
+    --primary-color: #4D6CFA;      /* Primary interface elements */
+    --secondary-color: #bd861f;    /* Action buttons and highlights */
     --accent-color: #c85c86;       /* Visual emphasis elements */
 
     /* Theme Colors */
     --dark-text: #191919;          /* Dark mode text */
     --light-text: #F5F6F3;         /* Light mode text */
-    --dark-bg: #011627;            /* Dark theme background */
+    --dark-bg: #011627;            /*Main background - Dark theme background */
     --black-bg: #000000;           /*Black background*/
     --light-bg: #f8fafa;           /* Light theme background */
-    --hover: #0A8754;              /* Hover*/
+
+    /*Status Colors*/
+    --success:#79a850;             /*Success (Green)*/
+    --error:#DD1C1A;               /*Error (Red)*/
+    --warning:#f79818;             /*Warning (Amber)*/
+
+    /*Hover States*/
+    --hover: #007d51;              /* Hover*/
 }
     
 
@@ -43,7 +50,7 @@ body {
 }
 
 .navbar-dark {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 /* Brand Logo */
@@ -57,12 +64,12 @@ body {
 
 /*Logo Hover*/
 a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 /* Navigation Links */
 .nav-link {
-    color: var(--light-text);
+    color: var(--secondary-color);
 }
 
 .nav-link:hover {

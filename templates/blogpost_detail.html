@@ -138,7 +138,7 @@
                     {% if not comments %}
                     {% if user.is_authenticated %}
                     <h3>Leave a comment:</h3>
-                    <h5><em>Share your thoughts (warning: may cause excessive nodding)</em></h5>
+                    <h6><em>Share your thoughts (warning: may cause excessive nodding)</em></h6>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
