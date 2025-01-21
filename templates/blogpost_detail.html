@@ -49,8 +49,8 @@
                             <strong>
                                 {% if user.is_authenticated %}
                                 <form class="d-inline"
-                                      action="{% url 'like_unlike' blogpost.slug %}"
-                                      method="POST">
+                                    action="{% url 'like_unlike' blogpost.slug %}"
+                                    method="POST">
                                     {% csrf_token %}
                                     {% if liked %}
                                     <button type="submit" 
@@ -131,26 +131,15 @@
                         {{ comment.body | linebreaks }}
                     </div>
                     <div class="row">
-                        <div class="col"><hr></div>
-                    </div>
+                        <div class="col">
+                            <hr>
+                        </div>
+                    </div>    
                     {% endfor %}
-                    
-                    {% if not comments %}
-                    {% if user.is_authenticated %}
-                    <h3>Leave a comment:</h3>
-                    <h6><em>Share your thoughts (warning: may cause excessive nodding)</em></h6>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                    </form>
-                    {% endif %}
-                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-{% endblock content %}{ent %}
+{% endblock content %}
