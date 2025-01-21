@@ -2,57 +2,134 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+{# === MAIN CONTENT WRAPPER === #}
+<div class="container col-md-6">
+    {# --- Header Section --- #}
+    <div class="masthead">
+        <div class="container">
+            <div class="row g-0">
+                {# Title and Author Info #}
+                <div class="col-md-6 masthead-text">
+                    <h1 class="post-title">{{ blogpost.blog_title }}</h1>
+                    <p class="post-subtitle">{{ blogpost.author }} |
+                        {{ blogpost.created_on }}</p>
+                </div>
 
-{# SECTION: Main Comment Container #}
-<div class="row">
-    {# SECTION: Comment List (8 cols) #}
-    <div class="col-md-8 card mb-4 mt-3">
-        <h3>Comments:</h3>
-        <div class="card-body">
-            {# Loop: Render Individual Comments #}
-            {% for comment in comments %}
-            <div class="comments" style="padding: 10px;">
-                {# Comment Metadata #}
-                <p class="font-weight-bold">
-                    {{ comment.user.username }}
-                    <span class="text-muted font-weight-normal">
-                        {{ comment.created_on }}
-                    </span> wrote:
-                </p>
-                {# Comment Content #}
-                {{ comment.body | linebreaks }}
+                {# Featured Image Handler #}
+                <div class="d-none d-md-block col-md-6 masthead-image">
+                    {% if "placeholder" in blogpost.featured_image.url %}
+                    <img class="card-img-top img-fluid aspect-ratio-3-2"
+                    src="https://github.com/Blignaut24/NederLearn_V5/blob/main/static/images/nederlearn_logo.webp";
+                        width="100%">
+                    {% else %}
+                    <img class="card-img-top img-fluid aspect-ratio-3-2"
+                        src="{{ blogpost.featured_image.url }}" width="100%">
+                    {% endif %}
+                </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 
-    {# SECTION: Sidebar Content (4 cols) #}
-    <div class="col-md-4 card mb-4 mt-3">
-        <div class="card-body">
-            {# === Comment Status Management === #}
-            {% if commented %}
-            {# Success Message for Pending Comments #}
-            <div class="alert alert-success" role="alert">
-                Your comment is awaiting approval
+    {# === POST CONTENT CONTAINER === #}
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4 mt-3 left top">
+                <div class="card-body">
+                    <p class="card-text ">
+                        {# Main Post Content #}
+                        {{ blogpost.content | safe }}
+                    </p>
+
+                    {# --- User Interaction Section --- #}
+                    <div class="row">
+                        {# Like Button Component #}
+                        <div class="col-1">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline"
+                                    action="{% url 'like_unlike' blogpost.slug %}"
+                                    method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    <button type="submit" name="blogpost_id"
+                                        value="{{blogpost.slug}}"
+                                        class="btn-like"><i
+                                            class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" name="blogpost_id"
+                                        value="{{blogpost.slug}}"
+                                        class="btn-like"><i
+                                            class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% endif %}
+                            </strong>
+                            {# Like Counter #}
+                            <strong class="text-secondary"><i
+                                    class="far fa-heart"></i>
+                                {{ blogpost.number_of_likes }}</strong>
+                        </div>
+                        {# Comment Counter #}
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i
+                                    class="far fa-comments"></i>
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
             </div>
-            {% else %}
-            {# === Authentication Check === #}
-            {% if user.is_authenticated %}
-            <h3>Leave a comment:</h3>
-            <p>Posting as: {{ user.username }}</p>
-            {# === Comment Form Implementation === #}
-            <form method="post" style="margin-top: 1.3em;">
-                {# Render Form with Crispy Styling #}
-                {{ comment_form | crispy }}
-                {# Security Token #}
-                {% csrf_token %}
-                {# Submit Button #}
-                <button type="submit"
-                    class="btn btn-signup btn-lg">Submit</button>
-            </form>
-            {% endif %}
-            {% endif %}
+        </div>
+
+        {# === COMMENTS SECTION === #}
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            {# Comment Display Area #}
+            <div class="col-md-8 card mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            {{ comment.user.username }}
+                            <span class=" text-muted font-weight-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            {# Comment Form Area #}
+            <div class="col-md-4 card mb-4 mt-3">
+                <div class="card-body">
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment awaits approval
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit"
+                            class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock content %}

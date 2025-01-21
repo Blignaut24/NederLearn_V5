@@ -1,6 +1,7 @@
 # Standard Django imports
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Blogpost, Comment, MediaCategory
 from .forms import CommentForm
 
