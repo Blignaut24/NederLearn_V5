@@ -1,5 +1,5 @@
 # Django imports for rendering views and handling HTTP responses
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Blogpost, Comment, MediaCategory
 from .forms import CommentForm
@@ -23,6 +23,23 @@ class BlogpostPostList(generic.ListView):
     context_object_name = "blogposts"
     template_name = "index.html"
     paginate_by = 6
+
+    def dispatch(self, request, *args, **kwargs):
+        """
+        Override dispatch to check user authentication.
+        
+        Args:
+            request: HTTP request object
+            *args: Variable length argument list
+            **kwargs: Arbitrary keyword arguments
+            
+        Returns:
+            Redirect to login if user is not authenticated,
+            otherwise proceeds with normal dispatch
+        """
+        if not request.user.is_authenticated:
+            return redirect('account_login')  # Replace 'account_login' with the name of your login URL
+        return super().dispatch(request, *args, **kwargs)
 
 
 # Blog post detail view
