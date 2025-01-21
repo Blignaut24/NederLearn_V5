@@ -59,44 +59,60 @@ ALLOWED_HOSTS = [
 # =======================================
 # List of installed Django apps
 INSTALLED_APPS = [
-    # Core Django Apps
-    # ---------------
-    "django.contrib.admin",  # Django admin interface
-    "django.contrib.auth",  # User authentication system
-    "django.contrib.contenttypes",  # Content type framework
-    "django.contrib.sessions",  # Session framework
-    "django.contrib.messages",  # Messaging framework
-    # Third-Party Apps
-    # ---------------
-    "django.contrib.staticfiles",  # Static file management
-    "cloudinary_storage",  # Cloud-based file storage
-    "cloudinary",  # Media file management
-    "django.contrib.sites",  # Site framework
-    # Authentication Apps
-    # ------------------
-    "allauth",  # Authentication system
-    "allauth.account",  # User account handling
-    "allauth.socialaccount",  # Social media authentication
-    # Rich Text Editor
-    # ---------------
-    "django_summernote",  # WYSIWYG editor
-    # Custom Apps
-    # ----------
-    "blog",  # Blog application
+    ###########################
+    # 1. Django Core Apps     #
+    ###########################
+    "django.contrib.admin",  # Admin interface and functionality
+    "django.contrib.auth",  # Authentication framework
+    "django.contrib.contenttypes",  # Content type system
+    "django.contrib.sessions",  # Session handling
+    "django.contrib.messages",  # User messaging system
+    ###########################
+    # 2. File Management      #
+    ###########################
+    "django.contrib.staticfiles",  # Static assets (CSS, JS, images)
+    "cloudinary_storage",  # Cloud storage integration
+    "cloudinary",  # Media file handling
+    "django.contrib.sites",  # Multi-site support
+    ###########################
+    # 3. Authentication       #
+    ###########################
+    "allauth",  # Main auth framework
+    "allauth.account",  # User account management
+    "allauth.socialaccount",  # Social media login support
+    ###########################
+    # 4. UI Enhancement       #
+    ###########################
+    "django_summernote",  # Rich text editor
+    "crispy_forms",  # Form styling and layout
+    ###########################
+    # 5. Custom Applications  #
+    ###########################
+    "blog",  # Blog functionality
 ]
 
-# Authentication Configuration - Code adapted from Code Institute's "I Think Therefore I Blog" tutorial, Authentication/Django AllAuth section.
-# ----------------------
-# Unique identifier for the current site in a multi-site setup
-SITE_ID = 1
+# ============================================================================
+# Authentication Configuration
+# ============================================================================
+# Adapted from: Code Institute's "I Think Therefore I Blog" tutorial
+#              Authentication/Django AllAuth section
 
-# URL Redirects for User Authentication
-# -----------------------------------
-# Where to send users after successful login
+# Site Configuration
+# -----------------
+SITE_ID = 1  # Unique identifier for multi-site setups
+
+# Authentication Redirects
+# ----------------------
+# Post-login redirect destination
 LOGIN_REDIRECT_URL = "/"
 
-# Where to send users after logout
-LOGOUT_REDIRECT_URL = "/"
+# Post-logout redirect destination
+LOGOUT_REDIRECT_URL = "/accounts/login"
+
+# Form Styling
+# -----------
+# Bootstrap 4 styling for Crispy Forms
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # =================================================================
 # MIDDLEWARE CONFIGURATION

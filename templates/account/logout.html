@@ -13,10 +13,21 @@
             {# Logout confirmation message #}
             <h3>{% trans "See ya later, navigator! You've successfully escaped... I mean, logged out" %}</h3>
             {# Login redirect link #}
-            <p>{% blocktrans %}Click <a class="link" href="{{ login_url }}">Log
-                    In</a>
-                to re-enter the community.{% endblocktrans %}</p>
+            <p>{% trans 'If "Yes", you will be redirected to the login page.' %}
             </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}"
+                    value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-signup right"
+                    type="submit">{% trans 'Time to Bounce? Yes, Sign Me Out' %}</button>
+            </form>
         </div>
     </div>
 </div>

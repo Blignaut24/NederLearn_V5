@@ -16,6 +16,7 @@
     --light-text: #F5F6F3;         /* Light mode text */
     --dark-bg: #011627;            /* Dark theme background */
     --light-bg: #f8fafa;           /* Light theme background */
+    --hover: #0A8754;              /* Hover*/
 }
     
 
@@ -53,13 +54,18 @@ body {
     text-decoration: none;
 }
 
+/*Logo Hover*/
+a:hover {
+    color: var(--secondary-color);
+}
+
 /* Navigation Links */
 .nav-link {
     color: var(--light-text);
 }
 
 .nav-link:hover {
-    color: var(--secondary-color);
+    color: var(--hover);
 }
 
 /*==================================
@@ -84,7 +90,7 @@ body {
 
 .btn-primary:hover,
 .btn-signup:hover {
-    background-color: var(--accent-color);
+    background-color: var(--hover);
     color: var(--dark-bg);
 }
 
@@ -113,7 +119,7 @@ body {
 .link:hover,
 .post-link:hover,
 .page-link:hover {
-    color: var(--accent-color);
+    color: var(--hover);
     text-decoration: underline;
 }
 
