@@ -1,18 +1,27 @@
-# Import required Django modules and views
+# Django URL Configuration
+# This module defines URL patterns for the blog application
+
 from . import views
 from django.urls import path
 
-# URL pattern definitions
+# URL patterns for routing HTTP requests
 urlpatterns = [
-    # Home route
-    # GET / - Display list of all blog posts
-    path("", views.BlogpostPostList.as_view(), name="home"),
-    
-    # Individual post route
-    # GET /<slug> - Show detailed view of specific post
-    path('<slug:slug>/', views.BlogPostDetail.as_view(), name='blogpost_detail'),
-    
-    # Post interaction route
-    # POST /like/<slug> - Handle like/unlike actions
-    path('like/<slug:slug>/', views.LikeUnlike.as_view(), name='like_unlike'),
+    # Main views
+    path(
+        "", views.BlogPostList.as_view(), name="home"
+    ),  # Homepage - displays list of blog posts
+    path(
+        "profile/", views.ProfileView.as_view(), name="profile"
+    ),  # User's own profile page
+    # User-related views
+    path(
+        "user/<str:username>/",
+        views.OtherUserProfileView.as_view(),
+        name="other_user_profile",
+    ),  # View other user profiles
+    # Blog post views
+    path(
+        "<slug:slug>/", views.BlogPostDetail.as_view(), name="blogpost_detail"
+    ),  # Individual blog post page
+    path("like/<slug:slug>/", views.LikeUnlike.as_view(), name="like_unlike"),
 ]

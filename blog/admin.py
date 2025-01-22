@@ -1,7 +1,9 @@
 # Core Django imports
 from django.contrib import admin
-from .models import Blogpost, Comment, MediaCategory
 from django_summernote.admin import SummernoteModelAdmin
+
+# Local application imports
+from .models import Blogpost, Comment, MediaCategory, UserProfile
 
 
 # -----------------------------------------------------------------------------
@@ -12,6 +14,14 @@ from django_summernote.admin import SummernoteModelAdmin
 class MediaCategoryAdmin(admin.ModelAdmin):
     list_display = ("media_name",)
     search_fields = ("media_name",)
+
+# =============================================================================
+# Media Category Admin Configuration
+# =============================================================================
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'bio', 'country')  
+    search_fields = ('user__username', 'bio') 
 
 
 # -----------------------------------------------------------------------------

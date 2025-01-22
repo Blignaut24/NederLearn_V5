@@ -88,7 +88,7 @@ INSTALLED_APPS = [
     ###########################
     # 5. Custom Applications  #
     ###########################
-    "blog",  # Blog functionality
+    "blog.apps.BlogConfig",  # Blog functionality
 ]
 
 # ============================================================================

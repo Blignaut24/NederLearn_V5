@@ -2,7 +2,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Blogpost
+from django.contrib.auth.models import User
+from .models import Blogpost, UserProfile
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .forms import CommentForm
 
 
@@ -128,3 +131,40 @@ class LikeUnlike(View):
         else:
             blogpost.likes.add(request.user)
         return HttpResponseRedirect(reverse("blogpost_detail", args=[slug]))
+
+
+# ===========================================================================
+# User Profile Management
+# ===========================================================================
+
+
+class ProfileView(View):
+    """
+    Shows the logged-in user's profile information.
+    """
+
+    def get(self, request):
+        """
+        Shows the profile page for the currently signed-in user.
+        """
+        user_profile = UserProfile.objects.get(user=request.user)
+        context = {"profile": user_profile}
+        return render(request, "profile.html", context)
+
+
+class OtherUserProfileView(View):
+    """
+    Shows other users' profiles.
+    """
+
+    def get(self, request, username):
+        """
+        Shows a user's profile page.
+
+        Input needed:
+            username: The name of the user whose profile y
+        """
+        user = get_object_or_404(User, username=username)
+        user_profile = get_object_or_404(UserProfile, user=user)
+        context = {"profile": user_profile, "is_own_profile": request.user == user}
+        return render(request, "profile.html", context)
