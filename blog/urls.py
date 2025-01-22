@@ -8,7 +8,7 @@ from django.urls import path
 urlpatterns = [
     # Main views
     path(
-        "", views.BlogPostList.as_view(), name="home"
+        "", views.BlogpostPostList.as_view(), name="home"
     ),  # Homepage - displays list of blog posts
     path(
         "profile/", views.ProfileView.as_view(), name="profile"
