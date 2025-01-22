@@ -1,4 +1,4 @@
-from .models import Comment
+from .models import Comment, UserProfile
 from django import forms
 
 
@@ -25,3 +25,34 @@ class CommentForm(forms.ModelForm):
                 }
             ),
         }
+
+
+class UserProfileForm(forms.ModelForm):
+    """
+    Form for managing user profile information.
+    
+    Fields:
+        - Profile image
+        - Bio
+        - Country
+        - Favorite content preferences:
+            * Movies
+            * TV Series
+            * Music
+            * Books
+            * Podcasts
+            * Misc items
+    """
+    class Meta:
+        model = UserProfile
+        fields = [
+            "profile_image",
+            "bio",
+            "country",
+            "top_movies",
+            "top_series",
+            "top_music_albums",
+            "top_books",
+            "top_podcasts",
+            "top_miscellaneous",
+        ]
