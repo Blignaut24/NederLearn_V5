@@ -51,7 +51,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "localhost",  # Local development server
-    "8000-blignaut24-nederlearnv5-xzv6n73xvwa.ws-eu117.gitpod.io",  # GitPod workspace
+    "8000-blignaut24-nederlearnv5-gnk6ofdc2tg.ws-eu117.gitpod.io",  # GitPod workspace
 ]
 
 # =======================================
@@ -128,11 +128,11 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 # -----------------------------------------------------------------
 
 MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-info',     # Developer debugging info
-    messages.INFO: 'alert-info',      # User information
-    messages.SUCCESS: 'alert-success', # Positive feedback
-    messages.WARNING: 'alert-warning', # Cautionary messages  
-    messages.ERROR: 'alert-danger',   # Error notifications
+    messages.DEBUG: "alert-info",  # Developer debugging info
+    messages.INFO: "alert-info",  # User information
+    messages.SUCCESS: "alert-success",  # Positive feedback
+    messages.WARNING: "alert-warning",  # Cautionary messages
+    messages.ERROR: "alert-danger",  # Error notifications
 }
 
 # =================================================================
