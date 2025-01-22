@@ -246,7 +246,7 @@ a:hover.nav-link {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
+    height: auto;
     width: 100%;
 }
 
@@ -260,18 +260,4 @@ a:hover.nav-link {
 /* Header Image */
 .masthead-image {
     position: relative;
-}
-
-/* Diagonal Effect */
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background-color: var(--dark-bg);
-    -webkit-transform: skew(20deg);
-    -moz-transform: skew(20deg);
-    transform: skew(20deg);
 }

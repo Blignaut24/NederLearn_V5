@@ -1,3 +1,48 @@
 {% extends 'base.html' %}
 {% block content %}
+
+{# User Profile Template #}
+{# Displays detailed user profile information with conditional editing options #}
+{# Template inherits from base.html and renders within content block #}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card-body">
+                <div class="row">
+                    {# Profile Image Section #}
+                    <img class="rounded-circle account-img"
+                         src="{{ profile.profile_image.url }}"
+                         alt="Profile Image">
+                    
+                    {# Username Display #}
+                    <h3 class="account-heading">{{ profile.user.username }}</h3>
+                    
+                    {# Conditional Profile Management Links #}
+                    {% if is_own_profile %}
+                    <div class="profile-links">
+                        <a href="{% url 'profile_edit' %}">Edit Profile</a>
+                        <a href="#">Manage Account</a>
+                    </div>
+                    {% endif %}
+                    
+                    {# User Details Section #}
+                    {# Displays biographical and preference information #}
+                    <p class="card-text">Bio: {{ profile.bio }}</p>
+                    <p>Country: {{ profile.country }}</p>
+                    
+                    {# User Preferences Section #}
+                    {# Lists user's favorite entertainment choices #}
+                    <p>Top Movies: {{ profile.top_movies }}</p>
+                    <p>Top Series: {{ profile.top_series }}</p>
+                    <p>Top Music Albums: {{ profile.top_music_albums }}</p>
+                    <p>Top Books: {{ profile.top_books }}</p>
+                    <p>Top Podcasts: {{ profile.top_podcasts }}</p>
+                    <p>Top Miscellaneous: {{ profile.top_miscellaneous }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
