@@ -1,79 +1,101 @@
 {% load static %} 
+
+{% comment %} Authentication URLs {% endcomment %}
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as signup_url %} 
 {% url 'account_logout' as logout_url %}
+
 <!DOCTYPE html>
 <html class="h-100">
     <head>
-        {# Meta Information and Title #}
+        {% comment %} Meta Information {% endcomment %}
         <title>NederLearn</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {# External Resources #}
-        {# Google Fonts Configuration #}
-        {# Initialize preconnect for faster font loading #}
+
+        {% comment %} External Resources {% endcomment %}
+        {% comment %} Google Fonts Setup {% endcomment %}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        {# Load font families with weights and styles #}
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
-        {# CSS Dependencies #}
-        {# Bootstrap CSS - Main UI framework #}
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        {% comment %} CSS Dependencies {% endcomment %}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-        {# Font Awesome - Icon library #}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-        {# Custom styles #}
         <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        {# JavaScript Dependencies #}
-        {# Load Bootstrap Bundle (includes Popper.js) #}
+
+        {% comment %} JavaScript Dependencies {% endcomment %}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     </head>
+
     <body class="d-flex flex-column h-100">
-        {# Navigation Bar #}
+        {% comment %} Navigation Bar {% endcomment %}
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                {# Brand Logo/Name #}
-                <a class="navbar-logo"
-                href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}">NederLearn</a>
-                {# Mobile Navigation Toggle #}
+                {% comment %} Brand Logo {% endcomment %}
+                <a class="navbar-logo" href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}">NederLearn</a>
+
+                {% comment %} Mobile Menu Toggle {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                {# Navigation Links #}
+
+                {% comment %} Navigation Menu Items {% endcomment %}
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {# Check if user is logged in #}
                         {% if user.is_authenticated %}
-                        {# Authenticated User Navigation Options #}
-                        <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Create New Post</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">My Posts</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Saved for Later</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
-                        {# Non-Authenticated User Navigation Options #}
+                            {% comment %} Authenticated User Links {% endcomment %}
+                            <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Create New Post</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">My Posts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Saved for Later</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Join the Club</a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                        </li>
-                        
+                            {% comment %} Guest User Links {% endcomment %}
+                            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Join the Club</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
-        {# Main Content Area #}
+
+        {% comment %} Alert Messages Section {% endcomment %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show"
+                        id="msg" role="alert">
+                        {{ message|safe }}
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% comment %} Main Content Area {% endcomment %}
         <main class="flex-shrink-0 main-bg container my-4">
-            {% block content %} {# Content from child templates will be inserted here #} {% endblock content %}
+            {% block content %}
+            {% comment %} Content from child templates inserted here {% endcomment %}
+            {% endblock content %}
         </main>
-        {# Footer Section #}
+
+        {% comment %} Footer Section {% endcomment %}
         <footer class="footer mt-auto py-3 dark-bg">
             <div class="container text-center">
                 <p class="m-0">© 2025 NederLearn</p>
             </div>
         </footer>
+        <script>
+            setTimeout(function () {
+                let messages = document.getElementById('msg');
+                let alert = new bootstrap.Alert(messages);
+                alert.close();
+            }, 2000);
+        </script>
     </body>
 </html>

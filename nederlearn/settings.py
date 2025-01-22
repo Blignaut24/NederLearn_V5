@@ -115,6 +115,27 @@ LOGOUT_REDIRECT_URL = "/accounts/login"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # =================================================================
+# MESSAGE TAGS CONFIGURATION
+# =================================================================
+# Define message tags for different alert types in the application
+# These tags map Django message levels to Bootstrap alert classes
+# -----------------------------------------------------------------
+# DEBUG:   Information for developers (blue)
+# INFO:    General information messages (blue)
+# SUCCESS: Positive feedback messages (green)
+# WARNING: Advisory messages (yellow)
+# ERROR:   Critical problem messages (red)
+# -----------------------------------------------------------------
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',     # Developer debugging info
+    messages.INFO: 'alert-info',      # User information
+    messages.SUCCESS: 'alert-success', # Positive feedback
+    messages.WARNING: 'alert-warning', # Cautionary messages  
+    messages.ERROR: 'alert-danger',   # Error notifications
+}
+
+# =================================================================
 # MIDDLEWARE CONFIGURATION
 # =================================================================
 # Django's request/response processing pipeline
