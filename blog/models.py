@@ -3,7 +3,11 @@
 # =================================================================
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 
 
 # =======================================
@@ -46,7 +50,13 @@ class Blogpost(models.Model):
 
     # Media Details
     # ------------
-    media_category = models.ForeignKey('MediaCategory', on_delete=models.SET_NULL, related_name='blog_posts', blank=True, null=True) # Temporarily disabled required field validation - will be re-enabled in future update
+    media_category = models.ForeignKey(
+        "MediaCategory",
+        on_delete=models.SET_NULL,
+        related_name="blog_posts",
+        blank=True,
+        null=True,
+    )  # Temporarily disabled required field validation - will be re-enabled in future update
 
     release_year = models.IntegerField()
     media_link = models.URLField()
@@ -143,7 +153,9 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     # Relationships
-    blogpost = models.ForeignKey('Blogpost', on_delete=models.CASCADE, related_name='comments')
+    blogpost = models.ForeignKey(
+        "Blogpost", on_delete=models.CASCADE, related_name="comments"
+    )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
