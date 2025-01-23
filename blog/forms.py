@@ -25,12 +25,15 @@ class CommentForm(forms.ModelForm):
                 }
             ),
         }
+        labels = {
+            "body": "",
+        }
 
 
 class UserProfileForm(forms.ModelForm):
     """
     Form for managing user profile information.
-    
+
     Fields:
         - Profile image
         - Bio
@@ -43,6 +46,7 @@ class UserProfileForm(forms.ModelForm):
             * Podcasts
             * Misc items
     """
+
     class Meta:
         model = UserProfile
         fields = [
