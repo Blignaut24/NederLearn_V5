@@ -40,7 +40,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = True  # Enable debugging mode
+DEBUG = False  # Enable debugging mode
 
 # Host Configuration
 # -----------------

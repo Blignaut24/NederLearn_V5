@@ -38,6 +38,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--dark-bg);
     color: var(--light-text);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 /*==================================
