@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% comment %} Container for blog post creation form {% endcomment %}
+<div class="container">
+    <div class="row justify-content-center">
+        {% comment %} Column sizing for responsive layout {% endcomment %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            {% comment %} Form header with dynamic username {% endcomment %}
+            <h2 class="account-heading">Create a New Blog Post
+                {{ user.username }}</h2>
+            
+            {% comment %} Blog post creation form {% endcomment %}
+            {% comment %} Includes file upload capability {% endcomment %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

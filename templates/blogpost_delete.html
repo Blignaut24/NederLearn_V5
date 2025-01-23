@@ -1,0 +1,24 @@
+{# Base Template Extension #}
+{% extends 'base.html' %}
+
+{# Main Content Block #}
+{% block content %}
+
+{# Container for Blog Post Delete Form #}
+<div class="container">
+    <div class="row justify-content-center">
+        {# Responsive Column Setup #}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            {# Form Header #}
+            <h2 class="account-heading">Delete your Blog Post</h2>
+            
+            {# Delete Post Form #}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-danger">Delete Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
