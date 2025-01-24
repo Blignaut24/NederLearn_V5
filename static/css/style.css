@@ -265,3 +265,87 @@ a:hover.nav-link {
 .masthead-image {
     position: relative;
 }
+
+/* =================================
+   PROFILE STYLES
+   ================================= */
+
+/* Container styles
+   ---------------- */
+   .profile-details {
+    margin: 0 auto;     /* Center the container */
+    padding: 20px;      /* Add spacing around content */
+}
+
+/* Navigation links
+   --------------- */
+.profile-links a {
+    margin-right: 10px; /* Space between links */
+}
+
+/* Table configuration
+   ------------------ */
+.profile-table {
+    width: 100%;                  /* Full width table */
+    border-collapse: collapse;    /* Remove cell spacing */
+}
+
+/* Table cell styling
+   ----------------- */
+.profile-table td {
+    padding: 16px;                /* Cell padding */
+    border-bottom: 1px solid #dfc7c7; /* Subtle row separator */
+}
+
+/* Category label alignment
+   ----------------------- */
+.category-label-top {
+    text-align: left;    /* Left align top labels */
+}
+
+.category-label {
+    font-weight: bold;   /* Bold category text */
+    text-align: right;   /* Right align labels */
+    width: 26%;         /* Fixed width for labels */
+    line-height: 1.5;   /* Improved readability */
+}
+
+/* Heading styles
+   ------------- */
+.top-categories-heading {
+    color: var(--secondary-color);  /* Use theme color */
+    text-align: center;            /* Center heading */
+    font-weight: bolder;           /* Enhanced emphasis */
+}
+
+/* Spacing utilities
+   ---------------- */
+.table-spacing {
+    height: 60px;    /* Vertical gap between sections */
+}
+
+/* Column alignment
+   --------------- */
+.top-categories td:first-child {
+    text-align: right;  /* Right align first column */
+}
+
+/* Profile image
+   ------------ */
+.profile-img {
+    width: 100%;        /* Responsive width */
+    max-width: 230px;   /* Maximum size limit */
+    height: auto;       /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular image */
+    display: inline-block;
+    object-fit: cover;  /* Prevent image distortion */
+}
+
+/* Responsive design
+   --------------- */
+@media (max-width: 767px) {
+    /* Adjustments for mobile devices */
+    .profile-img {
+        margin-bottom: 20px;  /* Add space below image */
+    }
+}

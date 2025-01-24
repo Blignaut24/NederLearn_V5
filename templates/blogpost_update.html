@@ -1,20 +1,35 @@
+{# Template for editing blog posts #}
 {% extends 'base.html' %}
-{% block content %}
 
-<!-- Container for centered form layout -->
-<div class="container">
-    <div class="row justify-content-center">
-        <!-- Form column with responsive sizing -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-            <h2 class="account-heading">Edit & Update your Blog Post</h2>
-            <!-- Multipart form for handling file uploads -->
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Save
-                    changes</button>
-            </form>
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container col-md-8 col-sm-12">
+        <div class="masthead">
+            <div class="container card-body">
+                <div class="row g-0">
+                    <div class="col-md-12 masthead-text">
+                        <h1 class="post-title">Edit & Update your Blog Post</h1>
+                        <div class="row">
+                            <div class="col"><hr></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col card mb-4">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 {% endblock content %}
