@@ -1,31 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2 class="text-center">Manage Account</h2>
-            <hr>
-
-            <!-- Delete Account Section -->
-            <div class="account-delete-section">
-                <h3>Delete Account</h3>
-                <p><strong>Warning:</strong>Hitting that delete button is like trying to put toothpaste back in the tube - impossible! Your profile and all its glory will vanish into the digital void, never to be seen again. No take-backsies!</p>
-                <form method="post"
-                    action="{% url 'account_delete' request.user.pk %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Ready to say goodbye forever? Warning: Like that embarrassing photo from your college days, this cannot be erased once it is done. Are you absolutely, positively, without-a-doubt sure you want to delete your account? No takebacks!');">
-                        Delete My Account
-                    </button>
-                    <a href="{% url 'profile' %}" class="btn btn-secondary">No,
-                        Go Back</a>
-                </form>
+{# === Account Management Interface === #}
+<div class="container col-md-8 col-sm-12">
+    {# Header Section #}
+    <div class="masthead">
+        <div class="container card-body">
+            <div class="row g-0">
+                <div class="col-md-12 masthead-text">
+                    <h1 class="post-title">Manage Account</h1>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Change Password Section -->
+    {# === Main Content Area === #}
+    <div class="row">
+        <div class="col card mb-4">
+            <div class="card-body">
+                {# Account Deletion Component
+                   Handles permanent account removal with confirmation #}
+                <div class="account-delete-section">
+                    <h3 class="text-center mt-5">Delete Account</h3>
+                    {# Warning Message #}
+                    <p class="text-center px-4 m-5"><strong>WARNING:</strong>
+                        Hitting that delete button is like trying to put toothpaste back in the tube - impossible! Your profile and all its glory will vanish into the digital void, never to be seen again. No take-backsies!.</p>
+                    {# Deletion Form #}
+                    <form method="post"
+                        action="{% url 'account_delete' request.user.pk %}"
+                        class="text-center">
+                        {% csrf_token %}
+                        {# Action Buttons #}
+                        <button type="submit" class="btn btn-danger btn-lg m-2"
+                            onclick="return confirm(' Warning: Point of No Return! Are you absolutely, positively, 100% sure you want to delete your account? ');">Delete
+                            Account</button>
+                        <a href="{% url 'profile' %}"
+                            class="btn btn-secondary btn-lg m-2">No, Go
+                            Back</a>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Change Password Section -->
+            </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}
