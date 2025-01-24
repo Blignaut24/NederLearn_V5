@@ -2,28 +2,28 @@
 {% block content %}
 
 {# === Account Management Interface === #}
-<div class="container col-md-8 col-sm-12">
     {# Header Section #}
-    <div class="masthead">
-        <div class="container card-body">
-            <div class="row g-0">
-                <div class="col-md-12 masthead-text">
-                    <h1 class="post-title">Manage Account</h1>
-                </div>
-            </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-12">
+
         </div>
     </div>
+</div>
 
     {# === Main Content Area === #}
     <div class="row">
-        <div class="col card mb-4">
-            <div class="card-body">
-                {# Account Deletion Component
-                   Handles permanent account removal with confirmation #}
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-sm-12">
+                <div class="card-body mt-5">
+                    <h1 class="account-heading text-center m-4">Manage Account
+                    </h1>
+                {# Account Deletion Component #}
+                {# Handles permanent account removal with confirmation #}
                 <div class="account-delete-section">
                     <h3 class="text-center mt-5">Delete Account</h3>
                     {# Warning Message #}
-                    <p class="text-center px-4 m-5"><strong>WARNING:</strong>
+                    <p class="text-center -mt-5"><strong>WARNING:</strong>
                         Hitting that delete button is like trying to put toothpaste back in the tube - impossible! Your profile and all its glory will vanish into the digital void, never to be seen again. No take-backsies!.</p>
                     {# Deletion Form #}
                     <form method="post"
@@ -39,15 +39,16 @@
                             Back</a>
                     </form>
                 </div>
-
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
                 </div>
+                </div>
+                
 
                 <!-- Change Password Section -->
-            </div>
+            
         </div>
     </div>
 </div>

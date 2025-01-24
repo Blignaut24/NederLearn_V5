@@ -33,7 +33,7 @@
                             {# Post Title #}
                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="post-link">
-                                <h2 class="card-title">
+                                <h2 class="card-title mt-2">
                                     {{ blogpost.blog_title }}</h2>
                             </a>
                             <hr />
@@ -48,7 +48,7 @@
                             {# Post Management Buttons #}
                             <div class="d-flex justify-content-between mt-2">
                                 <a href="{% url 'blogpost_update' blogpost.slug %}"
-                                    class="btn btn-primary">Edit Post</a>
+                                    class="btn btn-secondary">Edit Post</a>
                                 <a href="{% url 'blogpost_delete' blogpost.slug %}"
                                     class="btn btn-danger">Delete Post</a>
                             </div>
