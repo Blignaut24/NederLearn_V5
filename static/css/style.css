@@ -14,7 +14,8 @@
        Base colors for UI components */
     --dark-text: #191919;          /* Primary dark text */
     --light-text: #F5F6F3;         /* Primary light text */
-    --dark-bg: #011627;            /* Dark mode background */
+    --light-grey-text: #9198a1      /*Light grey text*/
+    --dark-bg: #011627;              /* Dark mode background */
     --black-bg: #000000;           /* Base black background */
     --light-bg: #f8fafa;           /* Light mode background */
 
@@ -106,6 +107,7 @@ body {
 
 /* Primary Buttons */
 .btn-primary,
+.btn-secondary,
 .btn-signup {
     background-color: var(--secondary-color);
     color: var(--light-text);
@@ -117,9 +119,22 @@ body {
     transition: background-color 0.3s, transform 0.1s;
 }
 
+.btn-danger{
+    background-color: var(--warning);
+    color: var(--light-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0
+}
+
 /* Button States */
 .btn-primary:hover,
-.btn-signup:hover {
+.btn-signup:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
     background-color: var(--hover);
     color: var(--light-text);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -127,7 +142,9 @@ body {
 
 /* Active Button States */
 .btn-primary:active,
-.btn-signup:active {
+.btn-signup:active,
+.btn-secondary:active,
+.btn-danger:active {
     background-color: var(--secondary-color);
     color: var(--light-text-gr);
     transform: scale(0.95);
@@ -136,23 +153,50 @@ body {
 
 /* Focus States */
 .btn-primary:focus,
-.btn-signup:focus {
-    background-color: var(--third-color);
+.btn-signup:focus,
+.btn-secondary:focus,
+.btn-danger:focus {
+    background-color: var(--accent-color);
     color: var(--light-text-gr);
     outline: none;
     box-shadow: 0 0 0 2px var(--bg);
 }
 
+/* Specific Colors for .btn-secondary */
+.btn-secondary {
+    background-color: var(--black-bg);
+    color: var(--light-text);
+}
+.btn-secondary:hover {
+    background-color: var(--hover);
+}
+.btn-secondary:active {
+    background-color: var(--success);
+    color: var(--light-text);
+}
+/* Specific Colors for .btn-danger */
+.btn-danger {
+    background-color: var(--warning);
+    color: var(--light-text-gr);
+}
+.btn-danger:hover {
+    background-color: var(--hover);
+}
+
+.btn-danger:active {
+    background-color: var(--error);
+    color: var(--dark-text);
+}
+
 /* Like Button */
 .btn-like {
-    color: #E84610;
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #E84610;
+    color: var(--accent-color);
     background: transparent;
     border: none;
 }
@@ -320,6 +364,15 @@ a:active {
 .masthead-image {
     position: relative;
 }
+123
+/* Targeting fields within crispy forms */
+.form-control,
+select,
+textarea {
+    background-color: var(--light-grey-text);
+    color: var(--black-bg);
+    border: 1px solid black;
+}
 
 /* =================================
    PROFILE COMPONENTS
@@ -343,9 +396,7 @@ a:active {
     border-bottom: 1px solid #dfc7c7;
 }
 
-.profile-links a {
-    margin-right: 10px;
-}
+
 
 /* Category Labels */
 .category-label-top,

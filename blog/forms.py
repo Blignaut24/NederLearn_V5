@@ -34,10 +34,14 @@ class BlogpostForm(forms.ModelForm):
         # Widget configurations with input validations
         widgets = {
             "blog_title": forms.TextInput(
-                attrs={"placeholder": "Enter the title of the blog post..."}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "Enter the title of the blog post...",
+                }
             ),
             "content": forms.Textarea(
                 attrs={
+                    "class": "form-control",
                     "rows": 4,
                     "placeholder": "Write your blog content here (max length 2000 characters)...",
                     "maxlength": "2000",
@@ -45,6 +49,7 @@ class BlogpostForm(forms.ModelForm):
             ),
             "excerpt": forms.Textarea(
                 attrs={
+                    "class": "form-control",
                     "rows": 2,
                     "placeholder": "Write a short excerpt...(max length 100 characters)",
                     "maxlength": "100",
@@ -52,13 +57,17 @@ class BlogpostForm(forms.ModelForm):
             ),
             "release_year": forms.NumberInput(
                 attrs={
+                    "class": "form-control",
                     "min": 1800,
                     "max": datetime.datetime.now().year,
-                    "placeholder": "YYYY",
+                    "placeholder": "Format YYYY",
                 }
             ),
             "media_link": forms.URLInput(
-                attrs={"placeholder": "http://www.example.com"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "e.g http://www.imdb.com",
+                }
             ),
         }
         # Hidden labels for cleaner UI
@@ -101,10 +110,11 @@ class CommentForm(forms.ModelForm):
         widgets = {
             "body": forms.Textarea(
                 attrs={
+                    "class": "form-control",
                     "rows": 2,
                     "cols": 50,
-                    "placeholder": "Drop your thoughts here like they're hot! 🔥",
-                    "max_length": "1500",
+                    "placeholder": "Write your comment here...",
+                    "max_length": "1000",
                 }
             ),
         }
@@ -142,6 +152,7 @@ class UserProfileForm(forms.ModelForm):
     widgets = {
         "bio": forms.Textarea(
             attrs={
+                "class": "form-control",
                 "rows": 4,
                 "placeholder": "Write something about yourself (max length 350 characters)...",
                 "maxlength": "350",
