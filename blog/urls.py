@@ -6,7 +6,7 @@ urlpatterns = [
     # HOME
     # -------------------------------------------
     # Main page displaying all blog posts
-    path("", views.BlogPostList.as_view(), name="home"),
+    path("", views.BlogpostPostList.as_view(), name="home"),
     
     # BLOG POST OPERATIONS
     # -------------------------------------------
