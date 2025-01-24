@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from blog.views import ProfileDeleteView
 
 from blog.views import index
 
@@ -31,6 +32,10 @@ urlpatterns = [
     path("summernote/", include("django_summernote.urls")),
     # Authentication
     path("accounts/", include("allauth.urls")),
+    # Account deletion
+    path(
+        "account/delete/<int:pk>/", ProfileDeleteView.as_view(), name="account_delete"
+    ),
 ]
 
 # Serve media files in development

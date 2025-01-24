@@ -1,16 +1,14 @@
-{# Extend base template and load required template tags #}
 {% extends "base.html" %}
 {% load i18n %}
 {% load account socialaccount %}
 
-{# # Define page title block #}
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
+
+
 {% block content %}
 <div class="container">
     <div class="row">
-        {# Center content with Bootstrap classes #}
         <div class="col-md-8 mt-3 offset-md-2">
-            {# Logout confirmation message #}
             <h3>{% trans "See ya later, navigator! You've successfully escaped... I mean, logged out" %}</h3>
             {# Login redirect link #}
             <p>{% trans 'If "Yes", you will be redirected to the login page.' %}
@@ -19,6 +17,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
+
             <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 {% if redirect_field_value %}
@@ -27,6 +26,8 @@
                 {% endif %}
                 <button class="btn btn-signup right"
                     type="submit">{% trans 'Time to Bounce? Yes, Sign Me Out' %}</button>
+                <a href="{% url 'home' %}" class="btn btn-secondary">No,
+                    Go Back</a>
             </form>
         </div>
     </div>

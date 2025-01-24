@@ -22,7 +22,8 @@
                     {% if is_own_profile %}
                     <div class="profile-links">
                         <a href="{% url 'profile_edit' %}">Edit Profile</a>
-                        <a href="#">Manage Account</a>
+                        <a href="{% url 'account_delete' request.user.pk %}">Manage
+                            Account</a>
                     </div>
                     {% endif %}
                     
