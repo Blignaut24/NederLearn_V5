@@ -138,3 +138,13 @@ class UserProfileForm(forms.ModelForm):
             "top_podcasts",
             "top_miscellaneous",
         ]
+
+    widgets = {
+        "bio": forms.Textarea(
+            attrs={
+                "rows": 4,
+                "placeholder": "Write something about yourself (max length 350 characters)...",
+                "maxlength": "350",
+            }
+        ),
+    }
