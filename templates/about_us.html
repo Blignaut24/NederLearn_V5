@@ -1,75 +1,87 @@
-{# Base Template Extension #}
-{% extends "base.html" %}
-
-{# Main Content Block #}
-{% block content %}
-
-{# Container for About Us Page #}
-<div class="container">
-    <div class="row justify-content-center">
+    {% extends "base.html" %}
+    
+    {% block content %}
+    
+    {# Container Configuration#}
+      {# - Responsive layout with medium/small breakpoints#}
+      {# - Main wrapper for all page content #}
+    <div class="container col-md-8 col-sm-12">
+        {# Header Component #}
+        <div class="masthead">
+            <div class="container card-body">
+                <div class="row g-0">
+                    <div class="col-md-12 masthead-text">
+                        <h1 class="post-title text-center mb-5"><strong>About 
+                            NederLearn</strong></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
         {# Main Content Section #}
-        <div class="col-md-6 mt-3">
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    {# Primary Card Component #}
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            {# Header Section #}
-                            <h1 class="text-center m-4"><strong>NederLearn
-                                </strong></h1>
-                            <div class="row"><div class="col"><hr></div></div>
-
-                            {# Tagline Section #}
-                            <h5 class="text-center m-4"><em>Embrace the Adventure, Connect the World <br> - NederLearn, Where Learning Dutch Becomes a Thrilling Journey.<br></em></h5>
-                            <div class="row"><div class="col"><hr></div></div>
-
-                            {# The Problem Section #}
-                            <h3 class="mt-4 text-center"><strong>The Problem</strong>
-                            </h3>
-                            <p class="mt-3 text-center">Are you tired of learning Dutch through endless grammar drills and vocabulary lists that make you want to fall asleep faster than after eating a triple portion of stamppot? Well, wake up and smell the stroopwafel, because NederLearn is here to revolutionize your Dutch learning journey!</p>
-
-                            {# Features Section #}
-                            <h3 class="mt-4 text-center"><strong>Our Solution</strong>
-                            </h3>
-                            <p class="text-center">Here's the deal: NederLearn is your exciting companion in mastering Dutch language and culture. Instead of boring textbooks, we're talking about diving into Dutch films, books, articles, and podcasts that actually make learning fun. It's like having a Dutch friend who knows all the cool stuff, minus the direct opinions!
-                            </p>
-
-                            {# Who We Serve #}
-                            <h3 class="mt-4 text-center"><strong>Who We Serve</strong></h3>
-                            <p class="text-center">Whether you're an expat preparing for your inburgering exam, a student diving into Dutch culture, or just someone who wants to understand why Dutch people love to eat hagelslag for breakfast, NederLearn is your go-to platform.</p>
-
-                            {# Key Features #}
-                            <h3 class="mt-4 text-center"><strong>What makes us different?</strong><br>We've got:
-                            </h3>
-                                <ul >
-                                    <li>A super user-friendly interface that works on any device (because we know you'll probably be practicing Dutch while commuting on your bike)</li>
-                                    <li>Carefully curated content that saves you from endless Google searches</li>
-                                    <li>Clear learning paths based on European language levels, from "Help, I can only say 'dank je wel'" to "I can debate about Dutch politics in perfect Nederlands"</li>
-                                </ul>
-                            
-
-                            {# Call to Action Section #}
-                            <h3 class="mt-4 text-center"><strong>Start Your Dutch Journey Today!</strong>
-                            </h3>
-                            <p class="text-center">
-                                So, as we say in Dutch... actually, we'll save that lesson for when you join us. Ready to start your Dutch adventure? Embrace the journey, connect with the world, and let's make learning Dutch an unforgettable experience!
-                            </p>
-
-                            {# Sign Up/Login Links #}
-                            <div class="text-center mt-5">
-                                <a href="{% url 'account_signup' %}"
-                                    class="btn btn-primary btn-lg">Join the NederLearn Community</a>
-                                <p class="mt-3"><small><strong>Already have an account?</strong>
-                                    <br><i>(Gefeliciteerd, you're one of the cool kids!)</i><br>
-                                    <a href="{% url 'account_login' %}"><br><strong>Log
-                                            in</strong><br></a></p>
+          {# - Card-based layout with responsive padding #}
+          {# - Contains all marketing content #}
+        <div class="row">
+            <div class="col card mb-4">
+                <div class="card-body px-3 px-md-5">
+                    <div class="px-3 px-md-5">
+                        {# Brand Tagline #}
+                        {#} - Centered heading with decorative elements{#}
+                        {#} - Primary value proposition{#} 
+                        <h2 class="text-center medium"><hr><em>Embrace the Adventure, Connect the World <br> - NederLearn, Where Learning Dutch Becomes a Thrilling Journey.<br></em>
+                        </h2>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
                             </div>
+                        </div>
+    
+                        {# Problem Statement Section #}
+                           
+                        <h3 class="mt-4 text-center"><strong>The Problem</strong>
+                        </h3>
+                        <p class="mt-3 text-center px-4">Are you tired of learning Dutch through endless grammar drills and vocabulary lists that make you want to fall asleep faster than after eating a triple portion of stamppot?<br> Well, wake up and smell the stroopwafel, because NederLearn is here to revolutionize your Dutch learning journey!</p>
+    
+                        {# Solution Overview Section #}
+                        <h3 class="mt-5 text-center medium"><strong>Our Solution</strong>
+                        </h3>
+                        <p class="text-center">Here's the deal: NederLearn is your exciting companion in mastering Dutch language and culture. Instead of boring textbooks, we're talking about diving into Dutch films, books, articles, and podcasts that actually make learning fun. It's like having a Dutch friend who knows all the cool stuff, minus the direct opinions!</p>
+    
+                        {# Target Audience Section #}
+                        <h3 class="mt-5 text-center medium"><strong>Who We Serve</strong>
+                        </h3>
+                        <p class="text-center">Whether you're an expat preparing for your inburgering exam, a student diving into Dutch culture, or just someone who wants to understand why Dutch people love to eat hagelslag for breakfast, NederLearn is your go-to platform.
+                        </p>
+    
+                        {# Features Section #}
+                        <h3 class="mt-5 text-center medium"><strong>What makes us different?</strong>
+                        </h3>
+                        <ul>
+                            <li>A super user-friendly interface that works on any device (because we know you'll probably be practicing Dutch while commuting on your bike)</li>
+                            <li>Carefully curated content that saves you from endless Google searches</li>
+                            <li>Clear learning paths based on European language levels, from "Help, I can only say 'dank je wel'" to "I can debate about Dutch politics in perfect Nederlands"</li>
+                        </ul>
+    
+                        {# Call-to-Action Section #}
+                        <h3 class="mt-5 text-center medium"><strong>Begin Your Dutch Adventure Now!</strong>
+                        </h3>
+                        <p class="text-center">So, as we say in Dutch... actually, we'll save that lesson for when you join us. Ready to start your Dutch adventure? Embrace the journey, connect with the world, and let's make learning Dutch an unforgettable experience!
+                        </p>
+    
+                        {# Authentication UI #}
+                        <div class="text-center mt-5">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'home' %}"
+                                class="btn btn-primary btn-lg">Back to Home</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}"
+                                class="btn btn-primary btn-lg">Start Your Dutch Journey Now</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-{% endblock %}
+    
+    {% endblock %}
