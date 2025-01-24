@@ -1,5 +1,4 @@
 {# Base Template Extension #}
-{% extends 'base.html' %}
 
 {# Main Content Block #}
 {% block content %}
@@ -8,17 +7,24 @@
 <div class="container">
     <div class="row justify-content-center">
         {# Responsive Column Setup #}
-        <div class="col-md-8 col-sm-12">
-            {# Form Header #}
-            <h2 class="account-heading">Delete your Blog Post</h2>
-            
-            {# Delete Post Form #}
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-danger">Delete Post</button>
-            </form>
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    Confirm Delete
+                </div>
+                <div class="card-body">
+                    <p>Are you sure you want to delete the post titled
+                        "{{ object.blog_title }}"?</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Yes,
+                            Delete</button>
+                        <a href="{% url 'my_posts' %}"
+                            class="btn btn-secondary">No, Go Back</a>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-{% endblock content %}
+{% endblock %}
