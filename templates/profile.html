@@ -21,7 +21,7 @@
                      {# PROFILE MANAGEMENT LINKS
                         Only shown if user owns profile #}
                      {% if is_own_profile %}
-                     <div class="profile-links">
+                     <div class="profile-links mt-3 small">
                          <a href="{% url 'profile_edit' %}">Edit Profile</a>
                          <a href="{% url 'account_delete' request.user.pk %}">Manage
                              Account</a>

@@ -343,6 +343,10 @@ a:active {
     border-bottom: 1px solid #dfc7c7;
 }
 
+.profile-links a {
+    margin-right: 10px;
+}
+
 /* Category Labels */
 .category-label-top,
 .category-label-top i {
