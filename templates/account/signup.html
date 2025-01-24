@@ -1,23 +1,23 @@
-{# Template for user signup page extending base template #} 
+{# Template for signup page #}
 {% extends "base.html" %}
 
-{#Load required template tags#}
+{# Load required tags #}
 {% load i18n %}
 {% load account socialaccount %}
+{% load crispy_forms_tags %}
 
-{# Define page title #}
+{# Define title #}
 {% block head_title %}{% trans "Sign Up" %}{% endblock %}
 
-{# Main content block  #}
+{# Main content #}
 {% block content %}
 <div class="container">
-    {# Header section with welcome message #}
+    {# Header section #}
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign Up" %}</h3>
-            <p>{% blocktrans %}Welcome to join the NederLearn Community!
-                <p>Not convinced yet? Read <a class="link" href="#">About
-                        Us</a>
+            <p>{% blocktrans %}Welcome to join the NederLearn!
+                <p>Not convinced yet? Read <a class="link" href="#">About Us</a>
                     first.{% endblocktrans %}</p>
             </p>
         </div>
@@ -25,17 +25,18 @@
     {# Signup form section #}
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            {# Form with CSRF protection and redirect handling #}
             <form class="signup" id="signup_form" method="post"
                 action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}"
                     value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right"
-                    type="submit">{% trans "Sign Up" %} &raquo;</button>
+                <div class="text-center mt-4">
+                    <button class="btn btn-signup right" 
+                        type="submit">{% trans "Sign Up" %} &raquo;</button>
+                </div>
             </form>
         </div>
     </div>
