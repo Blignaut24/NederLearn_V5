@@ -84,6 +84,10 @@
                                             class="fas fa-edit"></i> Edit
                                         Profile</a></li>
                                 <li><a class="dropdown-item"
+                                        href="{% url 'account_delete' request.user.pk %}"><i
+                                                class="fas fa-cog"></i> Manage
+                                            Account</a></li>
+                                <li><a class="dropdown-item"
                                         href="{% url 'account_logout' %}"><i
                                             class="fas fa-sign-out-alt"></i> Log
                                         Out</a></li>

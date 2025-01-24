@@ -14,7 +14,7 @@
        Base colors for UI components */
     --dark-text: #191919;          /* Primary dark text */
     --light-text: #F5F6F3;         /* Primary light text */
-    --light-grey-text: #9198a1      /*Light grey text*/
+    --light-grey-text: #9198a1;      /*Light grey text*/
     --dark-bg: #011627;              /* Dark mode background */
     --black-bg: #000000;           /* Base black background */
     --light-bg: #f8fafa;           /* Light mode background */
