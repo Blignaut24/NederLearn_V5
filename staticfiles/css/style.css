@@ -1,39 +1,39 @@
-/*==================================
-  GLOBAL THEME CONFIGURATION
-==================================*/
+/* =================================
+   THEME CONFIGURATION
+   Core color palette and variables
+   ================================= */
 
-/* Core Color Palette
-   -----------------------------
-   Defines the main color scheme used throughout the application */
    :root {
-    /* Brand Colors */
-    --primary-color: #4D6CFA;      /* Primary interface elements */
-    --secondary-color: #ff6200;    /* Action buttons and highlights */
-    --accent-color: #c85c86;       /* Visual emphasis elements */
+    /* Brand Colors
+       Core brand identity colors */
+    --primary-color: #4D6CFA;      /* Main UI elements */
+    --secondary-color: #ff6200;    /* CTAs & highlights */
+    --accent-color: #c85c86;       /* Visual emphasis */
 
-    /* Theme Colors */
-    --dark-text: #191919;          /* Dark mode text */
-    --light-text: #F5F6F3;         /* Light mode text */
-    --dark-bg: #011627;            /*Main background - Dark theme background */
-    --black-bg: #000000;           /*Black background*/
-    --light-bg: #f8fafa;           /* Light theme background */
+    /* Theme Colors
+       Base colors for UI elements */
+    --dark-text: #191919;          /* Dark text */
+    --light-text: #F5F6F3;         /* Light text */
+    --dark-bg: #011627;            /* Dark theme bg */
+    --black-bg: #000000;           /* Base black */
+    --light-bg: #f8fafa;           /* Light theme bg */
 
-    /*Status Colors*/
-    --success:#79a850;             /*Success (Green)*/
-    --error:#DD1C1A;               /*Error (Red)*/
-    --warning:#f79818;             /*Warning (Amber)*/
+    /* Status Indicators
+       User feedback colors */
+    --success: #79a850;            /* Success states */
+    --error: #DD1C1A;              /* Error states */
+    --warning: #f79818;            /* Warning states */
 
-    /*Hover States*/
-    --hover: #525199;              /* Hover*/
+    /* Interactive States
+       User interaction colors */
+    --hover: #525199;              /* Hover effects */
 }
-    
 
-/*==================================
-  BASE STYLES
-==================================*/
+/* =================================
+   BASE STYLES
+   Core typography and layout
+   ================================= */
 
-/* Document Foundation
-   Sets core typography and colors */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--dark-bg);
@@ -44,11 +44,12 @@ body {
     min-height: 100vh;
 }
 
-/*==================================
-  NAVIGATION
-==================================*/
+/* =================================
+   NAVIGATION
+   Header and menu styling
+   ================================= */
 
-/* Main Navigation Bar */
+/* Navigation Container */
 .navbar {
     background-color: var(--black-bg);
 }
@@ -57,48 +58,58 @@ body {
     color: var(--light-text);
 }
 
-/* Brand Logo */
+/* Brand Logo Styling */
 .navbar-logo {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--secondary-color);
     text-decoration: none;
+    transition: transform 0.1s ease;
 }
 
-/*Logo Hover*/
-a:hover {
+/* Logo Hover Effect */
+.navbar-logo:hover {
     color: var(--hover);
-}
-
-/* #FIXME: Redundent Code */
-Navigation Links 
-a:hover.nav-link {
-    color: var(--hover);
+    transform: scale(1.1);
 }
 
 .nav-link:hover {
     color: var(--hover);
 }
 
-/*==================================
-  FOOTER
-==================================*/
+.nav-link.dropdown-toggle i.fas.fa-user-circle {
+    color: var(--secondary-color);
+    transition: transform 0.1s ease;
+}
+
+.nav-link.dropdown-toggle i.fas.fa-user-circle:hover {
+    transform: scale(1.1);
+    color: var(--hover);
+    transition: transform 0.1s ease;
+}
+
+/* =================================
+   FOOTER
+   Page footer styling
+   ================================= */
 
 .footer {
     background-color: var(--black-bg);
     color: var(--secondary-color);
 }
 
-/*==================================
-  INTERACTIVE ELEMENTS
-==================================*/
+/* =================================
+   INTERACTIVE ELEMENTS
+   Buttons and clickable components
+   ================================= */
 
-/* Primary Buttons */
+/* Primary Action Buttons */
 .btn-primary,
 .btn-signup {
     background-color: var(--secondary-color);
     color: var(--light-text);
+    border: none;
 }
 
 .btn-primary:hover,
@@ -107,7 +118,7 @@ a:hover.nav-link {
     color: var(--light-text);
 }
 
-/* Like Button */
+/* Like Button Styling */
 .btn-like {
     color: #E84610;
     border: none;
@@ -121,7 +132,7 @@ a:hover.nav-link {
     border: none;
 }
 
-/* Hyperlinks */
+/* Link Styling */
 .link,
 .post-link,
 .page-link {
@@ -136,11 +147,28 @@ a:hover.nav-link {
     text-decoration: underline;
 }
 
-/*==================================
-  BLOG POST COMPONENTS
-==================================*/
+/* Global Link Styles */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
 
-/* Post Headers */
+a:hover {
+    color: var(--hover);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* =================================
+   BLOG COMPONENTS
+   Blog post styling elements
+   ================================= */
+
+/* Post Title Styling */
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
@@ -151,11 +179,12 @@ a:hover.nav-link {
     color: lightgray;
 }
 
-/*==================================
-  CARD COMPONENTS
-==================================*/
+/* =================================
+   CARD COMPONENTS
+   Card layout and styling
+   ================================= */
 
-/* Card Base */
+/* Base Card Structure */
 .card {
     border: none;
     background-color: var(--dark-bg);
@@ -167,7 +196,7 @@ a:hover.nav-link {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Card Content */
+/* Card Content Styling */
 .card-body {
     padding: 1rem;
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
@@ -179,7 +208,7 @@ a:hover.nav-link {
     background-color: var(--light-bg);
 }
 
-/* Card Text */
+/* Card Typography */
 .card-title {
     color: var(--light-text);
     font-size: 1.2rem;
@@ -191,12 +220,12 @@ a:hover.nav-link {
     font-size: 1rem;
 }
 
+/* =================================
+   IMAGE HANDLING
+   Image display and effects
+   ================================= */
 
-/*==================================
-  IMAGE HANDLING
-==================================*/
-
-/* Image Aspect Ratio */
+/* Image Ratio Control */
 .aspect-ratio-3-2 {
     position: absolute;
     top: 0;
@@ -206,7 +235,7 @@ a:hover.nav-link {
     object-fit: cover;
 }
 
-/* Image Wrapper */
+/* Image Container */
 .image-container {
     position: relative;
     width: 100%;
@@ -214,7 +243,7 @@ a:hover.nav-link {
     overflow: hidden;
 }
 
-/* Image Hover */
+/* Image Hover Effects */
 .image-container .aspect-ratio-3-2 {
     transition: transform 0.5s ease;
 }
@@ -223,7 +252,7 @@ a:hover.nav-link {
     transform: scale(1.1);
 }
 
-/* Author Tag */
+/* Author Attribution */
 .author {
     position: absolute;
     bottom: -5px;
@@ -235,16 +264,17 @@ a:hover.nav-link {
     font-size: 0.7rem;
 }
 
-/* Icons */
+/* Icon Styling */
 .fa-heart {
     color: var(--secondary-color);
 }
 
-/*==================================
-  MASTHEAD
-==================================*/
+/* =================================
+   MASTHEAD
+   Header section styling
+   ================================= */
 
-/* Main Header */
+/* Main Header Container */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -254,14 +284,14 @@ a:hover.nav-link {
     width: 100%;
 }
 
-/* Header Text */
+/* Header Text Elements */
 .masthead-text {
     background-color: var(--dark-bg);
     color: var(--light-text);
     position: relative;
 }
 
-/* Header Image */
+/* Header Image Container */
 .masthead-image {
     position: relative;
 }
