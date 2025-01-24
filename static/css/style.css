@@ -149,7 +149,7 @@ body {
 
 /* Global Link Styles */
 a {
-    color: var(--secondary-color);
+    color: var(--dark-text);
     text-decoration: none;
 }
 
