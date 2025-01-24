@@ -46,7 +46,7 @@
                             {% comment %} Authenticated User Links {% endcomment %}
                             <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">My Profile</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'blogpost_create' %}">Create New Post</a>
-                            <li class="nav-item"><a class="nav-link" href="#">My Posts</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'my_posts' %}">MyPosts</a></li
                             <li class="nav-item"><a class="nav-link" href="#">Saved for Later</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                             <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Log Out</a></li>

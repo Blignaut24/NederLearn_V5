@@ -20,6 +20,7 @@ urlpatterns = [
     # -------------------------------------------
     # User interaction with blog posts
     path('blogpost/like/<slug:slug>/', views.LikeUnlike.as_view(), name='like_unlike'),
+    path('my-posts/', views.MyBlogPostsView.as_view(), name='my_posts'),
 
     # USER PROFILES
     # -------------------------------------------
