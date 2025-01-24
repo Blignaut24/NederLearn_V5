@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{# =========================================== #}
+{# MAIN CONTAINER                              #}
+{# Main wrapper for profile content            #}
+{# =========================================== #}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12">
+            <div class="card-body mt-5">
+                {# PROFILE HEADER SECTION #}
+                <div class="row align-items-center">
+                    {# Profile Image Container #}
+                    <div class="col-md-6 col-sm-12 text-center">
+                        <img class="rounded-circle profile-img"
+                            src="{{ profile.profile_image.url }}"
+                            alt="Profile Image">
+                    </div>
+
+                    {# USER INFO AND ACTION LINKS #}
+                    <div class="col-md-6 col-sm-12">
+                        {# Username Display #}
+                        <h1 class="account-heading">{{ profile.user.username }}</h1>
+                        
+                        {# Profile Management Links - Only visible to profile owner #}
+                        {% if is_own_profile %}
+                        <div class="profile-links">
+                            <a href="{% url 'profile_edit' %}">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </a>
+                            <a href="{% url 'account_delete' request.user.pk %}">
+                                <i class="fa fa-cog"></i> Manage Account
+                            </a>
+                        </div>
+                        {% endif %}
+
+                        {# User Bio Section #}
+                        <p class="category-label-top mt-4">
+                            <i class="fa fa-pencil-alt"></i> Bio:
+                            {{ profile.bio }}
+                        </p>
+
+                        {# User Location #}
+                        <p class="category-label-top mt-4">
+                            <i class="fa fa-globe"></i> Country:
+                            {{ profile.country }}
+                        </p>
+                    </div>
+                </div>
+
+                {# FAVORITES SECTION #}
+                <div class="table-spacing"></div>
+                <div class="profile-details">
+                    {# Section Header #}
+                    <h3 class="top-categories-heading mb-3">
+                        Favorites Curated by {{ profile.user.username }}
+                    </h3>
+
+                    {# Favorites Table #}
+                    <table class="profile-table top-categories">
+                        {# Movies Row #}
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-film"></i> Top<br>Movies:
+                            </td>
+                            <td>{{ profile.top_movies }}</td>
+                        </tr>
+                        {# Series Row #}
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-tv"></i> Top<br>Series:
+                            </td>
+                            <td>{{ profile.top_series }}</td>
+                        </tr>
+                        {# Music Albums Row #}
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-music"></i> Top<br>Music Albums:
+                            </td>
+                            <td>{{ profile.top_music_albums }}</td>
+                        </tr>
+                        {# Books Row #}
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-book"></i> Top<br>Books:
+                            </td>
+                            <td>{{ profile.top_books }}</td>
+                        </tr>
+                        {# Podcasts Row #}
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-microphone"></i> Top<br>Podcasts:
+                            </td>
+                            <td>{{ profile.top_podcasts }}</td>
+                        </tr>
+                        <tr>
+                            <td class="category-label">
+                                <i class="fa fa-star"></i> Top<br>Miscellaneous:
+                            </td>
+                            <td>{{ profile.top_miscellaneous }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
