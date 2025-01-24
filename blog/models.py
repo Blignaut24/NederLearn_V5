@@ -75,6 +75,11 @@ class Blogpost(models.Model):
         """Returns the blog title as string representation"""
         return self.blog_title
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.blog_title)
+        super(Blogpost, self).save(*args, **kwargs)
+
     def number_of_likes(self):
         """Returns the total number of likes"""
         return self.likes.count()

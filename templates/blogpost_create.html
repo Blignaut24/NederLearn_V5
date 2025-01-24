@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% comment %} Container for blog post creation form {% endcomment %}
+{# =====================================
+   Blog Post Creation Form Template
+   =====================================
+   Purpose: Provides a form interface for users to create new blog posts
+   Features: 
+   - Responsive layout
+   - File upload capability
+   - CSRF protection
+   ===================================== #}
+
+{# Main container with responsive grid #}
 <div class="container">
     <div class="row justify-content-center">
-        {% comment %} Column sizing for responsive layout {% endcomment %}
+        {# Responsive column layout #}
+        {# lg: 4 cols, md: 6 cols, sm: 12 cols #}
         <div class="col-lg-4 col-md-6 col-sm-12">
-            {% comment %} Form header with dynamic username {% endcomment %}
+            {# Form header #}
             <h2 class="account-heading">Create a New Blog Post</h2>
             
-            {% comment %} Blog post creation form {% endcomment %}
-            {% comment %} Includes file upload capability {% endcomment %}
+            {# Post creation form #}
+            {# Note: enctype required for file uploads #}
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Create
                     Post</button>
-            </form>
+            </form>        
         </div>
     </div>
 </div>

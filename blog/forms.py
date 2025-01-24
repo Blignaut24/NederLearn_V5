@@ -1,27 +1,25 @@
 from django import forms
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 from .models import Comment, UserProfile, Blogpost
 import datetime
 
 
 class BlogpostForm(forms.ModelForm):
     """
-    Blog Post Creation/Edit Form
-    ---------------------------
-    Handles the creation and editing of blog posts with customized fields and widgets.
-
-    Fields:
-        - blog_title: Title of the blog post
-        - content: Main blog content (max 2000 chars)
-        - excerpt: Short summary (max 100 chars)
-        - status: Publication status
-        - featured_image: Header image
-        - media_category: Type of media being reviewed
-        - release_year: Year of media release (1800-present)
-        - media_link: URL to referenced media
+    # BlogPost Form
+    # -------------
+    # Handles blog post creation and editing with field validations
+    #
+    # Key Components:
+    #   - Title and content management
+    #   - Media metadata collection
+    #   - URL validation for external links
     """
 
     class Meta:
         model = Blogpost
+        # Core fields for blog post creation/editing
         fields = [
             "blog_title",
             "content",
@@ -33,6 +31,7 @@ class BlogpostForm(forms.ModelForm):
             "media_link",
         ]
 
+        # Widget configurations with input validations
         widgets = {
             "blog_title": forms.TextInput(
                 attrs={"placeholder": "Enter the title of the blog post..."}
@@ -62,27 +61,38 @@ class BlogpostForm(forms.ModelForm):
                 attrs={"placeholder": "http://www.example.com"}
             ),
         }
-        # Remove labels for cleaner UI
+        # Hidden labels for cleaner UI
         labels = {
             "blog_title": "",
             "content": "",
             "excerpt": "",
-            "release_year": "",
-            "media_link": "",
         }
+
+    def clean_media_link(self):
+        """
+        # URL Validation Method
+        # --------------------
+        # Ensures media links are properly formatted and valid
+        # Automatically prepends http:// if protocol is missing
+        """
+        media_link = self.cleaned_data.get("media_link", "")
+        if media_link and not media_link.startswith(("http://", "https://")):
+            media_link = "http://" + media_link
+        # Validate URL format
+        validate = URLValidator()
+        try:
+            validate(media_link)
+        except ValidationError as e:
+            raise forms.ValidationError("Invalid URL")
+        return media_link
 
 
 class CommentForm(forms.ModelForm):
     """
-    Comment Form
-    -----------
-    Handles user comments on blog posts.
-
-    Features:
-        - Single text field for comment body
-        - Character limit: 1500
-        - Responsive textarea (2 rows x 50 columns)
-        - Custom placeholder text
+    # Comment Form
+    # -----------
+    # Simple form for user comments with character limits
+    # Implements responsive design for better UX
     """
 
     class Meta:
@@ -105,22 +115,14 @@ class CommentForm(forms.ModelForm):
 
 class UserProfileForm(forms.ModelForm):
     """
-    User Profile Form
-    ----------------
-    Manages user profile information and content preferences.
-
-    Core Fields:
-        - profile_image: User's avatar
-        - bio: User description
-        - country: User location
-
-    Content Preferences:
-        - top_movies: Favorite films
-        - top_series: Favorite TV shows
-        - top_music_albums: Favorite albums
-        - top_books: Favorite books
-        - top_podcasts: Favorite podcasts
-        - top_miscellaneous: Other media preferences
+    # User Profile Form
+    # ----------------
+    # Manages user preferences and profile data
+    #
+    # Features:
+    #   - Basic profile information
+    #   - Media preferences tracking
+    #   - Content categorization
     """
 
     class Meta:

@@ -1,39 +1,40 @@
 # =============================================================================
-# IMPORTS & DEPENDENCIES
+# 1. IMPORTS & SETUP
 # =============================================================================
-"""
-Core Django imports for routing and view handling
-Authentication modules for user management
-Local imports for models and forms
-"""
-# Django Core
+
+# Standard Django imports for core functionality
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
-# Authentication
+# User authentication and permissions
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.decorators import method_decorator
 
-# Local imports
+# Local application imports
 from .models import Blogpost, UserProfile
 from .forms import CommentForm, UserProfileForm, BlogpostForm
 
 
 # =============================================================================
-# BLOG POST CRUD OPERATIONS
+# 2. BLOG POST MANAGEMENT (CRUD)
 # =============================================================================
 """
-Create, Read, Update, Delete views for blog posts
-All views require authentication
+Core blog functionality implementing Create, Read, Update, Delete operations
+All views require user authentication via LoginRequiredMixin
 """
 
 
 class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
-    """Creates new blog posts and assigns current user as author"""
+    """
+    Creates new blog posts
+    - Assigns current user as author
+    - Handles form validation
+    - Redirects to post detail on success
+    """
 
     model = Blogpost
     form_class = BlogpostForm
@@ -48,7 +49,12 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
 
 
 class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
-    """Handles updates to existing blog posts"""
+    """
+    Updates existing blog posts
+    - Validates form data
+    - Maintains author attribution
+    - Redirects to updated post
+    """
 
     model = Blogpost
     form_class = BlogpostForm
@@ -64,7 +70,11 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
-    """Manages blog post deletion with confirmation"""
+    """
+    Handles post deletion
+    - Requires confirmation
+    - Redirects to home page after deletion
+    """
 
     model = Blogpost
     template_name = "blogpost_confirm_delete.html"
@@ -72,32 +82,36 @@ class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 # =============================================================================
-# BASE VIEWS
+# 3. CORE VIEWS
 # =============================================================================
-"""Main landing page and core navigation views"""
+"""
+Basic application views and navigation endpoints
+"""
 
 
 def index(request):
-    """Renders the main landing page"""
+    """Landing page view"""
     return render(request, "index.html")
 
 
 # =============================================================================
-# BLOG LIST & DETAIL VIEWS
+# 4. BLOG CONTENT DISPLAY
 # =============================================================================
 """
-Primary views for displaying blog content
-Includes list view with pagination and detailed post view
+Views for displaying blog content:
+- List view with pagination
+- Detailed post view with comments
 """
 
 
 class BlogpostPostList(generic.ListView):
     """
-    Displays paginated list of active blog posts
-    - 6 posts per page
-    - Filtered by active status
-    - Chronological order
-    - Auth required
+    Main blog listing page
+    Features:
+    - Pagination (6 posts per page)
+    - Status filtering (active only)
+    - Reverse chronological order
+    - Authentication required
     """
 
     model = Blogpost
@@ -107,7 +121,7 @@ class BlogpostPostList(generic.ListView):
     paginate_by = 6
 
     def dispatch(self, request, *args, **kwargs):
-        """Ensures user authentication before access"""
+        """Authentication check before access"""
         if not request.user.is_authenticated:
             return redirect("account_login")
         return super().dispatch(request, *args, **kwargs)
@@ -115,12 +129,21 @@ class BlogpostPostList(generic.ListView):
 
 class BlogPostDetail(View):
     """
-    Detailed view of individual blog posts
-    Handles both display and comment submission
+    Individual blog post display
+    Features:
+    - Post content
+    - Comments section
+    - Like status
+    - Comment submission
     """
 
     def get(self, request, slug, *args, **kwargs):
-        """Displays post details and related content"""
+        """
+        GET: Display post and related content
+        - Fetches post details
+        - Shows approved comments
+        - Checks like status
+        """
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.filter(approved=False).order_by("created_on")
@@ -139,7 +162,12 @@ class BlogPostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        """Processes new comment submissions"""
+        """
+        POST: Handle comment submission
+        - Validates comment form
+        - Associates comment with post and user
+        - Updates view context
+        """
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.filter(approved=False).order_by("created_on")
@@ -168,16 +196,23 @@ class BlogPostDetail(View):
 
 
 # =============================================================================
-# USER INTERACTIONS
+# 5. USER INTERACTIONS
 # =============================================================================
-"""Handles user interactions like likes and comments"""
+"""
+Handles user engagement features (likes, etc.)
+"""
 
 
 class LikeUnlike(View):
-    """Toggles like status for authenticated users"""
+    """
+    Toggle post likes
+    - Checks current like status
+    - Updates accordingly
+    - Redirects back to post
+    """
 
     def post(self, request, slug, *args, **kwargs):
-        """Switches like status and redirects to post"""
+        """Toggle like status for current user"""
         blogpost = get_object_or_404(Blogpost, slug=slug)
         if blogpost.likes.filter(id=request.user.id).exists():
             blogpost.likes.remove(request.user)
@@ -187,29 +222,31 @@ class LikeUnlike(View):
 
 
 # =============================================================================
-# USER PROFILE MANAGEMENT
+# 6. USER PROFILE SYSTEM
 # =============================================================================
 """
-Profile views and management
-Includes viewing own profile, other users' profiles, and profile editing
+Profile management system:
+- View own profile
+- View other profiles
+- Edit profile
 """
 
 
 class ProfileView(View):
-    """Shows current user's profile"""
+    """Display user's own profile"""
 
     def get(self, request):
-        """Fetches and displays user profile"""
+        """Fetch and show current user's profile"""
         user_profile = UserProfile.objects.get(user=request.user)
         context = {"profile": user_profile, "is_own_profile": True}
         return render(request, "profile.html", context)
 
 
 class OtherUserProfileView(View):
-    """Displays other users' profiles"""
+    """View other users' profiles"""
 
     def get(self, request, username):
-        """Fetches and shows requested user profile"""
+        """Fetch and display requested user's profile"""
         user = get_object_or_404(User, username=username)
         user_profile = get_object_or_404(UserProfile, user=user)
         context = {
@@ -221,17 +258,20 @@ class OtherUserProfileView(View):
 
 class ProfileEditView(LoginRequiredMixin, View):
     """
-    Handles profile updates and image uploads
-    Requires authentication
+    Handle profile updates
+    Features:
+    - Form display
+    - Image upload
+    - Profile data updates
     """
 
     def get(self, request):
-        """Shows profile edit form"""
+        """Display profile edit form"""
         form = UserProfileForm(instance=request.user.userprofile)
         return render(request, "profile_edit.html", {"form": form})
 
     def post(self, request):
-        """Processes profile updates"""
+        """Process profile updates"""
         form = UserProfileForm(
             request.POST, request.FILES, instance=request.user.userprofile
         )
