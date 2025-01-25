@@ -34,6 +34,16 @@
    EDGE CASES
    Special Circumstances 
    ================================= */
+
+/*FIXME: Change color of "label" on Edit Profile page*/
+label {
+    color: var(--dark-text);
+}
+
+#profile_edit_heading{
+    color:var(--dark-text);
+}
+
 #bookmared-posts{
     color: var(--light-text);
 }

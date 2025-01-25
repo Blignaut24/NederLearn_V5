@@ -10,9 +10,9 @@
             <div class="row">
                 {# Loop Through Available Posts #}
                 {% for blogpost in blogposts %}
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     {# Individual Post Card #}
-                    <div class="card mb-4">
+                    <div class="card mb-4 blogpost-card">
                         <div class="card-body">
                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="image-container-link">
@@ -34,10 +34,13 @@
                             </a>
                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="post-link">
-                                <h2 class="card-title mt-2">
-                                    {{ blogpost.blog_title }}</h2>
+                                <h2 class="card-title mt-4">
+                                    {{ blogpost.blog_title|truncatechars:50 }}
+                                </h2>
                             </a>
-                            <p class="card-text">{{ blogpost.excerpt }}</p>
+                            <hr />
+                            <p class="card-text card-excerpt">
+                                {{ blogpost.excerpt|truncatechars:50 }}</p>
                             <hr />
                             <p class="card-text text-muted h6">
                                 {{ blogpost.created_on }} <i
