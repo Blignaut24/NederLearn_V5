@@ -30,14 +30,8 @@
                         <a class="link"
                             href="{{ signup_url }}">{% trans "sign up" %}</a>
                         {% trans "first." %}
-                    
-                </p>
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
+                    </small>
+                <hr>
                 <form class="login mt-4" method="POST"
                     action="{% url 'account_login' %}">
                     {% csrf_token %}

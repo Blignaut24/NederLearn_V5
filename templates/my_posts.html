@@ -29,15 +29,9 @@
                                 class="image-container-link">
                                 <div class="image-container">
                                     {# Conditional Image Display #}
-                                    {% if "placeholder" in blogpost.featured_image.url %}
-                                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                        src="https://raw.githubusercontent.com/Blignaut24/NederLearn_V5/refs/heads/main/static/images/nederlearn_logo.webp"
-                                        alt="Blog Post Image">
-                                    {% else %}
                                     <img class="card-img-top img-fluid aspect-ratio-3-2"
                                         src="{{ blogpost.featured_image.url }}"
-                                        alt="Blog Post Image">
-                                    {% endif %}
+                                        alt="{{ blogpost.blog_title }} Image">
                                 </div>
                             </a>
 
@@ -67,11 +61,7 @@
                     </div>
                 </div>
 
-                {# Grid Row Management - Create new row after every 3 posts #}
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
+            
                 {% endfor %}
             </div>
         </div>
