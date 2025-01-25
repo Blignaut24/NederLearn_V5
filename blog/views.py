@@ -224,7 +224,6 @@ class BlogPostDetail(View):
             comment.blogpost = blogpost
             comment.user = request.user
             comment.save()
-        else:
             comment_form = CommentForm()
 
         return render(
@@ -233,7 +232,7 @@ class BlogPostDetail(View):
             {
                 "blogpost": blogpost,
                 "comments": comments,
-                "commented": True,
+                "commented": comment_form.is_valid(),
                 "liked": liked,
                 "comment_form": comment_form,
             },

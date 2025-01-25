@@ -253,6 +253,11 @@ body {
        border: none;
    }
 
+   .fa-heart {
+    color: var(--secondary-color);
+}
+
+
 /* ==================================
    Link Styling
    ================================== */
@@ -327,7 +332,7 @@ body {
 /* Card Typography */
 .card-title {
     color: var(--light-text);
-    font-size: 1.2rem;
+    font-size: 16px;
     margin-bottom: 0.5rem;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -336,7 +341,7 @@ body {
 
 .card-text {
     color: var(--dark-text);
-    font-size: 1rem;
+    font-size: 14px;
     text-overflow: ellipsis;
 }
 
@@ -405,10 +410,6 @@ body {
     color: var(--light-text-gr);
 }
 
-/* Icon Styles */
-.fa-heart {
-    color: var(--secondary-color);
-}
 
 /* =================================
    MASTHEAD
@@ -434,11 +435,16 @@ body {
     background-color: var(--dark-bg);
     color: var(--light-text);
     position: relative;
+    overflow: hidden;
+    box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
 }
 
 /* Header Image */
 .masthead-image {
     position: relative;
+    overflow: hidden;
 }
 
 .masthead-image .image-container {
@@ -458,7 +464,7 @@ body {
 .post-title {
     margin: 5%;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
 }
 .post-subtitle {
     margin-left: 5%;
@@ -466,7 +472,6 @@ body {
 }
 
 .card-excerpt {
-    font-size: small;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     /* Number of lines to show */
@@ -478,6 +483,15 @@ body {
 .blogpost-card {
     height: 460px;
     overflow: hidden;
+}
+
+/* CRISPY FORMS FIELD TARGETING */
+.form-control {
+    margin-bottom: 15px;
+}
+.form-control[type="file"],
+.form-control[name="bio"] {
+    margin-bottom: 20px;
 }
 
 /* Targeting fields within crispy forms */
@@ -644,6 +658,21 @@ textarea {
     max-width: 100%;
 }
 
+/* Styles for large screens (992px and above) */
+@media (min-width: 992px) {
+    .masthead-image::before {
+        content: '';
+        position: absolute;
+        right: 100%;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: rgba(1, 43, 48);
+        transform: skew(15deg);
+        transform-origin: top right;
+    }
+}
+
 /* Responsive adjustments for medium screens (tablets) */
 @media (max-width: 992px) {
     .masthead .row {
@@ -653,7 +682,6 @@ textarea {
     .masthead-text,
     .masthead-image {
         flex-basis: 100%;
-        /* Each takes full width on smaller screens */
     }
 }
 
@@ -706,7 +734,7 @@ textarea {
 }
 
 .masthead-text h1 {
-    font-size: 1.5em;
+    font-size: 14px;
 }
 .masthead-text .post-subtitle,
 .masthead-text .post-bookmark {
@@ -719,7 +747,7 @@ textarea {
 /* Extra small screen adjustments */
 @media (max-width: 580px) {
     h1 {
-        font-size: 1.2em;
+        font-size: 14px;
     }
     
     .login-logo img {

@@ -35,8 +35,8 @@
                 </div>
 
                 <!-- Image Content -->
-                <div class="col-lg-6 col-md-6 col-sm-12
-                    masthead-image d-flex align-items-center">
+                <div
+                class="col-lg-6 col-md-6 col-sm-12 masthead-image d-flex align-items-center">
                     {% if "placeholder" in blogpost.featured_image.url %}
                     <img class="img-fluid" src="static/images/nederlearn_logo.webp"
                         alt="Placeholder Image - NederLearn Logo">
@@ -113,6 +113,9 @@
             <div class="col card mb-6 mt-3">
                 <div class="card-body">
                     <h3>Post a comment:</h3>
+                    <p class="text-muted small">Your post will be displayed on
+                        the
+                        bottom of the comment section below</p>
                     <form method="post" style="margin-top: 1.3em;">
                         {{ comment_form | crispy }}
                         {% csrf_token %}

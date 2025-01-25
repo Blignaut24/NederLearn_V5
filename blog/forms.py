@@ -63,12 +63,7 @@ class BlogpostForm(forms.ModelForm):
                     "min": 1800,
                     "max": datetime.datetime.now().year,
                     "placeholder": "Format YYYY",
-                }
-            ),
-            "media_link": forms.URLInput(
-                attrs={
-                    "class": "form-control",
-                    "placeholder": "e.g http://www.imdb.com",
+                    "media_link": forms.URLInput(attrs={"class": "form-control"}),
                 }
             ),
         }
@@ -79,23 +74,9 @@ class BlogpostForm(forms.ModelForm):
             "excerpt": "",
         }
 
-    def clean_media_link(self):
-        """
-        # URL Validation Method
-        # --------------------
-        # Ensures media links are properly formatted and valid
-        # Automatically prepends http:// if protocol is missing
-        """
-        media_link = self.cleaned_data.get("media_link", "")
-        if media_link and not media_link.startswith(("http://", "https://")):
-            media_link = "http://" + media_link
-        # Validate URL format
-        validate = URLValidator()
-        try:
-            validate(media_link)
-        except ValidationError as e:
-            raise forms.ValidationError("Invalid URL")
-        return media_link
+    def __init__(self, *args, **kwargs):
+        super(BlogpostForm, self).__init__(*args, **kwargs)
+        self.fields["media_link"].initial = "http://www."
 
 
 class CommentForm(forms.ModelForm):
@@ -151,13 +132,63 @@ class UserProfileForm(forms.ModelForm):
             "top_miscellaneous",
         ]
 
+        labels = {
+            "profile_image": "Upload Profile Image",
+        }
+
     widgets = {
+        "profile_image": forms.ClearableFileInput(
+            attrs={"class": "form-control profile-image-upload"}
+        ),
         "bio": forms.Textarea(
             attrs={
                 "class": "form-control",
                 "rows": 4,
                 "placeholder": "Write something about yourself (max length 350 characters)...",
                 "maxlength": "350",
+                "country": forms.TextInput(
+                    attrs={
+                        "class": "form-control",
+                        "placeholder": "Let us know where you are from",
+                        "maxlength": "20",
+                    }
+                ),
+                "top_movies": forms.TextInput(
+                    attrs={
+                        "placeholder": "Hit us with your absolute favorite movies...",
+                        "maxlength": "200",
+                    }
+                ),
+                "top_series": forms.TextInput(
+                    attrs={
+                        "placeholder": "And series you binge-watched...",
+                        "maxlength": "200",
+                    }
+                ),
+                "top_music_albums": forms.TextInput(
+                    attrs={
+                        "placeholder": "And the albums that make you dance or cry a river...",
+                        "maxlength": "200",
+                    }
+                ),
+                "top_books": forms.TextInput(
+                    attrs={
+                        "placeholder": "Books that you could not let go...",
+                        "maxlength": "200",
+                    }
+                ),
+                "top_podcasts": forms.TextInput(
+                    attrs={
+                        "placeholder": "And not the least, awesome podcasts...",
+                        "maxlength": "200",
+                    }
+                ),
+                "top_miscellaneous": forms.TextInput(
+                    attrs={
+                        "placeholder": "Whatever deserves mentioning like art, festivals, museums etc...",
+                        "maxlength": "200",
+                    }
+                ),
             }
         ),
     }
