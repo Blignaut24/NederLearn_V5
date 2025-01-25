@@ -524,7 +524,7 @@ textarea {
     margin-left: 20px;
 }
 
-/* Branding text */
+/* Branding text 
 .login-nederlearn {
     font-family: 'Russo One', sans-serif;
     font-size: 60px;
@@ -532,6 +532,7 @@ textarea {
     color: var(--accent-color);
     text-shadow: 5px 2px 2px rgba(0, 0, 0, 0.71);
 }
+*/
 
 /*=================================
   RESPONSIVE DESIGN
