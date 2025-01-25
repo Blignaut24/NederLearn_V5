@@ -2,33 +2,49 @@
 
 {% block content %}
 
+{# 
+    Main Container Block
+    Purpose: Houses all blog content and navigation elements
+    Structure: Bootstrap container with responsive grid system
+#}
 <div class="container">
     <h1 class="my-4 text-center">Latest Blog Posts</h1>
     <div class="row">
-        <!-- Category Selection menu -->
+        {# 
+            Category Navigation Section
+            Purpose: Allows users to filter blog posts by category
+            Components: Clickable category buttons with active state handling
+        #}
         <div class="col-12 mt-3">
             <div class="row">
-                <div class="my-4 text-center">
+                <div id="category-buttons" class="my-4 text-center">
                     <a href="?category=Movies/Series"
-                        class="btn btn-secondary">Movies/Series</a>
+                        class="btn ctg btn-secondary">Movies/Series</a>
                     <a href="?category=Music Albums"
-                        class="btn btn-secondary">Music Albums</a>
+                    class="btn ctg btn-secondary">Music</a>
                     <a href="?category=Books"
-                        class="btn btn-secondary">Books</a>
+                        class="btn ctg btn-secondary">Books</a>
                     <a href="?category=Podcasts"
-                        class="btn btn-secondary">Podcasts</a>
+                        class="btn ctg btn-secondary">Podcasts</a>
                     <a href="?category=Miscellaneous"
-                        class="btn btn-secondary">Misc</a>
+                        class="btn ctg btn-secondary">Misc</a>
                 </div>
 
-
-                <!-- Blog Entries Column -->
+                {# 
+                    Blog Posts Grid
+                    Purpose: Displays blog posts in a responsive grid layout
+                    Features: 
+                    - Responsive columns (4 cols on lg, 3 on md, 1 on sm)
+                    - Image handling with fallback
+                    - Post metadata display
+                #}
                 <div class="col-12 mt-3">
                     <div class="row">
                         {% for blogpost in blogposts %}
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="card mb-4 blogpost-card">
                                 <div class="card-body">
+                                    {# Featured Image Container #}
                                     <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                         class="image-container-link">
                                         <div class="image-container">
@@ -41,23 +57,27 @@
                                                 src="{{ blogpost.featured_image.url }}"
                                                 alt="Blog Post Image">
                                             {% endif %}
+                                            {# Author Attribution Overlay #}
                                             <div class="image-flash">
                                                 <p class="author">Author:
                                                     {{ blogpost.author }}</p>
                                             </div>
                                         </div>
                                     </a>
+                                    
+                                    {# Post Title and Content #}
                                     <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                         class="post-link">
                                         <h2 class="card-title mt-4">
                                             {{ blogpost.blog_title|truncatechars:50 }}
                                         </h2>
                                     </a>
-                                    <hr />
+                                    <hr>
                                     <p class="card-text card-excerpt">
                                         {{ blogpost.excerpt|truncatechars:50 }}
                                     </p>
-                                    <hr />
+                                    <hr>
+                                    {# Post Metadata #}
                                     <p class="card-text text-muted h6">
                                         {{ blogpost.created_on }} <i
                                             class="far fa-heart"></i>
@@ -66,17 +86,21 @@
                                 </div>
                             </div>
                         </div>
+                        {# Grid Row Management #}
                         {% if forloop.counter|divisibleby:3 %}
                     </div>
                     <div class="row">
                         {% endif %}
                         {% endfor %}
-
                     </div>
                 </div>
             </div>
 
-            <!-- Pagination code from code Institute django walkthrough project -->
+            {# 
+                Pagination Controls
+                Purpose: Enables navigation between pages of blog posts
+                Features: Previous/Next navigation with dynamic visibility
+            #}
             {% if is_paginated %}
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
@@ -87,7 +111,6 @@
                     {% if page_obj.has_next %}
                     <li><a href="?page={{ page_obj.next_page_number }}"
                             class="page-link"> NEXT &raquo;</a></li>
-
                     {% endif %}
                 </ul>
             </nav>
@@ -97,3 +120,42 @@
 </div>
 
 {%endblock%}
+
+{# 
+    Category Button State Management
+    Purpose: Handles active state of category filter buttons
+    Features:
+    - Updates button states on page load
+    - Maintains active state through page navigation
+#}
+{% block scripts %}
+<script>
+    // Initialize category button states
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all category filter buttons
+        let categoryButtons = document.querySelectorAll('.btn.ctg');
+        // Get current URL parameters for category filtering
+        let currentSearchParams = new URLSearchParams(window.location
+            .search);
+        // Set active state for matching category button
+        categoryButtons.forEach(function (button) {
+            let buttonCategory = button.getAttribute('href')
+                .split('=')[1];
+            if (currentSearchParams.get('category') ===
+                decodeURIComponent(buttonCategory)) {
+                button.classList.add('active');
+            }
+        });
+    });
+    // Handle button state updatesve 'active' class from other buttons
+    document.querySelectorAll('.btn.ctg').forEach(function (button) {
+        button.addEventListener('click', function () {
+            document.querySelectorAll('.btn.ctg').forEach(
+                function (otherButton) {
+                    otherButton.classList.remove('active');
+                });
+            button.classList.add('active');
+        });
+    });
+</script>
+{% endblock scripts %}

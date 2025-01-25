@@ -18,6 +18,7 @@
     --dark-bg: #011627;              /* Dark mode background */
     --black-bg: #000000;           /* Base black background */
     --light-bg: #f8fafa;           /* Light mode background */
+    --dark-green: #226c79;         /*Dark green*/
 
     /* Feedback Colors 
        User interaction states */
@@ -156,6 +157,11 @@ body {
        font-weight: bold;
        transition: background-color 0.3s, transform 0.1s;
    }
+
+   .btn.ctg.active {
+    background-color: var(--dark-green);
+    color: var(--light-text-gr);
+}
    
    /* Danger Button
       Styling for destructive actions */
