@@ -292,6 +292,13 @@ body {
        color: var(--hover);           /* Uses theme hover color */
        text-decoration: underline;    /* Adds underline on hover */
    }
+
+   .custom-page-number {
+    background: none;
+    color: var(--accent-color);
+    padding: 5px;
+    margin: 5px;
+}
    
    /* Global link styles - applies to all <a> elements
       Provides default styling for any links not covered by specific classes */
