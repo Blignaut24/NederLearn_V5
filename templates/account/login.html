@@ -22,14 +22,16 @@
         <div class="col card mb-4">
             <div class="card-body">
                 <h1 class="text-center login-nederlearn mb-2 d-none d-md-block">
-                    {% trans "Welcome to NederLearn!" %}
+                    {% trans "Welcome to NederLearn!" %} </h1>
+                    <p id="login-instructions">
                     <br>
-                    <small>
+                    
                         {% trans "Not a member yet? Well butter my biscuit and call me a lonely learner! To read posts and interact with our wild and wonderful community," %}
                         <a class="link"
                             href="{{ signup_url }}">{% trans "sign up" %}</a>
                         {% trans "first." %}
-                    </small>
+                    
+                </p>
                 </p>
                 <div class="row">
                     <div class="col">

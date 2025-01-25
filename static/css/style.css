@@ -30,6 +30,26 @@
     --hover: #525199;              /* Hover state */
 }
 
+#login-instructions{
+    
+}
+
+h4.text-center.medium{
+color: var(--dark-text);
+}
+
+label{
+    color: var(--light-text);
+}
+
+h2 {
+    color:var(--light-text);
+}
+
+input {
+    color:var(--light-text);
+}
+
 /* =================================
    BASE LAYOUT
    Core page structure
@@ -409,6 +429,7 @@ body {
 }
 .post-title {
     margin: 5%;
+    text-align: center;
 }
 .post-subtitle {
     margin-left: 5%;
