@@ -527,7 +527,7 @@ textarea {
 }
 
 /* Branding text */
-.login-culture-club {
+.login-nederlearn {
     font-family: 'Russo One', sans-serif;
     font-size: 60px;
     font-weight: 700;
@@ -593,14 +593,16 @@ textarea {
         margin: -22px;
     }
     
-    .login-culture-club {
+    .login-nederlearn {
         margin-top: 2px;
         font-size: 24px;
         margin-bottom: 32px !important;
     }
     
     .card-login {
-        margin: -18px !important;
+        margin-top: 6px !important;
+        margin-left: -18px !important;
+        margin-right: -18px !important;
         padding: 8px;
     }
 }
