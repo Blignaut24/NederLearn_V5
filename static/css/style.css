@@ -690,7 +690,7 @@ textarea {
 }
 
 .card-body {
-    padding: 2px;
+    padding: 16px;
 }
 .top-categories td:first-child {
     text-align: left;
@@ -755,6 +755,10 @@ textarea {
     }
 }
 
+    .card-body {
+        padding: 12px;
+    }
+
 .blogpost-card {
     height: 508px;
 }
@@ -792,5 +796,9 @@ textarea {
 @media (max-width: 400px) {
     .blogpost-card {
         height: 420px;
+    }
+
+    .card-body {
+        padding: 8px;
     }
 }

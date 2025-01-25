@@ -2,19 +2,12 @@
 
 {% block content %}
 
-{# 
-    Main Container Block
-    Purpose: Houses all blog content and navigation elements
-    Structure: Bootstrap container with responsive grid system
-#}
+{# Main Container Block #}
 <div class="container">
     <h1 class="my-4 text-center">Latest Posts</h1>
     <div class="row">
-        {# 
-            Category Navigation Section
-            Purpose: Allows users to filter blog posts by category
-            Components: Clickable category buttons with active state handling
-        #}
+        {# Category Navigation Section #}
+        {# Purpose: Allows users to filter blog posts by category #}
         <div class="col-12 mt-3">
             <div class="row">
                 <div id="category-buttons" class="my-4 text-center">
@@ -30,14 +23,7 @@
                         class="btn ctg btn-secondary" m-2>Misc</a>
                 </div>
 
-                {# 
-                    Blog Posts Grid
-                    Purpose: Displays blog posts in a responsive grid layout
-                    Features: 
-                    - Responsive columns (4 cols on lg, 3 on md, 1 on sm)
-                    - Image handling with fallback
-                    - Post metadata display
-                #}
+                {# Blog Posts Grid #}
                 <div class="col-12 mt-3">
                     <div class="row">
                         {% for blogpost in blogposts %}
@@ -96,11 +82,8 @@
                 </div>
             </div>
 
-            {# 
-                Pagination Controls
-                Purpose: Enables navigation between pages of blog posts
-                Features: Previous/Next navigation with dynamic visibility
-            #}
+            {# Pagination Controls #}
+            {# Purpose: Enables navigation between pages of blog posts #}
             {% if is_paginated %}
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
@@ -121,13 +104,7 @@
 
 {%endblock%}
 
-{# 
-    Category Button State Management
-    Purpose: Handles active state of category filter buttons
-    Features:
-    - Updates button states on page load
-    - Maintains active state through page navigation
-#}
+{# Category Button State Management #}
 {% block scripts %}
 <script>
     // Initialize category button states
