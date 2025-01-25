@@ -6,7 +6,7 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html class="h-100">
+<html class="h-100" lang="en">
     <head>
         {% comment %} Meta Information {% endcomment %}
         <title>NederLearn</title>
@@ -29,10 +29,13 @@
 
     <body class="d-flex flex-column h-100">
         {% comment %} Navigation Bar {% endcomment %}
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label=" Main
+        navigation">
             <div class="container-fluid mx-3">
                 {% comment %} Brand Logo {% endcomment %}
-                <a class="navbar-logo me-2" href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}">NederLearn</a>
+                <a class="navbar-logo me-2" 
+                href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}"
+                aria-label="NederLearn Home">NederLand Community</a>
 
                 {% comment %} Mobile Menu Toggle {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,15 +44,20 @@
 
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item me-2"><a class="nav-link"
-                                href="{% url 'about_us' %}"><i
-                                    class="fas fa-info-circle"></i> About Us</a>
+                         <!-- About Us Link -->
+                    <li class="nav-item me-2">
+                        <a class="nav-link" href="{% url 'about_us' %}"
+                            aria-label="About Us">
+                            <i class="fas fa-info-circle"></i> About Us
+                        </a>
                         </li>
                         {% if not user.is_authenticated %}
-                        <li class="nav-item me-2"><a class="nav-link"
-                                href="{% url 'account_signup' %}"><i
-                                    class="fas fa-user-friends"></i> Join the
-                                Club</a>
+                        <li class="nav-item me-2">
+                            <a class="nav-link" href="{% url 'account_signup' %}"
+                                aria-label="Join the Club">
+                                <i class="fas fa-user-friends"></i> Join
+                                the Club
+                            </a>
                         </li>
                         {% endif %}
                     </ul>
@@ -57,41 +65,49 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item me-2"><a class="nav-link"
                                 href="{% url 'blogpost_create' %}">
-                                <i class="fas fa-plus"></i> Create New
-                                Post</a></li>
+                                <i class="fas fa-plus"
+                                aria-label="Create New Post"></i>
+                                Create New Post</a></li>
                         <li class="nav-item me-2"><a class="nav-link"
                                 href="{% url 'my_posts' %}"><i
-                                    class="fas fa-file-alt"></i> My Posts</a></li>
+                                class="fas fa-file-alt"
+                                aria-label="My Posts"></i> My
+                            Posts</a></li>
                          <li class="nav-item me-2"><a class="nav-link"
                             href="{% url 'bookmarked' %}"><i
-                                class="fas fa-bookmark"></i> Saved for
-                            Later</a></li>
+                            class="fas fa-bookmark"
+                            aria-label="Bookmarked"></i>
+                        Bookmarked</a></li>
                         <!-- Dropdown for User Profile -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#"
                                 id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                data-bs-toggle="dropdown" aria-expanded="false"
+                                aria-label="Dropdown User Menu">
                                 <i class="fas fa-user-circle fa-lg fa-2x"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item"
                                         href="{% url 'profile' %}"><i
-                                            class="fas fa-user-circle"></i> My
-                                        Profile</a>
+                                        class="fas fa-user-circle"
+                                        aria-label="My Profile"></i>
+                                        My Profile</a>
                                 </li>
                                 <li><a class="dropdown-item"
                                         href="{% url 'profile_edit' %}"><i
-                                            class="fas fa-edit"></i> Edit
-                                        Profile</a></li>
+                                        class="fas fa-edit"
+                                        aria-label="Edit Profile"></i>
+                                        Edit Profile</a></li>
                                 <li><a class="dropdown-item"
                                         href="{% url 'account_delete' request.user.pk %}"><i
-                                                class="fas fa-cog"></i> Manage
-                                            Account</a></li>
+                                        class="fas fa-cog"
+                                        aria-label="Manage Account"></i>
+                                        Manage Account</a></li>
                                 <li><a class="dropdown-item"
                                         href="{% url 'account_logout' %}"><i
-                                            class="fas fa-sign-out-alt"></i> Log
-                                        Out</a></li>
+                                        class="fas fa-sign-out-alt"
+                                        aria-label="Log out"></i>Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -105,28 +121,32 @@
                 <div class="col-md-8 offset-md-2">
                     {% for message in messages %}
                     <div class="alert {{ message.tags }} alert-dismissible fade show"
-                        id="msg" role="alert">
+                    id="msg" role="alert" aria-label="Site Message">
+                    <!-- Message Content -->
                         {{ message | safe }}
                         <button type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close"></button>
+                            data-bs-dismiss="alert"
+                            aria-label="Close Alert Message"></button>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </div>
     
-        <main class="flex-shrink-0 container my-4">
+    <!-- Main Content Section -->
+    <main class="flex-shrink-0 container my-4" role="main">
             {% block content %}
-            <!-- Content Goes here -->
+            <!-- Placeholder for Page Specific Content -->
             {% endblock content %}
         </main>
     
-        <!-- Footer -->
-        <footer class="footer mt-auto py-3 dark-bg">
+        <!-- Footer Section -->
+        <footer class="footer mt-auto py-3 dark-bg" aria-label="Footer">
             <div class="container text-center">
                 <p class="m-0">© 2025 NederLearn</p>
             </div>
         </footer>
+        <!-- JavaScript for Message Dismissal -->
         <script>
             setTimeout(function () {
                 let messages = document.getElementById('msg');
