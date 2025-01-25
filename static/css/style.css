@@ -102,135 +102,154 @@ body {
 
 /* =================================
    INTERACTIVE ELEMENTS
-   Buttons and clickable items
+   Defines styles for buttons and clickable components
    ================================= */
 
-/* Primary Buttons */
-.btn-primary,
-.btn-secondary,
-.btn-signup {
-    background-color: var(--secondary-color);
-    color: var(--light-text);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.1s;
-}
+/* Primary & Secondary Buttons
+   Basic styling for main action buttons */
+   .btn-primary,
+   .btn-secondary,
+   .btn-signup {
+       background-color: var(--secondary-color);
+       color: var(--light-text);
+       border: none;
+       padding: 10px 20px;
+       border-radius: 4px;
+       text-transform: uppercase;
+       font-weight: bold;
+       transition: background-color 0.3s, transform 0.1s;
+   }
+   
+   /* Danger Button
+      Styling for destructive actions */
+   .btn-danger {
+       background-color: var(--warning);
+       color: var(--light-text);
+       border: none;
+       padding: 10px 20px;
+       border-radius: 4px;
+       text-transform: uppercase;
+       font-weight: bold;
+       transition: background-color 0.3s;
+   }
+   
+   /* Hover States
+      Visual feedback for user interaction */
+   .btn-primary:hover,
+   .btn-signup:hover,
+   .btn-secondary:hover,
+   .btn-danger:hover {
+       background-color: var(--hover);
+       color: var(--light-text);
+       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   }
+   
+   /* Active States
+      Visual feedback during click/tap */
+   .btn-primary:active,
+   .btn-signup:active,
+   .btn-secondary:active,
+   .btn-danger:active {
+       background-color: var(--secondary-color);
+       color: var(--light-text-gr);
+       transform: scale(0.95);
+       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+   }
+   
+   /* Focus States
+      Accessibility and keyboard navigation */
+   .btn-primary:focus,
+   .btn-signup:focus,
+   .btn-secondary:focus,
+   .btn-danger:focus {
+       background-color: var(--accent-color);
+       color: var(--light-text-gr);
+       outline: none;
+       box-shadow: 0 0 0 2px var(--bg);
+   }
+   
+   /* Secondary Button Variants
+      Alternative styling for secondary actions */
+   .btn-secondary {
+       background-color: var(--black-bg);
+       color: var(--light-text);
+   }
+   .btn-secondary:hover {
+       background-color: var(--hover);
+   }
+   .btn-secondary:active {
+       background-color: var(--success);
+       color: var(--light-text);
+   }
+   
+   /* Danger Button Variants
+      Styling for destructive actions */
+   .btn-danger {
+       background-color: var(--warning);
+       color: var(--light-text-gr);
+   }
+   .btn-danger:hover {
+       background-color: var(--hover);
+   }
+   .btn-danger:active {
+       background-color: var(--error);
+       color: var(--dark-text);
+   }
+   
+   /* Like Button
+      Special styling for social interaction */
+   .btn-like {
+       border: none;
+       background: transparent;
+   }
+   
+   .btn-like:hover,
+   .btn-like:active {
+       color: var(--accent-color);
+       background: transparent;
+       border: none;
+   }
 
-.btn-danger{
-    background-color: var(--warning);
-    color: var(--light-text);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0
-}
+/* ==================================
+   Link Styling
+   ================================== */
 
-/* Button States */
-.btn-primary:hover,
-.btn-signup:hover,
-.btn-secondary:hover,
-.btn-danger:hover {
-    background-color: var(--hover);
-    color: var(--light-text);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Active Button States */
-.btn-primary:active,
-.btn-signup:active,
-.btn-secondary:active,
-.btn-danger:active {
-    background-color: var(--secondary-color);
-    color: var(--light-text-gr);
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Focus States */
-.btn-primary:focus,
-.btn-signup:focus,
-.btn-secondary:focus,
-.btn-danger:focus {
-    background-color: var(--accent-color);
-    color: var(--light-text-gr);
-    outline: none;
-    box-shadow: 0 0 0 2px var(--bg);
-}
-
-/* Specific Colors for .btn-secondary */
-.btn-secondary {
-    background-color: var(--black-bg);
-    color: var(--light-text);
-}
-.btn-secondary:hover {
-    background-color: var(--hover);
-}
-.btn-secondary:active {
-    background-color: var(--success);
-    color: var(--light-text);
-}
-/* Specific Colors for .btn-danger */
-.btn-danger {
-    background-color: var(--warning);
-    color: var(--light-text-gr);
-}
-.btn-danger:hover {
-    background-color: var(--hover);
-}
-
-.btn-danger:active {
-    background-color: var(--error);
-    color: var(--dark-text);
-}
-
-/* Like Button */
-.btn-like {
-    border: none;
-    background: transparent;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: var(--accent-color);
-    background: transparent;
-    border: none;
-}
-
-/* Link Styling */
-.link,
-.post-link,
-.page-link {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-.link:hover,
-.post-link:hover,
-.page-link:hover {
-    color: var(--hover);
-    text-decoration: underline;
-}
-
-/* Global Links */
-a {
-    color: var(--dark-text);
-    text-decoration: none;
-}
-
-a:hover {
-    color: var(--hover);
-    text-decoration: underline;
-}
-
-a:active {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
+/* Core link styles - defines base appearance for all link types
+   Uses CSS custom properties for maintainable theming */
+   .link,
+   .post-link,
+   .page-link {
+       color: var(--secondary-color);  /* Uses theme color variable */
+       text-decoration: none;          /* Removes default underline */
+   }
+   
+   /* Hover states - provides visual feedback on interaction
+      Maintains consistency across different link types */
+   .link:hover,
+   .post-link:hover,
+   .page-link:hover {
+       color: var(--hover);           /* Uses theme hover color */
+       text-decoration: underline;    /* Adds underline on hover */
+   }
+   
+   /* Global link styles - applies to all <a> elements
+      Provides default styling for any links not covered by specific classes */
+   a {
+       color: var(--dark-text);       /* Default link color */
+       text-decoration: none;         /* Removes default underline */
+   }
+   
+   /* Global hover and active states
+      Enhances user interaction feedback */
+   a:hover {
+       color: var(--hover);           /* Changes color on hover */
+       text-decoration: underline;    /* Adds underline on hover */
+   }
+   
+   a:active {
+       color: var(--accent-color);    /* Different color when clicked */
+       text-decoration: underline;    /* Maintains underline when active */
+   }
 
 /* =================================
    BLOG LAYOUT
@@ -364,7 +383,7 @@ a:active {
 .masthead-image {
     position: relative;
 }
-123
+
 /* Targeting fields within crispy forms */
 .form-control,
 select,
@@ -385,20 +404,29 @@ textarea {
     padding: 20px;
 }
 
-/* Profile Table */
+/*=================================
+  PROFILE TABLE STYLES
+  Core table styling for profile display
+==================================*/
+
+/* Base table structure */
 .profile-table {
     width: 100%;
     border-collapse: collapse;
 }
 
+/* Cell spacing and borders */
 .profile-table td {
     padding: 16px;
     border-bottom: 1px solid #dfc7c7;
 }
 
+/*=================================
+  CATEGORY STYLING
+  Label and header formatting
+==================================*/
 
-
-/* Category Labels */
+/* Top category labels - primary emphasis */
 .category-label-top,
 .category-label-top i {
     color: var(--accent-color);
@@ -411,6 +439,7 @@ textarea {
     line-height: 1.5;
 }
 
+/* Standard category labels - secondary emphasis */
 .category-label {
     font-weight: bolder;
     text-align: right;
@@ -423,24 +452,29 @@ textarea {
     color: var(--accent-color);
 }
 
-/* Category Headers */
+/* Category header styling */
 .top-categories-heading {
     color: var(--secondary-color);
     text-align: center;
     font-weight: bolder;
 }
 
-/* Table Spacing */
+/* Vertical spacing between sections */
 .table-spacing {
     height: 40px;
 }
 
-/* Category Alignment */
+/* Category alignment rules */
 .top-categories td:first-child {
     text-align: right;
 }
 
-/* Bio Section */
+/*=================================
+  BIOGRAPHY SECTION
+  Text styling for user bio
+==================================*/
+
+/* Bio text appearance */
 .bio-text {
     color: var(--light-text-gr);
     font-weight: 100;
@@ -448,11 +482,17 @@ textarea {
     width: 100%;
 }
 
+/* Minimum height for bio section */
 .bio-height {
     min-height: 50px;
 }
 
-/* Profile Image */
+/*=================================
+  PROFILE IMAGE
+  Image container and sizing rules
+==================================*/
+
+/* Profile image constraints */
 .profile-img {
     width: 100%;
     max-width: 230px;
@@ -461,13 +501,106 @@ textarea {
     object-fit: cover;
 }
 
-/* =================================
-   RESPONSIVE DESIGN
-   Mobile adaptations
-   ================================= */
+/*=================================
+  LOGIN PAGE LAYOUT
+  Container and component positioning
+==================================*/
 
+/* Main container setup */
+.login-page-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Login form elements */
+.h2-login {
+    margin: 0px;
+}
+
+.card-login {
+    padding: 14px;
+    margin-left: 20px;
+}
+
+/* Branding text */
+.login-culture-club {
+    font-family: 'Russo One', sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 5px 2px 2px rgba(0, 0, 0, 0.71);
+}
+
+/*=================================
+  RESPONSIVE DESIGN
+  Media queries for different screens
+==================================*/
+
+/* Desktop/large screen styles */
+.login-logo img {
+    height: 600px;
+    margin-top: -125px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+/* Tablet/medium screen adaptations */
+@media (max-width: 1024px) {
+    .login-page-container {
+        flex-direction: column;
+        min-height: auto;
+        padding: 10px 10px;
+    }
+    
+    .login-logo img {
+        height: auto;
+        max-height: 40vh;
+        margin-top: 0;
+    }
+}
+
+/* Mobile/small screen adaptations */
 @media (max-width: 767px) {
     .profile-img {
         margin-bottom: 20px;
+    }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.2em;
+    }
+    
+    .login-logo img {
+        max-height: 30vh;
+    }
+}
+
+/* Mobile-first optimizations */
+@media (max-width: 480px) {
+    .login-logo img {
+        max-height: 27vh;
+        margin-top: -32px;
+    }
+    
+    .h2-login {
+        padding: 7px;
+        margin: -22px;
+    }
+    
+    .login-culture-club {
+        margin-top: 2px;
+        font-size: 24px;
+        margin-bottom: 32px !important;
+    }
+    
+    .card-login {
+        margin: -18px !important;
+        padding: 8px;
     }
 }

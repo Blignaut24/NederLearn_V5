@@ -1,56 +1,47 @@
 {% extends "base.html" %}
-{% load i18n %}
-{% load account socialaccount %}
-{% load crispy_forms_tags %}
+{% load i18n crispy_forms_tags %}
+{% load static %}
 
-{# Page Title #}
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
+
 {% block content %}
-{# Main Container #}
-<div class="container col-md-8 col-sm-12">
-    <div class="masthead">
-        <div class="container card-body">
-            <div class="row g-0">
-                <div class="col-md-12 masthead-text">
-                    <h1 class="post-title">{% trans "Log In" %}</h1>
+
+<div
+    class="login-page-container d-flex align-items-center justify-content-center">
+
+
+    <!-- Login Form Container -->
+    <div class="login-form-container col-lg-4 col-md-10 col-sm-12">
+        <h1 class="text-center login-nederlearn mb-3">
+            {% trans "NederLearn" %}</h1>
+        <div class="card-body card-login">
+            <h2 class="text-center h2-login mt-2">{% trans "log in" %}</h2>
+            <br>
+            <small>
+                {% trans "Not a member yet? Well butter my biscuit and call me a lonely learner! To read posts and interact with our wild and wonderful community," %}
+                <a class="link" href="{{ signup_url }}">
+                    {% trans "sign up" %}
+                </a>
+                {% trans "first." %}
+            </small>
+            </p>
+            <hr>
+            <form class="login mt-4" method="POST"
+                action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}"
+                    value="{{ redirect_field_value }}" />
+                {% endif %}
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary"
+                        type="submit">{% trans "Log In" %}</button>
                 </div>
-            </div>
-        </div>
-    </div>
-    {# Login Form Section #}
-    <div class="row">
-        <div class="col card mb-4">
-            <div class="card-body">
-                <p class="text-center px-4">
-                    {% trans "Welcome to Culture Club!" %}
-                    <br>
-                    <small>
-                        {% trans "Not a member yet? Well butter my biscuit and call me a lonely learner! To read posts and interact with our wild and wonderful community," %}
-                        <a class="link"
-                            href="{{ signup_url }}">{% trans "sign up" %}</a>
-                        {% trans "first." %}
-                    </small>
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
-                <form class="login mt-4" method="POST"
-                    action="{% url 'account_login' %}">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}"
-                        value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <div class="text-center mt-4">
-                        <button class="btn btn-primary btn-lg"
-                            type="submit">{% trans "Log In" %}</button>
-                    </div>
-                </form>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+</div>
+
 {% endblock %}
