@@ -44,71 +44,63 @@
                                     <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                         class="image-container-link">
                                         <div class="image-container">
-                                            {% if "placeholder" in blogpost.featured_image.url %}
-                                            <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                                src="static/images/nederlearn_logo.webp"
-                                                alt="Blog Post Image">
-                                            {% else %}
+                                            
                                             <img class="card-img-top img-fluid aspect-ratio-3-2"
                                                 src="{{ blogpost.featured_image.url }}"
-                                                alt="Blog Post Image">
-                                            {% endif %}
-                                            {# Author Attribution Overlay #}
-                                            <div class="image-flash">
-                                                <p class="author">Author:
-                                                    {{ blogpost.author }}</p>
-                                            </div>
+                                                alt="{{ blogpost.blog_title }} Image">
                                         </div>
-                                    </a>
+                                        <div class="image-flash">
+                                            <p class="author">Author:
+                                                {{ blogpost.author }}</p>
+                                        </div>
                                     
-                                    {# Post Title and Content #}
-                                    <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                        class="post-link">
-                                        <h2 class="card-title mt-4">
-                                            {{ blogpost.blog_title|truncatechars:50 }}
-                                        </h2>
-                                    </a>
-                                    <hr>
-                                    <p class="card-text card-excerpt">
-                                        {{ blogpost.excerpt|truncatechars:50 }}
-                                    </p>
-                                    <hr>
-                                    {# Post Metadata #}
-                                    <p class="card-text text-muted h6">
-                                        {{ blogpost.created_on }} <i
-                                            class="far fa-heart"></i>
-                                        {{ blogpost.number_of_likes }}
-                                    </p>
                                 </div>
+                            </a>
+                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
+                                class="post-link">
+                                <h2 class="card-title mt-4">
+                                    {{ blogpost.blog_title|truncatechars:50 }}
+                                </h2>
+                            </a>
+                            <hr />
+                            <p class="card-text card-excerpt">
+                                {{ blogpost.excerpt|truncatechars:50 }}
+                            </p>
+                            <hr />
+                            <p class="card-text text-muted h6">
+                                {{ blogpost.created_on }} <i
+                                    class="far fa-heart"></i>
+                                {{ blogpost.number_of_likes }}
+                            </p>
                             </div>
                         </div>
-                        {% endfor %}
+                        
                     </div>
+                    {% endfor %}
                 </div>
             </div>
 
-            {# Pagination Controls #}
-            {# Purpose: Enables navigation between pages of blog posts #}
-            {% if is_paginated %}
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}"
-                            class="btn-secondary">&laquo; PREV</a></li>
-                    {% endif %}
+            
 
-                    <!-- Display Current Page Number and Total Pages -->
-                    <li class="page-item disabled"><a
-                        class="custom-page-number">
-                        {{ page_obj.number }} of
-                        {{ page_obj.paginator.num_pages }}</a></li>
-                    {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}"
-                        class="btn-secondary">NEXT &raquo;</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-            {% endif %}
+             <!-- Pagination code Inspired by Code Institute django walkthrough project -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}"
+                        class="btn-secondary">&laquo; PREV</a></li>
+                {% endif %}
+              <!-- Display Current Page Number and Total Pages -->
+              <li class="page-item disabled"><a class="custom-page-number">
+                {{ page_obj.number }} of
+                {{ page_obj.paginator.num_pages }}</a></li>
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}"
+                class="btn-secondary">NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
         </div>
     </div>
 </div>
