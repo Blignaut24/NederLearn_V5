@@ -35,7 +35,7 @@
                 {% comment %} Brand Logo {% endcomment %}
                 <a class="navbar-logo me-2" 
                 href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}"
-                aria-label="NederLearn Home">NederLand Community</a>
+                aria-label="NederLearn Home">NederLand</a>
 
                 {% comment %} Mobile Menu Toggle {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,20 +115,24 @@
                 </div>
             </div>
         </nav>
-    
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissible fade show"
-                    id="msg" role="alert" aria-label="Site Message">
-                    <!-- Message Content -->
-                        {{ message | safe }}
-                        <button type="button" class="btn-close"
-                            data-bs-dismiss="alert"
-                            aria-label="Close Alert Message"></button>
+        <div class="alert-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <!-- Loop through Django Messages -->
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show message-alert"
+                            role="alert" aria-label="Site Message">
+                            <!-- Message Content -->
+                            {{ message | safe }}
+                            <!-- Dismiss Button for Alert -->
+                            <button type="button" class="btn-close"
+                                data-bs-dismiss="alert"
+                                aria-label="Close Alert Message"></button>
+        
                     </div>
                     {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,9 +153,11 @@
         <!-- JavaScript for Message Dismissal -->
         <script>
             setTimeout(function () {
-                let messages = document.getElementById('msg');
-                let alert = new bootstrap.Alert(messages);
-                alert.close();
+                let messages = document.querySelectorAll('.message-alert');
+                messages.forEach(function (message) {
+                    let alert = new bootstrap.Alert(message);
+                    alert.close();
+            });
             }, 2000);
         </script>
         <!-- Scripts to extend to index.html -->
