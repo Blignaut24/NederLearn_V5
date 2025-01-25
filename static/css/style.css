@@ -36,6 +36,16 @@
    Special Circumstances 
    ================================= */
 
+.alert-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    padding: 2px;
+}
+
 /*FIXME: Change color of "label" on Edit Profile page*/
 label {
     color: var(--dark-text);
@@ -91,6 +101,9 @@ body {
 /* Nav Container */
 .navbar {
     background-color: var(--black-bg);
+    box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
 }
 
 .navbar-dark {
@@ -464,7 +477,7 @@ body {
 .post-title {
     margin: 5%;
     text-align: center;
-    font-size: x-large;
+    font-size: 28px;
 }
 .post-subtitle {
     margin-left: 5%;
@@ -740,6 +753,12 @@ textarea {
 .masthead-text .post-bookmark {
     font-size: 0.9em;
 }
+
+.masthead-text h1 {
+    font-size: 20px;
+}
+
+
 .masthead-image img {
     max-height: 300px;
 }
@@ -761,6 +780,10 @@ textarea {
 
 .blogpost-card {
     height: 508px;
+}
+
+h2 {
+    font-size: 18px;
 }
 
 /* Mobile-first optimizations */

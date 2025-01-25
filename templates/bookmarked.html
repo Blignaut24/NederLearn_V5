@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container col-lg-8 col-md-12 col-sm-12">
-    <!-- Title for the Bookmarked Posts page -->
-    <h1 class="my-4 text-center">Bookmarked Posts</h1>
+    <!-- Masthead Section -->
+    <div class="masthead">
+        <div class="container card-body">
+            <div class="row g-0">
+                <div class="col-md-12 masthead-text">
+                    <h1 class="post-title text-center mb-5"><strong>Bookmarked
+                            Posts</strong></h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Loop through bookmarked posts -->
     {% for post in bookmarked_posts %}
     <div class="card mb-4">
