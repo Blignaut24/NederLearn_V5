@@ -46,7 +46,7 @@ class Blogpost(models.Model):
     content = models.TextField()
     excerpt = models.TextField(blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
-    featured_image = CloudinaryField("image", default="placeholder")
+    featured_image = CloudinaryField("image", default="blogpost_placeholder")
 
     # Media Details
     # ------------
@@ -54,9 +54,10 @@ class Blogpost(models.Model):
         "MediaCategory",
         on_delete=models.SET_NULL,
         related_name="blog_posts",
-        blank=True,
         null=True,
-    )  # Temporarily disabled required field validation - will be re-enabled in future update
+        blank=False,
+    )
+    # Year of release for the media being discussed; validated by validate_year
 
     release_year = models.IntegerField()
     media_link = models.URLField()
@@ -78,6 +79,11 @@ class Blogpost(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.blog_title)
+
+        # Set default image only if none is provided
+        if not self.featured_image:
+            self.featured_image = 'blogpost_placeholder'
+
         super(Blogpost, self).save(*args, **kwargs)
 
     def number_of_likes(self):

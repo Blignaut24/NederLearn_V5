@@ -56,7 +56,9 @@ class BlogpostForm(forms.ModelForm):
                     "maxlength": "70",
                 }
             ),
-            "media_category": forms.Select(attrs={"class": "form-control"}),
+            "media_category": forms.Select(
+                attrs={"class": "form-control", "placeholder": "Select Category"}
+            ),
             "release_year": forms.NumberInput(
                 attrs={
                     "class": "form-control",
@@ -69,14 +71,28 @@ class BlogpostForm(forms.ModelForm):
         }
         # Hidden labels for cleaner UI
         labels = {
-            "blog_title": "",
-            "content": "",
-            "excerpt": "",
+            "blog_title": "Blog Title",
+            "content": "Content",
+            "excerpt": "Excerpt",
+            "status": "Status",
+            "featured_image": "Upload Image",
+            "media_category": "Media Category",
+            "release_year": "Release Year",
+            "media_link": "Media Link / Reference",
         }
 
     def __init__(self, *args, **kwargs):
         super(BlogpostForm, self).__init__(*args, **kwargs)
         self.fields["media_link"].initial = "http://www."
+
+    def clean(self):
+        cleaned_data = super().clean()
+        featured_image = cleaned_data.get("featured_image")
+        if not featured_image:
+            cleaned_data["featured_image"] = (
+                "blogpost_placeholder"  # default image name
+            )
+        return cleaned_data
 
 
 class CommentForm(forms.ModelForm):
