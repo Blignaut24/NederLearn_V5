@@ -56,6 +56,7 @@ class BlogpostForm(forms.ModelForm):
                     "maxlength": "70",
                 }
             ),
+            "media_category": forms.Select(attrs={"class": "form-control"}),
             "release_year": forms.NumberInput(
                 attrs={
                     "class": "form-control",

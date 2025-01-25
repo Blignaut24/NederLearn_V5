@@ -1,78 +1,99 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
 
-{# Main Container #}
-<div class="container-fluid">
+<div class="container">
+    <h1 class="my-4 text-center">Latest Blog Posts</h1>
     <div class="row">
-        {# Blog Posts Grid Layout #}
+        <!-- Category Selection menu -->
         <div class="col-12 mt-3">
             <div class="row">
-                {# Loop Through Available Posts #}
-                {% for blogpost in blogposts %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    {# Individual Post Card #}
-                    <div class="card mb-4 blogpost-card">
-                        <div class="card-body">
-                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                class="image-container-link">
-                                <div class="image-container">
-                                    {% if "placeholder" in blogpost.featured_image.url %}
-                                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                        src="{% static 'images/nederlearn_logo.webp' %}"
-                                        alt="Blog Post Image">
-                                    {% else %}
-                                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                        src="{{ blogpost.featured_image.url }}"
-                                        alt="Blog Post Image">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author:
-                                            {{ blogpost.author }}</p>
-                                    </div>
+                <div class="my-4 text-center">
+                    <a href="?category=Movies/Series"
+                        class="btn btn-secondary">Movies/Series</a>
+                    <a href="?category=Music Albums"
+                        class="btn btn-secondary">Music Albums</a>
+                    <a href="?category=Books"
+                        class="btn btn-secondary">Books</a>
+                    <a href="?category=Podcasts"
+                        class="btn btn-secondary">Podcasts</a>
+                    <a href="?category=Miscellaneous"
+                        class="btn btn-secondary">Misc</a>
+                </div>
+
+
+                <!-- Blog Entries Column -->
+                <div class="col-12 mt-3">
+                    <div class="row">
+                        {% for blogpost in blogposts %}
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card mb-4 blogpost-card">
+                                <div class="card-body">
+                                    <a href="{% url 'blogpost_detail' blogpost.slug %}"
+                                        class="image-container-link">
+                                        <div class="image-container">
+                                            {% if "placeholder" in blogpost.featured_image.url %}
+                                            <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                                src="static/images/nederlearn_logo.webp"
+                                                alt="Blog Post Image">
+                                            {% else %}
+                                            <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                                src="{{ blogpost.featured_image.url }}"
+                                                alt="Blog Post Image">
+                                            {% endif %}
+                                            <div class="image-flash">
+                                                <p class="author">Author:
+                                                    {{ blogpost.author }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="{% url 'blogpost_detail' blogpost.slug %}"
+                                        class="post-link">
+                                        <h2 class="card-title mt-4">
+                                            {{ blogpost.blog_title|truncatechars:50 }}
+                                        </h2>
+                                    </a>
+                                    <hr />
+                                    <p class="card-text card-excerpt">
+                                        {{ blogpost.excerpt|truncatechars:50 }}
+                                    </p>
+                                    <hr />
+                                    <p class="card-text text-muted h6">
+                                        {{ blogpost.created_on }} <i
+                                            class="far fa-heart"></i>
+                                        {{ blogpost.number_of_likes }}
+                                    </p>
                                 </div>
-                            </a>
-                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                class="post-link">
-                                <h2 class="card-title mt-4">
-                                    {{ blogpost.blog_title|truncatechars:50 }}
-                                </h2>
-                            </a>
-                            <hr />
-                            <p class="card-text card-excerpt">
-                                {{ blogpost.excerpt|truncatechars:50 }}</p>
-                            <hr />
-                            <p class="card-text text-muted h6">
-                                {{ blogpost.created_on }} <i
-                                    class="far fa-heart"></i>
-                                {{ blogpost.number_of_likes }}
-                            </p>
+                            </div>
                         </div>
+                        {% if forloop.counter|divisibleby:3 %}
+                    </div>
+                    <div class="row">
+                        {% endif %}
+                        {% endfor %}
+
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
+
+            <!-- Pagination code from code Institute django walkthrough project -->
+            {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}"
+                            class="page-link">&laquo; PREV </a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}"
+                            class="page-link"> NEXT &raquo;</a></li>
+
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
         </div>
     </div>
-
-    {# Pagination controls #}
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"
-                    class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"
-                    class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
-{% endblock %}
+
+{%endblock%}
