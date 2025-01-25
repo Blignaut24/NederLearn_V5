@@ -18,6 +18,7 @@ from django.contrib.auth import logout
 from django.urls import reverse_lazy
 
 # Authentication
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -49,7 +50,9 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        messages.success(self.request, "Your blog post has been created successfully.")
+        return response
 
     def get_success_url(self):
         return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
@@ -74,7 +77,9 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
+        messages.success(self.request, "Your blog post has been updated successfully.")
+        return response
 
     def get_success_url(self):
         return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
@@ -94,6 +99,14 @@ class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     model = Blogpost
     template_name = "blogpost_delete.html"
+
+    def delete(self, request, *args, **kwargs):
+        # Delete the post and display a success message
+        response = super().delete(request, *args, **kwargs)
+        messages.success(request, "Your blog post has been deleted successfully.")
+        return response
+
+    # Define the URL to redirect to after deletion
     success_url = reverse_lazy("my_posts")
 
 
@@ -315,6 +328,10 @@ class ProfileEditView(LoginRequiredMixin, View):
         )
         if form.is_valid():
             form.save()
+            messages.success(
+                request,
+                "🎉 Woohoo! Your profile has been updated successfully. Looking fresh and fabulous! ✨",
+            )
             return redirect("profile")
         return render(request, "profile_edit.html", {"form": form})
 
@@ -355,6 +372,8 @@ class BookmarkUnbookmark(View):
         blogpost = get_object_or_404(Blogpost, slug=slug)
         if blogpost.bookmarks.filter(id=request.user.id).exists():
             blogpost.bookmarks.remove(request.user)
+            messages.success(request, "Removed from 'Bookmarked'.")
         else:
             blogpost.bookmarks.add(request.user)
+            messages.success(request, "Added to 'Bookmarked'.")
         return HttpResponseRedirect(reverse("blogpost_detail", args=[slug]))
