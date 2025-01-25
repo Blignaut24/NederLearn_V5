@@ -25,6 +25,10 @@
 
         {% comment %} JavaScript Dependencies {% endcomment %}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/nederlearn_flavicon.webp' %}">
     </head>
 
     <body class="d-flex flex-column h-100">
@@ -35,7 +39,7 @@
                 {% comment %} Brand Logo {% endcomment %}
                 <a class="navbar-logo me-2" 
                 href="{% if user.is_authenticated %}{% url 'home' %}{% else %}{% url 'account_login' %}{% endif %}"
-                aria-label="NederLearn Home">NederLand</a>
+                aria-label="NederLearn Home">NederLearn</a>
 
                 {% comment %} Mobile Menu Toggle {% endcomment %}
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

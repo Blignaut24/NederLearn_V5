@@ -18,8 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from blog.views import ProfileDeleteView, custom_403_error, custom_405_error
-from django.conf.urls import handler403, handler405
+from blog.views import ProfileDeleteView, custom_403_error
 
 from blog.views import index
 
@@ -45,4 +44,3 @@ if settings.DEBUG:
 
 # Custom error handlers
 handler403 = custom_403_error
-handler405 = custom_405_error

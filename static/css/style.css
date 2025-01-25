@@ -171,10 +171,6 @@ body {
        transition: background-color 0.3s, transform 0.1s;
    }
 
-   .btn.ctg.active {
-    background-color: var(--dark-green);
-    color: var(--light-text-gr);
-}
    
    /* Danger Button
       Styling for destructive actions */
@@ -238,20 +234,19 @@ body {
        color: var(--light-text);
    }
    
+/* Selected Category Button - active */
+.btn.ctg.active {
+    background-color: var(--dark-green);
+    color: var(--dark-text);
+}
+
    /* Danger Button Variants
       Styling for destructive actions */
    .btn-danger {
        background-color: var(--warning);
        color: var(--light-text-gr);
    }
-   .btn-danger:hover {
-       background-color: var(--hover);
-   }
-   .btn-danger:active {
-       background-color: var(--error);
-       color: var(--dark-text);
-   }
-   
+      
    /* Like Button
       Special styling for social interaction */
    .btn-like {
@@ -506,7 +501,8 @@ body {
 
 /* CRISPY FORMS FIELD TARGETING */
 .form-control {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    font-size: 12px;
 }
 .form-control[type="file"],
 .form-control[name="bio"] {
@@ -651,9 +647,10 @@ textarea {
 }
 
 .card-login {
-    padding: 14px;
-    margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    padding: 8px;
 }
 
 /* Branding text  */
@@ -710,7 +707,7 @@ textarea {
 }
 
 .card-body {
-    padding: 16px;
+    padding: 20px;
 }
 .top-categories td:first-child {
     text-align: left;
@@ -853,7 +850,4 @@ textarea {
         height: 420px;
     }
 
-    .card-body {
-        padding: 8px;
-    }
 }
