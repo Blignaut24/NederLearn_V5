@@ -647,22 +647,23 @@ textarea {
 /* Login form elements */
 .h2-login {
     margin: -16px;
+    font-size: 26px;
 }
 
 .card-login {
     padding: 14px;
     margin-left: 20px;
+    margin-top: 10px;
 }
 
-/* Branding text 
+/* Branding text  */
 .login-nederlearn {
-    font-family: 'Russo One', sans-serif;
-    font-size: 60px;
+    font-size: 57px;
     font-weight: 700;
-    color: var(--accent-color);
-    text-shadow: 5px 2px 2px rgba(0, 0, 0, 0.71);
+    color: var(--dark-text);
+    
 }
-*/
+
 
 /*=================================
   RESPONSIVE DESIGN
@@ -671,7 +672,7 @@ textarea {
 
 /* Desktop/large screen styles */
 .login-logo img {
-    height: 600px;
+    height: 580px;
     margin-top: -125px;
     margin-bottom: 10px;
     max-width: 100%;
