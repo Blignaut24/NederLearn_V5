@@ -326,3 +326,21 @@ class ProfileDeleteView(LoginRequiredMixin, DeleteView):
         response = super().delete(request, *args, **kwargs)
         logout(request)
         return response
+
+
+def bookmarked(request):
+    if request.user.is_authenticated:
+        bookmarked_posts = Blogpost.objects.filter(bookmarks=request.user)
+    else:
+        bookmarked_posts = []
+    return render(request, "bookmarked.html", {"bookmarked_posts": bookmarked_posts})
+
+
+class BookmarkUnbookmark(View):
+    def post(self, request, slug, *args, **kwargs):
+        blogpost = get_object_or_404(Blogpost, slug=slug)
+        if blogpost.bookmarks.filter(id=request.user.id).exists():
+            blogpost.bookmarks.remove(request.user)
+        else:
+            blogpost.bookmarks.add(request.user)
+        return HttpResponseRedirect(reverse("blogpost_detail", args=[slug]))

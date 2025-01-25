@@ -42,4 +42,9 @@ urlpatterns = [
     path('user/<str:username>/', views.OtherUserProfileView.as_view(), name='other_user_profile'),
     path('profile/edit/', views.ProfileEditView.as_view(), name='profile_edit'),
     path('about-us/', TemplateView.as_view(template_name='about_us.html'), name='about_us'),
+     # Display the 'Saved For Later' page
+    path('saved-for-later/', views.bookmarked, name='bookmarked'),
+    
+    # Bookmark or un-bookmark a post
+    path('bookmark-unbookmark/<slug:slug>/', views.BookmarkUnbookmark.as_view(), name='bookmark_unbookmark'),
 ]

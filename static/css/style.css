@@ -112,7 +112,7 @@ body {
        background-color: var(--secondary-color);
        color: var(--light-text);
        border: none;
-       padding: 10px 20px;
+       padding: 8px 16px;
        border-radius: 4px;
        text-transform: uppercase;
        font-weight: bold;
@@ -125,7 +125,7 @@ body {
        background-color: var(--warning);
        color: var(--light-text);
        border: none;
-       padding: 10px 20px;
+       padding: 8px 16px;
        border-radius: 4px;
        text-transform: uppercase;
        font-weight: bold;
@@ -250,21 +250,6 @@ body {
        text-decoration: underline;    /* Maintains underline when active */
    }
 
-/* =================================
-   BLOG LAYOUT
-   Blog post structure
-   ================================= */
-
-/* Post Headers */
-.post-title {
-    margin-top: 20%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
 
 /* =================================
    CARD COMPONENTS
@@ -351,6 +336,27 @@ body {
     font-size: 0.7rem;
 }
 
+/* Bookmark Button Styles */
+.btn-bookmark {
+    border: none;
+    background: transparent;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+.btn-bookmark:hover,
+.btn-bookmark:active {
+    background: transparent;
+    border: none;
+    color: var(--light-text-gr);
+}
+.fa-bookmark {
+    color: var(--light-text-gr);
+}
+.post-bookmark {
+    margin-left: 5%;
+    color: var(--light-text-gr);
+}
+
 /* Icon Styles */
 .fa-heart {
     color: var(--secondary-color);
@@ -371,6 +377,10 @@ body {
     width: 100%;
 }
 
+.masthead .row {
+    display: flex;
+}
+
 /* Header Text */
 .masthead-text {
     background-color: var(--dark-bg);
@@ -381,6 +391,28 @@ body {
 /* Header Image */
 .masthead-image {
     position: relative;
+}
+
+.masthead-image .image-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.masthead-text,
+.masthead-image {
+    padding: 0px;
+}
+.masthead-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-title {
+    margin: 5%;
+}
+.post-subtitle {
+    margin-left: 5%;
+    color: var(--light-text-gr);
 }
 
 /* Targeting fields within crispy forms */
@@ -516,7 +548,7 @@ textarea {
 
 /* Login form elements */
 .h2-login {
-    margin: 0px;
+    margin: -16px;
 }
 
 .card-login {
@@ -547,6 +579,19 @@ textarea {
     max-width: 100%;
 }
 
+/* Responsive adjustments for medium screens (tablets) */
+@media (max-width: 992px) {
+    .masthead .row {
+        flex-wrap: wrap;
+        /* Allows items to wrap as needed */
+    }
+    .masthead-text,
+    .masthead-image {
+        flex-basis: 100%;
+        /* Each takes full width on smaller screens */
+    }
+}
+
 .card-body {
     padding: 2px;
 }
@@ -558,6 +603,15 @@ textarea {
 }
 .profile-table td {
     padding: 4px;
+}
+
+.masthead-image {
+    order: -1;
+    /* Switches place for image (above the text) */
+}
+.btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
 }
 
 /* Tablet/medium screen adaptations */
@@ -580,6 +634,17 @@ textarea {
     .profile-img {
         margin-bottom: 20px;
     }
+}
+
+.masthead-text h1 {
+    font-size: 1.5em;
+}
+.masthead-text .post-subtitle,
+.masthead-text .post-bookmark {
+    font-size: 0.9em;
+}
+.masthead-image img {
+    max-height: 300px;
 }
 
 /* Extra small screen adjustments */

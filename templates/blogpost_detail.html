@@ -1,109 +1,147 @@
-{# === MAIN CONTAINER === #}
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
 
-{# Header Section: Blog title, author info, and featured image #}
-<div class="container col-md-8 col-sm-12">
+<div class="container col-lg-8 col-md-12 col-sm-12">
     <div class="masthead">
         <div class="container card-body">
-            <div class="row g-0">
-                {# Left Column: Title and Author #}
-                <div class="col-md-6 masthead-text">
+            <div class="row">
+                <!-- Text Content -->
+                <div
+                    class="col-lg-6 col-md-6 col-sm-12 masthead-text d-flex flex-column justify-content-center">
                     <h1 class="post-title">{{ blogpost.blog_title }}</h1>
-                    <div>
-                        <p class="post-subtitle">Author
-                            <a href="{% url 'other_user_profile' blogpost.author.username %}">
-                                {{ blogpost.author }}
-                            </a>
-                            | {{ blogpost.created_on }}
-                        </p>
-                    </div>
+                    <p class="post-subtitle mb-1">Author
+                        <a
+                            href="{% url 'other_user_profile' blogpost.author.username %}">
+                            {{ blogpost.author }}
+                        </a> | {{ blogpost.created_on|date:"F d, Y" }}
+                    </p>
+                    {% if user.is_authenticated %}
+                    <form class="post-bookmark mb-2"
+                        action="{% url 'bookmark_unbookmark' blogpost.slug %}"
+                        method="POST">
+                        {% csrf_token %}
+                        {% if user in blogpost.bookmarks.all %}
+                        <button type="submit" class="btn-bookmark">
+                            <i class="fas fa-bookmark"></i> Unsave This Post
+                        </button>
+                        {% else %}
+                        <button type="submit" class="btn-bookmark">
+                            <i class="far fa-bookmark"></i> Save This Post
+                        </button>
+                        {% endif %}
+                    </form>
+                    {% endif %}
                 </div>
 
-                {# Right Column: Featured Image #}
-                <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- Image Content -->
+                <div class="col-lg-6 col-md-6 col-sm-12
+                    masthead-image d-flex align-items-center">
                     {% if "placeholder" in blogpost.featured_image.url %}
-                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                        src="https://raw.githubusercontent.com/Blignaut24/NederLearn_V5/refs/heads/main/static/images/nederlearn_logo.webp"
-                        alt="Default blog image">
+                    <img class="img-fluid" src="placeholder_image_url"
+                        alt="Placeholder Image">
                     {% else %}
-                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                        src="{{ blogpost.featured_image.url }}" 
+                    <img class="img-fluid"
+                        src="{{ blogpost.featured_image.url }}"
                         alt="{{ blogpost.blog_title }}">
                     {% endif %}
                 </div>
             </div>
         </div>
-    </div>
 
-    {# Content Section: Main blog content and interactions #}
-    <div class="container">
-        <div class="row">
-            <div class="col card mb-4 mt-3">
-                <div class="card-body">
-                    {# Blog Content Display #}
-                    <div class="card-text">
-                        {{ blogpost.content|safe }}
-                    </div>
-                    <hr>
 
-                    {# User Interaction Section: Likes and Comments #}
-                    <div class="d-flex justify-content-between align-items-center">
-                        {# Like Button Component #}
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'like_unlike' blogpost.slug %}" method="POST">
-                            {% csrf_token %}
-                            <button type="submit" name="blogpost_id" value="{{ blogpost.slug }}" class="btn-like">
-                                <i class="{% if liked %}fas{% else %}far{% endif %} fa-heart"></i>
-                                <span class="text-secondary">{{ blogpost.number_of_likes }}</span>
-                            </button>
-                        </form>
-                        {% endif %}
-
-                        {# Comment Counter Component #}
-                        {% with comments.count as total_comments %}
-                        <div class="text-secondary">
-                            <i class="far fa-comments"></i>
-                            <span>{{ total_comments }}</span>
+        <div class="container col-sm-12">
+            <div class="row">
+                <div class="col card mb-6 mt-3">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <strong>{{ blogpost.excerpt }}</strong></p>
+                        <!-- Divider -->
+                        <hr>
+                        <!-- Blog Content-->
+                        <p class="card-text">
+                            {{ blogpost.content | safe }}
+                        </p>
+                        <!-- Divider -->
+                        <hr>
+                        <div class="row">
+                            <!-- Likes (Heart Icon and Count) -->
+                            <div class="col-12 d-flex justify-content-between">
+                                <strong>
+                                    {% if user.is_authenticated %}
+                                    <form class="d-inline"
+                                        action="{% url 'like_unlike' blogpost.slug %}"
+                                        method="POST">
+                                        {% csrf_token %}
+                                        {% if liked %}
+                                        <button type="submit"
+                                            name="blogpost_id"
+                                            value="{{blogpost.slug}}"
+                                            class="btn-like">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                        {% else %}
+                                        <button type="submit"
+                                            name="blogpost_id"
+                                            value="{{blogpost.slug}}"
+                                            class="btn-like">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                        {% endif %}
+                                        <strong
+                                            class="text-secondary">{{ blogpost.number_of_likes }}</strong>
+                                    </form>
+                                    {% endif %}
+                                </strong>
+                                <!-- Comments (Comment Icon and Count) -->
+                                {% with comments.count as total_comments %}
+                                <strong class="text-secondary">
+                                    <i class="far fa-comments ml-5"></i>
+                                    {{ total_comments }}
+                                </strong>
+                                {% endwith %}
+                            </div>
                         </div>
-                        {% endwith %}
                     </div>
                 </div>
             </div>
-        </div>
-
-        {# Comment Section #}
-        <div class="row">
-            <div class="col">
-                {# Comment Form Component #}
-                {% if user.is_authenticated %}
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h3>Post a comment:</h3>
-                        <form method="post" class="mt-3">
-                            {{ comment_form|crispy }}
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-primary mt-3">Submit</button>
-                        </form>
-                    </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
                 </div>
-                {% endif %}
-
-                {# Comments Display Component #}
-                <div class="card mb-4">
+            </div>
+            <div class="col card mb-6 mt-3">
+                <div class="card-body">
+                    <h3>Post a comment:</h3>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit"
+                            class="btn btn-signup btn-lg mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col card mb-6 mt-3">
+                    <h3>Comments:</h3>
                     <div class="card-body">
-                        <h3>Comments:</h3>
                         {% for comment in comments %}
-                        <div class="comment mb-3">
+                        <div class="comments" style="padding: 10px;">
                             <p class="font-weight-bold">
-                                <a href="{% url 'other_user_profile' comment.user.username %}">
-                                    {{ comment.user }}
-                                </a>
-                                <span class="text-muted">{{ comment.created_on }}</span> wrote:
+                                <a
+                                    href="
+                                {% url 'other_user_profile' comment.user.username %}">{{ comment.user.username }}</a>
+
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_on }}
+                                </span> wrote:
                             </p>
-                            {{ comment.body|linebreaks }}
-                            <hr>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
                         </div>
                         {% endfor %}
                     </div>
