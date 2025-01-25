@@ -36,7 +36,8 @@ class BlogpostForm(forms.ModelForm):
             "blog_title": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Enter the title of the blog post...",
+                    "placeholder": "Enter a title for your post...(max length 50 characters)",
+                    "maxlength": "50",
                 }
             ),
             "content": forms.Textarea(
@@ -51,8 +52,8 @@ class BlogpostForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "rows": 2,
-                    "placeholder": "Write a short excerpt...(max length 100 characters)",
-                    "maxlength": "100",
+                    "placeholder": "Write a short excerpt...(max length 70 characters)",
+                    "maxlength": "70",
                 }
             ),
             "release_year": forms.NumberInput(
