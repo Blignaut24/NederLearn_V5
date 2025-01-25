@@ -38,7 +38,6 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--dark-bg);
-    color: var(--light-text);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -388,8 +387,7 @@ body {
 .form-control,
 select,
 textarea {
-    background-color: var(--light-grey-text);
-    color: var(--black-bg);
+    color: var(--dark-text);
     border: 1px solid black;
 }
 
@@ -546,6 +544,19 @@ textarea {
     margin-top: -125px;
     margin-bottom: 10px;
     max-width: 100%;
+}
+
+.card-body {
+    padding: 2px;
+}
+.top-categories td:first-child {
+    text-align: left;
+}
+.profile-details {
+    padding: 0px;
+}
+.profile-table td {
+    padding: 4px;
 }
 
 /* Tablet/medium screen adaptations */
