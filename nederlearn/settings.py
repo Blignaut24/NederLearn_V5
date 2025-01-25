@@ -51,7 +51,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "localhost",  # Local development server
-    "8000-blignaut24-nederlearnv5-uu5fukd60x9.ws-eu117.gitpod.io",  # GitPod workspace
+    "8000-blignaut24-nederlearnv5-rg2cno7yf87.ws-eu117.gitpod.io",  # GitPod workspace
 ]
 
 # =======================================

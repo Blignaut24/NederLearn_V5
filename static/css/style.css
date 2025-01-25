@@ -164,7 +164,7 @@ body {
        background-color: var(--secondary-color);
        color: var(--light-text);
        border: none;
-       padding: 8px 16px;
+       padding: 4px 8px;
        border-radius: 4px;
        text-transform: uppercase;
        font-weight: bold;
@@ -399,7 +399,6 @@ body {
 
 /* Author Tag */
 .author {
-    position: absolute;
     bottom: -5px;
     left: 6px;
     color: var(--light-text);
@@ -751,7 +750,7 @@ textarea {
     .profile-img {
         margin-bottom: 20px;
     }
-}
+
 
 .masthead-text h1 {
     font-size: 14px;
@@ -770,6 +769,13 @@ textarea {
     max-height: 300px;
 }
 
+.btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+}
+
 /* Extra small screen adjustments */
 @media (max-width: 580px) {
     h1 {
@@ -779,18 +785,32 @@ textarea {
     .login-logo img {
         max-height: 30vh;
     }
-}
 
     .card-body {
-        padding: 12px;
+        padding: 16px;
     }
 
-.blogpost-card {
-    height: 508px;
-}
+    .top-categories td:first-child {
+        text-align: left;
+    }
 
-h2 {
-    font-size: 18px;
+    .profile-details {
+        padding: 0px;
+    }
+
+    .profile-table td {
+        padding: 4px;
+    }
+
+    .masthead-image {
+        order: -1;
+        /* Switches place for image (above the text) */
+    }
+
+    .blogpost-card {
+        height: 508px;
+    }
+
 }
 
 /* Mobile-first optimizations */
@@ -816,6 +836,10 @@ h2 {
         margin-left: -18px !important;
         margin-right: -18px !important;
         padding: 8px;
+    }
+
+    .card-body {
+        padding: 12px;
     }
 
     .blogpost-card {
