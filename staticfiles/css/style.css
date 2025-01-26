@@ -6,28 +6,77 @@
    :root {
     /* Brand Colors 
        Primary palette defining visual identity */
-    --primary-color: #4D6CFA;      /* Core UI elements */
-    --secondary-color: #ff6200;    /* Action items & emphasis */
-    --accent-color: #c85c86;       /* Decorative highlights */
+    --primary-color: #4d6cfa; /* Core UI elements */
+    --secondary-color: #ff6200; /* Action items & emphasis */
+    --accent-color: #c85c86; /* Decorative highlights */
 
     /* Interface Colors 
        Base colors for UI components */
-    --dark-text: #191919;          /* Primary dark text */
-    --light-text: #F5F6F3;         /* Primary light text */
-    --light-grey-text: #9198a1;      /*Light grey text*/
-    --dark-bg: #011627;              /* Dark mode background */
-    --black-bg: #000000;           /* Base black background */
-    --light-bg: #f8fafa;           /* Light mode background */
+    --dark-text: #191919; /* Primary dark text */
+    --light-text: #f5f6f3; /* Primary light text */
+    --light-grey-text: #9198a1; /*Light grey text*/
+    --dark-bg: #011627; /* Dark mode background */
+    --black-bg: #000000; /* Base black background */
+    --light-bg: #f8fafa; /* Light mode background */
+    --dark-green: #226c79; /*Dark green*/
 
     /* Feedback Colors 
        User interaction states */
-    --success: #79a850;            /* Success indicators */
-    --error: #DD1C1A;              /* Error messages */
-    --warning: #f79818;            /* Warning alerts */
+    --success: #79a850; /* Success indicators */
+    --error: #dd1c1a; /* Error messages */
+    --warning: #f79818; /* Warning alerts */
 
     /* Interactive Colors 
        State changes for elements */
-    --hover: #525199;              /* Hover state */
+    --hover: #525199; /* Hover state */
+}
+
+/* =================================
+   EDGE CASES
+   Special Circumstances 
+   ================================= */
+
+.alert-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    padding: 2px;
+}
+
+/*FIXME: Change color of "label" on Edit Profile page*/
+label {
+    color: var(--dark-text);
+}
+
+#profile_edit_heading {
+    color: var(--dark-text);
+}
+
+#bookmared-posts {
+    color: var(--light-text);
+}
+
+h1.my-4.text-center {
+    color: var(--light-text);
+}
+
+h4.text-center.medium {
+    color: var(--dark-text);
+}
+
+label {
+    color: var(--light-text);
+}
+
+h2 {
+    color: var(--light-text);
+}
+
+input {
+    color: var(--light-text);
 }
 
 /* =================================
@@ -36,9 +85,8 @@
    ================================= */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     background-color: var(--dark-bg);
-    color: var(--light-text);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -53,6 +101,9 @@ body {
 /* Nav Container */
 .navbar {
     background-color: var(--black-bg);
+    box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
 }
 
 .navbar-dark {
@@ -102,35 +153,39 @@ body {
 
 /* =================================
    INTERACTIVE ELEMENTS
-   Buttons and clickable items
+   Defines styles for buttons and clickable components
    ================================= */
 
-/* Primary Buttons */
+/* Primary & Secondary Buttons
+   Basic styling for main action buttons */
 .btn-primary,
 .btn-secondary,
 .btn-signup {
     background-color: var(--secondary-color);
     color: var(--light-text);
     border: none;
-    padding: 10px 20px;
+    padding: 4px 8px;
     border-radius: 4px;
     text-transform: uppercase;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.1s;
 }
 
-.btn-danger{
+/* Danger Button
+      Styling for destructive actions */
+.btn-danger {
     background-color: var(--warning);
     color: var(--light-text);
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 4px;
     text-transform: uppercase;
     font-weight: bold;
-    transition: background-color 0
+    transition: background-color 0.3s;
 }
 
-/* Button States */
+/* Hover States
+      Visual feedback for user interaction */
 .btn-primary:hover,
 .btn-signup:hover,
 .btn-secondary:hover,
@@ -140,7 +195,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Active Button States */
+/* Active States
+      Visual feedback during click/tap */
 .btn-primary:active,
 .btn-signup:active,
 .btn-secondary:active,
@@ -151,7 +207,8 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Focus States */
+/* Focus States
+      Accessibility and keyboard navigation */
 .btn-primary:focus,
 .btn-signup:focus,
 .btn-secondary:focus,
@@ -162,7 +219,8 @@ body {
     box-shadow: 0 0 0 2px var(--bg);
 }
 
-/* Specific Colors for .btn-secondary */
+/* Secondary Button Variants
+      Alternative styling for secondary actions */
 .btn-secondary {
     background-color: var(--black-bg);
     color: var(--light-text);
@@ -174,21 +232,22 @@ body {
     background-color: var(--success);
     color: var(--light-text);
 }
-/* Specific Colors for .btn-danger */
+
+/* Selected Category Button - active */
+.btn.ctg.active {
+    background-color: var(--dark-green);
+    color: var(--dark-text);
+}
+
+/* Danger Button Variants
+      Styling for destructive actions */
 .btn-danger {
     background-color: var(--warning);
     color: var(--light-text-gr);
 }
-.btn-danger:hover {
-    background-color: var(--hover);
-}
 
-.btn-danger:active {
-    background-color: var(--error);
-    color: var(--dark-text);
-}
-
-/* Like Button */
+/* Like Button
+      Special styling for social interaction */
 .btn-like {
     border: none;
     background: transparent;
@@ -201,51 +260,56 @@ body {
     border: none;
 }
 
-/* Link Styling */
+.fa-heart {
+    color: var(--secondary-color);
+}
+
+/* ==================================
+   Link Styling
+   ================================== */
+
+/* Core link styles - defines base appearance for all link types
+   Uses CSS custom properties for maintainable theming */
 .link,
 .post-link,
 .page-link {
-    color: var(--secondary-color);
-    text-decoration: none;
+    color: var(--secondary-color); /* Uses theme color variable */
+    text-decoration: none; /* Removes default underline */
 }
 
+/* Hover states - provides visual feedback on interaction
+      Maintains consistency across different link types */
 .link:hover,
 .post-link:hover,
 .page-link:hover {
-    color: var(--hover);
-    text-decoration: underline;
+    color: var(--hover); /* Uses theme hover color */
+    text-decoration: underline; /* Adds underline on hover */
 }
 
-/* Global Links */
+.custom-page-number {
+    background: none;
+    color: var(--accent-color);
+    padding: 5px;
+    margin: 5px;
+}
+
+/* Global link styles - applies to all <a> elements
+      Provides default styling for any links not covered by specific classes */
 a {
-    color: var(--dark-text);
-    text-decoration: none;
+    color: var(--dark-text); /* Default link color */
+    text-decoration: none; /* Removes default underline */
 }
 
+/* Global hover and active states
+      Enhances user interaction feedback */
 a:hover {
-    color: var(--hover);
-    text-decoration: underline;
+    color: var(--hover); /* Changes color on hover */
+    text-decoration: underline; /* Adds underline on hover */
 }
 
 a:active {
-    color: var(--accent-color);
-    text-decoration: underline;
-}
-
-/* =================================
-   BLOG LAYOUT
-   Blog post structure
-   ================================= */
-
-/* Post Headers */
-.post-title {
-    margin-top: 20%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
+    color: var(--accent-color); /* Different color when clicked */
+    text-decoration: underline; /* Maintains underline when active */
 }
 
 /* =================================
@@ -268,25 +332,25 @@ a:active {
 /* Card Content */
 .card-body {
     padding: 1rem;
-    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
-        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
-        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
-        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
-        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
     background-color: var(--light-bg);
 }
 
 /* Card Typography */
 .card-title {
     color: var(--light-text);
-    font-size: 1.2rem;
+    font-size: 16px;
     margin-bottom: 0.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .card-text {
     color: var(--dark-text);
-    font-size: 1rem;
+    font-size: 14px;
+    text-overflow: ellipsis;
 }
 
 /* =================================
@@ -323,7 +387,6 @@ a:active {
 
 /* Author Tag */
 .author {
-    position: absolute;
     bottom: -5px;
     left: 6px;
     color: var(--light-text);
@@ -333,9 +396,25 @@ a:active {
     font-size: 0.7rem;
 }
 
-/* Icon Styles */
-.fa-heart {
+/* Bookmark Button Styles */
+.btn-bookmark {
+    border: none;
+    background: transparent;
     color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+.btn-bookmark:hover,
+.btn-bookmark:active {
+    background: transparent;
+    border: none;
+    color: var(--light-text-gr);
+}
+.fa-bookmark {
+    color: var(--light-text-gr);
+}
+.post-bookmark {
+    margin-left: 5%;
+    color: var(--light-text-gr);
 }
 
 /* =================================
@@ -353,24 +432,80 @@ a:active {
     width: 100%;
 }
 
+.masthead .row {
+    display: flex;
+}
+
 /* Header Text */
 .masthead-text {
     background-color: var(--dark-bg);
     color: var(--light-text);
     position: relative;
+    overflow: hidden;
+    box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
 }
 
 /* Header Image */
 .masthead-image {
     position: relative;
+    overflow: hidden;
 }
-123
+
+.masthead-image .image-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.masthead-text,
+.masthead-image {
+    padding: 0px;
+}
+.masthead-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.post-title {
+    margin: 5%;
+    text-align: center;
+    font-size: 28px;
+}
+.post-subtitle {
+    margin-left: 5%;
+    color: var(--light-text-gr);
+}
+
+.card-excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Other styles */
+}
+.blogpost-card {
+    height: 460px;
+    overflow: hidden;
+}
+
+/* CRISPY FORMS FIELD TARGETING */
+.form-control {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.form-control[type="file"],
+.form-control[name="bio"] {
+    margin-bottom: 20px;
+}
+
 /* Targeting fields within crispy forms */
 .form-control,
 select,
 textarea {
-    background-color: var(--light-grey-text);
-    color: var(--black-bg);
+    color: var(--dark-text);
     border: 1px solid black;
 }
 
@@ -385,20 +520,29 @@ textarea {
     padding: 20px;
 }
 
-/* Profile Table */
+/*=================================
+  PROFILE TABLE STYLES
+  Core table styling for profile display
+==================================*/
+
+/* Base table structure */
 .profile-table {
     width: 100%;
     border-collapse: collapse;
 }
 
+/* Cell spacing and borders */
 .profile-table td {
     padding: 16px;
     border-bottom: 1px solid #dfc7c7;
 }
 
+/*=================================
+  CATEGORY STYLING
+  Label and header formatting
+==================================*/
 
-
-/* Category Labels */
+/* Top category labels - primary emphasis */
 .category-label-top,
 .category-label-top i {
     color: var(--accent-color);
@@ -411,6 +555,7 @@ textarea {
     line-height: 1.5;
 }
 
+/* Standard category labels - secondary emphasis */
 .category-label {
     font-weight: bolder;
     text-align: right;
@@ -423,24 +568,29 @@ textarea {
     color: var(--accent-color);
 }
 
-/* Category Headers */
+/* Category header styling */
 .top-categories-heading {
     color: var(--secondary-color);
     text-align: center;
     font-weight: bolder;
 }
 
-/* Table Spacing */
+/* Vertical spacing between sections */
 .table-spacing {
     height: 40px;
 }
 
-/* Category Alignment */
+/* Category alignment rules */
 .top-categories td:first-child {
     text-align: right;
 }
 
-/* Bio Section */
+/*=================================
+  BIOGRAPHY SECTION
+  Text styling for user bio
+==================================*/
+
+/* Bio text appearance */
 .bio-text {
     color: var(--light-text-gr);
     font-weight: 100;
@@ -448,11 +598,17 @@ textarea {
     width: 100%;
 }
 
+/* Minimum height for bio section */
 .bio-height {
     min-height: 50px;
 }
 
-/* Profile Image */
+/*=================================
+  PROFILE IMAGE
+  Image container and sizing rules
+==================================*/
+
+/* Profile image constraints */
 .profile-img {
     width: 100%;
     max-width: 230px;
@@ -461,13 +617,222 @@ textarea {
     object-fit: cover;
 }
 
-/* =================================
-   RESPONSIVE DESIGN
-   Mobile adaptations
-   ================================= */
+/*=================================
+  LOGIN PAGE LAYOUT
+  Container and component positioning
+==================================*/
 
+/* Main container setup */
+.login-page-container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Login form elements */
+.h2-login {
+    margin: -16px;
+    font-size: 26px;
+}
+
+.card-login {
+    margin-top: 6px !important;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    padding: 8px;
+}
+
+/* Branding text  */
+.login-nederlearn {
+    font-size: 57px;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+/*=================================
+  RESPONSIVE DESIGN
+  Media queries for different screens
+==================================*/
+
+/* Desktop/large screen styles */
+.login-logo img {
+    height: 580px;
+    margin-top: -125px;
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+/* Styles for large screens (992px and above) */
+@media (min-width: 992px) {
+    .masthead-image::before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color: rgba(1, 43, 48);
+        transform: skew(15deg);
+        transform-origin: top right;
+    }
+}
+
+/* Responsive adjustments for medium screens (tablets) */
+@media (max-width: 992px) {
+    .masthead .row {
+        flex-wrap: wrap;
+        /* Allows items to wrap as needed */
+    }
+    .masthead-text,
+    .masthead-image {
+        flex-basis: 100%;
+    }
+}
+
+.blogpost-card {
+    height: 518px;
+}
+
+.card-body {
+    padding: 20px;
+}
+.top-categories td:first-child {
+    text-align: left;
+}
+.profile-details {
+    padding: 0px;
+}
+.profile-table td {
+    padding: 4px;
+}
+
+.masthead-image {
+    order: -1;
+    /* Switches place for image (above the text) */
+}
+.btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+/* Tablet/medium screen adaptations */
+@media (max-width: 1024px) {
+    .login-page-container {
+        flex-direction: column;
+        min-height: auto;
+        padding: 10px 10px;
+    }
+
+    .login-logo img {
+        height: auto;
+        max-height: 40vh;
+        margin-top: 0;
+    }
+}
+
+/* Mobile/small screen adaptations */
 @media (max-width: 767px) {
     .profile-img {
         margin-bottom: 20px;
+    }
+
+    .masthead-text h1 {
+        font-size: 14px;
+    }
+    .masthead-text .post-subtitle,
+    .masthead-text .post-bookmark {
+        font-size: 0.9em;
+    }
+
+    .masthead-text h1 {
+        font-size: 20px;
+    }
+
+    .masthead-image img {
+        max-height: 300px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 580px) {
+    h1 {
+        font-size: 14px;
+    }
+
+    .login-logo img {
+        max-height: 30vh;
+    }
+
+    .card-body {
+        padding: 16px;
+    }
+
+    .top-categories td:first-child {
+        text-align: left;
+    }
+
+    .profile-details {
+        padding: 0px;
+    }
+
+    .profile-table td {
+        padding: 4px;
+    }
+
+    .masthead-image {
+        order: -1;
+        /* Switches place for image (above the text) */
+    }
+
+    .blogpost-card {
+        height: 508px;
+    }
+}
+
+/* Mobile-first optimizations */
+@media (max-width: 480px) {
+    .login-logo img {
+        max-height: 27vh;
+        margin-top: -32px;
+    }
+
+    .h2-login {
+        padding: 7px;
+        margin: -22px;
+    }
+
+    .login-nederlearn {
+        margin-top: 2px;
+        font-size: 24px;
+        margin-bottom: 32px !important;
+    }
+
+    .card-login {
+        margin-top: 6px !important;
+        margin-left: -18px !important;
+        margin-right: -18px !important;
+        padding: 8px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .blogpost-card {
+        height: 470px;
+    }
+}
+/* Responsive adjustments for min width 320px */
+@media (max-width: 400px) {
+    .blogpost-card {
+        height: 420px;
     }
 }

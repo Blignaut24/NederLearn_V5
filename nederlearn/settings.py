@@ -38,7 +38,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = True
+DEBUG = False
 
 # Host Configuration
 # -----------------
@@ -275,10 +275,7 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # =======================================
 # Configuration for CSS, JavaScript, Images
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = (
-    "cloudinary_storage.storage."
-    "StaticHashedCloudinaryStorage"
-)
+STATICFILES_STORAGE = "cloudinary_storage.storage." "StaticHashedCloudinaryStorage"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -288,8 +285,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 cloudinary.config(
     cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME", "dki11spup"),
     api_key=os.environ.get("CLOUDINARY_API_KEY", "651583882481459"),
-    api_secret=os.environ.get(
-        "CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
 )
 
 # =======================================
