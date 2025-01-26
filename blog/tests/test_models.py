@@ -8,6 +8,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from blog.models import UserProfile, MediaCategory, Blogpost, Comment
 
+
 class TestModels(TestCase):
     """
     Test suite for validating model functionality in the Culture Club app.
@@ -26,7 +27,7 @@ class TestModels(TestCase):
         self.test_user = User.objects.create_user(
             username="testuser", password="testpassword"
         )
-        
+
         # Media category setup
         self.test_category = MediaCategory.objects.create(media_name="Test Category")
 
@@ -36,7 +37,7 @@ class TestModels(TestCase):
             content="Test Content",
             author=self.test_user,
             media_category=self.test_category,
-            release_year=2021
+            release_year=2021,
         )
 
         # Comment setup with all fields
@@ -44,7 +45,7 @@ class TestModels(TestCase):
             body="Test Comment Body",
             blogpost=self.test_blogpost,
             user=self.test_user,
-            approved=True
+            approved=True,
         )
 
     def test_user_profile_creation(self):
@@ -52,7 +53,9 @@ class TestModels(TestCase):
         Verify: UserProfile auto-creation on new user registration
         Expected: UserProfile instance exists for test user
         """
-        self.assertTrue(UserProfile.objects.filter(user=self.test_user).exists())
+        self.assertTrue(
+            UserProfile.objects.filter(user=self.test_user).exists()
+        )
 
     def test_media_category_creation(self):
         """
@@ -68,7 +71,9 @@ class TestModels(TestCase):
         """
         self.assertEqual(self.test_blogpost.blog_title, "Test Title")
         self.assertEqual(self.test_blogpost.author, self.test_user)
-        self.assertEqual(self.test_blogpost.media_category, self.test_category)
+        self.assertEqual(
+            self.test_blogpost.media_category, self.test_category
+        )
 
     def test_comment_creation(self):
         """

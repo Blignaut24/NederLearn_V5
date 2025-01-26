@@ -1,7 +1,10 @@
-# ------------------------------------------------------------------------
-# Django Test Suite for NederLearn Blog Views
-# Purpose: Comprehensive testing of blog functionality and user interactions
-#------------------------------------------------------------------------
+"""
+Django Test Suite for NederLearn Blog Application
+------------------------------------------------
+This test suite covers views for blog posts, user profiles, and error handling.
+Author: Johann-Jurgens Blignaut
+Date: 2025-01-26
+"""
 
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -11,17 +14,23 @@ import datetime
 
 
 class TestViews(TestCase):
+    """
+    Test suite for all view functionalities in the Culture Club blog application.
+    Includes tests for blog posts, user profiles, and error handling.
+    """
 
     def setUp(self):
         """
-        Initialize test environment with mock data:
-        - Creates test users (owner and other user)
-        - Sets up test blog posts
-        - Creates test categories and comments
+        Initialize test environment with required objects:
+        - Test client
+        - Two users (owner and other)
+        - Media category
+        - Sample blog posts
+        - Sample comment
         """
         self.client = Client()
 
-        # Test Users Setup
+        # Create test users
         self.owner_user = User.objects.create_user(
             username="owneruser", password="123password"
         )
@@ -29,10 +38,10 @@ class TestViews(TestCase):
             username="otheruser", password="123password"
         )
 
-        # Test Category Setup
+        # Create test category
         self.category = MediaCategory.objects.create(media_name="Test Category")
 
-        # Test Blog Posts Setup
+        # Create test blog posts
         self.owner_blogpost = Blogpost.objects.create(
             blog_title="Owner's Post",
             content="Test Content",
@@ -51,7 +60,7 @@ class TestViews(TestCase):
             status=1,
         )
 
-        # Test Comment Setup
+        # Create test comment
         self.comment = Comment.objects.create(
             body="Test Comment",
             blogpost=self.owner_blogpost,
@@ -59,18 +68,19 @@ class TestViews(TestCase):
             approved=True,
         )
 
-        # Authentication Setup
+        # Set up authentication
         self.client.login(username="owneruser", password="123password")
 
-    # ==========================================================================
-    # BLOG POST TESTS
-    # ==========================================================================
+    ###################
+    # BLOG POST TESTS #
+    ###################
 
     def test_BlogPostList_GET(self):
         """
-        GIVEN: A request to view the blog post list
-        WHEN: A GET request is made to the home page
-        THEN: Verify correct response, template, and context
+        Verify blog post list view:
+        - Returns 200 status code
+        - Uses correct template
+        - Contains blogposts in context
         """
         response = self.client.get(reverse("home"))
         self.assertEqual(response.status_code, 200)
@@ -79,9 +89,9 @@ class TestViews(TestCase):
 
     def test_BlogpostCreateView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User attempts to access blog post creation page
-        THEN: Verify successful access and correct template
+        Verify blog post creation view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("blogpost_create"))
@@ -90,9 +100,9 @@ class TestViews(TestCase):
 
     def test_create_blogpost(self):
         """
-        GIVEN: An authenticated user with valid blog post data
-        WHEN: User submits new blog post
-        THEN: Verify successful creation and redirect
+        Verify blog post creation functionality:
+        - Creates new post
+        - Redirects to detail view
         """
         self.client.login(username="owneruser", password="123password")
         post_data = {
@@ -110,9 +120,9 @@ class TestViews(TestCase):
 
     def test_BlogpostUpdateView_GET(self):
         """
-        GIVEN: An authenticated post owner
-        WHEN: User attempts to access post update page
-        THEN: Verify successful access and correct template
+        Verify blog post update view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(
@@ -123,9 +133,10 @@ class TestViews(TestCase):
 
     def test_update_blogpost(self):
         """
-        GIVEN: An authenticated post owner with valid update data
-        WHEN: User submits post update
-        THEN: Verify successful update and redirect
+        Verify blog post update functionality:
+        - Updates existing post
+        - Redirects to detail view
+        - Content is updated correctly
         """
         self.client.login(username="owneruser", password="123password")
         update_data = {
@@ -148,9 +159,9 @@ class TestViews(TestCase):
 
     def test_BlogpostDeleteView_GET(self):
         """
-        GIVEN: An authenticated post owner
-        WHEN: User attempts to access post deletion page
-        THEN: Verify successful access and correct template
+        Verify blog post delete view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(
@@ -161,9 +172,9 @@ class TestViews(TestCase):
 
     def test_delete_blogpost(self):
         """
-        GIVEN: An authenticated post owner
-        WHEN: User confirms post deletion
-        THEN: Verify successful deletion
+        Verify blog post deletion:
+        - Post is removed from database
+        - Redirects correctly
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.post(
@@ -176,9 +187,9 @@ class TestViews(TestCase):
 
     def test_MyBlogPostsView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User accesses their posts page
-        THEN: Verify successful access and correct template
+        Verify user's blog posts view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("my_posts"))
@@ -187,9 +198,8 @@ class TestViews(TestCase):
 
     def test_MyBlogPostsView_access(self):
         """
-        GIVEN: A different authenticated user
-        WHEN: User accesses posts page
-        THEN: Verify successful access
+        Verify access to user's blog posts by different user:
+        - Returns 200 status code
         """
         self.client.login(username="otheruser", password="123password")
         response = self.client.get(reverse("my_posts"))
@@ -197,9 +207,9 @@ class TestViews(TestCase):
 
     def test_BlogPostDetail_GET(self):
         """
-        GIVEN: A specific blog post
-        WHEN: User accesses post detail page
-        THEN: Verify successful access and correct template
+        Verify blog post detail view:
+        - Returns 200 status code
+        - Uses correct template
         """
         response = self.client.get(
             reverse("blogpost_detail", args=[self.owner_blogpost.slug])
@@ -209,9 +219,9 @@ class TestViews(TestCase):
 
     def test_submit_comment(self):
         """
-        GIVEN: An authenticated user with valid comment data
-        WHEN: User submits a comment on a post
-        THEN: Verify successful comment creation
+        Verify comment submission:
+        - Comment is created
+        - Content is correct
         """
         self.client.login(username="owneruser", password="123password")
         comment_data = {"body": "This is a test comment."}
@@ -227,9 +237,8 @@ class TestViews(TestCase):
 
     def test_LikeUnlike_POST(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User likes/unlikes a post
-        THEN: Verify successful response
+        Verify like/unlike functionality:
+        - Returns correct redirect status
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.post(
@@ -239,9 +248,9 @@ class TestViews(TestCase):
 
     def test_bookmarked_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User accesses bookmarked posts
-        THEN: Verify successful access and correct template
+        Verify bookmarked posts view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("bookmarked"))
@@ -250,9 +259,8 @@ class TestViews(TestCase):
 
     def test_BookmarkUnbookmark_POST(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User bookmarks/unbookmarks a post
-        THEN: Verify successful response
+        Verify bookmark/unbookmark functionality:
+        - Returns correct redirect status
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.post(
@@ -260,15 +268,16 @@ class TestViews(TestCase):
         )
         self.assertEqual(response.status_code, 302)
 
-    # ==========================================================================
-    # USER PROFILE TESTS
-    # ==========================================================================
+    ##################
+    # PROFILE TESTS #
+    ##################
 
     def test_ProfileView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User accesses their profile
-        THEN: Verify successful access and correct template/context
+        Verify profile view:
+        - Returns 200 status code
+        - Uses correct template
+        - Contains profile in context
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("profile"))
@@ -278,9 +287,9 @@ class TestViews(TestCase):
 
     def test_OtherUserProfileView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User views another user's profile
-        THEN: Verify successful access and correct template
+        Verify other user's profile view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(
@@ -291,9 +300,9 @@ class TestViews(TestCase):
 
     def test_ProfileEditView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User accesses profile edit page
-        THEN: Verify successful access and correct template
+        Verify profile edit view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("profile_edit"))
@@ -302,9 +311,8 @@ class TestViews(TestCase):
 
     def test_ProfileEditView_access(self):
         """
-        GIVEN: A different authenticated user
-        WHEN: User accesses profile edit page
-        THEN: Verify successful access
+        Verify profile edit access by different user:
+        - Returns 200 status code
         """
         self.client.login(username="otheruser", password="123password")
         response = self.client.get(reverse("profile_edit"))
@@ -312,9 +320,9 @@ class TestViews(TestCase):
 
     def test_edit_user_profile(self):
         """
-        GIVEN: An authenticated user with valid profile update data
-        WHEN: User submits profile updates
-        THEN: Verify successful update
+        Verify profile update functionality:
+        - Updates profile data
+        - Content is updated correctly
         """
         self.client.login(username="owneruser", password="123password")
         update_data = {
@@ -335,9 +343,9 @@ class TestViews(TestCase):
 
     def test_ProfileDeleteView_GET(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User accesses account deletion page
-        THEN: Verify successful access and correct template
+        Verify profile delete view:
+        - Returns 200 status code
+        - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.get(reverse("account_delete", args=[self.owner_user.pk]))
@@ -346,9 +354,8 @@ class TestViews(TestCase):
 
     def test_ProfileDeleteView_access(self):
         """
-        GIVEN: A different authenticated user
-        WHEN: User accesses account deletion page
-        THEN: Verify successful access
+        Verify profile delete access by different user:
+        - Returns 200 status code
         """
         self.client.login(username="otheruser", password="123password")
         response = self.client.get(reverse("account_delete", args=[self.other_user.pk]))
@@ -356,9 +363,9 @@ class TestViews(TestCase):
 
     def test_delete_user_profile(self):
         """
-        GIVEN: An authenticated user
-        WHEN: User confirms account deletion
-        THEN: Verify successful deletion
+        Verify profile deletion:
+        - User is removed from database
+        - Returns correct redirect status
         """
         self.client.login(username="owneruser", password="123password")
         response = self.client.post(
@@ -367,15 +374,14 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertFalse(User.objects.filter(username="owneruser").exists())
 
-    # ==========================================================================
-    # ERROR HANDLING TESTS
-    # ==========================================================================
+    #######################
+    # ERROR HANDLER TESTS #
+    #######################
 
     def test_BlogpostUpdateView_unauthorized_access(self):
         """
-        GIVEN: An authenticated user who doesn't own the post
-        WHEN: User attempts to update another's post
-        THEN: Verify access denied (404)
+        Verify unauthorized access handling for update view:
+        - Returns 404 status code
         """
         self.client.login(username="otheruser", password="123password")
         response = self.client.get(
@@ -385,9 +391,8 @@ class TestViews(TestCase):
 
     def test_BlogpostDeleteView_unauthorized_access(self):
         """
-        GIVEN: An authenticated user who doesn't own the post
-        WHEN: User attempts to delete another's post
-        THEN: Verify access denied (404)
+        Verify unauthorized access handling for delete view:
+        - Returns 404 status code
         """
         self.client.login(username="otheruser", password="123password")
         response = self.client.get(
@@ -397,9 +402,8 @@ class TestViews(TestCase):
 
     def test_BlogPostList_method_not_allowed(self):
         """
-        GIVEN: A POST request to a GET-only endpoint
-        WHEN: POST request is made to home page
-        THEN: Verify method not allowed (405)
+        Verify method not allowed handling:
+        - Returns 405 status code for POST request to GET-only view
         """
         response = self.client.post(reverse("home"))
         self.assertEqual(response.status_code, 405)
