@@ -159,7 +159,7 @@ MIDDLEWARE = [
     # User Interface Layer
     # -------------
     "django.contrib.messages.middleware.MessageMiddleware",  # Flash messages system
-    #"django.middleware.clickjacking.XFrameOptionsMiddleware",  # Prevents clickjacking
+    # "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Prevents clickjacking
     "allauth.account.middleware.AccountMiddleware",  # Handles auth accounts
 ]
 
@@ -285,4 +285,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Disables email verification requirement
 # for account registration/management
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = "none"
