@@ -6,29 +6,29 @@
    :root {
     /* Brand Colors 
        Primary palette defining visual identity */
-    --primary-color: #4D6CFA;      /* Core UI elements */
-    --secondary-color: #ff6200;    /* Action items & emphasis */
-    --accent-color: #c85c86;       /* Decorative highlights */
+    --primary-color: #4d6cfa; /* Core UI elements */
+    --secondary-color: #ff6200; /* Action items & emphasis */
+    --accent-color: #c85c86; /* Decorative highlights */
 
     /* Interface Colors 
        Base colors for UI components */
-    --dark-text: #191919;          /* Primary dark text */
-    --light-text: #F5F6F3;         /* Primary light text */
-    --light-grey-text: #9198a1;      /*Light grey text*/
-    --dark-bg: #011627;              /* Dark mode background */
-    --black-bg: #000000;           /* Base black background */
-    --light-bg: #f8fafa;           /* Light mode background */
-    --dark-green: #226c79;         /*Dark green*/
+    --dark-text: #191919; /* Primary dark text */
+    --light-text: #f5f6f3; /* Primary light text */
+    --light-grey-text: #9198a1; /*Light grey text*/
+    --dark-bg: #011627; /* Dark mode background */
+    --black-bg: #000000; /* Base black background */
+    --light-bg: #f8fafa; /* Light mode background */
+    --dark-green: #226c79; /*Dark green*/
 
     /* Feedback Colors 
        User interaction states */
-    --success: #79a850;            /* Success indicators */
-    --error: #DD1C1A;              /* Error messages */
-    --warning: #f79818;            /* Warning alerts */
+    --success: #79a850; /* Success indicators */
+    --error: #dd1c1a; /* Error messages */
+    --warning: #f79818; /* Warning alerts */
 
     /* Interactive Colors 
        State changes for elements */
-    --hover: #525199;              /* Hover state */
+    --hover: #525199; /* Hover state */
 }
 
 /* =================================
@@ -51,32 +51,32 @@ label {
     color: var(--dark-text);
 }
 
-#profile_edit_heading{
-    color:var(--dark-text);
+#profile_edit_heading {
+    color: var(--dark-text);
 }
 
-#bookmared-posts{
+#bookmared-posts {
     color: var(--light-text);
 }
 
-h1.my-4.text-center{
+h1.my-4.text-center {
     color: var(--light-text);
 }
 
-h4.text-center.medium{
-color: var(--dark-text);
+h4.text-center.medium {
+    color: var(--dark-text);
 }
 
-label{
+label {
     color: var(--light-text);
 }
 
 h2 {
-    color:var(--light-text);
+    color: var(--light-text);
 }
 
 input {
-    color:var(--light-text);
+    color: var(--light-text);
 }
 
 /* =================================
@@ -85,7 +85,7 @@ input {
    ================================= */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     background-color: var(--dark-bg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -158,113 +158,111 @@ body {
 
 /* Primary & Secondary Buttons
    Basic styling for main action buttons */
-   .btn-primary,
-   .btn-secondary,
-   .btn-signup {
-       background-color: var(--secondary-color);
-       color: var(--light-text);
-       border: none;
-       padding: 4px 8px;
-       border-radius: 4px;
-       text-transform: uppercase;
-       font-weight: bold;
-       transition: background-color 0.3s, transform 0.1s;
-   }
+.btn-primary,
+.btn-secondary,
+.btn-signup {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+}
 
-   
-   /* Danger Button
+/* Danger Button
       Styling for destructive actions */
-   .btn-danger {
-       background-color: var(--warning);
-       color: var(--light-text);
-       border: none;
-       padding: 8px 16px;
-       border-radius: 4px;
-       text-transform: uppercase;
-       font-weight: bold;
-       transition: background-color 0.3s;
-   }
-   
-   /* Hover States
+.btn-danger {
+    background-color: var(--warning);
+    color: var(--light-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* Hover States
       Visual feedback for user interaction */
-   .btn-primary:hover,
-   .btn-signup:hover,
-   .btn-secondary:hover,
-   .btn-danger:hover {
-       background-color: var(--hover);
-       color: var(--light-text);
-       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-   }
-   
-   /* Active States
+.btn-primary:hover,
+.btn-signup:hover,
+.btn-secondary:hover,
+.btn-danger:hover {
+    background-color: var(--hover);
+    color: var(--light-text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active States
       Visual feedback during click/tap */
-   .btn-primary:active,
-   .btn-signup:active,
-   .btn-secondary:active,
-   .btn-danger:active {
-       background-color: var(--secondary-color);
-       color: var(--light-text-gr);
-       transform: scale(0.95);
-       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-   }
-   
-   /* Focus States
+.btn-primary:active,
+.btn-signup:active,
+.btn-secondary:active,
+.btn-danger:active {
+    background-color: var(--secondary-color);
+    color: var(--light-text-gr);
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Focus States
       Accessibility and keyboard navigation */
-   .btn-primary:focus,
-   .btn-signup:focus,
-   .btn-secondary:focus,
-   .btn-danger:focus {
-       background-color: var(--accent-color);
-       color: var(--light-text-gr);
-       outline: none;
-       box-shadow: 0 0 0 2px var(--bg);
-   }
-   
-   /* Secondary Button Variants
+.btn-primary:focus,
+.btn-signup:focus,
+.btn-secondary:focus,
+.btn-danger:focus {
+    background-color: var(--accent-color);
+    color: var(--light-text-gr);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--bg);
+}
+
+/* Secondary Button Variants
       Alternative styling for secondary actions */
-   .btn-secondary {
-       background-color: var(--black-bg);
-       color: var(--light-text);
-   }
-   .btn-secondary:hover {
-       background-color: var(--hover);
-   }
-   .btn-secondary:active {
-       background-color: var(--success);
-       color: var(--light-text);
-   }
-   
+.btn-secondary {
+    background-color: var(--black-bg);
+    color: var(--light-text);
+}
+.btn-secondary:hover {
+    background-color: var(--hover);
+}
+.btn-secondary:active {
+    background-color: var(--success);
+    color: var(--light-text);
+}
+
 /* Selected Category Button - active */
 .btn.ctg.active {
     background-color: var(--dark-green);
     color: var(--dark-text);
 }
 
-   /* Danger Button Variants
+/* Danger Button Variants
       Styling for destructive actions */
-   .btn-danger {
-       background-color: var(--warning);
-       color: var(--light-text-gr);
-   }
-      
-   /* Like Button
-      Special styling for social interaction */
-   .btn-like {
-       border: none;
-       background: transparent;
-   }
-   
-   .btn-like:hover,
-   .btn-like:active {
-       color: var(--accent-color);
-       background: transparent;
-       border: none;
-   }
-
-   .fa-heart {
-    color: var(--secondary-color);
+.btn-danger {
+    background-color: var(--warning);
+    color: var(--light-text-gr);
 }
 
+/* Like Button
+      Special styling for social interaction */
+.btn-like {
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: var(--accent-color);
+    background: transparent;
+    border: none;
+}
+
+.fa-heart {
+    color: var(--secondary-color);
+}
 
 /* ==================================
    Link Styling
@@ -272,48 +270,47 @@ body {
 
 /* Core link styles - defines base appearance for all link types
    Uses CSS custom properties for maintainable theming */
-   .link,
-   .post-link,
-   .page-link {
-       color: var(--secondary-color);  /* Uses theme color variable */
-       text-decoration: none;          /* Removes default underline */
-   }
-   
-   /* Hover states - provides visual feedback on interaction
-      Maintains consistency across different link types */
-   .link:hover,
-   .post-link:hover,
-   .page-link:hover {
-       color: var(--hover);           /* Uses theme hover color */
-       text-decoration: underline;    /* Adds underline on hover */
-   }
+.link,
+.post-link,
+.page-link {
+    color: var(--secondary-color); /* Uses theme color variable */
+    text-decoration: none; /* Removes default underline */
+}
 
-   .custom-page-number {
+/* Hover states - provides visual feedback on interaction
+      Maintains consistency across different link types */
+.link:hover,
+.post-link:hover,
+.page-link:hover {
+    color: var(--hover); /* Uses theme hover color */
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+.custom-page-number {
     background: none;
     color: var(--accent-color);
     padding: 5px;
     margin: 5px;
 }
-   
-   /* Global link styles - applies to all <a> elements
-      Provides default styling for any links not covered by specific classes */
-   a {
-       color: var(--dark-text);       /* Default link color */
-       text-decoration: none;         /* Removes default underline */
-   }
-   
-   /* Global hover and active states
-      Enhances user interaction feedback */
-   a:hover {
-       color: var(--hover);           /* Changes color on hover */
-       text-decoration: underline;    /* Adds underline on hover */
-   }
-   
-   a:active {
-       color: var(--accent-color);    /* Different color when clicked */
-       text-decoration: underline;    /* Maintains underline when active */
-   }
 
+/* Global link styles - applies to all <a> elements
+      Provides default styling for any links not covered by specific classes */
+a {
+    color: var(--dark-text); /* Default link color */
+    text-decoration: none; /* Removes default underline */
+}
+
+/* Global hover and active states
+      Enhances user interaction feedback */
+a:hover {
+    color: var(--hover); /* Changes color on hover */
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+a:active {
+    color: var(--accent-color); /* Different color when clicked */
+    text-decoration: underline; /* Maintains underline when active */
+}
 
 /* =================================
    CARD COMPONENTS
@@ -335,12 +332,8 @@ body {
 /* Card Content */
 .card-body {
     padding: 1rem;
-    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
-        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
-        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
-        inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
-        5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
     background-color: var(--light-bg);
 }
 
@@ -423,7 +416,6 @@ body {
     margin-left: 5%;
     color: var(--light-text-gr);
 }
-
 
 /* =================================
    MASTHEAD
@@ -658,9 +650,7 @@ textarea {
     font-size: 57px;
     font-weight: 700;
     color: var(--dark-text);
-    
 }
-
 
 /*=================================
   RESPONSIVE DESIGN
@@ -678,7 +668,7 @@ textarea {
 /* Styles for large screens (992px and above) */
 @media (min-width: 992px) {
     .masthead-image::before {
-        content: '';
+        content: "";
         position: absolute;
         right: 100%;
         top: 0;
@@ -735,7 +725,7 @@ textarea {
         min-height: auto;
         padding: 10px 10px;
     }
-    
+
     .login-logo img {
         height: auto;
         max-height: 40vh;
@@ -749,29 +739,26 @@ textarea {
         margin-bottom: 20px;
     }
 
+    .masthead-text h1 {
+        font-size: 14px;
+    }
+    .masthead-text .post-subtitle,
+    .masthead-text .post-bookmark {
+        font-size: 0.9em;
+    }
 
-.masthead-text h1 {
-    font-size: 14px;
-}
-.masthead-text .post-subtitle,
-.masthead-text .post-bookmark {
-    font-size: 0.9em;
-}
+    .masthead-text h1 {
+        font-size: 20px;
+    }
 
-.masthead-text h1 {
-    font-size: 20px;
-}
+    .masthead-image img {
+        max-height: 300px;
+    }
 
-
-.masthead-image img {
-    max-height: 300px;
-}
-
-.btn {
-    padding: 5px 10px;
-    font-size: 0.8em;
-}
-
+    .btn {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
 }
 
 /* Extra small screen adjustments */
@@ -779,7 +766,7 @@ textarea {
     h1 {
         font-size: 14px;
     }
-    
+
     .login-logo img {
         max-height: 30vh;
     }
@@ -808,7 +795,6 @@ textarea {
     .blogpost-card {
         height: 508px;
     }
-
 }
 
 /* Mobile-first optimizations */
@@ -817,18 +803,18 @@ textarea {
         max-height: 27vh;
         margin-top: -32px;
     }
-    
+
     .h2-login {
         padding: 7px;
         margin: -22px;
     }
-    
+
     .login-nederlearn {
         margin-top: 2px;
         font-size: 24px;
         margin-bottom: 32px !important;
     }
-    
+
     .card-login {
         margin-top: 6px !important;
         margin-left: -18px !important;
@@ -849,5 +835,4 @@ textarea {
     .blogpost-card {
         height: 420px;
     }
-
 }
