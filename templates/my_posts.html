@@ -1,85 +1,89 @@
-{# Base Template Extension #}
 {% extends "base.html" %}
-
-{# Main Content Block #}
-{% block content %}
-<div class="container">
-    <!-- Masthead Section -->
-    <div class="masthead">
-        <div class="container card-body">
-            <div class="row g-0">
-                <div class="col-md-12 masthead-text">
-                    <h1 class="post-title text-center mb-5"><strong>My
-                            Posts</strong></h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        {# Blog Posts Grid Layout #}
-        <div class="col-12 mt-3">
-            <div class="row">
-                {# Iterate Through User's Blog Posts #}
-                {% for blogpost in my_blogposts %}
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            {# Featured Image Section #}
-                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
+ 
+ {% block content %}
+ <div class="container">
+     {# Header Section 
+        Displays page title in a masthead container #}
+     <div class="masthead">
+         <div class="container card-body">
+             <div class="row g-0">
+                 <div class="col-md-12 masthead-text">
+                     <h1 class="post-title text-center mb-5">
+                         <strong>My Posts</strong>
+                     </h1>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+     {# Main Content Grid
+        Responsive layout: lg=3 cols, md=2 cols, sm=1 col #}
+     <div class="row">
+         <div class="col-12 mt-3">
+             <div class="row">
+                 {% for blogpost in my_blogposts %}
+                 <div class="col-lg-4 col-md-6 col-sm-12">
+                     <div class="card mb-4">
+                         <div class="card-body">
+                             {# Featured Image with Link #}
+                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="image-container-link">
-                                <div class="image-container">
-                                    {# Conditional Image Display #}
-                                    <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                        src="{{ blogpost.featured_image.url }}"
-                                        alt="{{ blogpost.blog_title }} Image">
-                                </div>
-                            </a>
-
-                            {# Post Title #}
-                            <a href="{% url 'blogpost_detail' blogpost.slug %}"
+                                 <div class="image-container">
+                                     <img class="card-img-top img-fluid aspect-ratio-3-2"
+                                          src="{{ blogpost.featured_image.url }}"
+                                          alt="{{ blogpost.blog_title }} Image">
+                                 </div>
+                             </a>
+ 
+                             {# Post Title with Link #}
+                             <a href="{% url 'blogpost_detail' blogpost.slug %}"
                                 class="post-link">
-                                <h2 class="card-title mt-2">
-                                    {{ blogpost.blog_title }}</h2>
-                            </a>
-                            <hr />
-
-                            {# Post Metadata - Creation Date and Likes #}
-                            <p class="card-text text-muted h6">
-                                {{ blogpost.created_on }} <i
-                                    class="far fa-heart"></i>
-                                {{ blogpost.number_of_likes }}
-                            </p>
-
-                            {# Post Management Buttons #}
-                            <div class="d-flex justify-content-between mt-2">
-                                <a href="{% url 'blogpost_update' blogpost.slug %}"
+                                 <h2 class="card-title mt-2">{{ blogpost.blog_title }}</h2>
+                             </a>
+                             <hr>
+ 
+                             {# Post Metadata #}
+                             <p class="card-text text-muted h6">
+                                 {{ blogpost.created_on }}
+                                 <i class="far fa-heart"></i> {{ blogpost.number_of_likes }}
+                             </p>
+ 
+                             {# Action Buttons #}
+                             <div class="d-flex justify-content-between mt-2">
+                                 <a href="{% url 'blogpost_update' blogpost.slug %}"
                                     class="btn btn-secondary">Edit Post</a>
-                                <a href="{% url 'blogpost_delete' blogpost.slug %}"
+                                 <a href="{% url 'blogpost_delete' blogpost.slug %}"
                                     class="btn btn-danger">Delete Post</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-
-    {# Pagination Controls #}
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"
-                    class="page-link">&laquo; Prev</a></li>    {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"
-                    class="page-link">Next &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
-{% endblock %}
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 {% empty %}
+                     <p>Your blog is as empty as a bird's nest in winter! You haven't created any posts yet.</p>
+                 {% endfor %}
+             </div>
+         </div>
+     </div>
+ 
+     {# Pagination Controls 
+        Shows Previous/Next links when needed #}
+     {% if is_paginated %}
+     <nav aria-label="Page navigation">
+         <ul class="pagination justify-content-center">
+             {% if page_obj.has_previous %}
+             <li>
+                 <a href="?page={{ page_obj.previous_page_number }}"
+                    class="page-link">&laquo; Prev</a>
+             </li>
+             {% endif %}
+             {% if page_obj.has_next %}
+             <li>
+                 <a href="?page={{ page_obj.next_page_number }}"
+                    class="page-link">Next &raquo;</a>
+             </li>
+             {% endif %}
+         </ul>
+     </nav>
+     {% endif %}
+ </div>
+ {% endblock %}

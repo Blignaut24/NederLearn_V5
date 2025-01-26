@@ -286,3 +286,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # for account registration/management
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"

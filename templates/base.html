@@ -10,7 +10,7 @@
     <head>
         {% comment %} Meta Information {% endcomment %}
         <title>NederLearn</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% comment %} External Resources {% endcomment %}
         {% comment %} Google Fonts Setup {% endcomment %}
@@ -50,17 +50,14 @@
                     <ul class="navbar-nav me-auto">
                          <!-- About Us Link -->
                         <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about_us' %}"
-                            aria-label="About Us">
+                        <a class="nav-link" href="{% url 'about_us' %}">
                             <i class="fas fa-info-circle"></i> About Us
                         </a>
                         </li>
                         {% if not user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}"
-                                aria-label="Join the Club">
-                                <i class="fas fa-user-friends"></i> Join
-                                the Club
+                            <a class="nav-link" href="{% url 'account_signup' %}">
+                                <i class="fas fa-user-friends"></i> Join the Community
                             </a>
                         </li>
                         {% endif %}
@@ -71,32 +68,25 @@
                         <!-- Latest Posts Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home' %}">
-                                <i class="fas fa-home"
-                                    aria-label="Latest Posts"></i> Latest
-                                Posts
-                            </a>
+                                <i class="fas fa-home"></i> Latest Posts
                         </li>
                         <!-- Create New Post Link -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'blogpost_create' %}">
-                                <i class="fas fa-plus"
-                                aria-label="Create New Post">
-                            </i>
+                                <i class="fas fa-plus"></i>
                             Create New Post
                         </a>
                     </li>
                     <!-- My Posts Link -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'my_posts' %}">
-                            <i class="fas fa-file-alt"
-                                aria-label="My Posts"></i> My Posts
+                        <i class="fas fa-file-alt"></i> My Posts
                         </a>
                     </li>
                     <!-- Bookmarked Link -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'bookmarked' %}">
-                            <i class="fas fa-bookmark"
-                                aria-label="Bookmarked"></i> Bookmarked
+                            <i class="fas fa-bookmark"></i> Bookmarked
                         </a>
                     </li>
                         <!-- Dropdown for User Profile -->
@@ -111,23 +101,19 @@
                                 aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item"
                                         href="{% url 'profile' %}"><i
-                                        class="fas fa-user-circle"
-                                        aria-label="My Profile"></i>
-                                        My Profile</a>
+                                        class="fas fa-user-circle"></i> My Profile"></a></i>
                                 </li>
                                 <li><a class="dropdown-item"
                                         href="{% url 'profile_edit' %}"><i
-                                        class="fas fa-edit"
-                                        aria-label="Edit Profile"></i> Edit Profile</a></li>
+                                        class="fas fa-edit"></i> Edit Profile</a></li>
                                 <li><a class="dropdown-item"
                                         href="{% url 'account_delete' request.user.pk %}"><i
-                                        class="fas fa-cog"
-                                        aria-label="Manage Account"></i> 
+                                        class="fas fa-cog"></i> Manage Account"></i> 
                                         Manage Account</a></li>
-                                <li><a class="dropdown-item"
-                                        href="{% url 'account_logout' %}"><i
-                                        class="fas fa-sign-out-alt"
-                                        aria-label="Log out"></i> Log Out</a>
+                                        <li><a class="dropdown-item"
+                                            href="{% url 'account_logout' %}"><i
+                                                class="fas fa-sign-out-alt"></i> Log
+                                            Out</a>
                                     </li>
                             </ul>
                         </li>

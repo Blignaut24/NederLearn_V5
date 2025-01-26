@@ -35,7 +35,8 @@
                 <form class="login mt-4" method="POST"
                     action="{% url 'account_login' %}">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ form.login.label_tag }} {{ form.login }}
+                {{ form.password.label_tag }} {{ form.password }}
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}"
                         value="{{ redirect_field_value }}" />

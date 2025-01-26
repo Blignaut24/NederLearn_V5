@@ -25,8 +25,8 @@
                         class="btn ctg btn-secondary m-2">All</a>
                     <a href="?category=Movies/Series"
                     class="btn ctg btn-secondary m-2">Movies/Series</a>
-                    <a href="?category=Music Albums"
-                    class="btn ctg btn-secondary m-2">Music</a>
+                    <a href="?category=Music+Albums"
+                        class="btn ctg btn-secondary m-2">Music Albums</a>
                     <a href="?category=Books"
                         class="btn ctg btn-secondary m-2">Books</a>
                     <a href="?category=Podcasts"
@@ -63,11 +63,11 @@
                                             {{ blogpost.blog_title|truncatechars:50 }}
                                         </h2>
                                     </a>
-                                    <hr />
+                                    <hr>
                                     <p class="card-text card-excerpt">
                                         {{ blogpost.excerpt|truncatechars:50 }}
                                     </p>
-                                    <hr />
+                                    <hr>
                                     <p class="card-text text-muted h6">
                                         {{ blogpost.created_on }} <i
                                             class="far fa-heart"></i>
