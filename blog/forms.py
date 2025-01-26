@@ -1,6 +1,4 @@
 from django import forms
-from django.core.validators import URLValidator
-from django.core.exceptions import ValidationError
 from .models import Comment, UserProfile, Blogpost
 import datetime
 
@@ -36,7 +34,8 @@ class BlogpostForm(forms.ModelForm):
             "blog_title": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Enter a title for your post...(max length 50 characters)",
+                    "placeholder": "Enter a title for your post..."
+                    "(max length 50 characters)",
                     "maxlength": "50",
                 }
             ),
@@ -44,7 +43,8 @@ class BlogpostForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "rows": 4,
-                    "placeholder": "Write your blog content here (max length 2000 characters)...",
+                    "placeholder": "Write your blog content here..."
+                    "(max length 2000 characters)",
                     "maxlength": "2000",
                 }
             ),
@@ -52,7 +52,8 @@ class BlogpostForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "rows": 2,
-                    "placeholder": "Write a short excerpt...(max length 70 characters)",
+                    "placeholder": "Write a short excerpt..."
+                    "(max length 70 characters)",
                     "maxlength": "70",
                 }
             ),
@@ -63,9 +64,9 @@ class BlogpostForm(forms.ModelForm):
                     "min": 1800,
                     "max": datetime.datetime.now().year,
                     "placeholder": "Format YYYY",
-                    "media_link": forms.URLInput(attrs={"class": "form-control"}),
                 }
             ),
+            "media_link": forms.URLInput(attrs={"class": "form-control"}),
         }
         # Hidden labels for cleaner UI
         labels = {
@@ -87,9 +88,7 @@ class BlogpostForm(forms.ModelForm):
         cleaned_data = super().clean()
         featured_image = cleaned_data.get("featured_image")
         if not featured_image:
-            cleaned_data["featured_image"] = (
-                "blogpost_placeholder"  # default image name
-            )
+            cleaned_data["featured_image"] = "blogpost_placeholder"
         return cleaned_data
 
 
@@ -115,9 +114,7 @@ class CommentForm(forms.ModelForm):
                 }
             ),
         }
-        labels = {
-            "body": "",
-        }
+        labels = {"body": ""}
 
 
 class UserProfileForm(forms.ModelForm):
@@ -145,10 +142,7 @@ class UserProfileForm(forms.ModelForm):
             "top_podcasts",
             "top_miscellaneous",
         ]
-
-        labels = {
-            "profile_image": "Upload Profile Image",
-        }
+        labels = {"profile_image": "Upload Profile Image"}
 
     widgets = {
         "profile_image": forms.ClearableFileInput(
@@ -158,51 +152,46 @@ class UserProfileForm(forms.ModelForm):
             attrs={
                 "class": "form-control",
                 "rows": 4,
-                "placeholder": "Write something about yourself (max length 350 characters)...",
+                "placeholder": "Tell us about yourself "
+                "(max length 350 characters)...",
                 "maxlength": "350",
-                "country": forms.TextInput(
-                    attrs={
-                        "class": "form-control",
-                        "placeholder": "Let us know where you are from",
-                        "maxlength": "20",
-                    }
-                ),
-                "top_movies": forms.TextInput(
-                    attrs={
-                        "placeholder": "Hit us with your absolute favorite movies...",
-                        "maxlength": "200",
-                    }
-                ),
-                "top_series": forms.TextInput(
-                    attrs={
-                        "placeholder": "And series you binge-watched...",
-                        "maxlength": "200",
-                    }
-                ),
-                "top_music_albums": forms.TextInput(
-                    attrs={
-                        "placeholder": "And the albums that make you dance or cry a river...",
-                        "maxlength": "200",
-                    }
-                ),
-                "top_books": forms.TextInput(
-                    attrs={
-                        "placeholder": "Books that you could not let go...",
-                        "maxlength": "200",
-                    }
-                ),
-                "top_podcasts": forms.TextInput(
-                    attrs={
-                        "placeholder": "And not the least, awesome podcasts...",
-                        "maxlength": "200",
-                    }
-                ),
-                "top_miscellaneous": forms.TextInput(
-                    attrs={
-                        "placeholder": "Whatever deserves mentioning like art, festivals, museums etc...",
-                        "maxlength": "200",
-                    }
-                ),
+            }
+        ),
+        "country": forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Let us know where you are from",
+                "maxlength": "20",
+            }
+        ),
+        "top_movies": forms.TextInput(
+            attrs={
+                "placeholder": "What is your favorite movie?",
+                "maxlength": "200",
+            }
+        ),
+        "top_series": forms.TextInput(
+            attrs={"placeholder": "Series you binge-watched...", "maxlength": "200"}
+        ),
+        "top_music_albums": forms.TextInput(
+            attrs={
+                "placeholder": "Song that make you dance or cry...",
+                "maxlength": "200",
+            }
+        ),
+        "top_books": forms.TextInput(
+            attrs={
+                "placeholder": "Books that made you laugh so hard you dropped them (literally)... 📚💥",
+                "maxlength": "200",
+            }
+        ),
+        "top_podcasts": forms.TextInput(
+            attrs={"placeholder": "What is your ear candy?", "maxlength": "200"}
+        ),
+        "top_miscellaneous": forms.TextInput(
+            attrs={
+                "placeholder": "Got anything else to share? ",
+                "maxlength": "200",
             }
         ),
     }

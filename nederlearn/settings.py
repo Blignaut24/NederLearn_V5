@@ -278,3 +278,11 @@ cloudinary.config(
 # =======================================
 # Default field type for primary keys
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# =======================================
+# Authentication Settings
+# =======================================
+# Disables email verification requirement
+# for account registration/management
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'

@@ -82,7 +82,7 @@ class Blogpost(models.Model):
 
         # Set default image only if none is provided
         if not self.featured_image:
-            self.featured_image = 'blogpost_placeholder'
+            self.featured_image = "blogpost_placeholder"
 
         super(Blogpost, self).save(*args, **kwargs)
 
@@ -170,4 +170,4 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Comment {self.body} by {self.user.username}"
+        return f"{self.id} by {self.user.username}"

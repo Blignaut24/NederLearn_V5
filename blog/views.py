@@ -1,51 +1,53 @@
-# ===========================================================================
-# Django Blog Application - Core Views
-# ===========================================================================
-# Purpose: Core views and models for blog functionality
-# Features: CRUD operations, user profiles, content management
-# ===========================================================================
+# ==================================================================
+# Django Blog Application Views
+# Author: Johann-Jurgens Blignaut
+# Date: 2025-01-26
+# Description: Core view logic for blog application including post management,
+#              user profiles, and interaction features
+# ==================================================================
 
-# -----------------------------
-# Import Section
-# -----------------------------
-# Django core
-from django.views.generic.list import ListView
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.views import generic, View
-from django.views.generic import DeleteView
+# ------------------------------
+# SECTION 1: IMPORTS
+# ------------------------------
+
+# Standard Django imports
 from django.http import (
     HttpResponseRedirect,
     HttpResponseForbidden,
     HttpResponseNotAllowed,
 )
 from django.contrib.auth import logout
-from django.urls import reverse_lazy
-
-# Authentication
-from django.contrib import messages
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.utils.decorators import method_decorator
 
-# Local imports
+# View and authentication imports
+from django.views import generic, View
+from django.views.generic import DeleteView, ListView
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+# Application-specific imports
 from .models import Blogpost, UserProfile, MediaCategory
 from .forms import CommentForm, UserProfileForm, BlogpostForm
 
 
-# -----------------------------
-# Blog Post CRUD Views
-# -----------------------------
+# ------------------------------
+# SECTION 2: POST MANAGEMENT
+# ------------------------------
+
+
 class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
     """
-    Creates new blog posts
+    Handle creation of new blog posts
 
-    Args:
-        LoginRequiredMixin: Ensures user authentication
-        generic.CreateView: Base view for creation
-
-    Returns:
-        Redirects to post detail view on success
+    Features:
+    - User authentication required
+    - Auto-assigns current user as author
+    - Success message display
+    - Redirect to post details
     """
 
     model = Blogpost
@@ -64,20 +66,18 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
 
 class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
     """
-    Updates existing blog posts
+    Handle updates to existing blog posts
 
-    Args:
-        LoginRequiredMixin: Ensures user authentication
-        generic.UpdateView: Base view for updates
-
-    Returns:
-        Redirects to post detail view on success
+    Features:
+    - User authentication required
+    - Author preservation
+    - Success message display
+    - Redirect to post details
     """
 
     model = Blogpost
     form_class = BlogpostForm
     template_name = "blogpost_update.html"
-    success_url = reverse_lazy("blogpost_detail")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -91,39 +91,37 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
     """
-    Handles post deletion
+    Handle deletion of blog posts
 
-    Args:
-        LoginRequiredMixin: Ensures user authentication
-        generic.DeleteView: Base view for deletion
-
-    Returns:
-        Redirects to user's posts on success
+    Features:
+    - User authentication required
+    - Success message display
+    - Redirect to user's post list
     """
 
     model = Blogpost
     template_name = "blogpost_delete.html"
+    success_url = reverse_lazy("my_posts")
 
     def delete(self, request, *args, **kwargs):
-        # Delete the post and display a success message
         response = super().delete(request, *args, **kwargs)
         messages.success(request, "Your blog post has been deleted successfully.")
         return response
 
-    # Define the URL to redirect to after deletion
-    success_url = reverse_lazy("my_posts")
+
+# ------------------------------
+# SECTION 3: POST LISTING
+# ------------------------------
 
 
 class MyBlogPostsView(LoginRequiredMixin, ListView):
     """
-    Lists user's personal posts
+    Display user's personal posts
 
-    Args:
-        LoginRequiredMixin: Ensures user authentication
-        ListView: Base view for list display
-
-    Returns:
-        Paginated list of user's posts
+    Features:
+    - User-specific filtering
+    - Reverse chronological order
+    - Pagination (6 per page)
     """
 
     model = Blogpost
@@ -135,26 +133,15 @@ class MyBlogPostsView(LoginRequiredMixin, ListView):
         return Blogpost.objects.filter(author=self.request.user).order_by("-created_on")
 
 
-# -----------------------------
-# Core Views
-# -----------------------------
-def index(request):
-    """Renders main landing page"""
-    return render(request, "index.html")
-
-
-# -----------------------------
-# Content Display Views
-# -----------------------------
-class BlogpostPostList(generic.ListView):
+class BlogPostList(generic.ListView):
     """
-    Main blog listing view
+    Display all published posts
 
     Features:
-        - Shows active posts only
-        - Orders by newest first
-        - Requires authentication
-        - Includes pagination
+    - Authentication check
+    - Category filtering
+    - Chronological ordering
+    - Pagination (6 per page)
     """
 
     model = Blogpost
@@ -163,46 +150,41 @@ class BlogpostPostList(generic.ListView):
     paginate_by = 6
 
     def dispatch(self, request, *args, **kwargs):
+        """Verify user authentication"""
         if not request.user.is_authenticated:
             return redirect("account_login")
         return super().dispatch(request, *args, **kwargs)
 
+    def get_queryset(self):
+        queryset = Blogpost.objects.filter(status=1).order_by("-created_on")
+        media_category = self.request.GET.get("category")
+        if media_category:
+            queryset = queryset.filter(media_category__media_name=media_category)
+        return queryset
 
-def get_queryset(self):
-    queryset = Blogpost.objects.filter(status=1).order_by("-created_on")
-    media_category = self.request.GET.get("category")
-    if media_category:
-        queryset = queryset.filter(media_category__media_name=media_category)
-    return queryset
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = MediaCategory.objects.all()
+        return context
 
 
-def get_context_data(self, **kwargs):
-    context = super().get_context_data(**kwargs)
-    # Lägg till kategorier i kontexten för att visa i mallen
-    context["categories"] = MediaCategory.objects.all()
-    # Lägg till övriga relevanta data i kontexten
-    return context
+# ------------------------------
+# SECTION 4: POST INTERACTION
+# ------------------------------
 
 
 class BlogPostDetail(View):
     """
-    Handles single post display and comments
+    Handle individual post display and comments
 
-    Methods:
-        get: Shows post content and comments
-        post: Processes new comment submissions
+    Features:
+    - Post detail display
+    - Comment management
+    - Like status tracking
+    - Form handling
     """
 
     def get(self, request, slug, *args, **kwargs):
-        """
-        Displays post details
-
-        Args:
-            slug: Post identifier
-
-        Returns:
-            Rendered template with post data
-        """
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.filter(approved=False).order_by("created_on")
@@ -221,15 +203,7 @@ class BlogPostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        """
-        Processes comment submission
-
-        Args:
-            slug: Post identifier
-
-        Returns:
-            Rendered template with updated comments
-        """
+        """Process comment submissions"""
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.filter(approved=False).order_by("created_on")
@@ -256,15 +230,14 @@ class BlogPostDetail(View):
         )
 
 
-# -----------------------------
-# User Interaction Views
-# -----------------------------
 class LikeUnlike(View):
     """
-    Handles post like/unlike toggling
+    Handle post like toggling
 
-    Methods:
-        post: Toggles like status and redirects
+    Features:
+    - Like/unlike functionality
+    - User verification
+    - Redirect to post
     """
 
     def post(self, request, slug, *args, **kwargs):
@@ -273,18 +246,23 @@ class LikeUnlike(View):
             blogpost.likes.remove(request.user)
         else:
             blogpost.likes.add(request.user)
+
         return HttpResponseRedirect(reverse("blogpost_detail", args=[slug]))
 
 
-# -----------------------------
-# Profile Management Views
-# -----------------------------
+# ------------------------------
+# SECTION 5: USER PROFILES
+# ------------------------------
+
+
+@method_decorator(login_required, name="dispatch")
 class ProfileView(View):
     """
-    Shows user's own profile data
+    Display user profile page
 
-    Methods:
-        get: Displays profile information
+    Features:
+    - Authentication required
+    - Personal profile display
     """
 
     def get(self, request):
@@ -295,59 +273,53 @@ class ProfileView(View):
 
 class OtherUserProfileView(View):
     """
-    Displays other users' profiles
+    Display other users' profiles
 
-    Methods:
-        get: Shows public profile data
+    Features:
+    - Profile lookup
+    - Owner verification
     """
 
     def get(self, request, username):
         user = get_object_or_404(User, username=username)
         user_profile = get_object_or_404(UserProfile, user=user)
-        context = {
-            "profile": user_profile,
-            "is_own_profile": request.user == user,
-        }
+        context = {"profile": user_profile, "is_own_profile": request.user == user}
         return render(request, "profile.html", context)
 
 
 class ProfileEditView(LoginRequiredMixin, View):
     """
-    Handles profile updates
+    Handle profile updates
 
-    Methods:
-        get: Shows edit form
-        post: Processes profile updates
+    Features:
+    - Form processing
+    - Success messages
+    - Redirect handling
     """
 
     def get(self, request):
-        """Displays edit form"""
         form = UserProfileForm(instance=request.user.userprofile)
         return render(request, "profile_edit.html", {"form": form})
 
     def post(self, request):
-        """Processes form submission"""
         form = UserProfileForm(
             request.POST, request.FILES, instance=request.user.userprofile
         )
         if form.is_valid():
             form.save()
-            messages.success(
-                request,
-                "🎉 Woohoo! Your profile has been updated successfully. Looking fresh and fabulous! ✨",
-            )
+            messages.success(request, "Your profile has been updated successfully.")
             return redirect("profile")
         return render(request, "profile_edit.html", {"form": form})
 
 
 class ProfileDeleteView(LoginRequiredMixin, DeleteView):
     """
-    Handles account deletion
+    Handle account deletion
 
     Features:
-        - Requires authentication
-        - Confirms user ownership
-        - Handles logout after deletion
+    - Account removal
+    - Auto logout
+    - Login redirect
     """
 
     model = User
@@ -363,15 +335,37 @@ class ProfileDeleteView(LoginRequiredMixin, DeleteView):
         return response
 
 
+# ------------------------------
+# SECTION 6: BOOKMARKS
+# ------------------------------
+
+
 def bookmarked(request):
+    """
+    Display bookmarked posts
+
+    Features:
+    - Authentication check
+    - Bookmark filtering
+    """
     if request.user.is_authenticated:
         bookmarked_posts = Blogpost.objects.filter(bookmarks=request.user)
     else:
         bookmarked_posts = []
+
     return render(request, "bookmarked.html", {"bookmarked_posts": bookmarked_posts})
 
 
 class BookmarkUnbookmark(View):
+    """
+    Handle bookmark toggling
+
+    Features:
+    - Add/remove bookmarks
+    - Success messages
+    - Post redirect
+    """
+
     def post(self, request, slug, *args, **kwargs):
         blogpost = get_object_or_404(Blogpost, slug=slug)
         if blogpost.bookmarks.filter(id=request.user.id).exists():
@@ -383,10 +377,16 @@ class BookmarkUnbookmark(View):
         return HttpResponseRedirect(reverse("blogpost_detail", args=[slug]))
 
 
-# --- ERROR PAGES ---
+# ------------------------------
+# SECTION 7: ERROR HANDLING
+# ------------------------------
+
+
 def custom_403_error(request, exception):
+    """Handle forbidden access errors"""
     return HttpResponseForbidden(render(request, "403.html"))
 
 
 def custom_405_error(request, exception):
+    """Handle method not allowed errors"""
     return HttpResponseNotAllowed(render(request, "405.html"))

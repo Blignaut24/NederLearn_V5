@@ -1,46 +1,64 @@
 """
-URLs Configuration
+NederLearn URL Configuration
+=====================================
+
+This module handles URL routing for the NederLearn application.
+
+For detailed Django URL configuration docs, see:
+https://docs.djangoproject.com/en/3.2/topics/http/urls/
+
+URL Pattern Types:
 -----------------
+1. Function-based Views:
+   from my_app import views
+   path('', views.home, name='home')
 
-Main URL routing configuration for the CodeStar project. Maps URLs to their 
-corresponding views and includes other URL configurations.
+2. Class-based Views:  
+   from other_app.views import Home
+   path('', Home.as_view(), name='home')
 
-Routes:
-- /admin/      -> Django admin interface
-- /           -> Main index view
-- /summernote/ -> Rich text editor URLs
-
-For Django URL patterns documentation:
-https://docs.djangoproject.com/en/4.2/topics/http/urls/
+3. Including Other URLconfs:
+   from django.urls import include
+   path('blog/', include('blog.urls'))
 """
 
+# Django Core Imports
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+
+# Local App Imports 
 from blog.views import ProfileDeleteView, custom_403_error
 
-from blog.views import index
-
-# Define URL patterns for the entire project
+# Main URL Patterns
 urlpatterns = [
-    # Core administrative interface
-    path("admin/", admin.site.urls),
-    # Maps root URL to blog.urls patterns
+    # Admin Interface
+    path('admin/', admin.site.urls),
+    
+    # Blog URLs (Root URL Pattern)
     path("", include("blog.urls"), name="blog-urls"),
-    # Rich text editor functionality
-    path("summernote/", include("django_summernote.urls")),
-    # Authentication
-    path("accounts/", include("allauth.urls")),
-    # Account deletion
+    
+    # Rich Text Editor
+    path('summernote/', include('django_summernote.urls')),
+    
+    # Authentication URLs
+    path('accounts/', include('allauth.urls')),
+    
+    # Profile Management 
     path(
-        "account/delete/<int:pk>/", ProfileDeleteView.as_view(), name="account_delete"
+        'account/delete/<int:pk>/',
+        ProfileDeleteView.as_view(),
+        name='account_delete'
     ),
 ]
 
-# Serve media files in development
+# Development Media File Serving
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
 
-# Custom error handlers
-handler403 = custom_403_error
+# Custom Error Handlers
+handler403 = custom_403_error  # Forbidden Error Handler_error
