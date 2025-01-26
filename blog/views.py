@@ -57,11 +57,14 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        messages.success(self.request, "Your blog post has been created successfully.")
+        messages.success(self.request,
+        "Your blog post has been created successfully.")
         return response
 
-    def get_success_url(self):
-        return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
+      return reverse_lazy(
+        "blogpost_detail",
+        kwargs={"slug": self.object.slug}
+    )
 
 
 class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
