@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{# ===================================== #}
-{# Create Blog Post Form Template         #}
-{# Purpose: Provides form interface for   #}
-{# users to create new blog posts         #}
-{# ===================================== #}
+
 
 {# Main container with responsive grid #}
 <div class="container">
@@ -18,7 +14,7 @@
             
             {# Post creation form #}
             {# Note: enctype required for file uploads #}
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="blogPostForm">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary">Create
