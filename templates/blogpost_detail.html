@@ -57,6 +57,14 @@
                         <!-- Blog Content-->
                         <!-- Full Blog Post Content -->
                         <p class="card-text">{{ blogpost.content | safe }}</p>
+                        <div class="mt-3">
+                            <strong>Release Year:</strong>
+                            {{ blogpost.release_year }}
+                        </div>
+                        <div class="mt-3">
+                            <strong>Category:</strong>
+                            {{ blogpost.media_category }}
+                        </div>
                         {% if blogpost.media_link %}
                         <div class="mt-3 mb-3">
                             <strong>Media Link/Reference:</strong>
