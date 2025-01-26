@@ -12,6 +12,7 @@ class BlogConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     # Application name identifier
     name = "blog"
+    verbose_name = 'Blog'
 
     def ready(self):
         """

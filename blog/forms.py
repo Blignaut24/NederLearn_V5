@@ -35,8 +35,8 @@ class BlogpostForm(forms.ModelForm):
                 attrs={
                     "class": "form-control",
                     "placeholder": "Enter a title for your post..."
-                    "(max length 50 characters)",
-                    "maxlength": "50",
+                    "(max length 200 characters)",
+                    "maxlength": "200",
                 }
             ),
             "content": SummernoteWidget(
@@ -44,8 +44,8 @@ class BlogpostForm(forms.ModelForm):
                     "class": "form-control",
                     "rows": 4,
                     "placeholder": "Write your blog content here..."
-                    "(max length 2000 characters)",
-                    "maxlength": "2000",
+                    "(max length 10000 characters)",
+                    "maxlength": "10000",
                 }
             ),
             "excerpt": forms.Textarea(
@@ -109,7 +109,7 @@ class CommentForm(forms.ModelForm):
                     "rows": 2,
                     "cols": 50,
                     "placeholder": "Write your comment here...",
-                    "max_length": "1000",
+                    "maxlength": "1000",
                 }
             ),
         }
@@ -160,37 +160,37 @@ class UserProfileForm(forms.ModelForm):
             attrs={
                 "class": "form-control",
                 "placeholder": "Let us know where you are from",
-                "maxlength": "20",
+                "maxlength": "70",
             }
         ),
         "top_movies": forms.TextInput(
             attrs={
                 "placeholder": "What is your favorite movie?",
-                "maxlength": "200",
+                "maxlength": "255",
             }
         ),
         "top_series": forms.TextInput(
-            attrs={"placeholder": "Series you binge-watched...", "maxlength": "200"}
+            attrs={"placeholder": "Series you binge-watched...", "maxlength": "255"}
         ),
         "top_music_albums": forms.TextInput(
             attrs={
                 "placeholder": "Song that make you dance or cry...",
-                "maxlength": "200",
+                "maxlength": "255",
             }
         ),
         "top_books": forms.TextInput(
             attrs={
                 "placeholder": "Books that made you laugh so hard you dropped them (literally)... 📚💥",
-                "maxlength": "200",
+                "maxlength": "255",
             }
         ),
         "top_podcasts": forms.TextInput(
-            attrs={"placeholder": "What is your ear candy?", "maxlength": "200"}
+            attrs={"placeholder": "What is your ear candy?", "maxlength": "255"}
         ),
         "top_miscellaneous": forms.TextInput(
             attrs={
                 "placeholder": "Got anything else to share? ",
-                "maxlength": "200",
+                "maxlength": "255",
             }
         ),
     }
