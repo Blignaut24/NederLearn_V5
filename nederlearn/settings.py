@@ -227,24 +227,35 @@ DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/", "https://*.herokuapp.com"]
 
-# =======================================
-# Password Validation
-# =======================================
-# Rules for password strength and validation
+# =================================================================
+# Password Validation Configuration
+# =================================================================
+# This section configures Django's built-in password validation system
+# to enforce password security requirements for user accounts.
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        # Checks if password is too similar to username/email
+        'NAME': 'django.contrib.auth.password_validation.'
+                'UserAttributeSimilarityValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        # Ensures password meets minimum length requirement
+        'NAME': 'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        # Prevents use of commonly used/easily guessed passwords
+        'NAME': 'django.contrib.auth.password_validation.'
+                'CommonPasswordValidator',
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        # Checks if password is not entirely numeric
+        'NAME': 'django.contrib.auth.password_validation.'
+                'NumericPasswordValidator',
     },
 ]
+
 
 # ==============================================
 # Email Verification Configuration
