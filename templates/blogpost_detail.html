@@ -57,6 +57,13 @@
                         <!-- Blog Content-->
                         <!-- Full Blog Post Content -->
                         <p class="card-text">{{ blogpost.content | safe }}</p>
+                        {% if blogpost.media_link %}
+                        <div class="mt-3 mb-3">
+                            <strong>Media Link/Reference:</strong>
+                            <a href="{{ blogpost.media_link }}"
+                                target="_blank">{{ blogpost.media_link }}</a>
+                        </div>
+                        {% endif %}
                         <!-- Divider -->
                         <hr>
                         <div class="row">
