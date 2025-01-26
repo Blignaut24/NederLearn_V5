@@ -176,6 +176,8 @@ MIDDLEWARE = [
     # User Interface Layer
     # -------------
     "django.contrib.messages.middleware.MessageMiddleware",
+    # Prevents clickjacking attacks via frame options
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Flash messages system
     "allauth.account.middleware.AccountMiddleware",  # Handles auth accounts
 ]
