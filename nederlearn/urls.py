@@ -42,18 +42,12 @@ urlpatterns = [
     # Authentication URLs
     path("accounts/", include("allauth.urls")),
     # Profile Management
-    path(
-        "account/delete//",
-        ProfileDeleteView.as_view(),
-        name="account_delete"),
+    path("account/delete//", ProfileDeleteView.as_view(), name="account_delete"),
 ]
 
 # Development Media File Serving
 if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 # Custom Error Handlers

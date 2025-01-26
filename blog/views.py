@@ -1,11 +1,3 @@
-# ==================================================================
-# Django Blog Application Views
-# Author: Johann-Jurgens Blignaut
-# Date: 2025-01-26
-# Description: Core view logic for blog application including post management,
-#              user profiles, and interaction features
-# ==================================================================
-
 # ------------------------------
 # SECTION 1: IMPORTS
 # ------------------------------
@@ -57,14 +49,11 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        messages.success(self.request,
-        "Your blog post has been created successfully.")
+        messages.success(self.request, "Your blog post has been created successfully.")
         return response
 
-      return reverse_lazy(
-        "blogpost_detail",
-        kwargs={"slug": self.object.slug}
-    )
+    def get_success_url(self):
+        return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
 
 
 class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
