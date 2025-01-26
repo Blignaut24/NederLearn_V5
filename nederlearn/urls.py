@@ -13,7 +13,7 @@ URL Pattern Types:
    from my_app import views
    path('', views.home, name='home')
 
-2. Class-based Views:  
+2. Class-based Views:
    from other_app.views import Home
    path('', Home.as_view(), name='home')
 
@@ -43,13 +43,18 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Profile Management
     path(
-        "account/delete/<int:pk>/", ProfileDeleteView.as_view(), name="account_delete"
-    ),
+        "account/delete//",
+        ProfileDeleteView.as_view(),
+        name="account_delete"),
 ]
 
 # Development Media File Serving
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
+
 
 # Custom Error Handlers
 handler403 = custom_403_error  # Forbidden Error Handler_error
