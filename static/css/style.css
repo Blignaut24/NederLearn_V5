@@ -1,3 +1,7 @@
+/* Importing the Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 /* =================================
    THEME CONFIGURATION
    Main color scheme and core variables
@@ -46,10 +50,7 @@
     padding: 2px;
 }
 
-/*FIXME: Change color of "label" on Edit Profile page*/
-label {
-    color: var(--dark-text);
-}
+
 
 #profile_edit_heading {
     color: var(--dark-text);
@@ -836,3 +837,12 @@ textarea {
         height: 420px;
     }
 }
+
+label{
+    color:#000000;
+    font-family:'Raleway',sans-serif;
+    font-weight: 600;
+}
+
+
+
