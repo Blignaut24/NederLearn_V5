@@ -28,9 +28,7 @@ if os.path.isfile("env.py"):
 # =======================================
 # Path Configuration
 # =======================================
-# BASE_DIR: Root directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
-# TEMPLATES_DIR: Directory containing HTML templates
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 
 # =======================================
@@ -40,18 +38,17 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = True  # Enable debugging mode
+DEBUG = True
 
 # Host Configuration
 # -----------------
-# Defines which hosts can serve this application
 ALLOWED_HOSTS = [
     # Production Environments
     "nederlearn-v4.herokuapp.com",  # Legacy production server
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "localhost",  # Local development server
-    "8000-blignaut24-nederlearnv5-rg2cno7yf87.ws-eu117.gitpod.io",  # GitPod workspace
+    "8000-blignaut24-nederlearnv5-rg2cno7yf87.ws-eu117.gitpod.io",
 ]
 
 # =======================================
@@ -155,28 +152,31 @@ SUMMERNOTE_CONFIG = {
 # =================================================================
 # MIDDLEWARE CONFIGURATION
 # =================================================================
-# Django's request/response processing pipeline
-# Middleware executes in order (top to bottom) for requests
-# and reverse order for responses
 
 MIDDLEWARE = [
     # -------------
     # Security Layer
     # -------------
-    "django.middleware.security.SecurityMiddleware",  # Handles security features
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Serves static files efficiently
+    "django.middleware.security.SecurityMiddleware",
+    # Handles security features
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # Serves static files efficiently
     # -------------
     # Session & Authentication Layer
     # -------------
-    "django.contrib.sessions.middleware.SessionMiddleware",  # Manages user sessions
-    "django.middleware.common.CommonMiddleware",  # Common request/response processing
-    "django.middleware.csrf.CsrfViewMiddleware",  # Protects against CSRF attacks
-    "django.contrib.auth.middleware.AuthenticationMiddleware",  # Handles user authentication
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    # Manages user sessions
+    "django.middleware.common.CommonMiddleware",
+    # Common request/response processing
+    "django.middleware.csrf.CsrfViewMiddleware",
+    # Protects against CSRF attacks
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    # Handles user authentication
     # -------------
     # User Interface Layer
     # -------------
-    "django.contrib.messages.middleware.MessageMiddleware",  # Flash messages system
-    # "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Prevents clickjacking
+    "django.contrib.messages.middleware.MessageMiddleware",
+    # Flash messages system
     "allauth.account.middleware.AccountMiddleware",  # Handles auth accounts
 ]
 
@@ -204,19 +204,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "nederlearn.wsgi.application"
 
-# ====================================
-# Database Configuration (SQLite3)
-# ====================================
-# Default Django database settings using SQLite
-# Currently commented out as we're using PostgreSQL
-# Uncomment if switching back to local development
-# DATABASES = {
-#    "default": {                           # Main database connection
-#        "ENGINE": "django.db.backends.sqlite3",  # Database engine
-#        "NAME": BASE_DIR / "db.sqlite3",   # File location relative to BASE_DIR
-#    }
-# }
-
 # =======================================
 # Database Configuration
 # =======================================
@@ -236,23 +223,23 @@ CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/", "https://*.herokuapp.com"]
 AUTH_PASSWORD_VALIDATORS = [
     {
         # Checks if password is too similar to username/email
-        'NAME': 'django.contrib.auth.password_validation.'
-                'UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation."
+        "UserAttributeSimilarityValidator",
     },
     {
         # Ensures password meets minimum length requirement
-        'NAME': 'django.contrib.auth.password_validation.'
-                'MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation."
+        "MinimumLengthValidator",
     },
     {
         # Prevents use of commonly used/easily guessed passwords
-        'NAME': 'django.contrib.auth.password_validation.'
-                'CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation."
+        "CommonPasswordValidator",
     },
     {
         # Checks if password is not entirely numeric
-        'NAME': 'django.contrib.auth.password_validation.'
-                'NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation."
+        "NumericPasswordValidator",
     },
 ]
 
@@ -288,7 +275,10 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # =======================================
 # Configuration for CSS, JavaScript, Images
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+STATICFILES_STORAGE = (
+    "cloudinary_storage.storage."
+    "StaticHashedCloudinaryStorage"
+)
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -298,7 +288,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 cloudinary.config(
     cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME", "dki11spup"),
     api_key=os.environ.get("CLOUDINARY_API_KEY", "651583882481459"),
-    api_secret=os.environ.get("CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
+    api_secret=os.environ.get(
+        "CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
 )
 
 # =======================================
