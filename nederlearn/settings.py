@@ -135,6 +135,23 @@ MESSAGE_TAGS = {
     messages.ERROR: "alert-danger",  # Error notifications
 }
 
+# ===========================================
+# Summernote Editor Configuration
+# ===========================================
+#
+# Purpose: Configure the Summernote WYSIWYG editor
+# settings to ensure proper display and functionality
+#
+# Main Settings:
+# - Editor width: Set to full width (100%) for
+#   responsive design and better user experience
+
+SUMMERNOTE_CONFIG = {
+    "summernote": {
+        "width": "100%",  # Makes editor span full container width
+    },
+}
+
 # =================================================================
 # MIDDLEWARE CONFIGURATION
 # =================================================================
