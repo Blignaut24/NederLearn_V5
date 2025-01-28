@@ -83,11 +83,31 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
-### CSS Validation
+### CSS 
+
+[**W3C Jigsaw**](https://jigsaw.w3.org/css-validator/)  is a tool that checks if your website's styling code (CSS) is correct. 
+
+| **Nr**| **Tested** | **Result** | **View Result** | **Pass** |
+--- |--- | --- | --- | :---:
+|1|CSS File| No errors | <details><summary>Screenshot of result</summary>![Result](static/images/css_w3c.webp)</details>| ✅
 
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
 ### Python Validation
+(PEP 8)[https://pep8ci.herokuapp.com/] is a style guide for Python programming that provides guidelines for code formatting and naming conventions. It helps developers write more readable and maintainable code.
+
+| **Nr**| **Tested** | **Result** | **View Result** | **Pass** |
+--- |--- | --- | --- | :---:
+|1|nederlearn/settings.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> |  ✅ |
+|2| nederlearn/urls.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|3| blog/models.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|3| blog/views.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|4| blog/forms.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|5| blog/urls.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|6| blog/admin.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|7| blog/tests/test_views.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|8| blog/tests/test_models.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+|9| blog/tests/test_urls.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
