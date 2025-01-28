@@ -66,7 +66,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 | **Nr**| **Tested** | **Result** | **View Result** | **Pass** |
 --- |--- | --- | --- | :---:
 |1|login.html| No errors | <details><summary>Screenshot of result</summary>![Result](static/images/login_w3c.webp)</details>| ✅
-|2|about_us.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|2|about_us.html| No errors | <details><summary>Screenshot of result</summary>![Result](static/images/about_w3c.webp)</details>| ✅
 |3|signup.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
 |4|index.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
 |5|blogpost_detail.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
