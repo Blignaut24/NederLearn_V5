@@ -95,7 +95,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
 ### Python Validation
-(PEP 8)[https://pep8ci.herokuapp.com/] is a style guide for Python programming that provides guidelines for code formatting and naming conventions. It helps developers write more readable and maintainable code.
+[**PEP 8**](https://pep8ci.herokuapp.com/) is a style guide for Python programming that provides guidelines for code formatting and naming conventions. It helps developers write more readable and maintainable code.
 
 | **Nr**| **Tested** | **Result** | **View Result** | **Pass** |
 --- |--- | --- | --- | :---:
@@ -109,5 +109,10 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 |7| blog/tests/test_views.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
 |8| blog/tests/test_models.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
 |9| blog/tests/test_urls.py | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+# Accessibility
+I have conducted accessibility testing to evaluate our website's usability for all users. Using **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) (Web Accessibility Evaluation Tool), we assessed compliance with accessibility standards and identified one key area requiring improvement:
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
