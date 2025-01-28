@@ -316,6 +316,18 @@ During the planning phase of the NederLearn project, I utilized [**Whimsical**](
 
 ## Testing
 
+The NederLearn project underwent thorough testing to ensure it works well and provides a good experience for users. Our testing process covered several important areas:
+
+- Code validation - Making sure our HTML, CSS, and Python code meets quality standards
+- Accessibility testing - Checking that the website can be used by everyone
+- Performance testing - Testing how well the website runs
+- Device testing - Making sure it works on different devices
+- Browser compatibility - Testing across different web browsers
+- User testing - Getting feedback from users and improving their experience
+
+Each section below details what we tested and what we found. All results are documented in this [**TESTING.md**](TESTING.md) file .
+
+
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---

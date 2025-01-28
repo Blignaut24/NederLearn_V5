@@ -1,0 +1,93 @@
+# NederLearn Testing Report 
+
+This document outlines the comprehensive testing process for the NederLearn Blog application. Testing is crucial to ensure our application works reliably and provides a great experience for all users.
+
+## Key Testing Areas
+
+1. **Code Validation**
+    - Ensuring HTML, CSS, and Python code meets quality standards
+2. **Accessibility**
+    - Making sure the website is usable by everyone
+3. **Performance**
+    - Testing how the website runs on both desktop and mobile devices
+4. **Device Compatibility**
+    - Verifying functionality across different devices
+5. **Browser Compatibility**
+    - Ensuring consistent performance across different web browsers
+6. **Automated Testing**
+    - Using systematic tests for views, models, and URLs
+7. **Manual Testing**
+    - Including security checks, user story verification, and user experience testing
+
+The testing process helps us identify and fix potential issues before they affect users, ensuring a stable and reliable platform.
+
+Return to [**README.md**](README.md)
+
+## Content
+1. [**Code Validation**](#code-validation)
+    1. [HTML Validation](#html-validation)
+    2. [CSS Validation](#css-validation)
+    3. [Python Validation](#python-validation)
+2. **Accessibility**
+    1. Wave
+3. **Performance**
+    1. Desktop Performance
+    2. Mobile Performance
+4. Performance Test on Various Devices
+5. **Browser Compatibility**
+6. **Automated Testing**
+    1. test_views.py
+    2. test_models.py
+    3. test_urls.py
+7. **Manual Testing**
+    1. Security Testing
+    2. Testing User Stories
+    3. User Experience and Improvements
+    4. Full Testing
+8. **Summary**
+
+## Code Validation
+This section explains how we checked the code quality of the NederLearn Blog app. We focused on checking three main parts: HTML, CSS, and Python code.
+
+We used these tools to check the HTML code:
+
+- [W3C Markup Validator](https://validator.w3.org/) - A tool that checks if HTML code follows web standards
+- Chrome Developer Tools - Used to look at and copy HTML from our website pages
+- Summernote - A tool that helps create formatted text
+- Django's |safe filter - Makes sure HTML content displays safely on the website
+- Django's MessageMiddleware - Turned off temporarily during testing to get accurate results
+
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+### HTML Validation
+The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML code for compliance with web standards. Each page of the NederLearn app was validated to ensure proper markup structure and accessibility.
+
+| **Nr**| **Tested** | **Result** | **View Result** | **Pass** |
+--- |--- | --- | --- | :---:
+|1|login.html| No errors | <details><summary>Screenshot of result</summary>![Result](static/images/login_w3c.webp)</details>| ✅
+|2|about_us.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|3|signup.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|4|index.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|5|blogpost_detail.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|6|blogpost_create.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|7|blogpost_update.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|8|blogpost_delete.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|9|profile.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|10|profile_edit.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|11|account_manage.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|12|my_posts.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|13|bookmarked.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+|14|logout.html| No errors | <details><summary>Screenshot of result</summary>![Result]()</details>| ✅
+
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+### CSS Validation
+
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+### Python Validation
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
