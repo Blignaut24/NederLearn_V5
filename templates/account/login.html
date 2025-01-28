@@ -1,17 +1,76 @@
-<!DOCTYPE html>
-<html class="h-100" lang="en">
-    <head>
-        
-        <title>NederLearn</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
 
-        
-        
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-       
+{# Page Title #}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+{# Main Container #}
+<div class="container col-md-8 col-sm-12">
+    <div class="masthead">
+        <div class="container card-body">
+            <div class="row g-0">
+                <div class="col-md-12 masthead-text">
+                    <h1 class="post-title">{% trans "Log In" %}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Login Form Section #}
+    <div class="row">
+        <div class="col card mb-4">
+            <div class="card-body">
+                <h1 class="text-center login-nederlearn mb-2 d-none d-md-block">
+                    {% trans "Welcome to NederLearn!" %} </h1>
+                    <p id="login-instructions">
+                    <br>
+                    
+                        {% trans "Not a member yet? Well butter my biscuit and call me a lonely learner! To read posts and interact with our wild and wonderful community," %}
+                        <a class="link"
+                            href="{{ signup_url }}">{% trans "sign up" %}</a>
+                        {% trans "first." %}
+                    </small>
+                <hr>
+                <form class="login mt-4" method="POST"
+                    action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ form.login.id_for_label }}"
+                            class="form-label">{{ form.login.label }}</label>
+                        <input type="text" class="form-control"
+                            id="{{ form.login.id_for_label }}"
+                            name="{{ form.login.html_name }}"
+                            placeholder="Username or email">
+                        <!-- Display errors for login field -->
+                        {% if form.login.errors %}
+                        <div class="text-danger">{{ form.login.errors|safe }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.password.id_for_label }}"
+                            class="form-label">{{ form.password.label }}</label>
+                        <input type="password" class="form-control"
+                            id="{{ form.password.id_for_label }}"
+                            name="{{ form.password.html_name }}"
+                            placeholder="Password">
+                        <!-- Display errors for password field -->
+                        {% if form.password.errors %}
+                        <div class="text-danger">{{ form.password.errors|safe }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}"
+                        value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary btn-lg"
+                            type="submit">{% trans "Log In" %}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
