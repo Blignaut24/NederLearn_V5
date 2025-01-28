@@ -47,6 +47,16 @@
     font-weight: 600; 
 }
 
+#signup_form label {
+    color: var(--dark-text);
+}
+
+.login-form-label {
+    color: var(--dark-text);
+}
+
+
+
 
 
 .alert-container {

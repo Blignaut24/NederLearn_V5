@@ -67,7 +67,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = CloudinaryField("image", default="placeholder")
     bio = models.TextField(max_length=350, blank=True)
-    country = models.CharField(max_length=70, blank=True)
+    country = models.CharField(max_length=150, blank=True)
     top_movies = models.CharField(max_length=255, blank=True)
     top_series = models.CharField(max_length=255, blank=True)
     top_music_albums = models.CharField(max_length=255, blank=True)
@@ -104,7 +104,7 @@ class Blogpost(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(max_length=10000)
-    excerpt = models.TextField(max_length=70, blank=True)
+    excerpt = models.TextField(max_length=150, blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
     featured_image = CloudinaryField("image", default="blogpost_placeholder")
     media_category = models.ForeignKey(
