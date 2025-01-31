@@ -47,7 +47,7 @@ ALLOWED_HOSTS = [
     "nederlearn-v4.herokuapp.com",  # Legacy production server
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
-    "localhost",  # Local development server
+    "127.0.0.1",  # Local development server
     "8000-blignaut24-nederlearnv5-rmnpyhyg9tg.ws-eu117.gitpod.io",
 ]
 
@@ -214,7 +214,11 @@ WSGI_APPLICATION = "nederlearn.wsgi.application"
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 
-CSRF_TRUSTED_ORIGINS = ["https://*.gitpod.io/", "https://*.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost",
+    "https://*.gitpod.io/",
+    "https://*.herokuapp.com",
+]
 
 # =================================================================
 # Password Validation Configuration

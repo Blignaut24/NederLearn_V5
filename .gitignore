@@ -1,51 +1,46 @@
 # =================================================================
-# GITIGNORE CONFIGURATION FOR PYTHON PROJECTS
-# Project: NederLearn
-# Last Updated: 2025-01-12
+# DATABASE AND CLOUD SERVICES CONFIGURATION
 # =================================================================
 
-# SYSTEM AND IDE FILES
-# -------------------
-# Microsoft temporary and system-specific files
-core.Microsoft*
+import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-# DATABASE AND STORAGE
-# -------------------
-# Database management system files
-core.mongo*        # MongoDB
-core.python*       # Python DB
+# -----------------------------
+# PostgreSQL Database Settings
+# -----------------------------
+# Database hosted on Neon Cloud Platform
+# Connection string format: postgresql://<username>:<password>@<host>/<database>
 
-# ENVIRONMENT AND SECURITY
-# -----------------------
-# Configuration and sensitive data
-env.py            # Environment settings
-env/              # Virtual environment
-.env              # Secret environment variables
+os.environ.setdefault(
+    "DATABASE_URL",
+    "postgresql://neondb_owner:RmJGSXldUY69@ep-lively-frost-a250gi75.eu-central-1.aws.neon.tech/coral_raid_tiara_871589",
+)
 
-# BUILD AND COMPILATION
-# --------------------
-# Temporary and generated files
-__pycache__/      # Python bytecode cache
-*.py[cod]         # Compiled Python files
+# -----------------------------
+# Security Configuration
+# -----------------------------
+os.environ.setdefault("SECRET_KEY", "LQm8KztTWpBz3D-")
 
-# DEPENDENCIES
-# -----------
-# Third-party packages and version control
-node_modules/     # NPM packages
-.github/          # GitHub configuration
+# -----------------------------
+# Environment Variables
+# -----------------------------
+if os.path.exists("env.py"):
+    import env
 
-# CLOUD AND SERVICES
-# -----------------
-# Cloud service configurations
-cloudinary_python.txt
-__pycache__/
-nederlearn/__pycache__/
+# -----------------------------
+# Cloudinary Media Storage
+# -----------------------------
+# Handles media file storage and delivery
+# Configure cloud name, API key, and secret for Cloudinary service
 
-# =======================
-# DEVELOPMENT CREDENTIALS
-# =======================
-# Django Admin Access
-# ------------------
-# Username: blign
-# Email: blignaut24@gmail.com
-# Password: NederLearn@1985
+
+os.environ["CLOUDINARY_URL"] = (
+    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+)
+
+# -----------------------------
+# Virtual Environment
+# -----------------------------
+.venv
