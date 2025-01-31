@@ -77,7 +77,7 @@
                         <div class="row">
                             <!-- Likes (Heart Icon and Count) -->
                             <div class="col-12 d-flex justify-content-between">
-                                <strong>
+                                
                                     {% if user.is_authenticated %}
                                     <form class="d-inline"
                                         action="{% url 'like_unlike' blogpost.slug %}"
@@ -98,11 +98,10 @@
                                             <i class="far fa-heart"></i>
                                         </button>
                                         {% endif %}
-                                        <strong
-                                            class="text-secondary">{{ blogpost.number_of_likes }}</strong>
+                                        {{ blogpost.number_of_likes }}
                                     </form>
                                     {% endif %}
-                                </strong>
+                                
                                 <!-- Comments (Comment Icon and Count) -->
                                 {% with comments.count as total_comments %}
                                 <strong class="text-secondary">
