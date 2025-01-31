@@ -1,148 +1,150 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{# Main Container Block #}
+{% extends "base.html" %} {% block content %} {# Main Container Block #}
 <div class="container">
-    <!-- Masthead Section -->
-    <div class="masthead">
-        <div class="container card-body">
-            <div class="row g-0">
-                <div class="col-md-12 masthead-text">
-                    <h1 class="post-title text-center mb-5"><strong>Latest
-                            Posts</strong></h1>
-                </div>
-            </div>
+  <!-- Masthead Section -->
+  <div class="masthead">
+    <div class="container card-body">
+      <div class="row g-0">
+        <div class="col-md-12 masthead-text">
+          <h1 class="post-title text-center mb-5">
+            <strong>Latest Posts</strong>
+          </h1>
         </div>
+      </div>
     </div>
-    <div class="row">
-        {# Category Navigation Section #}
-        {# Purpose: Allows users to filter blog posts by category #}
+  </div>
+  <div class="row">
+    {# Category Navigation Section #}
+    <div class="col-12 mt-3">
+      <div class="row">
+        <div class="mt-2 text-center">
+          <a href="/" class="btn ctg btn-secondary m-2">All</a>
+          <a href="?category=Movies/Series" class="btn ctg btn-secondary m-2"
+            >Movies/Series</a
+          >
+          <!-- 'Music Albums' uses '+' for space in URL and a template tag for the active class -->
+          <a href="??category=MUSIC%20ALBUMS" class="btn ctg btn-secondary m-2">
+            Songs</a
+          >
+          <a href="?category=Books" class="btn ctg btn-secondary m-2">Books</a>
+          <a href="?category=Podcasts" class="btn ctg btn-secondary m-2"
+            >Podcasts</a
+          >
+          <a href="?category=Miscellaneous" class="btn ctg btn-secondary m-2"
+            >Misc</a
+          >
+        </div>
+
+        {# Blog Posts Grid #}
         <div class="col-12 mt-3">
-            <div class="row">
-                <div class="mt-2 text-center">
-                    <a href="{% url 'home' %}"
-                        class="btn ctg btn-secondary m-2">All</a>
-                    <a href="?category=MOVIES/SERIES"
-                    class="btn ctg btn-secondary m-2">Movies/Series</a>
-                    <a href="?category=MUSIC ALBUMS"
-                    class="btn ctg btn-secondary m-2 {% if request.GET.category == 'Music Albums' %}active{% endif %}">
-                    Songs</a>
-                    <a href="?category=BOOKS"
-                        class="btn ctg btn-secondary m-2">Books</a>
-                    <a href="?category=PODCASTS"
-                        class="btn ctg btn-secondary" m-2>Podcasts</a>
-                    <a href="?category=MISC"
-                        class="btn ctg btn-secondary" m-2>Misc</a>
-                </div>
-
-                {# Blog Posts Grid #}
-                <div class="col-12 mt-3">
-                    <div class="row">
-                        {% for blogpost in blogposts %}
-                        <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card mb-4 blogpost-card">
-                                <div class="card-body">
-                                    {# Featured Image Container #}
-                                    <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                        class="image-container-link">
-                                        <div class="image-container">
-                                            
-                                            <img class="card-img-top img-fluid aspect-ratio-3-2"
-                                                src="{{ blogpost.featured_image.url }}"
-                                                alt="{{ blogpost.blog_title }} Image">
-                                        </div>
-                                    </a>
-                                    <!-- Blogpost details -->
-                                    <div class="image-flash">
-                                        <p class="author">Author:
-                                            {{ blogpost.author }}</p>
-                                    </div>
-                                    <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                        class="post-link">
-                                        <h2 class="card-title mt-4">
-                                            {{ blogpost.blog_title|truncatechars:50 }}
-                                        </h2>
-                                    </a>
-                                    <hr>
-                                    <p class="card-text card-excerpt">
-                                        {{ blogpost.excerpt|truncatechars:50 }}
-                                    </p>
-                                    <hr>
-                                    <p class="card-text text-muted h6">
-                                        {{ blogpost.created_on }} <i
-                                            class="far fa-heart"></i>
-                                        {{ blogpost.number_of_likes }}</p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
+          <div class="row">
+            {% for blogpost in blogposts %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <div class="card mb-4 blogpost-card">
+                <div class="card-body">
+                  {# Featured Image Container #}
+                  <a
+                    href="{% url 'blogpost_detail' blogpost.slug %}"
+                    class="image-container-link"
+                  >
+                    <div class="image-container">
+                      <img
+                        class="card-img-top img-fluid aspect-ratio-3-2"
+                        src="{{ blogpost.featured_image.url }}"
+                        alt="{{ blogpost.blog_title }} Image"
+                      >
                     </div>
-                    
+                  </a>
+                  <!-- Blogpost details -->
+                  <div class="image-flash">
+                    <p class="author">Author: {{ blogpost.author }}</p>
+                  </div>
+                  <a
+                    href="{% url 'blogpost_detail' blogpost.slug %}"
+                    class="post-link"
+                  >
+                    <h2 class="card-title mt-4">
+                      {{ blogpost.blog_title|truncatechars:50 }}
+                    </h2>
+                  </a>
+                  <hr>
+                  <p class="card-text card-excerpt">
+                    {{ blogpost.excerpt|truncatechars:50 }}
+                  </p>
+                  <hr>
+                  <p class="card-text text-muted h6">
+                    {{ blogpost.created_on }} <i class="far fa-heart"></i> {{
+                    blogpost.number_of_likes }}
+                  </p>
                 </div>
-
-                <!-- Pagination code Inspired by Code Institute django walkthrough project -->
-                {% if is_paginated %}
-                <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li><a href="?page={{ page_obj.previous_page_number }}"
-                class="btn-secondary">&laquo; PREV</a></li>
-                {% endif %}
-<!-- Display Current Page Number and Total Pages -->
-<li class="page-item disabled"><a
-    class="custom-page-number">
-    {{ page_obj.number }} of
-    {{ page_obj.paginator.num_pages }}</a></li>
-    {% if page_obj.has_next %}
-    <li><a href="?page={{ page_obj.next_page_number }}"
-            class="btn-secondary">NEXT &raquo;</a></li>
-    {% endif %}
-</ul>
-</nav>
-        {% endif %}
-    
+              </div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
+
+        <!-- Pagination code Inspired by Code Institute django walkthrough project -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+              <a
+                href="?page={{ page_obj.previous_page_number }}"
+                class="btn-secondary"
+                >&laquo; PREV</a
+              >
+            </li>
+            {% endif %}
+            <!-- Display Current Page Number and Total Pages -->
+            <li class="page-item disabled">
+              <a class="custom-page-number">
+                {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</a
+              >
+            </li>
+            {% if page_obj.has_next %}
+            <li>
+              <a
+                href="?page={{ page_obj.next_page_number }}"
+                class="btn-secondary"
+                >NEXT &raquo;</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+      </div>
     </div>
-</div>
+  </div>
 </div>
 
-{%endblock%}
-
-{# Category Button State Management #}
-{% block scripts %}
+{%endblock%} {# Category Button State Management #} {% block scripts %}
 <script>
-    // Initialize category button states
-    document.addEventListener("DOMContentLoaded", function () {
-        // Get all category buttons
-        let categoryButtons = document.querySelectorAll(
-            '.btn.ctg');
-        // Get current URL parameters for category filtering
-        let currentSearchParams = new URLSearchParams(window
-            .location
-            .search);
-        // Set active state for matching category button
-        categoryButtons.forEach(function (button) {
-            let buttonCategory = button.getAttribute(
-                    'href')
-                .split('=')[1];
-            if (currentSearchParams.get('category') ===
-                decodeURIComponent(buttonCategory)) {
-                button.classList.add('active');
-            }
-        });
+  // Initialize category button states
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get all category buttons
+    let categoryButtons = document.querySelectorAll('.btn.ctg');
+    // Get current URL parameters for category filtering
+    let currentSearchParams = new URLSearchParams(window.location.search);
+    // Set active state for matching category button
+    categoryButtons.forEach(function (button) {
+      let buttonCategory = button.getAttribute('href').split('=')[1];
+      if (
+        currentSearchParams.get('category') ===
+        decodeURIComponent(buttonCategory)
+      ) {
+        button.classList.add('active');
+      }
     });
-    // Handle button state updatesve 'active' class from other buttons
-    document.querySelectorAll('.btn.ctg').forEach(function (button) {
-        button.addEventListener('click', function () {
-            document.querySelectorAll('.btn.ctg').forEach(
-                function (otherButton) {
-                    otherButton.classList.remove(
-                        'active');
-                });
-            button.classList.add('active');
-        });
+  });
+  // Handle button state updatesve 'active' class from other buttons
+  document.querySelectorAll('.btn.ctg').forEach(function (button) {
+    button.addEventListener('click', function () {
+      document.querySelectorAll('.btn.ctg').forEach(function (otherButton) {
+        otherButton.classList.remove('active');
+      });
+      button.classList.add('active');
     });
+  });
 </script>
 {% endblock scripts %}
