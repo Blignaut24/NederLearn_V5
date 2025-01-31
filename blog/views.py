@@ -49,11 +49,15 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        messages.success(self.request, "Your blog post has been created successfully.")
+        messages.success(
+            self.request, "Your blog post has been created successfully."
+        )
         return response
 
     def get_success_url(self):
-        return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
+        return reverse_lazy(
+            "blogpost_detail", kwargs={"slug": self.object.slug}
+        )
 
 
 class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
@@ -74,11 +78,15 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         response = super().form_valid(form)
-        messages.success(self.request, "Your blog post has been updated successfully.")
+        messages.success(
+            self.request, "Your blog post has been updated successfully."
+        )
         return response
 
     def get_success_url(self):
-        return reverse_lazy("blogpost_detail", kwargs={"slug": self.object.slug})
+        return reverse_lazy(
+            "blogpost_detail", kwargs={"slug": self.object.slug}
+        )
 
 
 class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -97,7 +105,9 @@ class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def delete(self, request, *args, **kwargs):
         response = super().delete(request, *args, **kwargs)
-        messages.success(request, "Your blog post has been deleted successfully.")
+        messages.success(
+            request, "Your blog post has been deleted successfully."
+        )
         return response
 
 
@@ -122,7 +132,9 @@ class MyBlogPostsView(LoginRequiredMixin, ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        return Blogpost.objects.filter(author=self.request.user).order_by("-created_on")
+        return Blogpost.objects.filter(author=self.request.user).order_by(
+            "-created_on"
+        )
 
 
 class BlogPostList(generic.ListView):
@@ -151,7 +163,9 @@ class BlogPostList(generic.ListView):
         queryset = Blogpost.objects.filter(status=1).order_by("-created_on")
         media_category = self.request.GET.get("category")
         if media_category:
-            queryset = queryset.filter(media_category__media_name=media_category)
+            queryset = queryset.filter(
+                media_category__media_name=media_category
+            )
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -179,7 +193,9 @@ class BlogPostDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
-        comments = blogpost.comments.filter(approved=False).order_by("created_on")
+        comments = blogpost.comments.filter(approved=False).order_by(
+            "created_on"
+        )
         liked = blogpost.likes.filter(id=self.request.user.id).exists()
 
         return render(
@@ -198,7 +214,9 @@ class BlogPostDetail(View):
         """Process comment submissions"""
         queryset = Blogpost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
-        comments = blogpost.comments.filter(approved=False).order_by("created_on")
+        comments = blogpost.comments.filter(approved=False).order_by(
+            "created_on"
+        )
         liked = blogpost.likes.filter(id=request.user.id).exists()
 
         comment_form = CommentForm(data=request.POST)
@@ -275,7 +293,10 @@ class OtherUserProfileView(View):
     def get(self, request, username):
         user = get_object_or_404(User, username=username)
         user_profile = get_object_or_404(UserProfile, user=user)
-        context = {"profile": user_profile, "is_own_profile": request.user == user}
+        context = {
+            "profile": user_profile,
+            "is_own_profile": request.user == user,
+        }
         return render(request, "profile.html", context)
 
 
@@ -299,7 +320,9 @@ class ProfileEditView(LoginRequiredMixin, View):
         )
         if form.is_valid():
             form.save()
-            messages.success(request, "Your profile has been updated successfully.")
+            messages.success(
+                request, "Your profile has been updated successfully."
+            )
             return redirect("profile")
         return render(request, "profile_edit.html", {"form": form})
 
@@ -345,7 +368,9 @@ def bookmarked(request):
     else:
         bookmarked_posts = []
 
-    return render(request, "bookmarked.html", {"bookmarked_posts": bookmarked_posts})
+    return render(
+        request, "bookmarked.html", {"bookmarked_posts": bookmarked_posts}
+    )
 
 
 class BookmarkUnbookmark(View):

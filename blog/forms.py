@@ -170,7 +170,10 @@ class UserProfileForm(forms.ModelForm):
             }
         ),
         "top_series": forms.TextInput(
-            attrs={"placeholder": "Series you binge-watched...", "maxlength": "255"}
+            attrs={
+                "placeholder": "Series you binge-watched...",
+                "maxlength": "255",
+            }
         ),
         "top_music_albums": forms.TextInput(
             attrs={
@@ -180,12 +183,18 @@ class UserProfileForm(forms.ModelForm):
         ),
         "top_books": forms.TextInput(
             attrs={
-                "placeholder": "Books that made you laugh so hard you dropped them (literally)... 📚💥",
+                "placeholder": (
+                    "Books that made you laugh so hard "
+                    "you dropped them (literally)... 📚💥"
+                ),
                 "maxlength": "255",
             }
         ),
         "top_podcasts": forms.TextInput(
-            attrs={"placeholder": "What is your ear candy?", "maxlength": "255"}
+            attrs={
+                "placeholder": "What is your ear candy?",
+                "maxlength": "255",
+            }
         ),
         "top_miscellaneous": forms.TextInput(
             attrs={
