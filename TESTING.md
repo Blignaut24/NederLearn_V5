@@ -65,22 +65,22 @@ We used these tools to check the HTML code:
 
 The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML code for compliance with web standards. Each page of the NederLearn app was validated to ensure proper markup structure and accessibility.
 
-| **Nr** | **Tested**           | **Result** | **View Result**                                                                                    | **Pass** |
-| ------ | -------------------- | ---------- | -------------------------------------------------------------------------------------------------- | :------: |
-| 1      | login.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/login_w3c.webp)</details>  |    ✅    |
-| 2      | about_us.html        | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/about_w3c.webp)</details>  |    ✅    |
-| 3      | signup.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/sign_w3c.webp)</details>                              |    ✅    |
-| 4      | index.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/index_w3c.webp)</details> |    ✅    |
-| 5      | blogpost_detail.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 6      | blogpost_create.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 9      | profile.html         | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 10     | profile_edit.html    | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 11     | account_manage.html  | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 12     | my_posts.html        | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 13     | bookmarked.html      | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 14     | logout.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/logout_w3c.webp)</details>                              |    ✅    |
+| **Nr** | **Tested**           | **Result** | **View Result**                                                                                        | **Pass** |
+| ------ | -------------------- | ---------- | ------------------------------------------------------------------------------------------------------ | :------: |
+| 1      | login.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/login_w3c.webp)</details>      |    ✅    |
+| 2      | about_us.html        | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/about_w3c.webp)</details>      |    ✅    |
+| 3      | signup.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/sign_w3c.webp)</details>       |    ✅    |
+| 4      | index.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/index_w3c.webp)</details>      |    ✅    |
+| 5      | blogpost_detail.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 6      | blogpost_create.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 9      | profile.html         | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 10     | profile_edit.html    | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 11     | account_manage.html  | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 12     | my_posts.html        | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
+| 13     | bookmarked.html      | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/bookmarked_w3c.webp)</details> |    ✅    |
+| 14     | logout.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/logout_w3c.webp)</details>     |    ✅    |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
