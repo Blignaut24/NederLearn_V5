@@ -74,7 +74,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 | 5      | blogpost_detail.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
 | 6      | blogpost_create.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
 | 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
-| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/delete_w3c.webp)</details>                                  |    ✅    |
+| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/delete_w3c.webp)</details>
 | 9      | profile.html         | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/profile_w3c.webp)</details>                                  |    ✅    |
 | 10     | profile_edit.html    | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/edit_w3c.webp)</details>                                  |    ✅    |
 | 11     | account_manage.html  | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/manage_w3c.webp)</details>                                  |    ✅    |
@@ -100,7 +100,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 
 | **Nr** | **Tested**                | **Result**                 | **View Result**                                                       | **Pass** |
 | ------ | ------------------------- | -------------------------- | --------------------------------------------------------------------- | :------: |
-| 1      | nederlearn/settings.py    | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> |    ✅    |
+| 1      | nederlearn/settings.py    | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/settings_py.webp)</details>|✅
 | 2      | nederlearn/urls.py        | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> |    ✅    |
 | 3      | blog/models.py            | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> |    ✅    |
 | 3      | blog/views.py             | All clear, no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> |    ✅    |
