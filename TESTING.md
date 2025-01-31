@@ -80,7 +80,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 | 11     | account_manage.html  | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
 | 12     | my_posts.html        | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
 | 13     | bookmarked.html      | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
-| 14     | logout.html          | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                              |    ✅    |
+| 14     | logout.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/logout_w3c.webp)</details>                              |    ✅    |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
