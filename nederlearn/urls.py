@@ -37,13 +37,18 @@ urlpatterns = [
     path("summernote/", include("django_summernote.urls")),
     path("accounts/", include("allauth.urls")),
     path(
-        "account/delete/<int:pk>/", ProfileDeleteView.as_view(), name="account_delete"
-    ),
+        "account/delete/<int:pk>/",
+        ProfileDeleteView.as_view(),
+        name="account_delete"
+        ),
 ]
 
 # Development Media File Serving
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
 
 # Forbidden Error Handler_error
 handler403 = custom_403_error
