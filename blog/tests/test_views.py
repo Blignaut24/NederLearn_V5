@@ -1,11 +1,3 @@
-"""
-Django Test Suite for NederLearn Blog Application
-------------------------------------------------
-This test suite covers views for blog posts, user profiles, and error handling.
-Author: Johann-Jurgens Blignaut
-Date: 2025-01-26
-"""
-
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -15,7 +7,8 @@ import datetime
 
 class TestViews(TestCase):
     """
-    Test suite for all view functionalities in the Culture Club blog application.
+    Test suite for all view functionalities in
+    the NederLearn blog application.
     Includes tests for blog posts, user profiles, and error handling.
     """
 
@@ -39,7 +32,9 @@ class TestViews(TestCase):
         )
 
         # Create test category
-        self.category = MediaCategory.objects.create(media_name="Test Category")
+        self.category = MediaCategory.objects.create(
+            media_name="Test Category"
+        )
 
         # Create test blog posts
         self.owner_blogpost = Blogpost.objects.create(
@@ -116,7 +111,9 @@ class TestViews(TestCase):
         response = self.client.post(reverse("blogpost_create"), post_data)
         self.assertEqual(response.status_code, 302)
         new_post = Blogpost.objects.get(blog_title="New Post")
-        self.assertRedirects(response, reverse("blogpost_detail", args=[new_post.slug]))
+        self.assertRedirects(
+            response, reverse("blogpost_detail", args=[new_post.slug])
+        )
 
     def test_BlogpostUpdateView_GET(self):
         """
@@ -148,11 +145,13 @@ class TestViews(TestCase):
             "media_link": "http://www.updated.com",
         }
         response = self.client.post(
-            reverse("blogpost_update", args=[self.owner_blogpost.slug]), update_data
+            reverse("blogpost_update", args=[self.owner_blogpost.slug]),
+            update_data,
         )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(
-            response, reverse("blogpost_detail", args=[self.owner_blogpost.slug])
+            response,
+            reverse("blogpost_detail", args=[self.owner_blogpost.slug]),
         )
         self.owner_blogpost.refresh_from_db()
         self.assertEqual(self.owner_blogpost.content, "Updated content")
@@ -226,7 +225,8 @@ class TestViews(TestCase):
         self.client.login(username="owneruser", password="123password")
         comment_data = {"body": "This is a test comment."}
         response = self.client.post(
-            reverse("blogpost_detail", args=[self.owner_blogpost.slug]), comment_data
+            reverse("blogpost_detail", args=[self.owner_blogpost.slug]),
+            comment_data,
         )
         self.assertEqual(response.status_code, 200)
         new_comment = Comment.objects.filter(
@@ -348,7 +348,9 @@ class TestViews(TestCase):
         - Uses correct template
         """
         self.client.login(username="owneruser", password="123password")
-        response = self.client.get(reverse("account_delete", args=[self.owner_user.pk]))
+        response = self.client.get(
+            reverse("account_delete", args=[self.owner_user.pk])
+        )
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "account_manage.html")
 
@@ -358,7 +360,9 @@ class TestViews(TestCase):
         - Returns 200 status code
         """
         self.client.login(username="otheruser", password="123password")
-        response = self.client.get(reverse("account_delete", args=[self.other_user.pk]))
+        response = self.client.get(
+            reverse("account_delete", args=[self.other_user.pk])
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_delete_user_profile(self):
