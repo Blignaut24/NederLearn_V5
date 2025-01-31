@@ -1,59 +1,76 @@
-{% extends "base.html" %} {% load i18n %} {% load account socialaccount %} {% load crispy_forms_tags %} {% block head_title %}{% trans "Sign Up" %}{% endblock %} {% block content %}
+{% extends "base.html" %} {% load i18n %} {% load account socialaccount %} {%
+load crispy_forms_tags %} {% block head_title %}{% trans "Sign Up" %}{% endblock
+%} {% block content %}
 
 <div class="container col-md-8 col-sm-12">
-    <!-- Masthead Section -->
-    <div class="masthead">
-        <div class="container card-body">
-            <div class="row g-0">
-                <div class="col-md-12 masthead-text">
-                    <h1 class="post-title">{% trans "Join Us" %}</h1>
-                </div>
-            </div>
+  <!-- Masthead Section -->
+  <div class="masthead">
+    <div class="container card-body">
+      <div class="row g-0">
+        <div class="col-md-12 masthead-text">
+          <h1 class="post-title">{% trans "Join Us" %}</h1>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Content Section -->
-    <div class="row">
-        <div class="col card mb-4">
-            <div class="card-body">
-                <p class="text-center px-4">
-                    Woohoo! Ready to hop aboard the NederLearn express? We're so excited to have you join our awesome language-learning family! Let's get this party started!
-                    <br>
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
-                <p class="text-center">
-                    
-                        Not convinced yet? Read
-                        <a class="link" href="/about-us/">About Us</a>
-                        first.
-                    
-                    <br>
-                    
-                        Already a member?
-                        <a class="link" href="/accounts/login/">Log In</a>.
-                    
-                </p>
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                    </div>
-                </div>
-
-                <form class="signup mt-4" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                    {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <div class="text-center mt-4">
-                        <button class="btn btn-primary btn-lg" type="submit">{% trans "Sign Up" %}</button>
-                    </div>
-                </form>
-            </div>
+  <!-- Content Section -->
+  <div class="row">
+    <div class="col card mb-4">
+      <div class="card-body">
+        <p class="text-center px-4">
+          Woohoo! Ready to hop aboard the NederLearn express? We're so excited
+          to have you join our awesome language-learning family! Let's get this
+          party started!
+          <br />
+        </p>
+        <div class="row">
+          <div class="col">
+            <hr />
+          </div>
         </div>
+        <p class="text-center">
+          Not convinced yet? Read
+          <a class="link" href="/about-us/">About Us</a>
+          first.
+
+          <br />
+
+          Already a member?
+          <a class="link" href="/accounts/login/">Log In</a>.
+        </p>
+        <div class="row">
+          <div class="col">
+            <hr />
+          </div>
+        </div>
+
+        <form
+          class="signup mt-4"
+          id="signup_form"
+          method="post"
+          action="{% url 'account_signup' %}"
+        >
+          {% csrf_token %}
+          <!-- Crispy Form fields -->
+          {{ form|crispy }}
+          <!-- Optional: Hidden Redirect Field -->
+          {% if redirect_field_value %}
+          <input
+            type="hidden"
+            name="{{ redirect_field_name }}"
+            value="{{ redirect_field_value }}"
+          />
+          {% endif %}
+          <div class="text-center mt-4">
+            <button class="btn btn-primary btn-lg" type="submit">
+              {% trans "Sign Up" %}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 
 {% endblock %}
