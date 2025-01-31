@@ -15,11 +15,15 @@ urlpatterns = [
     # -------------------
     # Create new post
     path(
-        "blogpost/create/", views.BlogpostCreateView.as_view(), name="blogpost_create"
+        "blogpost/create/",
+        views.BlogpostCreateView.as_view(),
+        name="blogpost_create",
     ),
     # View single post
     path(
-        "blogpost/<slug:slug>/", views.BlogPostDetail.as_view(), name="blogpost_detail"
+        "blogpost/<slug:slug>/",
+        views.BlogPostDetail.as_view(),
+        name="blogpost_detail",
     ),
     # Update existing post
     path(
@@ -40,7 +44,11 @@ urlpatterns = [
     # Post Interaction
     # ---------------
     # Like/Unlike posts
-    path("blogpost/like/<slug:slug>/", views.LikeUnlike.as_view(), name="like_unlike"),
+    path(
+        "blogpost/like/<slug:slug>/",
+        views.LikeUnlike.as_view(),
+        name="like_unlike",
+    ),
     # User Profile Management
     # ----------------------
     # View own profile
@@ -52,7 +60,9 @@ urlpatterns = [
         name="other_user_profile",
     ),
     # Edit profile
-    path("profile/edit/", views.ProfileEditView.as_view(), name="profile_edit"),
+    path(
+        "profile/edit/", views.ProfileEditView.as_view(), name="profile_edit"
+    ),
     # Static Pages
     # -----------
     # About page
