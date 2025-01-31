@@ -1,7 +1,8 @@
 # -----------------------------------------------------------------------------
 # DJANGO TEST SUITE: NEDERLEARN APP MODELS
 # -----------------------------------------------------------------------------
-# Purpose: Validates the core functionality of all models in the Culture Club app
+# Purpose: Testing suite validates NederLearn models:
+# User Profiles, Media Categories, Blog Posts, and Comments.
 # -----------------------------------------------------------------------------
 
 from django.test import TestCase
@@ -11,7 +12,7 @@ from blog.models import UserProfile, MediaCategory, Blogpost, Comment
 
 class TestModels(TestCase):
     """
-    Test suite for validating model functionality in the Culture Club app.
+    Test suite for validating model functionality in the NederLearn app.
     Covers: User Profiles, Media Categories, Blog Posts, and Comments
     """
 
@@ -29,7 +30,9 @@ class TestModels(TestCase):
         )
 
         # Media category setup
-        self.test_category = MediaCategory.objects.create(media_name="Test Category")
+        self.test_category = MediaCategory.objects.create(
+            media_name="Test Category"
+        )
 
         # Blog post setup with required fields
         self.test_blogpost = Blogpost.objects.create(
@@ -67,18 +70,18 @@ class TestModels(TestCase):
     def test_blogpost_creation(self):
         """
         Verify: Blogpost creation and relationship integrity
-        Expected: All fields match input values and relationships are maintained
+        Expected: All fields match input values and
+        relationships are maintained
         """
         self.assertEqual(self.test_blogpost.blog_title, "Test Title")
         self.assertEqual(self.test_blogpost.author, self.test_user)
-        self.assertEqual(
-            self.test_blogpost.media_category, self.test_category
-        )
+        self.assertEqual(self.test_blogpost.media_category, self.test_category)
 
     def test_comment_creation(self):
         """
         Verify: Comment creation and relationship integrity
-        Expected: Comment body matches input and relationships are properly established
+        Expected: Comment body matches input and
+        relationships are properly established
         """
         self.assertEqual(self.test_comment.body, "Test Comment Body")
         self.assertEqual(self.test_comment.blogpost, self.test_blogpost)
