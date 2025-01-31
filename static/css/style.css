@@ -39,6 +39,26 @@
    Special Circumstances 
    ================================= */
 
+/* Text color black signup button*/
+.btn.btn-primary.btn-lg,
+#black-text-home {
+  background-color: var(--secondary-color);
+  color: var(--dark-text);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn.btn-primary.btn-lg:hover,
+#black-text-home:hover {
+  background-color: var(--hover);
+  color: var(--light-text);
+  transform: scale(1.05);
+}
+
 /*Color Labels: Create Blog Post*/
 #blogPostForm label {
   color: var(--light-text);
@@ -167,8 +187,7 @@ body {
 /* Primary & Secondary Buttons
    Basic styling for main action buttons */
 .btn-primary,
-.btn-secondary,
-.btn-signup {
+.btn-secondary {
   background-color: var(--secondary-color);
   color: var(--light-text);
   border: none;
@@ -194,6 +213,7 @@ body {
 
 /* Hover States
       Visual feedback for user interaction */
+
 .btn-primary:hover,
 .btn-signup:hover,
 .btn-secondary:hover,
