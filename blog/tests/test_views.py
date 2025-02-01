@@ -5,6 +5,7 @@ from blog.models import Blogpost, MediaCategory, Comment, UserProfile
 import datetime
 
 
+
 class TestViews(TestCase):
     """
     Test suite for all view functionalities in

@@ -21,6 +21,7 @@ from django.contrib.messages import constants as messages
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from django.http import Http404
 
 # Load environment variables if env.py exists
 if os.path.isfile("env.py"):
