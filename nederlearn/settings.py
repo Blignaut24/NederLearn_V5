@@ -15,6 +15,7 @@
 # =======================================
 from pathlib import Path
 import os
+import sys
 import dj_database_url
 from django.contrib.messages import constants as messages
 import cloudinary
@@ -213,6 +214,27 @@ WSGI_APPLICATION = "nederlearn.wsgi.application"
 # Supports easy switching between development/production
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
+# ========================================
+# DATABASE CONFIGURATION FOR TESTING
+# ========================================
+"""
+This code configures the database settings for testing environments:
+- Detects when tests are being run by checking sys.argv
+- Switches to SQLite database during testing instead of the main database
+- SQLite is faster and more lightweight for running tests
+- Prevents test data from affecting the production database
+"""
+
+if "test" in sys.argv or "test_coverage" in sys.argv:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+else:
+    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://localhost",
@@ -281,10 +303,7 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # =======================================
 # Configuration for CSS, JavaScript, Images
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = (
-    "cloudinary_storage.storage."
-    "StaticHashedCloudinaryStorage"
-)
+STATICFILES_STORAGE = "cloudinary_storage.storage." "StaticHashedCloudinaryStorage"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
@@ -294,10 +313,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 cloudinary.config(
     cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME", "dki11spup"),
     api_key=os.environ.get("CLOUDINARY_API_KEY", "651583882481459"),
-    api_secret=os.environ.get(
-        "CLOUDINARY_API_SECRET",
-        "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"
-    ),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET", "oVB9sTCGPjJCl05vx3bjBNEZ0Eg"),
 )
 
 # =======================================

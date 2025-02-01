@@ -18,6 +18,7 @@
   --dark-text: #191919; /* Primary dark text */
   --light-text: #f5f6f3; /* Primary light text */
   --light-grey-text: #9198a1; /*Light grey text*/
+  --dark-grey-text: #738A90; /*Dark grey text*/
   --dark-bg: #011627; /* Dark mode background */
   --black-bg: #000000; /* Base black background */
   --light-bg: #f8fafa; /* Light mode background */
@@ -39,7 +40,7 @@
    Special Circumstances 
    ================================= */
 
-/* Text color black signup button*/
+ /* Style to make signup button text black on signup page */ 
 .btn.btn-primary.btn-lg,
 #black-text-home {
   background-color: var(--secondary-color);
@@ -52,6 +53,7 @@
   transition: background-color 0.3s, transform 0.1s;
 }
 
+ /* Style for signup button hover state */ 
 .btn.btn-primary.btn-lg:hover,
 #black-text-home:hover {
   background-color: var(--hover);
@@ -101,7 +103,7 @@ h2 {
 }
 
 input {
-  color: var(--light-text);
+  color: var(--dark-grey-text);
 }
 
 /* =================================

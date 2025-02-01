@@ -1,6 +1,5 @@
-{% extends "base.html" %} {% block content %} {# Container Configuration#} {# -
-Responsive layout with medium/small breakpoints#} {# - Main wrapper for all page
-content #}
+{% extends "base.html" %} {% block content %} {# Container Configuration#} 
+{#Responsive layout with medium/small breakpoints#} 
 <div class="container col-md-8 col-sm-12">
   {# Header Component #}
   <div class="masthead">
@@ -15,8 +14,7 @@ content #}
     </div>
   </div>
 
-  {# Main Content Section #} {# - Card-based layout with responsive padding #}
-  {# - Contains all marketing content #}
+  {% comment %}Main Content Section{% endcomment%}
   <div class="row">
     <div class="col card mb-4">
       <div class="card-body px-3 px-md-5">
@@ -104,7 +102,10 @@ content #}
               >Back to Home</a
             >
             {% else %}
-            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg"
+            <a
+              href="{% url 'account_signup' %}"
+              class="btn btn-primary btn-lg"
+              id="black-text-home"
               >Start Your Dutch Journey Now</a
             >
 
