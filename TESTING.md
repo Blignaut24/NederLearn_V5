@@ -24,28 +24,23 @@ The testing process helps us identify and fix potential issues before they affec
 Return to [**README.md**](README.md)
 
 ## Content
-
-1. [**Code Validation**](#code-validation)
-   1. [HTML Validation](#html-validation)
-   2. [CSS Validation](#css-validation)
-   3. [Python Validation](#python-validation)
-2. **Accessibility**
-   1. Wave
-3. **Performance**
-   1. Desktop Performance
-   2. Mobile Performance
-4. Performance Test on Various Devices
-5. **Browser Compatibility**
-6. **Automated Testing**
-   1. test_views.py
-   2. test_models.py
-   3. test_urls.py
-7. **Manual Testing**
-   1. Security Testing
-   2. Testing User Stories
-   3. User Experience and Improvements
-   4. Full Testing
-8. **Summary**
+- [NederLearn Testing Report](#nederlearn-testing-report)
+  - [Key Testing Areas](#key-testing-areas)
+  - [Content](#content)
+  - [Code Validation](#code-validation)
+    - [HTML Validation](#html-validation)
+    - [CSS](#css)
+    - [Python Validation](#python-validation)
+- [Accessibility](#accessibility)
+- [Automated Testing](#automated-testing)
+  - [Test Setup](#test-setup)
+    - [File Structure](#file-structure)
+    - [Running Tests](#running-tests)
+    - [My Testing Strategy](#my-testing-strategy)
+    - [What Do My Tests Do?](#what-do-my-tests-do)
+    - [Main Things I Test](#main-things-i-test)
+    - [What I Tested](#what-i-tested)
+    - [Configuration](#configuration)
 
 ## Code Validation
 
@@ -116,5 +111,141 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 # Accessibility
 
 I have conducted accessibility testing to evaluate our website's usability for all users. Using **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) (Web Accessibility Evaluation Tool), we assessed compliance with accessibility standards and identified one key area requiring improvement:
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+# Automated Testing
+
+In my automated testing process, I focused on catching bugs and ensuring everything works correctly. I tested basic operations including:
+
+- Creating new items
+- Reading existing data
+- Updating information
+- Deleting items
+
+## Test Setup
+Let me explain how I set up my tests:
+
+### File Structure
+
+I keep all my tests organized in a special folder inside my blog app:
+
+```
+blog/
+tests/
+**init**.py
+test_models.py
+test_urls.py
+test_views.py
+```
+
+### Running Tests
+
+To run my tests, I use this simple command in the terminal:
+
+```bash
+python manage.py test <app name>.<file_name>
+```
+
+### My Testing Strategy
+
+I like to follow a simple "TEST" approach:
+
+- T - Try to keep tests organized and neat
+- E - Each test looks at just one thing
+- S - Structure my test files in a clear way
+- T - Test everything from the main project folder
+
+I use Django's TestCase for reliability and split my tests into three files - models, views, and URLs.
+
+<details>
+<summary>Test Views</summary>
+
+<br>
+
+![Test_Result!](/static/images/unit_test_views.webp "Unit Test Views Result")
+
+<br>
+The test_views.py file contains a comprehensive set of automated tests that verify our URL routing system. These tests make sure that when users click links or navigate to different pages, they end up in the right place. Using Django's SimpleTestCase, we test various URL patterns including:
+
+- Main blog features (home page, creating/editing/deleting posts)
+- User-specific pages (profile views, personal blog posts)
+- Interactive features (like/unlike, bookmarks)
+
+Each test follows a simple pattern: it creates a URL, then checks if that URL connects to the correct view function. For example, when testing the home page, we verify that the URL 'home' properly connects to our BlogPostList view. This helps catch routing problems early and ensures our navigation system works reliably.
+
+The tests are well-organized with clear comments and documentation, making them easy to understand and maintain. They cover all major features of our blog application, from basic page navigation to more complex user interactions.
+</details>
+
+<details>
+<summary>Test Models</summary>
+
+<br>
+
+![Test_Result!](/static/images/unit_test_models.webp "Unit Test Models Result")
+
+<br>
+
+I created tests to make sure my database models work correctly. These tests check if I can create and work with different parts of my app like user profiles, blog posts, and comments.
+
+### What Do My Tests Do?
+
+I organized my tests in a simple way:
+
+- I create test data (like a fake user and blog post)
+- I check if everything saves correctly in the database
+- I verify that all connections between different parts work (like linking comments to posts)
+
+### Main Things I Test
+
+My tests focus on four main areas:
+
+- User Profiles: Making sure new users get their profiles automatically
+- Media Categories: Checking if I can create different categories for content
+- Blog Posts: Verifying that posts save with the right title, content, and author
+- Comments: Ensuring comments connect to the right posts and users
+
+I wrote each test to be clear and simple, making it easy for other developers to understand what I'm testing and why. This helps me catch problems early and keeps my app running smoothly.
+
+</details>
+
+<details>
+<summary>
+Test URLs
+</summary>
+
+<br>
+
+![Test_Result!](/static/images/unit_test_urls.webp "Unit Test URL Result")
+<br>
+
+I focused on testing all the URL patterns in our blog application to make sure they work correctly. The test_urls.py file contains a series of tests that check if each URL connects to the right view function. For example, when someone clicks on the home page link, I verify it goes to our BlogPostList view, and when they want to create a new post, it properly connects to BlogpostCreateView.
+
+### What I Tested
+
+I organized the tests into clear categories including:
+
+- Main blog features (home, create, update posts)
+- User-specific pages (profile views)
+- Interactive features (like/unlike, bookmarks)
+
+I used Django's SimpleTestCase and kept the code simple and well-documented with comments, making it easy for other developers to understand what each test does.
+
+</details>
+
+### Configuration
+
+```python
+# Use SQLite for testing, different database for production
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+```
+
+Note: These settings are only used during testing, not in production.
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
