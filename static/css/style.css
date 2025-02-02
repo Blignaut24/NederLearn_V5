@@ -40,6 +40,11 @@
    Special Circumstances 
    ================================= */
 
+.text-muted{
+  color: var(--dark-text) !important;
+}
+
+
 /* Style to make signup button text black on signup page */
 .btn.btn-primary.btn-lg,
 #black-text-home {
@@ -305,7 +310,6 @@ body {
 .page-link {
   color: var(--dark-text); /* Uses theme color variable */
   text-decoration: none; /* Removes default underline */
-  text-decoration-line: underline;
   text-decoration-style: double;
 }
 
@@ -317,6 +321,7 @@ body {
   color: var(--secondary-color); /* Uses theme hover color */
   text-decoration: none; /* Adds underline on hover */
   text-transform: capitalize;
+  text-decoration-line: underline;
 }
 
 .custom-page-number {
@@ -376,7 +381,7 @@ a:active {
 
 /* Card Typography */
 .card-title {
-  color: var(--light-text);
+  color: var(--dark-text);
   font-size: 16px;
   margin-bottom: 0.5rem;
   text-overflow: ellipsis;
