@@ -9,8 +9,8 @@
 :root {
   /* Brand Colors 
        Primary palette defining visual identity */
-  --primary-color: #4d6cfa; /* Core UI elements */
-  --secondary-color: #ff6200; /* Action items & emphasis */
+  --primary-color: #001a73; /* Core UI elements */
+  --secondary-color: #ff7b29; /* Action items & emphasis */
   --accent-color: #c85c86; /* Decorative highlights */
 
   /* Interface Colors 
@@ -18,7 +18,7 @@
   --dark-text: #191919; /* Primary dark text */
   --light-text: #f5f6f3; /* Primary light text */
   --light-grey-text: #9198a1; /*Light grey text*/
-  --dark-grey-text: #738A90; /*Dark grey text*/
+  --dark-grey-text: #738a90; /*Dark grey text*/
   --dark-bg: #011627; /* Dark mode background */
   --black-bg: #000000; /* Base black background */
   --light-bg: #f8fafa; /* Light mode background */
@@ -26,13 +26,13 @@
 
   /* Feedback Colors 
        User interaction states */
-  --success: #79a850; /* Success indicators */
+  --success: #00614a; /* Success indicators */
   --error: #dd1c1a; /* Error messages */
   --warning: #f79818; /* Warning alerts */
 
   /* Interactive Colors 
        State changes for elements */
-  --hover: #525199; /* Hover state */
+  --hover: #6161ff; /* Hover state */
 }
 
 /* =================================
@@ -40,7 +40,7 @@
    Special Circumstances 
    ================================= */
 
- /* Style to make signup button text black on signup page */ 
+/* Style to make signup button text black on signup page */
 .btn.btn-primary.btn-lg,
 #black-text-home {
   background-color: var(--secondary-color);
@@ -53,7 +53,7 @@
   transition: background-color 0.3s, transform 0.1s;
 }
 
- /* Style for signup button hover state */ 
+/* Style for signup button hover state */
 .btn.btn-primary.btn-lg:hover,
 #black-text-home:hover {
   background-color: var(--hover);
@@ -303,8 +303,10 @@ body {
 .link,
 .post-link,
 .page-link {
-  color: var(--secondary-color); /* Uses theme color variable */
+  color: var(--dark-text); /* Uses theme color variable */
   text-decoration: none; /* Removes default underline */
+  text-decoration-line: underline;
+  text-decoration-style: double;
 }
 
 /* Hover states - provides visual feedback on interaction
@@ -312,8 +314,9 @@ body {
 .link:hover,
 .post-link:hover,
 .page-link:hover {
-  color: var(--hover); /* Uses theme hover color */
-  text-decoration: underline; /* Adds underline on hover */
+  color: var(--secondary-color); /* Uses theme hover color */
+  text-decoration: none; /* Adds underline on hover */
+  text-transform: capitalize;
 }
 
 .custom-page-number {
@@ -385,6 +388,10 @@ a:active {
   color: var(--dark-text);
   font-size: 14px;
   text-overflow: ellipsis;
+}
+
+li {
+  color: var(--dark-text);
 }
 
 /* =================================

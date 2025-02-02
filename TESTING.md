@@ -115,7 +115,27 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 
 # Accessibility
 
-I have conducted accessibility testing to evaluate our website's usability for all users. Using **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) (Web Accessibility Evaluation Tool), we assessed compliance with accessibility standards and identified one key area requiring improvement:
+For my accessibility testing, I used **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to evaluate the website. WAVE helps me check if my site meets web accessibility standards and can be used by all visitors. The tool helped me examine important features like:
+
+- Screen reader compatibility
+- Color contrast ratios
+- Text alternatives for images
+- Proper heading structure
+
+Below are the results of my WAVE accessibility tests for each page:
+
+| Page | Accessibility Check | Screenshot | Status |
+| ---- | ------------------- | ---------- | ------ |
+| About Us | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅  |
+| Create New Post | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Edit Profile | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Latest Posts | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Log Out | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Login Landing Page | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Manage Account | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| User Profile | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| Bookmarked | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 

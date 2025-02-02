@@ -117,9 +117,7 @@ class Blogpost(models.Model):
     release_year = models.IntegerField(validators=[validate_year])
     media_link = models.URLField()
     likes = models.ManyToManyField(
-        User,
-        related_name="blogpost_likes",
-        blank=True
+        User, related_name="blogpost_likes", blank=True
     )
     bookmarks = models.ManyToManyField(
         User, related_name="blogpost_bookmarks", blank=True
