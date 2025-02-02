@@ -1,34 +1,38 @@
+/* Importing the Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* =================================
    THEME CONFIGURATION
    Main color scheme and core variables
    ================================= */
 
-   :root {
-    /* Brand Colors 
+:root {
+  /* Brand Colors 
        Primary palette defining visual identity */
-    --primary-color: #4d6cfa; /* Core UI elements */
-    --secondary-color: #ff6200; /* Action items & emphasis */
-    --accent-color: #c85c86; /* Decorative highlights */
+  --primary-color: #4d6cfa; /* Core UI elements */
+  --secondary-color: #ff6200; /* Action items & emphasis */
+  --accent-color: #c85c86; /* Decorative highlights */
 
-    /* Interface Colors 
+  /* Interface Colors 
        Base colors for UI components */
-    --dark-text: #191919; /* Primary dark text */
-    --light-text: #f5f6f3; /* Primary light text */
-    --light-grey-text: #9198a1; /*Light grey text*/
-    --dark-bg: #011627; /* Dark mode background */
-    --black-bg: #000000; /* Base black background */
-    --light-bg: #f8fafa; /* Light mode background */
-    --dark-green: #226c79; /*Dark green*/
+  --dark-text: #191919; /* Primary dark text */
+  --light-text: #f5f6f3; /* Primary light text */
+  --light-grey-text: #9198a1; /*Light grey text*/
+  --dark-grey-text: #738A90; /*Dark grey text*/
+  --dark-bg: #011627; /* Dark mode background */
+  --black-bg: #000000; /* Base black background */
+  --light-bg: #f8fafa; /* Light mode background */
+  --dark-green: #226c79; /*Dark green*/
 
-    /* Feedback Colors 
+  /* Feedback Colors 
        User interaction states */
-    --success: #79a850; /* Success indicators */
-    --error: #dd1c1a; /* Error messages */
-    --warning: #f79818; /* Warning alerts */
+  --success: #79a850; /* Success indicators */
+  --error: #dd1c1a; /* Error messages */
+  --warning: #f79818; /* Warning alerts */
 
-    /* Interactive Colors 
+  /* Interactive Colors 
        State changes for elements */
-    --hover: #525199; /* Hover state */
+  --hover: #525199; /* Hover state */
 }
 
 /* =================================
@@ -36,47 +40,70 @@
    Special Circumstances 
    ================================= */
 
-.alert-container {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    width: 100%;
-    padding: 2px;
+ /* Style to make signup button text black on signup page */ 
+.btn.btn-primary.btn-lg,
+#black-text-home {
+  background-color: var(--secondary-color);
+  color: var(--dark-text);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
 }
 
-/*FIXME: Change color of "label" on Edit Profile page*/
-label {
-    color: var(--dark-text);
+ /* Style for signup button hover state */ 
+.btn.btn-primary.btn-lg:hover,
+#black-text-home:hover {
+  background-color: var(--hover);
+  color: var(--light-text);
+  transform: scale(1.05);
+}
+
+/*Color Labels: Create Blog Post*/
+#blogPostForm label {
+  color: var(--light-text);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+
+.alert-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  width: 100%;
+  padding: 2px;
 }
 
 #profile_edit_heading {
-    color: var(--dark-text);
+  color: var(--dark-text);
 }
 
 #bookmared-posts {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 h1.my-4.text-center {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 h4.text-center.medium {
-    color: var(--dark-text);
+  color: var(--dark-text);
 }
 
 label {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 h2 {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 input {
-    color: var(--light-text);
+  color: var(--dark-grey-text);
 }
 
 /* =================================
@@ -85,12 +112,12 @@ input {
    ================================= */
 
 body {
-    font-family: "Open Sans", sans-serif;
-    background-color: var(--dark-bg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    min-height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--dark-bg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 /* =================================
@@ -100,45 +127,48 @@ body {
 
 /* Nav Container */
 .navbar {
-    background-color: var(--black-bg);
-    box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
-    -webkit-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
-    -moz-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+  background-color: var(--black-bg);
+  box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 43px -130px 61px -136px rgba(0, 0, 0, 0.75) inset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar-dark {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 /* Branding Elements */
 .navbar-logo {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: transform 0.1s ease;
+  font-family: Lato, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: transform 0.1s ease;
 }
 
 /* Logo Interactions */
 .navbar-logo:hover {
-    color: var(--hover);
-    transform: scale(1.1);
+  color: var(--hover);
+  transform: scale(1.1);
 }
 
 .nav-link:hover {
-    color: var(--hover);
+  color: var(--hover);
 }
 
 /* User Menu Icon */
 .nav-link.dropdown-toggle i.fas.fa-user-circle {
-    color: var(--secondary-color);
-    transition: transform 0.1s ease;
+  color: var(--secondary-color);
+  transition: transform 0.1s ease;
 }
 
 .nav-link.dropdown-toggle i.fas.fa-user-circle:hover {
-    transform: scale(1.1);
-    color: var(--hover);
+  transform: scale(1.1);
+  color: var(--hover);
 }
 
 /* =================================
@@ -147,8 +177,8 @@ body {
    ================================= */
 
 .footer {
-    background-color: var(--black-bg);
-    color: var(--secondary-color);
+  background-color: var(--black-bg);
+  color: var(--secondary-color);
 }
 
 /* =================================
@@ -159,40 +189,40 @@ body {
 /* Primary & Secondary Buttons
    Basic styling for main action buttons */
 .btn-primary,
-.btn-secondary,
-.btn-signup {
-    background-color: var(--secondary-color);
-    color: var(--light-text);
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.1s;
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.1s;
 }
 
 /* Danger Button
       Styling for destructive actions */
 .btn-danger {
-    background-color: var(--warning);
-    color: var(--light-text);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: background-color 0.3s;
+  background-color: var(--warning);
+  color: var(--light-text);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 /* Hover States
       Visual feedback for user interaction */
+
 .btn-primary:hover,
 .btn-signup:hover,
 .btn-secondary:hover,
 .btn-danger:hover {
-    background-color: var(--hover);
-    color: var(--light-text);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: var(--hover);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Active States
@@ -201,10 +231,10 @@ body {
 .btn-signup:active,
 .btn-secondary:active,
 .btn-danger:active {
-    background-color: var(--secondary-color);
-    color: var(--light-text-gr);
-    transform: scale(0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--secondary-color);
+  color: var(--light-text-gr);
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Focus States
@@ -213,55 +243,55 @@ body {
 .btn-signup:focus,
 .btn-secondary:focus,
 .btn-danger:focus {
-    background-color: var(--accent-color);
-    color: var(--light-text-gr);
-    outline: none;
-    box-shadow: 0 0 0 2px var(--bg);
+  background-color: var(--accent-color);
+  color: var(--light-text-gr);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg);
 }
 
 /* Secondary Button Variants
       Alternative styling for secondary actions */
 .btn-secondary {
-    background-color: var(--black-bg);
-    color: var(--light-text);
+  background-color: var(--black-bg);
+  color: var(--light-text);
 }
 .btn-secondary:hover {
-    background-color: var(--hover);
+  background-color: var(--hover);
 }
 .btn-secondary:active {
-    background-color: var(--success);
-    color: var(--light-text);
+  background-color: var(--success);
+  color: var(--light-text);
 }
 
 /* Selected Category Button - active */
 .btn.ctg.active {
-    background-color: var(--dark-green);
-    color: var(--dark-text);
+  background-color: var(--dark-green);
+  color: var(--dark-text);
 }
 
 /* Danger Button Variants
       Styling for destructive actions */
 .btn-danger {
-    background-color: var(--warning);
-    color: var(--light-text-gr);
+  background-color: var(--warning);
+  color: var(--light-text-gr);
 }
 
 /* Like Button
       Special styling for social interaction */
 .btn-like {
-    border: none;
-    background: transparent;
+  border: none;
+  background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: var(--accent-color);
-    background: transparent;
-    border: none;
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
 }
 
 .fa-heart {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 /* ==================================
@@ -273,8 +303,8 @@ body {
 .link,
 .post-link,
 .page-link {
-    color: var(--secondary-color); /* Uses theme color variable */
-    text-decoration: none; /* Removes default underline */
+  color: var(--secondary-color); /* Uses theme color variable */
+  text-decoration: none; /* Removes default underline */
 }
 
 /* Hover states - provides visual feedback on interaction
@@ -282,34 +312,34 @@ body {
 .link:hover,
 .post-link:hover,
 .page-link:hover {
-    color: var(--hover); /* Uses theme hover color */
-    text-decoration: underline; /* Adds underline on hover */
+  color: var(--hover); /* Uses theme hover color */
+  text-decoration: underline; /* Adds underline on hover */
 }
 
 .custom-page-number {
-    background: none;
-    color: var(--accent-color);
-    padding: 5px;
-    margin: 5px;
+  background: none;
+  color: var(--accent-color);
+  padding: 5px;
+  margin: 5px;
 }
 
 /* Global link styles - applies to all <a> elements
       Provides default styling for any links not covered by specific classes */
 a {
-    color: var(--dark-text); /* Default link color */
-    text-decoration: none; /* Removes default underline */
+  color: var(--dark-text); /* Default link color */
+  text-decoration: none; /* Removes default underline */
 }
 
 /* Global hover and active states
       Enhances user interaction feedback */
 a:hover {
-    color: var(--hover); /* Changes color on hover */
-    text-decoration: underline; /* Adds underline on hover */
+  color: var(--hover); /* Changes color on hover */
+  text-decoration: underline; /* Adds underline on hover */
 }
 
 a:active {
-    color: var(--accent-color); /* Different color when clicked */
-    text-decoration: underline; /* Maintains underline when active */
+  color: var(--accent-color); /* Different color when clicked */
+  text-decoration: underline; /* Maintains underline when active */
 }
 
 /* =================================
@@ -319,38 +349,42 @@ a:active {
 
 /* Card Base */
 .card {
-    border: none;
-    background-color: var(--dark-bg);
-    margin-bottom: 1rem;
-    color: var(--dark-text);
+  border: none;
+  background-color: var(--dark-bg);
+  margin-bottom: 1rem;
+  color: var(--dark-text);
 }
 
 .card:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Card Content */
 .card-body {
-    padding: 1rem;
-    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2), inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1), 5px 2px 15px 5px rgba(18, 18, 18, 0.15);
-    background-color: var(--light-bg);
+  padding: 1rem;
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+    5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 8px 0px rgba(0, 0, 0, 0.1),
+    5px 2px 15px 5px rgba(18, 18, 18, 0.15);
+  background-color: var(--light-bg);
 }
 
 /* Card Typography */
 .card-title {
-    color: var(--light-text);
-    font-size: 16px;
-    margin-bottom: 0.5rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+  color: var(--light-text);
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card-text {
-    color: var(--dark-text);
-    font-size: 14px;
-    text-overflow: ellipsis;
+  color: var(--dark-text);
+  font-size: 14px;
+  text-overflow: ellipsis;
 }
 
 /* =================================
@@ -360,61 +394,61 @@ a:active {
 
 /* Image Ratios */
 .aspect-ratio-3-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* Image Container */
 .image-container {
-    position: relative;
-    width: 100%;
-    padding-top: 66.67%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 66.67%;
+  overflow: hidden;
 }
 
 /* Image Hover */
 .image-container .aspect-ratio-3-2 {
-    transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .image-container:hover .aspect-ratio-3-2 {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Author Tag */
 .author {
-    bottom: -5px;
-    left: 6px;
-    color: var(--light-text);
-    background-color: var(--dark-bg);
-    padding: 3px;
-    border-radius: 2px;
-    font-size: 0.7rem;
+  bottom: -5px;
+  left: 6px;
+  color: var(--light-text);
+  background-color: var(--dark-bg);
+  padding: 3px;
+  border-radius: 2px;
+  font-size: 0.7rem;
 }
 
 /* Bookmark Button Styles */
 .btn-bookmark {
-    border: none;
-    background: transparent;
-    color: var(--secondary-color);
-    margin-bottom: 4px;
+  border: none;
+  background: transparent;
+  color: var(--secondary-color);
+  margin-bottom: 4px;
 }
 .btn-bookmark:hover,
 .btn-bookmark:active {
-    background: transparent;
-    border: none;
-    color: var(--light-text-gr);
+  background: transparent;
+  border: none;
+  color: var(--light-text-gr);
 }
 .fa-bookmark {
-    color: var(--light-text-gr);
+  color: var(--light-text-gr);
 }
 .post-bookmark {
-    margin-left: 5%;
-    color: var(--light-text-gr);
+  margin-left: 5%;
+  color: var(--light-text-gr);
 }
 
 /* =================================
@@ -424,89 +458,89 @@ a:active {
 
 /* Header Container */
 .masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: auto;
-    width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: 100%;
 }
 
 .masthead .row {
-    display: flex;
+  display: flex;
 }
 
 /* Header Text */
 .masthead-text {
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    position: relative;
-    overflow: hidden;
-    box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
-    -webkit-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
-    -moz-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 45px 13px 31px -16px rgba(0, 0, 0, 0.75) inset;
 }
 
 /* Header Image */
 .masthead-image {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .masthead-image .image-container {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 .masthead-text,
 .masthead-image {
-    padding: 0px;
+  padding: 0px;
 }
 .masthead-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .post-title {
-    margin: 5%;
-    text-align: center;
-    font-size: 28px;
+  margin: 5%;
+  text-align: center;
+  font-size: 28px;
 }
 .post-subtitle {
-    margin-left: 5%;
-    color: var(--light-text-gr);
+  margin-left: 5%;
+  color: var(--light-text-gr);
 }
 
 .card-excerpt {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    /* Number of lines to show */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    /* Other styles */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Other styles */
 }
 .blogpost-card {
-    height: 460px;
-    overflow: hidden;
+  height: 460px;
+  overflow: hidden;
 }
 
 /* CRISPY FORMS FIELD TARGETING */
 .form-control {
-    margin-bottom: 10px;
-    font-size: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
 }
-.form-control[type="file"],
-.form-control[name="bio"] {
-    margin-bottom: 20px;
+.form-control[type='file'],
+.form-control[name='bio'] {
+  margin-bottom: 20px;
 }
 
 /* Targeting fields within crispy forms */
 .form-control,
 select,
 textarea {
-    color: var(--dark-text);
-    border: 1px solid black;
+  color: var(--dark-text);
+  border: 1px solid black;
 }
 
 /* =================================
@@ -516,8 +550,8 @@ textarea {
 
 /* Profile Layout */
 .profile-details {
-    margin: 0 auto;
-    padding: 20px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /*=================================
@@ -527,14 +561,14 @@ textarea {
 
 /* Base table structure */
 .profile-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 /* Cell spacing and borders */
 .profile-table td {
-    padding: 16px;
-    border-bottom: 1px solid #dfc7c7;
+  padding: 16px;
+  border-bottom: 1px solid #dfc7c7;
 }
 
 /*=================================
@@ -545,44 +579,44 @@ textarea {
 /* Top category labels - primary emphasis */
 .category-label-top,
 .category-label-top i {
-    color: var(--accent-color);
-    font-weight: bolder;
+  color: var(--accent-color);
+  font-weight: bolder;
 }
 
 .category-label-top {
-    text-align: left;
-    width: 100%;
-    line-height: 1.5;
+  text-align: left;
+  width: 100%;
+  line-height: 1.5;
 }
 
 /* Standard category labels - secondary emphasis */
 .category-label {
-    font-weight: bolder;
-    text-align: right;
-    width: 26%;
-    line-height: 1.5;
+  font-weight: bolder;
+  text-align: right;
+  width: 26%;
+  line-height: 1.5;
 }
 
 .category-label,
 .category-label i {
-    color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Category header styling */
 .top-categories-heading {
-    color: var(--secondary-color);
-    text-align: center;
-    font-weight: bolder;
+  color: var(--secondary-color);
+  text-align: center;
+  font-weight: bolder;
 }
 
 /* Vertical spacing between sections */
 .table-spacing {
-    height: 40px;
+  height: 40px;
 }
 
 /* Category alignment rules */
 .top-categories td:first-child {
-    text-align: right;
+  text-align: right;
 }
 
 /*=================================
@@ -592,15 +626,15 @@ textarea {
 
 /* Bio text appearance */
 .bio-text {
-    color: var(--light-text-gr);
-    font-weight: 100;
-    font-size: small;
-    width: 100%;
+  color: var(--light-text-gr);
+  font-weight: 100;
+  font-size: small;
+  width: 100%;
 }
 
 /* Minimum height for bio section */
 .bio-height {
-    min-height: 50px;
+  min-height: 50px;
 }
 
 /*=================================
@@ -610,11 +644,11 @@ textarea {
 
 /* Profile image constraints */
 .profile-img {
-    width: 100%;
-    max-width: 230px;
-    height: auto;
-    display: inline-block;
-    object-fit: cover;
+  width: 100%;
+  max-width: 230px;
+  height: auto;
+  display: inline-block;
+  object-fit: cover;
 }
 
 /*=================================
@@ -624,32 +658,32 @@ textarea {
 
 /* Main container setup */
 .login-page-container {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 /* Login form elements */
 .h2-login {
-    margin: -16px;
-    font-size: 26px;
+  margin: -16px;
+  font-size: 26px;
 }
 
 .card-login {
-    margin-top: 6px !important;
-    margin-left: 8px !important;
-    margin-right: 8px !important;
-    padding: 8px;
+  margin-top: 6px !important;
+  margin-left: 8px !important;
+  margin-right: 8px !important;
+  padding: 8px;
 }
 
 /* Branding text  */
 .login-nederlearn {
-    font-size: 57px;
-    font-weight: 700;
-    color: var(--dark-text);
+  font-size: 57px;
+  font-weight: 700;
+  color: var(--dark-text);
 }
 
 /*=================================
@@ -659,180 +693,187 @@ textarea {
 
 /* Desktop/large screen styles */
 .login-logo img {
-    height: 580px;
-    margin-top: -125px;
-    margin-bottom: 10px;
-    max-width: 100%;
+  height: 580px;
+  margin-top: -125px;
+  margin-bottom: 10px;
+  max-width: 100%;
 }
 
 /* Styles for large screens (992px and above) */
 @media (min-width: 992px) {
-    .masthead-image::before {
-        content: "";
-        position: absolute;
-        right: 100%;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        background-color: rgba(1, 43, 48);
-        transform: skew(15deg);
-        transform-origin: top right;
-    }
+  .masthead-image::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(1, 43, 48);
+    transform: skew(15deg);
+    transform-origin: top right;
+  }
 }
 
 /* Responsive adjustments for medium screens (tablets) */
 @media (max-width: 992px) {
-    .masthead .row {
-        flex-wrap: wrap;
-        /* Allows items to wrap as needed */
-    }
-    .masthead-text,
-    .masthead-image {
-        flex-basis: 100%;
-    }
+  .masthead .row {
+    flex-wrap: wrap;
+    /* Allows items to wrap as needed */
+  }
+  .masthead-text,
+  .masthead-image {
+    flex-basis: 100%;
+  }
 }
 
 .blogpost-card {
-    height: 518px;
+  height: 518px;
 }
 
 .card-body {
-    padding: 20px;
+  padding: 20px;
 }
 .top-categories td:first-child {
-    text-align: left;
+  text-align: left;
 }
 .profile-details {
-    padding: 0px;
+  padding: 0px;
 }
 .profile-table td {
-    padding: 4px;
+  padding: 4px;
 }
 
 .masthead-image {
-    order: -1;
-    /* Switches place for image (above the text) */
+  order: -1;
+  /* Switches place for image (above the text) */
 }
 .btn {
-    padding: 5px 10px;
-    font-size: 0.8em;
+  padding: 5px 10px;
+  font-size: 0.8em;
 }
 
 /* Tablet/medium screen adaptations */
 @media (max-width: 1024px) {
-    .login-page-container {
-        flex-direction: column;
-        min-height: auto;
-        padding: 10px 10px;
-    }
+  .login-page-container {
+    flex-direction: column;
+    min-height: auto;
+    padding: 10px 10px;
+  }
 
-    .login-logo img {
-        height: auto;
-        max-height: 40vh;
-        margin-top: 0;
-    }
+  .login-logo img {
+    height: auto;
+    max-height: 40vh;
+    margin-top: 0;
+  }
 }
 
 /* Mobile/small screen adaptations */
 @media (max-width: 767px) {
-    .profile-img {
-        margin-bottom: 20px;
-    }
+  .profile-img {
+    margin-bottom: 20px;
+  }
 
-    .masthead-text h1 {
-        font-size: 14px;
-    }
-    .masthead-text .post-subtitle,
-    .masthead-text .post-bookmark {
-        font-size: 0.9em;
-    }
+  .masthead-text h1 {
+    font-size: 14px;
+  }
+  .masthead-text .post-subtitle,
+  .masthead-text .post-bookmark {
+    font-size: 0.9em;
+  }
 
-    .masthead-text h1 {
-        font-size: 20px;
-    }
+  .masthead-text h1 {
+    font-size: 20px;
+  }
 
-    .masthead-image img {
-        max-height: 300px;
-    }
+  .masthead-image img {
+    max-height: 300px;
+  }
 
-    .btn {
-        padding: 5px 10px;
-        font-size: 0.8em;
-    }
+  .btn {
+    padding: 5px 10px;
+    font-size: 0.8em;
+  }
 }
 
 /* Extra small screen adjustments */
 @media (max-width: 580px) {
-    h1 {
-        font-size: 14px;
-    }
+  h1 {
+    font-size: 14px;
+  }
 
-    .login-logo img {
-        max-height: 30vh;
-    }
+  .login-logo img {
+    max-height: 30vh;
+  }
 
-    .card-body {
-        padding: 16px;
-    }
+  .card-body {
+    padding: 16px;
+  }
 
-    .top-categories td:first-child {
-        text-align: left;
-    }
+  .top-categories td:first-child {
+    text-align: left;
+  }
 
-    .profile-details {
-        padding: 0px;
-    }
+  .profile-details {
+    padding: 0px;
+  }
 
-    .profile-table td {
-        padding: 4px;
-    }
+  .profile-table td {
+    padding: 4px;
+  }
 
-    .masthead-image {
-        order: -1;
-        /* Switches place for image (above the text) */
-    }
+  .masthead-image {
+    order: -1;
+    /* Switches place for image (above the text) */
+  }
 
-    .blogpost-card {
-        height: 508px;
-    }
+  .blogpost-card {
+    height: 508px;
+  }
 }
 
 /* Mobile-first optimizations */
 @media (max-width: 480px) {
-    .login-logo img {
-        max-height: 27vh;
-        margin-top: -32px;
-    }
+  .login-logo img {
+    max-height: 27vh;
+    margin-top: -32px;
+  }
 
-    .h2-login {
-        padding: 7px;
-        margin: -22px;
-    }
+  .h2-login {
+    padding: 7px;
+    margin: -22px;
+  }
 
-    .login-nederlearn {
-        margin-top: 2px;
-        font-size: 24px;
-        margin-bottom: 32px !important;
-    }
+  .login-nederlearn {
+    margin-top: 2px;
+    font-size: 24px;
+    margin-bottom: 32px !important;
+  }
 
-    .card-login {
-        margin-top: 6px !important;
-        margin-left: -18px !important;
-        margin-right: -18px !important;
-        padding: 8px;
-    }
+  .card-login {
+    margin-top: 6px !important;
+    margin-left: -18px !important;
+    margin-right: -18px !important;
+    padding: 8px;
+  }
 
-    .card-body {
-        padding: 12px;
-    }
+  .card-body {
+    padding: 12px;
+  }
 
-    .blogpost-card {
-        height: 470px;
-    }
+  .blogpost-card {
+    height: 470px;
+  }
 }
 /* Responsive adjustments for min width 320px */
 @media (max-width: 400px) {
-    .blogpost-card {
-        height: 420px;
-    }
+  .blogpost-card {
+    height: 420px;
+  }
+}
+
+/*Color Lables: General*/
+label {
+  color: #000000;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }

@@ -41,6 +41,11 @@ Return to [**README.md**](README.md)
     - [Main Things I Test](#main-things-i-test)
     - [What I Tested](#what-i-tested)
     - [Configuration](#configuration)
+  - [Code Coverage](#code-coverage)
+    - [1. Installation](#1-installation)
+    - [2. Running Coverage Tests](#2-running-coverage-tests)
+    - [3. Generating a Report](#3-generating-a-report)
+    - [4. Reading the Report](#4-reading-the-report)
 
 ## Code Validation
 
@@ -247,5 +252,45 @@ if 'test' in sys.argv or 'test_coverage' in sys.argv:
 ```
 
 Note: These settings are only used during testing, not in production.
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+## Code Coverage
+
+I've found code coverage to be super helpful in understanding how well my tests cover my code. Let me walk you through how to set it up:
+
+### 1. Installation
+
+First, we need to install `Coverage.py` . Just run this in your terminal:
+
+```bash
+pip install coverage
+```
+
+### 2. Running Coverage Tests
+
+To check your code coverage, use this command:
+
+```bash
+coverage run --source='blog' manage.py test blog
+```
+
+This creates a `.coverage` file that works like a report card for your code.
+
+### 3. Generating a Report
+
+To create a nice visual report:
+
+1. Open VS Code's terminal
+2. Make sure you're in the project's root directory
+3. Run: `coverage html`
+
+
+### 4. Reading the Report
+
+The report shows you:
+
+- Green lines: Code that's been tested
+- Red lines: Code that still needs testing
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
