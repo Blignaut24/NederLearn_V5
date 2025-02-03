@@ -2,11 +2,13 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+{# Main container for blog post detail view #}
 <div class="container col-lg-8 col-md-12 col-sm-12">
     <div class="masthead">
+        {# Header section with post title and author info #}
         <div class="container card-body">
             <div class="row">
-                <!-- Text Content -->
+                {# Left column: Post metadata #}
                 <div
                     class="col-lg-6 col-md-6 col-sm-12 masthead-text d-flex flex-column justify-content-center">
                     <h1 class="post-title">{{ blogpost.blog_title }}</h1>
@@ -15,6 +17,7 @@
                         href="{% url 'other_user_profile' blogpost.author.username %}">{{ blogpost.author }}</a>
                         | {{ blogpost.created_on|date:"F d, Y" }}
                     </p>
+                    {# Bookmark functionality for authenticated users #}
                     {% if user.is_authenticated %}
                     <form class="post-bookmark mb-2"
                         action="{% url 'bookmark_unbookmark' blogpost.slug %}"
@@ -33,7 +36,7 @@
                     {% endif %}
                 </div>
 
-                <!-- Image Content -->
+                {# Right column: Featured image #}
                 <div
                 class="col-lg-6 col-md-6 col-sm-12 masthead-image d-flex align-items-center">
         
@@ -45,18 +48,18 @@
             </div>
         </div>
 
-
+        {# Post content section #}
         <div class="container col-sm-12">
             <div class="row">
                 <div class="col card mb-6">
                     <div class="card-body">
+                        {# Post excerpt and content #}
                         <p class="card-text">
                             <strong>{{ blogpost.excerpt }}</strong></p>
-                        <!-- Divider -->
                         <hr>
-                        <!-- Blog Content-->
-                        <!-- Full Blog Post Content -->
                         <p class="card-text">{{ blogpost.content | safe }}</p>
+
+                        {# Post metadata #}
                         <div class="mt-3">
                             <strong>Release Year:</strong>
                             {{ blogpost.release_year }}
@@ -65,6 +68,7 @@
                             <strong>Category:</strong>
                             {{ blogpost.media_category }}
                         </div>
+                        {# Optional media link #}
                         {% if blogpost.media_link %}
                         <div class="mt-3 mb-3">
                             <strong>Media Link/Reference:</strong>
@@ -72,10 +76,10 @@
                                 target="_blank">{{ blogpost.media_link }}</a>
                         </div>
                         {% endif %}
-                        <!-- Divider -->
+                        {# Divider #}
                         <hr>
                         <div class="row">
-                            <!-- Likes (Heart Icon and Count) -->
+                            {# Likes (Heart Icon and Count) #}
                             <div class="col-12 d-flex justify-content-between">
                                 
                                     {% if user.is_authenticated %}
@@ -102,7 +106,7 @@
                                     </form>
                                     {% endif %}
                                 
-                                <!-- Comments (Comment Icon and Count) -->
+                                {# Comments (Comment Icon and Count) #}
                                 {% with comments.count as total_comments %}
                                 <strong class="text-secondary">
                                     <i class="far fa-comments ml-5"></i>
@@ -119,12 +123,12 @@
                     <h3>Post a comment:</h3>
                     <p class="text-muted small">Your post will be displayed on
                         the bottom of the comment section below</p>
-                        <!-- Comment Form -->
+                        {# Comment Form #}
                         <form method="post" class="mt-3">
                         {{ comment_form | crispy }}
                         {% csrf_token %}
                         <button type="submit"
-                            class="btn btn-signup btn-lg mt-3">Submit</button>
+                            class="btn btn-signup btn-lg mt-3" id="submit_btn">Submit</button>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 {# Base Template Extension #}
+{% extends 'base.html' %}
 
 {# Main Content Block #}
 {% block content %}
@@ -10,7 +11,7 @@
         <div class="col-md-6">
             <div class="card mt-5">
                 <div class="card-header">
-                    Confirm Delete
+                    <h1 id="confirm_delete">Confirm Delete</h1>
                 </div>
                 <div class="card-body">
                     <p>Are you sure you want to delete the post titled

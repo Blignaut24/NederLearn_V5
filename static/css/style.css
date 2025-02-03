@@ -40,10 +40,126 @@
    Special Circumstances 
    ================================= */
 
-.text-muted{
+  /* Text Colors*/
+  .text-secondary,
+  .text-muted {
+    color: var(--dark-text) !important;
+  }
+  
+  /*Button Styles*/
+  #submit_btn {
+    background: var(--secondary-color);
+  }
+  
+  #submit_btn:hover {
+    background: var(--hover);
+  }
+  
+  .post-subtitle a {
+    /* Styles for the author link */
+    color: var(--secondary-color);
+  }
+  
+  /*Author Link Styles*/
+  .post-subtitle a:hover {
+    /* Styles for the author link */
+    text-decoration: underline;
+    color: var(--hover);
+  }
+  
+  /*Delete Confirmation*/
+  #confirm_delete {
+    color: var(--light-text);
+  }
+  
+  /* Sign-up Button Styles */
+  .btn.btn-primary.btn-lg,
+  #black-text-home {
+    background-color: var(--secondary-color);
+    color: var(--dark-text);
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.1s;
+  }
+  
+  /* Style for signup button hover state */
+  .btn.btn-primary.btn-lg:hover,
+  #black-text-home:hover {
+    background-color: var(--hover);
+    color: var(--light-text);
+    transform: scale(1.05);
+  }
+  
+  /*Color Labels: Create Blog Post*/
+  #blogPostForm label {
+    color: var(--light-text);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+  }
+  
+  /*Alert Container*/
+  .alert-container {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    width: 100%;
+    padding: 2px;
+  }
+
+  /*Typography Colors*/
+  
+  #profile_edit_heading,
+  h4.text-center.medium {
+    color: var(--dark-text);
+  }
+  
+  #bookmared-posts,
+  h1.my-4.text-center,
+  h2,
+  label {
+    color: var(--light-text);
+  }
+  
+  input {
+    color: var(--dark-grey-text);
+  }
+
+.text-secondary {
   color: var(--dark-text) !important;
 }
 
+.text-muted {
+  color: var(--dark-text) !important;
+}
+
+#submit_btn {
+  background: var(--secondary-color);
+}
+
+#submit_btn:hover {
+  background: var(--hover);
+}
+
+.post-subtitle a {
+  /* Styles for the author link */
+  color: var(--secondary-color);
+}
+
+.post-subtitle a:hover {
+  /* Styles for the author link */
+  text-decoration: underline;
+  color: var(--hover);
+}
+
+/*Better Delete Confirmation Design*/
+#confirm_delete {
+  color: var(--light-text);
+}
 
 /* Style to make signup button text black on signup page */
 .btn.btn-primary.btn-lg,
@@ -520,7 +636,6 @@ li {
 }
 .post-subtitle {
   margin-left: 5%;
-  color: var(--light-text-gr);
 }
 
 .card-excerpt {
