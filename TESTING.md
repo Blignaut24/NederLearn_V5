@@ -32,6 +32,13 @@ Return to [**README.md**](README.md)
     - [CSS](#css)
     - [Python Validation](#python-validation)
 - [Accessibility](#accessibility)
+- [Performance Testing](#performance-testing)
+  - [Why Test Performance?](#why-test-performance)
+  - [How to Run Performance Tests](#how-to-run-performance-tests)
+  - [Testing Scope](#testing-scope)
+  - [Performance Results](#performance-results)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
 - [Automated Testing](#automated-testing)
   - [Test Setup](#test-setup)
     - [File Structure](#file-structure)
@@ -124,18 +131,92 @@ For my accessibility testing, I used **WAVE** [Web Accessibility Evaluation Tool
 
 Below are the results of my WAVE accessibility tests for each page:
 
+
 | Page | Accessibility Check | Screenshot | Status |
 | ---- | ------------------- | ---------- | ------ |
-| About Us | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅  |
-| Create New Post | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Edit Profile | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Latest Posts | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Log Out | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Login Landing Page | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Manage Account | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| User Profile | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
-| Bookmarked | no errors found | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅ |
+| About Us | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/about_wave.webp)</details> | ✅  |
+| Create New Post | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/create_wave.webp)</details> | ✅ |
+| Edit Profile | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/edit_profile_wave.webp)</details> | ✅ |
+| Latest Posts | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/index_wave.webp)</details> | ✅ |
+| Log Out | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/logout_wave.webp)</details> | ✅ |
+| Login Landing Page | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/login_wave.webp)</details> | ✅ |
+| Manage Account | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/manage_account_wave.webp)</details> | ✅ |
+| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/wave)</details> | ✅ |
+| User Profile | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/user_profile_wave.webp)</details> | ✅ |
+| Bookmarked | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/bookmarked_wave.webp)</details> | ✅ |
+
+<p align="right">(<a href="#content">back to top</a>)</p><br>
+
+# Performance Testing
+
+Performance testing ensures our website runs smoothly and loads quickly. We use [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/) in Chrome's Incognito mode for accurate results without interference from extensions or cached data.
+
+## Why Test Performance?
+
+* Makes sure our website loads fast
+* Helps find things that slow down our pages
+* Improves user experience
+* Helps with search engine rankings
+
+## How to Run Performance Tests
+
+1. Open Google Chrome in Incognito mode (Ctrl+Shift+N)
+2. Right-click on the page you want to test and select 'Inspect'
+3. Click on the 'Lighthouse' tab
+4. Select what you want to test (Performance, Accessibility, etc.)
+5. Click 'Generate report'
+
+## Testing Scope
+
+* Desktop Performance: How the site runs on computers
+* Mobile Performance: How the site runs on phones and tablets
+* Loading Speed: How quickly pages appear
+* Interactive Timing: How fast buttons and links respond
+
+> **Note**: You can find more details about Lighthouse testing at the official documentation.
+
+Remember to run these tests regularly as you make changes to the website to maintain performance.
+
+## Performance Results
+
+### Desktop
+
+| **Tested** | **Performance Score** | **View Result** | **Pass** |
+--- | --- | --- | :---:
+|login.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|about.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|signup.html |  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|index.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_detail.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_create.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_delete.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_update.html| / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|my_posts.html|  / 100| <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|bookmarked.html|  / 100| <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|profile.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|profile_edit.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|account_manage.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|logout.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+
+### Mobile
+
+| **Tested** | **Performance Score** | **View Result** | **Pass** |
+--- | --- | --- | :---:
+|login.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|about.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|signup.html |  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|index.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_detail.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_create.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_delete.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|blogpost_update.html| / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|my_posts.html|  / 100| <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|bookmarked.html|  / 100| <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|profile.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|profile_edit.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|account_manage.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+|logout.html|  / 100 | <details><summary>Screenshot of result</summary>![Result]()</details> | ✅
+
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 

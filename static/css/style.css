@@ -196,7 +196,7 @@ body {
 .btn-primary,
 .btn-secondary {
   background-color: var(--secondary-color);
-  color: var(--light-text);
+  color: var(--dark-text);
   border: none;
   padding: 4px 8px;
   border-radius: 4px;
@@ -591,7 +591,7 @@ textarea {
 /* Top category labels - primary emphasis */
 .category-label-top,
 .category-label-top i {
-  color: var(--accent-color);
+  color: var(--dark-text);
   font-weight: bolder;
 }
 
@@ -611,12 +611,12 @@ textarea {
 
 .category-label,
 .category-label i {
-  color: var(--accent-color);
+  color: var(--dark-text);
 }
 
 /* Category header styling */
 .top-categories-heading {
-  color: var(--secondary-color);
+  color: var(--dark-text);
   text-align: center;
   font-weight: bolder;
 }
