@@ -9,7 +9,7 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
 ## Table of Content
 
 - [NederLearn](#nederlearn)
-  - ["Embrace the Adventure, Connect the World - NederLearn, Where Learning Dutch Becomes a Thrilling Journey"](#embrace-the-adventure-connect-the-world---nederlearn-where-learning-dutch-becomes-a-thrilling-journey)
+    - ["Embrace the Adventure, Connect the World - NederLearn, Where Learning Dutch Becomes a Thrilling Journey"](#embrace-the-adventure-connect-the-world---nederlearn-where-learning-dutch-becomes-a-thrilling-journey)
   - [Table of Content](#table-of-content)
   - [Project Overview](#project-overview)
     - [User Goals](#user-goals)
@@ -29,6 +29,12 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
     - [Wireflow](#wireflow)
     - [Wireframe](#wireframe)
   - [User Interface (UI) Design](#user-interface-ui-design)
+    - [Color Palette](#color-palette)
+      - [Main Colors](#main-colors)
+      - [Text and Background Colors](#text-and-background-colors)
+      - [Background Options:](#background-options)
+      - [Special Message Colors](#special-message-colors)
+      - [Benefits](#benefits)
   - [Database Structure](#database-structure)
     - [EDR Symbols](#edr-symbols)
   - [Technologies Used](#technologies-used)
@@ -40,7 +46,9 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
   - [**Supporting Libraries and Packages**](#supporting-libraries-and-packages)
   - [Methodology](#methodology)
   - [Testing](#testing)
-  - [Bug Reports](#bugs)
+  - [Bug Reports](#bug-reports)
+    - [Known bugs ❌](#known-bugs-)
+    - [Fixed bugs ✅](#fixed-bugs-)
   - [Deployment](#deployment)
   - [Credits](#credits)
   - [Acknowledgments](#acknowledgments)
@@ -238,6 +246,45 @@ This epic concentrates on improving the site's overall user experience, includin
 ---
 
 ## User Interface (UI) Design
+
+### Color Palette
+
+The NederLearn color palette reflects careful psychological design choices. Deep blue (#001a73) creates trust and professionalism in the learning environment, while warm orange (#ff7b29) energizes interactive elements to encourage user engagement. Rose pink (#c85c86) provides a softer, approachable accent that balances the authoritative blue. The messaging system uses green (#00614a) to indicate success, red (#dd1c1a) for alerts, and orange (#f79818) for warnings. Both light and dark modes maintain strong contrast for accessibility without compromising the psychological impact of each color.
+
+#### Main Colors
+![Main Colors for NederLearn App](static/images/primary_colors.webp)
+
+- **Midnight Blue** (`#001a73`): Main color - professional and reminds people of learning and trust
+- **Pumpkin** (`#ff7b29`): Buttons and clickable elements - contrasts well with blue
+- **Magenta** (`#c85c86`): Friendly accent color for small details
+
+#### Text and Background Colors
+![Text Colors for NederLearn App](static/images/text_colors.webp)
+
+- **Dark Text** (`#191919`): Primary text color
+- **Light Text** (`#f5f6f3`): Text on dark backgrounds
+- **Grey Variations** (`#9198a1`, `#738a90`): Secondary text
+
+#### Background Options:
+![Background Colors for NederLearn App](static/images/background_colors.webp)
+  - Light Mode (`#f8fafa`): Soft white
+  - Dark Mode (`#011627`): Deep blue-black
+
+#### Special Message Colors
+
+![Background Colors for NederLearn App](static/images/message_colors.webp)
+
+- **Green** (`#00614a`): Success messages
+- **Red** (`#dd1c1a`): Error messages
+- **Orange** (`#f79818`): Warning messages
+- **Purple** (`#6161ff`): Hover state for interactive elements
+
+#### Benefits
+
+- Easy to read and use
+- Professional but friendly
+- Works in light and dark modes
+- Clear visual hierarchy for interactive elements
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 

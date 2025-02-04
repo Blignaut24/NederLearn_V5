@@ -22,7 +22,6 @@
   --dark-bg: #011627; /* Dark mode background */
   --black-bg: #000000; /* Base black background */
   --light-bg: #f8fafa; /* Light mode background */
-  --dark-green: #226c79; /*Dark green*/
 
   /* Feedback Colors 
        User interaction states */
@@ -386,7 +385,7 @@ body {
 
 /* Selected Category Button - active */
 .btn.ctg.active {
-  background-color: var(--dark-green);
+  background-color: var(--warning);
   color: var(--dark-text);
 }
 
