@@ -35,16 +35,24 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
       - [Background Options:](#background-options)
       - [Special Message Colors](#special-message-colors)
       - [Benefits](#benefits)
-  - [Database Structure](#database-structure)
-    - [EDR Symbols](#edr-symbols)
+  - [Font Selection](#font-selection)
+    - [Font Implementation](#font-implementation)
+    - [Technical Integration](#technical-integration)
   - [Technologies Used](#technologies-used)
-    - [**Languages**](#languages)
+    - [Languages](#languages)
     - [**Frameworks**](#frameworks)
     - [**Database**](#database)
   - [**Media Management Platform**](#media-management-platform)
   - [**Tools:**](#tools)
   - [**Supporting Libraries and Packages**](#supporting-libraries-and-packages)
+  - [Database Structure](#database-structure)
+    - [EDR Symbols](#edr-symbols)
   - [Methodology](#methodology)
+    - [Agile Project Management with GitHub Project](#agile-project-management-with-github-project)
+    - [User Stories as GitHub Issues](#user-stories-as-github-issues)
+    - [Bug Tracking System](#bug-tracking-system)
+    - [Iterative Development Approach](#iterative-development-approach)
+    - [Future Development Roadmap](#future-development-roadmap)
   - [Testing](#testing)
   - [Bug Reports](#bug-reports)
     - [Known bugs ❌](#known-bugs-)
@@ -288,30 +296,42 @@ The NederLearn color palette reflects careful psychological design choices. Deep
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----
+## Font Selection
 
-## Database Structure
+For NederLearn, I carefully selected fonts that enhance readability and learning experience:
 
-During the planning phase of the NederLearn project, I utilized [**Whimsical**](https://whimsical.com) to create an **Entity Relationship Diagram (ERD)** for visualizing the database structure schema.
+- Montserrat as primary font - Its clean lines and modern feel make learning content easily digestible
+- Open Sans for body text - Known for excellent readability across devices, perfect for educational content
+- Playfair Display for emphasis - Adds a professional, academic touch to important concepts
 
-![Entity Relationship Diagram](static/images/edr_diagram.webp)
+Backup fonts were chosen for optimal performance:
 
-### EDR Symbols
+- Raleway - Maintains the modern, educational feel if Montserrat fails to load
+- Roboto - Ensures consistent readability as a fallback option
 
-![Entity Relationship Diagram Symbols](static/images/edr_symbols.webp)
+### Font Implementation
+
+These fonts are strategically used throughout the app:
+
+- Main headings (H1): Montserrat/Raleway for clear content hierarchy
+- Subheadings (H2): Open Sans/Roboto for smooth content scanning
+- Special text: Playfair Display for highlighting key learning points
+
+### Technical Integration
+
+All fonts are loaded via Google Fonts CDN, ensuring fast loading times and cross-browser compatibility - essential for a smooth learning experience.
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
----
-
 ## Technologies Used
 
-### **Languages**
+### Languages
 
-- HTML
-- CSS
-- Python
-- JavaScript
+- **HTML (HyperText Markup Language)**: Used to structure the content and layout of web pages. HTML provides the foundation for organizing text, images, and other elements in NederLearn, ensuring proper document structure and accessibility.
+- **CSS (Cascading Style Sheets)**: Handles the visual styling and presentation of the website. CSS is essential for creating an attractive and responsive design that works across different devices and screen sizes.
+- **Python**: The primary backend programming language used in NederLearn. Python's simplicity and extensive libraries make it perfect for handling server-side logic, data processing, and user authentication.
+- **JavaScript**: Adds interactivity and dynamic features to the website. JavaScript enhances user experience by enabling real-time updates, form validation, and smooth animations without page reloads.
+
 
 ### **Frameworks**
 
@@ -329,14 +349,16 @@ During the planning phase of the NederLearn project, I utilized [**Whimsical**](
 
 ## **Tools:**
 
-- **Font Awesome:** Is a collection of free, changeable vector icons you can use on a website.
-- **Git:** A platform that holds and manages Git repositories, making it easy to work together and keep track of different versions of the project's code.
-- **GitHub:** Is a web-based platform that provides hosting for software development and version control using Git.
-- **Gitpod:** Is an online IDE platform that lets you easily create software straight from your web browser.
-- **Google Fonts:** A library of free, open-source fonts, used to enhance typography on the website.
-- **Heroku:** A cloud application platform used for deploying and hosting the NederLearn app.
-- **Notion AI:** Is an artificial intelligence tool designed to assist with note-taking, data management, and organization within the Notion platform. It aids in planning and writing the NederLearn app README document.
-- **Whimsical:** Is a collaborative visual workspace used for brainstorming, designing, and coordinating team efforts. It has been utilized to design visual diagrams, create flowcharts, wireframes, and sticky notes for the NederLearn app, enhancing the app's conceptualization and planning process.
+- **Font Awesome**: Is a collection of free, changeable vector icons you can use on a website.
+- [**Formatter.org**](http://Formatter.org): A free online tool for automatically formatting and beautifying Python code according to PEP 8 style guidelines.
+- **Git**: A platform that holds and manages Git repositories, making it easy to work together and keep track of different versions of the project's code.
+- **GitHub**: Is a web-based platform that provides hosting for software development and version control using Git.
+- **Gitpod**: Is an online IDE platform that lets you easily create software straight from your web browser.
+- **Google Fonts**: A library of free, open-source fonts, used to enhance typography on the website.
+- **Heroku**: A cloud application platform used for deploying and hosting the NederLearn app.
+- **Notion AI**: is an artificial intelligence tool designed to assist with note-taking, data management, and organization within the Notion platform. It aids in planning and writing the NederLearn app README document.
+- **Visual Studio Code (VS Code)**: VS Code is Microsoft's free code editor that supports multiple programming languages, offers built-in debugging tools, and can be enhanced with extensions.
+- **Whimsical**: is a collaborative visual workspace used for brainstorming, designing, and coordinating team efforts. It has been utilized to design visual diagrams, create flowcharts, wireframes, and sticky notes for the NederLearn app, enhancing the app's conceptualization and planning process.
 
 ## **Supporting Libraries and Packages**
 
@@ -353,9 +375,46 @@ During the planning phase of the NederLearn project, I utilized [**Whimsical**](
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
+
+
+## Database Structure
+
+During the planning phase of the NederLearn project, I utilized [**Whimsical**](https://whimsical.com) to create an **Entity Relationship Diagram (ERD)** for visualizing the database structure schema.
+
+![Entity Relationship Diagram](static/images/edr_diagram.webp)
+
+### EDR Symbols
+
+![Entity Relationship Diagram Symbols](static/images/edr_symbols.webp)
+
+<p align="right">(<a href="#table-of-content">back to top</a>)</p>
+
+---
+
+
+
 ---
 
 ## Methodology
+### Agile Project Management with GitHub Project
+
+I implemented GitHub's project management tools to efficiently track development progress. The project board, organized with "To Do," "In Progress," and "Done" columns, provided clear visualization of task progression.
+
+### User Stories as GitHub Issues
+
+To ensure user-centric development, I created GitHub issues as user stories. Example: "As a Dutch learner, I want to practice vocabulary, so I can improve my language skills." This approach guided feature development to meet actual user needs.
+
+### Bug Tracking System
+
+GitHub Issues served as a robust bug tracking system. Each issue documented specific problems, their details, and resolution status, ensuring systematic problem-solving.
+
+### Iterative Development Approach
+
+The project followed an iterative development cycle, implementing and testing features incrementally. This methodology allowed for thorough testing and continuous improvement based on feedback.
+
+### Future Development Roadmap
+
+A comprehensive feature roadmap tracks planned enhancements, including interactive exercises and mobile app development. This structured approach ensures organized and prioritized future development.
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
