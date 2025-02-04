@@ -106,7 +106,7 @@ class Blogpost(models.Model):
     content = models.TextField(max_length=10000)
     excerpt = models.TextField(max_length=150, blank=True)
     status = models.IntegerField(choices=STATUS, default=1)
-    featured_image = CloudinaryField("image", default="blogpost_placeholder")
+    featured_image = CloudinaryField("image", default="blogpost_placeholder_x6ckko")
     media_category = models.ForeignKey(
         "MediaCategory",
         on_delete=models.SET_NULL,
