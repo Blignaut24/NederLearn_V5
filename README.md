@@ -26,7 +26,6 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
     - [MoSCoW Method](#moscow-method)
     - [Epics \& User Stories](#epics--user-stories)
     - [Sitemap](#sitemap)
-    - [Wireflow](#wireflow)
     - [Wireframe](#wireframe)
   - [User Interface (UI) Design](#user-interface-ui-design)
     - [Color Palette](#color-palette)
@@ -245,9 +244,9 @@ This epic concentrates on improving the site's overall user experience, includin
 
 ![NederLearn App Sitemap](static/images/sitemap.webp)
 
-### Wireflow
-
 ### Wireframe
+
+
 
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
