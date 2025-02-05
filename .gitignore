@@ -44,3 +44,5 @@ os.environ["CLOUDINARY_URL"] = (
 # Virtual Environment
 # -----------------------------
 .venv
+
+env.py
