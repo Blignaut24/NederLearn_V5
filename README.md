@@ -65,6 +65,11 @@ Developer: [Johann Blignaut](https://github.com/Blignaut24/NederLearn_V5.git) <b
     - [Fixed bugs ✅](#fixed-bugs-)
   - [Deployment](#deployment)
   - [Credits](#credits)
+    - [Learning Resources](#learning-resources)
+    - [Code and Technical Support](#code-and-technical-support)
+    - [Media Resources](#media-resources)
+    - [Testing and Feedback](#testing-and-feedback)
+    - [](#)
   - [Acknowledgments](#acknowledgments)
 
 ## Project Overview
@@ -480,24 +485,45 @@ I've added links to the bug reports from my GitHub Project in my README.md. Each
 
 ## Credits
 
-<details>
-  <summary><b>Bootstrap Documentation</b></summary>
-</details>
+I would like to express my gratitude to the following people and resources that have contributed to this project:
 
-<details>
-  <summary><b>Content</b></summary>
-</details>
+### Learning Resources
 
-<details>
-  <summary><b>Django Documentation</b></summary>
-</details>
+- W3Schools - For their comprehensive web development tutorials
+- Khan Academy - For their excellent math and science educational content
+- [Code.org](http://Code.org) - For their beginner-friendly programming lessons
+- DebbieBergstrom: Copying the structure of the README and TEST.md file
 
-<details>
-  <summary><b>Media</b></summary>
-</details>
+### Code and Technical Support
 
-<details>
-  <summary><b>Tutorials</b></summary>
+- Stack Overflow community - For helping solve various coding challenges
+- GitHub Documentation - For guidance on version control
+- Visual Studio Code - For providing an excellent code editor with helpful extensions
+
+### Media Resources
+
+- Unsplash - For providing free, high-quality images
+- Canva - For graphic design elements and templates
+- Font Awesome - For the icons used throughout the project
+
+### Testing and Feedback
+
+- My fellow students - For their valuable feedback and testing
+- My teachers - For their guidance and support throughout the project
+- My family - For their patience and encouragement
+
+### 
+
+- Tutorials
+    - Tutorials
+        - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
+        - **[**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.**
+    
+    Tutorials
+    
+    - Tutorials
+        - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
+        - [**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.
 
   - [**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.
 
