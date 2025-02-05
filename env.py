@@ -18,6 +18,8 @@ os.environ.setdefault(
     "postgresql://neondb_owner:RmJGSXldUY69@ep-lively-frost-a250gi75.eu-central-1.aws.neon.tech/coral_raid_tiara_871589",
 )
 
+
+
 # -----------------------------
 # Security Configuration
 # -----------------------------
@@ -36,6 +38,17 @@ if os.path.exists("env.py"):
 # Configure cloud name, API key, and secret for Cloudinary service
 
 
+#os.environ["CLOUDINARY_URL"] = (
+#    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+#)
+
+#os.environ["CLOUDINARY_URL"] = (
+#    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+#)
+
 os.environ["CLOUDINARY_URL"] = (
-    "cloudinary://651583882481459:oVB9sTCGPjJCl05vx3bjBNEZ0Eg@dki11spup"
+    "cloudinary://164539657291268:@dq1adff0s@dq1adff0s"
 )
+
+
+
