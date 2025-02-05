@@ -146,7 +146,6 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
 #   - generic.DeleteView: Provides delete functionality
 # ------------------------------------------------------
 
-
 class BlogpostDeleteView(LoginRequiredMixin, generic.DeleteView):
     """
     Manages the deletion of existing blog posts.
