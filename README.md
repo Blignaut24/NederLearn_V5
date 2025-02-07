@@ -9,9 +9,9 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
 
 
 
-Developer: [Johann Blignaut](https://github.com/Blignaut24/NederLearn_V5.git) <br>
-[Live webpage](https://nederlearn-v2-668724e5173b.herokuapp.com/accounts/login/)<br>
-[Project Repository](https://github.com/Blignaut24/NederLearn_V5)<br>
+**Developer: Johann Blignaut** <br>
+[Live webpage](https://nederlearn-v5-c628536a9899.herokuapp.com/accounts/login/)<br>
+[Project Repository](https://github.com/Blignaut24/NederLearn_V5.git)<br>
 
 ## Table of Content
 
