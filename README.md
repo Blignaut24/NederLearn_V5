@@ -257,9 +257,44 @@ This epic concentrates on improving the site's overall user experience, includin
 ![NederLearn App Sitemap](static/images/sitemap.webp)
 
 ### Wireframe
+The wireframes showcase the mobile-first approach used in planning and developing this application. This design methodology ensures optimal user experience across all devices, starting with mobile layouts and scaling up. Click on each page to view the detailed wireframe designs.
 
-
-
+<details><summary>Landing page</summary>
+<img src="static\images\landing_page.webp">
+</details>
+<details><summary>About us</summary>
+<img src="static\images\about_us_page.webp">
+</details>
+<details><summary>Register Account</summary>
+<img src="static\images\register_page.webp">
+</details>
+<details><summary>Post Overview</summary>
+<img src="static\images\post_overview_page.webp">
+</details>
+<details><summary>Full Post Detail</summary>
+<img src="static\images\full_post_page.webp">
+</details>
+<details><summary>Create New Post</summary>
+<img src="static\images\create_new_post_page.webp">
+</details>
+<details><summary>Edit / Update Post</summary>
+<img src="static/images/update_and_delete_page.webp">
+</details>
+<details><summary>My Posts / Bookmarked</summary>
+<img src="static\images\my_post_and_bookmarked_page.webp">
+</details>
+<details><summary>Manage Account</summary>
+<img src="static\images\manage_account_page.webp">
+</details>
+<details><summary>My Profile</summary>
+<img src="static/images/my_profile.webp">
+</details>
+<details><summary>User Profile</summary>
+<img src="static/images/user_profile.webp">
+</details>
+<details><summary>Home Page - Post Overview</summary>
+<img src="static\images\home_page.webp">
+</details>
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
