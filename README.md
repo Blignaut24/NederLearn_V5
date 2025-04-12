@@ -64,12 +64,39 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
     - [Known bugs ❌](#known-bugs-)
     - [Fixed bugs ✅](#fixed-bugs-)
   - [Deployment](#deployment)
+  - [App Deployment](#app-deployment)
+    - [1. Create a New App](#1-create-a-new-app)
+    - [2. Configure Settings](#2-configure-settings)
+    - [3. Config Vars Setup](#3-config-vars-setup)
+    - [4. Add PostgreSQL Database](#4-add-postgresql-database)
+    - [5. Configure DATABASE\_URL](#5-configure-database_url)
+    - [6. Environment Variable Setup](#6-environment-variable-setup)
+    - [7. Heroku Config Vars](#7-heroku-config-vars)
+    - [8. Django Settings](#8-django-settings)
+    - [9. Migrate Models](#9-migrate-models)
+    - [10. Cloudinary Integration](#10-cloudinary-integration)
+      - [10.1 Cloudinary Account](#101-cloudinary-account)
+      - [10.2 Copy CLOUDINARY\_URL](#102-copy-cloudinary_url)
+      - [10.3 Environment Variable Setup](#103-environment-variable-setup)
+      - [10.4 Heroku Config Vars](#104-heroku-config-vars)
+      - [10.5 Django Settings](#105-django-settings)
+    - [11. Templates Setup](#11-templates-setup)
+    - [12. Additional Setup](#12-additional-setup)
+    - [13. Procfile Setup](#13-procfile-setup)
+    - [14. Deployment Steps](#14-deployment-steps)
+  - [Version Control (Using GitPod)](#version-control-using-gitpod)
+    - [1. Add Changes](#1-add-changes)
+    - [2. Commit Changes](#2-commit-changes)
+    - [3. Push to GitHub](#3-push-to-github)
+  - [Repository Management](#repository-management)
+    - [1. Forking the Repository](#1-forking-the-repository)
+    - [2. Cloning the Repository](#2-cloning-the-repository)
   - [Credits](#credits)
     - [Learning Resources](#learning-resources)
     - [Code and Technical Support](#code-and-technical-support)
     - [Media Resources](#media-resources)
     - [Testing and Feedback](#testing-and-feedback)
-    - [](#)
+    - [Tutorials](#tutorials)
   - [Acknowledgments](#acknowledgments)
 
 ## Project Overview
@@ -504,19 +531,155 @@ I've added links to the bug reports from my GitHub Project in my README.md. Each
 | 🐞 Bug Report: Cloudinary URL Configuration Error in Django Heroku Deployment| [#41](https://github.com/Blignaut24/NederLearn_V5/issues/41) |🔌 Connection Bug ⚙️ Configuration Bug |
 | 🐞 Bug Report: CSS Changes Not Reflecting in Browser Despite Hard Refresh - Style.css File Updates Not Taking Effect.| [#42](https://github.com/Blignaut24/NederLearn_V5/issues/42) |🎨 Display Bugs  |
 
-
-
-
-
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
 
 ## Deployment
 
+## App Deployment
+Purpose: Guide for setting up and deploying a Django application on Heroku with all necessary configurations.
+
+### 1. Create a New App
+Purpose: Initialize your application on Heroku's platform
+1. Create a new app on Heroku dashboard
+
+*For additional information about creating an app using Heroku, refer to their [documentation](https://devcenter.heroku.com/articles/getting-started-with-python).* 
+
+### 2. Configure Settings
+Purpose: Set up basic application configurations
+1. Navigate to "Settings" in new app 
+
+### 3. Config Vars Setup
+Purpose: Configure essential environment variables
+1. In "Config Vars," add `PORT` as the key and `8000` as its value
+*For more information, click the [link](https://devcenter.heroku.com/articles/config-vars).* 
+
+### 4. Add PostgreSQL Database
+Purpose: Set up the production database
+1. Choose PostgreSQL as database
+2. Example "ElephantSQL" was used in this project
+
+### 5. Configure DATABASE_URL
+Purpose: Connect your application to the database
+1. In "Config Vars," add `DATABASE_URL` and copy the URL from PostgreSQL dashboard
+2. Note: If using ElephantSQL as PostgreSQL provider, you can use the URL provided by ElephantSQL
+
+### 6. Environment Variable Setup
+Purpose: Secure sensitive information and configure local development
+1. Create a new file in workspace called `env.py`
+2. Import the `os` library and set the environment variable for `DATABASE_URL` to the Heroku address
+3. Add a secret key using `os.environ["SECRET_KEY"] = "your secret key here"`
+
+### 7. Heroku Config Vars
+Purpose: Secure production environment variables
+1. Add the secret key to the Heroku app's config vars in the settings
+
+### 8. Django Settings
+Purpose: Configure Django application settings for production
+1. In `settings.py` of Django app, import `Path` from `pathlib`, `os`, and `dj_database_url`
+2. Add `if os.path.isfile("env.py"): import env` to the file
+3. Replace the SECRET_KEY with `SECRET_KEY = os.environ.get('SECRET_KEY')`
+4. Replace the database section with `DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}`
+
+### 9. Migrate Models
+Purpose: Initialize database structure
+1. In workspace terminal, migrate the models to the new database connection
+
+### 10. Cloudinary Integration
+Purpose: Set up media file handling
+
+#### 10.1 Cloudinary Account
+Purpose: Create access to cloud storage
+1. Log in to Cloudinary account or create one
+
+#### 10.2 Copy CLOUDINARY_URL
+Purpose: Obtain connection credentials
+1. Copy `CLOUDINARY_URL`
+
+#### 10.3 Environment Variable Setup
+Purpose: Configure local Cloudinary access
+1. In `env.py`, add `os.environ["CLOUDINARY_URL"] = "add cloudinary_url here"`
+
+#### 10.4 Heroku Config Vars
+Purpose: Configure production Cloudinary access
+1. In Heroku settings, add `CLOUDINARY_URL` to config vars
+
+#### 10.5 Django Settings
+Purpose: Set up Django to use Cloudinary
+1. In `INSTALLED_APPS`, add `cloudinary_storage`, `Django.contrib.staticfiles`, and `cloudinary` in this order
+2. Configure static file settings in `settings.py`
+
+### 11. Templates Setup
+Purpose: Configure template rendering
+1. Link the file to the templates directory in Heroku with `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
+2. Change the templates directory to `TEMPLATES_DIR - 'DIRS': [TEMPLATES_DIR]`
+
+### 12. Additional Setup
+Purpose: Create necessary project directories
+1. Create three new folders: `media`, `static`, and `templates`
+
+### 13. Procfile Setup
+Purpose: Tell Heroku how to run the application
+1. Create a `Procfile`
+2. Add the following line inside the Procfile: `web: gunicorn project_name_here.wsgi`
+
+### 14. Deployment Steps
+Purpose: Launch the application
+1. Push all changes to GitHub
+2. In the Heroku deployment tab, deploy manually first time
+3. Monitor the process
+4. Once successful, set up automatic deployments
+
+## Version Control (Using GitPod)
+Purpose: Manage code changes and updates
+
+### 1. Add Changes
+Purpose: Stage modified files
+1. In the GitPod terminal, use the command `git add .` to stage changes
+
+### 2. Commit Changes
+Purpose: Save staged changes with description
+1. Commit changes with a descriptive comment:
+```
+git commit -m "Push comment here"
+```
+
+### 3. Push to GitHub
+Purpose: Upload changes to remote repository
+1. Push the updates to the repository:
+```
+git push
+```
+
+## Repository Management
+Purpose: Guide for managing project copies and local development
+
+### 1. Forking the Repository
+Purpose: Create a personal copy of the project
+1. Log into GitHub account or create one
+2. Navigate to the repository URL
+3. Click "Fork" at the top right of the repository page
+
+*For additional information about forking the repository, please refer to the source documentation [link](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).*
+
+### 2. Cloning the Repository
+Purpose: Create a local working copy
+1. Go to the GitHub repository
+2. Click the green "Code" button
+3. Select your preferred cloning method (HTTPS, SSH, or GitHub CLI)
+4. Copy the URL
+5. Open your terminal
+6. Navigate to desired directory
+7. Run: `git clone https://github.com/Blignaut24/NederLearn_V5.git`
+8. Press Enter to create your local clone
+
+*For additional information about cloning the repository, please refer to the source documentation [link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).*
+
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
+
 
 ## Credits
 
@@ -547,22 +710,11 @@ I would like to express my gratitude to the following people and resources that 
 - My teachers - For their guidance and support throughout the project
 - My family - For their patience and encouragement
 
-### 
+### Tutorials   
+  - **Tutorials**
 
-- Tutorials
-    - Tutorials
-        - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
-        - **[**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.**
-    
-    Tutorials
-    
-    - Tutorials
         - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
         - [**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.
-
-  - [**Code Institute (CI)**](https://codeinstitute.net/nl/): Code Institute's Django tutorials provided valuable guidance for development.
-
-  - [**Zero To Mastery (ZTM)**](https://zerotomastery.io/courses/django-bootcamp/): For their comprehensive Django tutorials.
 
 </details>
 
