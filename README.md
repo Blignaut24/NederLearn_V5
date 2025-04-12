@@ -63,7 +63,7 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
   - [Bug Reports](#bug-reports)
     - [Known bugs ❌](#known-bugs-)
     - [Fixed bugs ✅](#fixed-bugs-)
-  - [Deployment](#deployment)
+- [Deployment](#deployment)
   - [App Deployment](#app-deployment)
     - [1. Create a New App](#1-create-a-new-app)
     - [2. Configure Settings](#2-configure-settings)
@@ -535,7 +535,7 @@ I've added links to the bug reports from my GitHub Project in my README.md. Each
 
 ---
 
-## Deployment
+# Deployment
 
 ## App Deployment
 Purpose: Guide for setting up and deploying a Django application on Heroku with all necessary configurations.
