@@ -724,6 +724,8 @@ I would like to express my gratitude to the following people and resources that 
 
 ## Acknowledgments
 
+I would like to express my heartfelt gratitude to everyone who supported me throughout the development of this project. Special thanks to my mentor for providing invaluable guidance, feedback, and continuous encouragement. I am also grateful to the Code Institute tutors and student support team for their technical expertise and timely assistance. Their support was instrumental in overcoming various coding challenges. The Code Institute Slack community deserves recognition for fostering a collaborative environment where helpful discussions and code reviews flourished. Finally, I want to thank my family for their unwavering support and understanding during my coding journey, and all the beta testers who took the time to provide essential feedback on the application. 
+
 <p align="right">(<a href="#table-of-content">back to top</a>)</p>
 
 ---
