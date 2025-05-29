@@ -1,13 +1,11 @@
 
 # NederLearn
 
-### "Embrace the Adventure, Connect the World - NederLearn, Where Learning Dutch Becomes a Thrilling Journey"
+### Introduction
 
-NederLearn is an exciting companion in your journey to learn the Dutch language and understand its culture. Instead of the usual mundane and tedious language learning, NederLearn offers a thrilling exploration through films, books, articles, and podcasts about Dutch culture. It's more than just a language app, it's a community of Dutch language enthusiasts ready for a linguistic adventure. Whether you're an expat preparing for the Dutch Integration Exam or simply want to engage in light-hearted banter with Dutch colleagues, NederLearn is the perfect companion. Get ready to add a dash of excitement to your Dutch learning journey. Your adventure begins here.
+*"Embrace Adventure, Connect the World: NederLearn—Where Dutch Learning Becomes a Journey"*
 
-![Mockup image]()
-
-
+NederLearn is an exciting companion in your journey to learn the Dutch language and understand its culture. Instead of the usual mundane and tedious language learning, NederLearn offers a thrilling exploration through films, books, articles, and podcasts about Dutch culture. It's more than just a language app — it's a community of Dutch language enthusiasts ready for a linguistic adventure. Whether you're an expat preparing for the Dutch Integration Exam or simply want to engage in light-hearted banter with Dutch colleagues, NederLearn is the perfect companion. Get ready to add a dash of excitement to your Dutch learning journey. Your adventure begins here.
 
 **Developer: Johann Blignaut** <br>
 [Live webpage](https://nederlearn-v5-c628536a9899.herokuapp.com/accounts/login/)<br>
@@ -16,11 +14,11 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
 ## Table of Content
 
 - [NederLearn](#nederlearn)
-    - ["Embrace the Adventure, Connect the World - NederLearn, Where Learning Dutch Becomes a Thrilling Journey"](#embrace-the-adventure-connect-the-world---nederlearn-where-learning-dutch-becomes-a-thrilling-journey)
+    - [Introduction](#introduction)
   - [Table of Content](#table-of-content)
   - [Project Overview](#project-overview)
     - [User Goals](#user-goals)
-      - [**Product and Services**](#product-and-services)
+      - [**Products and Services**](#products-and-services)
       - [**Gain Creators**](#gain-creators)
       - [**Pain Relievers**](#pain-relievers)
       - [**Customer Jobs**](#customer-jobs)
@@ -109,23 +107,23 @@ We've chosen the Value Proposition Canvas (VPC) to visually demonstrate how our 
 
 ![Value Proposition Canvas Diagram](static/images/value%20_proposition%20_canvas.webp)
 
-> **The Value Proposition Canvas** >_Bland, David J.; Osterwalder, Alexander. Testing Business Ideas: A Field Guide for Rapid Experimentation (Strategyzer) (p. 22). Wiley. Kindle Edition._
+> **The Value Proposition Canvas** >_Bland, David J.; Osterwalder, Alexander. Testing Business Ideas: A Field Guide for Rapid Experimentation (Strategyzer) (p. 22). Wiley. Kindle Edition.
 
 <details>
 <summary>Value Map</summary>
 A Value Map illustrates the specific benefits of our app by highlighting its key features:
 
-#### **Product and Services**
+#### **Products and Services**
 
 Here is a list of the services that the NederLearn app provides to its users:
 
-- The platform is browser-based platform.
+- The platform is browser-based.
 - The application's interface is designed to be simple and easy to navigate.
 - The selected resource material is carefully curated.
 - It offers a summary and an external link to the content.
 - Users can choose from a variety of media formats: books, movies, music, podcasts, and series.
 - Resources can be organized according to the **Common European Framework of Reference (CEFR)**:
-  - A. Beginners Level
+  - A. Beginner Level
     - A1. Beginner
     - A2. Elementary
   - B. Intermediate Level
@@ -141,7 +139,7 @@ Here are the advantages users can enjoy when utilizing the NederLearn app:
 
 - The app can be accessed on most devices with an internet connection.
 - The NederLearn interface is designed to be user-friendly and easy to navigate, ensuring a positive user experience.
-- The super user diligently reviews all materials. User comments serve as valuable feedback, further enhancing the quality of the recommendations. This process ensures users can access top-notch Dutch language resources without wasting time searching.
+- The superuser diligently reviews all materials. User comments serve as valuable feedback, further enhancing the quality of the recommendations. This process ensures users can access top-notch Dutch language resources without wasting time searching.
 - Users can delve into a digital multimedia experience, with links to Dutch books, movies, music, podcasts, and series.
 - Using the European language levels offers a clear structure that helps users identify their current proficiency in the language and outlines the steps needed to advance to the next level.
 
@@ -154,7 +152,7 @@ How the NederLearn app addresses user's challenges.
 - Careful curation of resource material saves users time and effort in searching for quality content.
 - Each content piece is accompanied by a summary and an external link, providing a quick overview and easy access.
 - The app offers diverse media formats, catering to different learning preferences.
-- Resources are organized according to the European Framework for Language Framework Levels, providing users a clear learning path and addressing the common challenge of progression in language learning.
+- Resources are organized according to the European Framework for Language Levels, providing users a clear learning path and addressing the common challenge of progression in language learning.
 </details>
 
 <details>
@@ -163,9 +161,9 @@ This provides a detailed and organized overview of a potential user segment inte
 
 #### **Customer Jobs**
 
-Describe the tasks that the user want to do in their professional and personal life with the NederLearn app.
+Describe the tasks that users can do in their professional and personal lives with the NederLearn app.
 
-- Access learning material from any device with internet access
+- Access learning materials from any device with internet access
 - Navigate a user-friendly interface
 - Avoid wasting time searching for quality content
 - Get a quick overview and easy access to each content piece
