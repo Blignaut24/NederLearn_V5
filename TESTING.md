@@ -40,7 +40,7 @@ Return to [**README.md**](README.md)
     - [Desktop](#desktop)
     - [Mobile](#mobile)
 - [Browser Compatibility](#browser-compatibility)
-- [Performing tests on various devices](#performing-tests-on-various-devices)
+- [Performing Tests on Various Devices](#performing-tests-on-various-devices)
 - [Automated Testing](#automated-testing)
   - [Test Setup](#test-setup)
     - [File Structure](#file-structure)
@@ -79,7 +79,7 @@ We used these tools to check the HTML code:
 
 ### HTML Validation
 
-The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML code for compliance with web standards. Each page of the NederLearn app was validated to ensure proper markup structure and accessibility.
+The [W3C Markup Validator](https://validator.w3.org/) was used to validate our HTML code for compliance with web standards. Each page of the NederLearn app was validated to ensure proper markup structure and accessibility.
 
 | **Nr** | **Tested**           | **Result** | **View Result**                                                                                        | **Pass** |
 | ------ | -------------------- | ---------- | ------------------------------------------------------------------------------------------------------ | :------: |
@@ -131,7 +131,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to check our HTML
 
 # Accessibility
 
-For my accessibility testing, I used **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to evaluate the website. WAVE helps me check if my site meets web accessibility standards and can be used by all visitors. The tool helped me examine important features like:
+For my accessibility testing, I used WAVE **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to evaluate the website. WAVE helps me check if my site meets web accessibility standards and can be used by all visitors. The tool helped me examine important features like:
 
 - Screen reader compatibility
 - Color contrast ratios
@@ -192,39 +192,39 @@ Remember to run these tests regularly as you make changes to the website to main
 
 | **Tested** | **Performance Score** | **View Result** | **Pass** |
 --- | --- | --- | :---:
-|login.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/login_l_desktop.jpg)</details> | ✅
-|about.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/about_l_desktop.jpg)</details> | ✅
-|signup.html |  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_l_desktop.jpg)</details> | ✅
-|index.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/latest_l_desktop.jpg)</details> | ✅
-|blogpost_detail.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/detail_l_desktop.jpg)</details> | ✅
-|blogpost_create.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/create_desktop.jpg)</details> | ✅
-|blogpost_delete.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/confirm_delete_l_desktop.jpg)</details> | ✅
-|blogpost_update.html| / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_desktop.jpg)</details> | ✅
-|my_posts.html|  / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/my_desktop.jpg)</details> | ✅
-|bookmarked.html|  / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_l_desktop.jpg)</details> | ✅
-|profile.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_desktop.jpg)</details> | ✅
-|profile_edit.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_profile_l_desktop.jpg)</details> | ✅
-|account_manage.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/manage_l_desktop.jpg)</details> | ✅
-|logout.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_l_desktop.jpg)</details> | ✅
+|login.html|  99 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/login_l_desktop.jpg)</details> | ✅
+|about.html|  99 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/about_l_desktop.jpg)</details> | ✅
+|signup.html |  99 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_l_desktop.jpg)</details> | ✅
+|index.html|  95 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/latest_l_desktop.jpg)</details> | ✅
+|blogpost_detail.html|  99 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/detail_l_desktop.jpg)</details> | ✅
+|blogpost_create.html|90 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/create_desktop.jpg)</details> | ✅
+|blogpost_delete.html|  100 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/confirm_delete_l_desktop.jpg)</details> | ✅
+|blogpost_update.html| 81 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_desktop.jpg)</details> | ✅
+|my_posts.html|  99 / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/my_desktop.jpg)</details> | ✅
+|bookmarked.html|  99 / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_l_desktop.jpg)</details> | ✅
+|profile.html|  81 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_desktop.jpg)</details> | ✅
+|profile_edit.html|  99 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_profile_l_desktop.jpg)</details> | ✅
+|account_manage.html|  100 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/manage_l_desktop.jpg)</details> | ✅
+|logout.html|  100 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_l_desktop.jpg)</details> | ✅
 
 ### Mobile
 
 | **Tested** | **Performance Score** | **View Result** | **Pass** |
 --- | --- | --- | :---:
-|login.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/login_l_mobile.jpg)</details> | ✅
-|about.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/about_l_mobile.jpg)</details> | ✅
-|signup.html |  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_l_mobile.jpg)</details> | ✅
-|index.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/lastest_l_mobile.jpg)</details> | ✅
-|blogpost_detail.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/detail_l_mobile.jpg)</details> | ✅
-|blogpost_create.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/create_mobile.jpg)</details> | ✅
-|blogpost_delete.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/confirm_delete_l_mobile.jpg)</details> | ✅
-|blogpost_update.html| / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_mobile.jpg)</details> | ✅
-|my_posts.html|  / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/my_mobile.jpg)</details> | ✅
-|bookmarked.html|  / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_l_mobile.jpg)</details> | ✅
-|profile.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/profile_l_mobile.jpg)</details> | ✅
-|profile_edit.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_mobile.jpg)</details> | ✅
-|account_manage.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/manage_l_mobile.jpg)</details> | ✅
-|logout.html|  / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_l_mobile.jpg)</details> | ✅
+|login.html| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/login_l_mobile.jpg)</details> | ✅
+|about.html| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/about_l_mobile.jpg)</details> | ✅
+|signup.html | 92 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_l_mobile.jpg)</details> | ✅
+|index.html| 91 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/lastest_l_mobile.jpg)</details> | ✅
+|blogpost_detail.html| 67 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/detail_l_mobile.jpg)</details> | ✅
+|blogpost_create.html| 65 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/create_mobile.jpg)</details> | ✅
+|blogpost_delete.html| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/confirm_delete_l_mobile.jpg)</details> | ✅
+|blogpost_update.html| 81 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_mobile.jpg)</details> | ✅
+|my_posts.html| 90 / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/my_mobile.jpg)</details> | ✅
+|bookmarked.html| 93 / 100| <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_l_mobile.jpg)</details> | ✅
+|profile.html| 81 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/profile_l_mobile.jpg)</details> | ✅
+|profile_edit.html| 81 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_mobile.jpg)</details> | ✅
+|account_manage.html| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/manage_l_mobile.jpg)</details> | ✅
+|logout.html| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_l_mobile.jpg)</details> | ✅
 
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
@@ -239,7 +239,7 @@ The website was tested on the following browsers:
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
-# Performing tests on various devices
+# Performing Tests on Various Devices
 The website was tested on the following devices:
 
 - iPhone 5
@@ -247,11 +247,11 @@ The website was tested on the following devices:
 - iPhone11
 - iPhone Pro Max
 - iPhone 12/ 12 Pro
-- iPad 7th gen
-- iPad Pro 11 inch
-- iPad Pro 12 inch
+- iPad 7th Gen
+- iPad Pro 11 -inch
+- iPad Pro 12 -inch
 - Galaxy S9
-- Laptop 1280 x 800px
+- Laptop (1280 x 800px)
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
@@ -360,7 +360,7 @@ Test URLs
 ![Test_Result!](/static/images/unit_test_urls.webp "Unit Test URL Result")
 <br>
 
-I focused on testing all the URL patterns in our blog application to make sure they work correctly. The test_urls.py file contains a series of tests that check if each URL connects to the right view function. For example, when someone clicks on the home page link, I verify it goes to our BlogPostList view, and when they want to create a new post, it properly connects to BlogpostCreateView.
+I focused on testing all the URL patterns in our blog application to make sure they work correctly. The test_urls.py file contains a series of tests that check if each URL connects to the right view function. For example, when someone clicks on the home page link, I verify it goes to our BlogPostList view, and when they want to create a new post, it properly connects to BlogPostCreateView.
 
 ### What I Tested
 
@@ -480,7 +480,7 @@ Now I'll show you the specific tests I ran to check all of this.
 &nbsp;
 ### Testing user stories
 
-**Epic 1: User Authentication & Profile Management**
+**Epic 1: User Authentication and Profile Management**
 
 | User Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
@@ -493,7 +493,7 @@ Now I'll show you the specific tests I ran to check all of this.
 | | | |
 
 &nbsp;
-**Epic 2: Blog Interaction & Content Management**
+**Epic 2: Blog Interaction and Content Management**
 
 | User Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
@@ -509,7 +509,7 @@ Now I'll show you the specific tests I ran to check all of this.
 | | | |
 
 &nbsp;
-**Epic 3: Administration & Analytics**
+**Epic 3: Administration and Analytics**
 
 | Site Owner Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
@@ -536,10 +536,9 @@ Now I'll show you the specific tests I ran to check all of this.
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
 ## User Experience (UX) and Improvements
+I conducted user testing with friends and family, requesting them to complete specific tasks and provide feedback on their overall experience.
 
-I engaged in user testing involving friends and family and I requested them to complete the following tasks and share their feedback on their overall experience.
-
-Total users attended the testing: 2
+Total number of users who participated in testing: 2
 
 | Test | Result |
 |------|--------|
@@ -560,7 +559,7 @@ Total users attended the testing: 2
 
 ### Full Testing
 
-**`Navbar links, unauthorized/ not logged in user`**
+**`Navbar Links - Unauthorized/Not Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -571,7 +570,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`About Us page, unauthorized/ not logged in user`**
+**`About Us page, unauthorized/not logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -580,7 +579,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Sign up page, unauthorized/ not logged in user`**
+**`Sign-up page, unauthorized/not logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -595,7 +594,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Landing page with login form, unauthorized/ not logged in user`**
+**`Landing Page with Login Form - Unauthorized/Not Logged In User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -608,7 +607,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Navbar authorized/ logged in user`**
+**`Navbar authorized/logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -623,7 +622,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`About Us page, authorized/ logged in user`**
+**`About Us page, authorized/logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -632,7 +631,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Profile drop-down menu, authorized/ logged in user`**
+**`Profile Dropdown Menu - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -644,7 +643,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Index page, authorized/ logged in user`**
+**`Index page, authorized/logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -662,7 +661,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Profile page, authorized/ logged in user`**
+**`Profile Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -672,7 +671,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Edit/update profile page, authorized/ logged in user`**
+**`Edit/update profile page for authorized/logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -681,7 +680,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Manage Account/ Delete profile page, authorized/ logged in user`**
+**`Manage Account/Delete Profile Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -691,7 +690,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`My Posts page, authorized/ logged in user`**
+**`My Posts Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -701,7 +700,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Bookmarked page, authorized/ logged in user`**
+**`Bookmarked page, authorized/logged-in user`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -712,7 +711,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Blog Post Detail page, authorized/ logged in user`**
+**`Blog Post Detail Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -725,7 +724,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Create New Post page, authorized/ logged in user`**
+**`Create New Post Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -741,7 +740,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Update post page, authorized/ logged in user`**
+**`Update Post Page - Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -750,7 +749,7 @@ Total users attended the testing: 2
 
 &nbsp;
 
-**`Delete post page, authorized/ logged in user`**
+**`Delete Post Page — Authorized/Logged-in User`**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -774,15 +773,15 @@ Total users attended the testing: 2
 
 **Testing Summary**
 
-We did lots of different tests on NederLearn to make sure everything works well. Here's what we found:
+We conducted extensive testing on NederLearn to ensure optimal functionality. Here's what we found:
 
 - All our code (HTML and CSS) passed the basic checks with no errors
-- The website works well on phones and computers, though we had some small image loading issues
-- We checked that the site is accessible for everyone. There were some color contrast warnings, but they don't affect how the site works
-- Our automatic tests for things like creating posts and logging in all worked perfectly
-- Real people tested the website and gave us good feedback
-- We made sure users can easily use all the features and find their way around the site
+- The website is responsive across both mobile and desktop devices, though we encountered some minor image loading issues
+- We conducted accessibility testing for universal access. There were some color contrast warnings, but they don't impact the site's functionality
+- Our automated tests for features like post creation and user authentication all passed successfully
+- User testing provided positive feedback
+- We verified that all features are easily accessible and the site navigation is intuitive
 
-Overall, NederLearn is working well and ready to use.
+Overall, NederLearn is functioning properly and ready for deployment.
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
