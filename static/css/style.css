@@ -302,6 +302,27 @@ body {
 }
 
 /* =================================
+   FORM ELEMENTS
+   Form styling and validation feedback
+   ================================= */
+
+/* Form Error Messages
+   Custom styling for form validation errors */
+.my_errorlist {
+  color: var(--error); /* Uses your defined error color #dd1c1a */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.875rem; /* Slightly smaller than normal text */
+  font-weight: 500; /* Medium weight for better readability */
+}
+
+.my_errorlist li {
+  margin-bottom: 2px; /* Small spacing between multiple errors */
+}
+
+/* =================================
    INTERACTIVE ELEMENTS
    Defines styles for buttons and clickable components
    ================================= */
@@ -812,16 +833,9 @@ textarea {
   color: var(--dark-text);
 }
 
-TODO:Fix error message visibility in create post form. Update CSS styles for form validation messages by adding #DD1C1A color for the error message "Enter a valid URL." 
 /* =================================
-   FORM VALIDATION MESSAGES
-   Error message styling for forms
-   ================================= */
-
-
-/* =================================
-   RESPONSIVE DESIGN
-   Media queries for different screens
+  RESPONSIVE DESIGN
+  Media queries for different screens
 ==================================*/
 
 /* Desktop/large screen styles */
@@ -1004,7 +1018,7 @@ TODO:Fix error message visibility in create post form. Update CSS styles for for
   }
 }
 
-/*Color Lables: General*/
+/*Color Labels: General*/
 label {
   color: #000000;
   font-family: 'Raleway', sans-serif;

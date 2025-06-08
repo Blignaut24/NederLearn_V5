@@ -1,26 +1,28 @@
-{% extends 'base.html' %}
-{% block content %}
-
-
-
-{# Main container with responsive grid #}
+{% extends 'base.html' %} {% block content %} {# Main container with responsive
+grid #}
 <div class="container">
-    <div class="row justify-content-center">
-        {# Responsive column layout #}
-        {# lg: 4 cols, md: 6 cols, sm: 12 cols #}
-        <div class="col-md-6 col-md-6 col-sm-12">
-            {# Form header #}
-            <h2 class="account-heading">Create a New Blog Post</h2>
-            
-            {# Post creation form #}
-            {# Note: enctype required for file uploads #}
-            <form method="post" enctype="multipart/form-data" id="blogPostForm">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Create
-                    Post</button>
-            </form>        
+  <div class="row justify-content-center">
+    {# Responsive column layout #} {# lg: 4 cols, md: 6 cols, sm: 12 cols #}
+    <div class="col-md-6 col-md-6 col-sm-12">
+      {# Form header #}
+      <h2 class="account-heading">Create a New Blog Post</h2>
+
+      {# Post creation form #} {# Note: enctype required for file uploads #}
+      <form method="post" enctype="multipart/form-data" id="blogPostForm">
+        {% csrf_token %} {% for field in form %}
+        <div>
+          {{ field.label_tag }} {{ field }} {% if field.errors %}
+          <ul>
+            {% for error in field.errors %}
+            <li class="text-danger">{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
         </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Create Post</button>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock content %}

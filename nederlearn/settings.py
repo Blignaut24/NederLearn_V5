@@ -40,17 +40,19 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Do NOT use in production without modification
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = False
+DEBUG = True
 
 # Host Configuration
 # -----------------
 ALLOWED_HOSTS = [
+    "localhost",
     # Production Environments
     "nederlearn-v4.herokuapp.com",  # Legacy production server
     "nederlearn-v5-c628536a9899.herokuapp.com",  # Current production server
     # Development Environments
     "127.0.0.1",  # Local development server
     "8000-blignaut24-nederlearnv5-rmnpyhyg9tg.ws-eu117.gitpod.io",
+    "localhost",
 ]
 
 # =======================================
