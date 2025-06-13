@@ -87,7 +87,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to validate our H
 | 2      | about_us.html        | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/about_w3c.webp)</details>      |    ✅    |
 | 3      | signup.html          | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/sign_w3c.webp)</details>       |    ✅    |
 | 4      | index.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/index_w3c.webp)</details>      |    ✅    |
-| 5      | blogpost_detail.html | No errors  | <details><summary!>Screenshot of result</summary![Result](static/images/blogpost_detail.html.webp)</details>                                  |    ✅    |
+| 5      | blogpost_detail.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/blogpost_detail_w3c.webp)</details>                                  |    ✅    |
 | 6      | blogpost_create.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
 | 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
 | 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/delete_w3c.webp)</details>
