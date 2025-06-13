@@ -150,7 +150,7 @@ Below are the results of my WAVE accessibility tests for each page:
 | Log Out | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/logout_wave.webp)</details> | ✅ |
 | Login Landing Page | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/login_wave.webp)</details> | ✅ |
 | Manage Account | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/manage_account_wave.webp)</details> | ✅ |
-| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/wave)</details> | ✅ |
+| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/sign_up_wave.webp)</details> | ✅ |
 | User Profile | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/user_profile_wave.webp)</details> | ✅ |
 | Bookmarked | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/bookmarked_wave.webp)</details> | ✅ |
 
