@@ -1,5 +1,5 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget
+from django_summernote.widgets import SummernoteInplaceWidget
 from .models import Comment, UserProfile, Blogpost
 import datetime
 
@@ -39,7 +39,7 @@ class BlogpostForm(forms.ModelForm):
                     "maxlength": "200",
                 }
             ),
-            "content": SummernoteWidget(
+            "content": SummernoteInplaceWidget(
                 attrs={
                     "class": "form-control",
                     "rows": 4,

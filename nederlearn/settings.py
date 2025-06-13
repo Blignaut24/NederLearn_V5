@@ -52,7 +52,6 @@ ALLOWED_HOSTS = [
     # Development Environments
     "127.0.0.1",  # Local development server
     "8000-blignaut24-nederlearnv5-rmnpyhyg9tg.ws-eu117.gitpod.io",
-    "localhost",
 ]
 
 # =======================================
@@ -148,6 +147,7 @@ MESSAGE_TAGS = {
 #   responsive design and better user experience
 
 SUMMERNOTE_CONFIG = {
+    "iframe": False,  # Use inline mode instead of iframe to avoid HTML validation issues
     "summernote": {
         "width": "100%",  # Makes editor span full container width
     },

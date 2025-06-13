@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -142,7 +143,7 @@
                                 <a
                                 href="{% url 'other_user_profile' comment.user.username %}">{{ comment.user.username }}</a>
 
-                                <span class="text-muted font-weight-normal"></span>
+                                <span class="text-muted font-weight-normal">
                                     {{ comment.created_on }}
                                 </span> wrote:
                             </p>
