@@ -89,8 +89,8 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to validate our H
 | 4      | index.html           | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/index_w3c.webp)</details>      |    ✅    |
 | 5      | blogpost_detail.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/blogpost_detail_w3c.webp)</details>                                  |    ✅    |
 | 6      | blogpost_create.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/blogpost_create_html_w3c.webp)</details>                                  |    ✅    |
-| 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result]()</details>                                  |    ✅    |
-| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/delete_w3c.webp)</details>
+| 7      | blogpost_update.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/blogpost_update_html_w3c.webp)</details>                                  |    ✅    |
+| 8      | blogpost_delete.html | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/delete_w3c.webp)</details>|    ✅    |
 | 9      | profile.html         | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/profile_w3c.webp)</details>                                  |    ✅    |
 | 10     | profile_edit.html    | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/edit_w3c.webp)</details>                                  |    ✅    |
 | 11     | account_manage.html  | No errors  | <details><summary>Screenshot of result</summary>![Result](static/images/manage_w3c.webp)</details>                                  |    ✅    |
