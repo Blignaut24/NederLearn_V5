@@ -112,8 +112,7 @@ LOGOUT_REDIRECT_URL = "/accounts/login"
 # Form Styling
 # -----------
 # Bootstrap 4 styling for Crispy Forms
-CRISPY_TEMPLATE_PACK = "bootstrap4"  
-
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 # =================================================================
 # MESSAGE TAGS CONFIGURATION
 # =================================================================
@@ -147,7 +146,7 @@ MESSAGE_TAGS = {
 #   responsive design and better user experience
 
 SUMMERNOTE_CONFIG = {
-    "iframe": False,  # Use inline mode instead of iframe to avoid HTML validation issues
+    "iframe": False,  # Use inline display to fix HTML validation issues
     "summernote": {
         "width": "100%",  # Makes editor span full container width
     },
