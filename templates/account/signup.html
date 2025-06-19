@@ -1,9 +1,17 @@
-{% extends "base.html" %} {% load i18n %} {% load account socialaccount %} {%
-load crispy_forms_tags %} {# ============================= SignUp Template
+{% extends "base.html" %}
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{# ============================= SignUp Template
 ----------------------------- Purpose: User registration form Dependencies: -
 base.html template - i18n translations - crispy forms
-============================= #} {% block head_title %}{% trans "Sign Up" %}{%
-endblock %} {% block content %} {# Container - Main signup form wrapper #}
+============================= #}
+
+{% block head_title %}{% trans "Sign Up" %}{% endblock %}
+
+{% block content %}
+{# Container - Main signup form wrapper #}
 <div class="container col-md-8 col-sm-12">
   {# Header Section #}
   <div class="masthead">
@@ -22,7 +30,7 @@ endblock %} {% block content %} {# Container - Main signup form wrapper #}
       <div class="card-body">
         {# Welcome Message #}
         <div class="text-center px-4">
-          <p>{% trans "Sign UP!" %}</p>
+          <p>{% trans "Sign Up!" %}</p>
 
           <p>
             Woohoo! Ready to hop aboard the NederLearn express? We're so excited
@@ -71,14 +79,20 @@ endblock %} {% block content %} {# Container - Main signup form wrapper #}
           method="post"
           action="{% url 'account_signup' %}"
         >
-          {% csrf_token %} {# Crispy Forms Integration #} {{ form|crispy }} {#
-          Redirect Field #} {% if redirect_field_value %}
+          {% csrf_token %}
+          {# Crispy Forms Integration #}
+          {{ form|crispy }}
+
+          {# Redirect Field #}
+          {% if redirect_field_value %}
           <input
             type="hidden"
             name="{{ redirect_field_name }}"
             value="{{ redirect_field_value }}"
           />
-          {% endif %} {# Submit Button #}
+          {% endif %}
+
+          {# Submit Button #}
           <div class="text-center mt-4">
             <button class="btn btn-primary btn-lg" type="submit">
               {% trans "Sign Up" %}
