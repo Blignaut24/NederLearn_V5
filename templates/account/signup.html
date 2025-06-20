@@ -41,7 +41,7 @@ base.html template - i18n translations - crispy forms
           {# Separator #}
           <div class="row">
             <div class="col">
-              <hr />
+              <hr>
             </div>
           </div>
 
@@ -54,7 +54,7 @@ base.html template - i18n translations - crispy forms
               >
               {% trans "first." %}
             </small>
-            <br />
+            <br>
             <small>
               {% trans "Already a member?" %}
               <a class="link" href="{% url 'account_login' %}"
@@ -68,7 +68,7 @@ base.html template - i18n translations - crispy forms
         {# Separator #}
         <div class="row">
           <div class="col">
-            <hr />
+            <hr>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ base.html template - i18n translations - crispy forms
             type="hidden"
             name="{{ redirect_field_name }}"
             value="{{ redirect_field_value }}"
-          />
+          >
           {% endif %}
 
           {# Submit Button #}
