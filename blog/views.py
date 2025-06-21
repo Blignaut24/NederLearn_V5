@@ -386,8 +386,8 @@ class ProfileView(View):
     """
 
     def get(self, request):
-        # Get user profile data
-        user_profile = get_object_or_404(UserProfile, user=request.user)
+        # Get user profile data - create if it doesn't exist
+        user_profile = UserProfile.get_or_create_for_user(request.user)
         context = {"profile": user_profile, "is_own_profile": True}
         return render(request, "profile.html", context)
 
@@ -403,7 +403,7 @@ class OtherUserProfileView(LoginRequiredMixin, View):
     def get(self, request, username):
         # Get requested user's profile
         user = get_object_or_404(User, username=username)
-        user_profile = get_object_or_404(UserProfile, user=user)
+        user_profile = UserProfile.get_or_create_for_user(user)
 
         # Set context with profile ownership check
         context = {
@@ -423,14 +423,14 @@ class ProfileEditView(LoginRequiredMixin, View):
     """
 
     def get(self, request):
-        # Load existing profile into form
-        user_profile = get_object_or_404(UserProfile, user=request.user)
+        # Load existing profile into form - create if it doesn't exist
+        user_profile = UserProfile.get_or_create_for_user(request.user)
         form = UserProfileForm(instance=user_profile)
         return render(request, "profile_edit.html", {"form": form})
 
     def post(self, request):
-        # Get profile and process form data
-        user_profile = get_object_or_404(UserProfile, user=request.user)
+        # Get profile and process form data - create if it doesn't exist
+        user_profile = UserProfile.get_or_create_for_user(request.user)
         form = UserProfileForm(
             request.POST, request.FILES, instance=user_profile
         )

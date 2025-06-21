@@ -78,6 +78,20 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+    @classmethod
+    def get_or_create_for_user(cls, user):
+        """
+        Safely get or create a UserProfile for the given user.
+
+        Args:
+            user: Django User instance
+
+        Returns:
+            UserProfile instance
+        """
+        profile, created = cls.objects.get_or_create(user=user)
+        return profile
+
 
 class Blogpost(models.Model):
     """

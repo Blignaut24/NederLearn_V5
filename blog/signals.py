@@ -1,3 +1,4 @@
+
 # Django Imports
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
@@ -18,16 +19,17 @@ def create_user_profile(sender, instance, created, **kwargs):
         **kwargs: Any extra settings (optional)
     """
     if created:
-        UserProfile.objects.create(user=instance)
+        UserProfile.objects.get_or_create(user=instance)
+
+
 # Automatically updates the user's profile
 # When the main user information is saved, their profile details are also saved
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     """
     Automatically saves user profile changes.
-    Required parameters:
-    sender: User model trigger
-    instance: User being updated
-    **kwargs: Extra parameters passed in
     """
-    instance.userprofile.save()
+    # Ensure UserProfile exists before trying to save it
+    profile, created = UserProfile.objects.get_or_create(user=instance)
+    if not created:
+        profile.save()
