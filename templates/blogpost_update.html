@@ -21,7 +21,98 @@
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {{ form|crispy }}
+
+                        {# Blog Title Field #}
+                        <div class="mb-3">
+                            {{ form.blog_title.label_tag }}
+                            {{ form.blog_title }}
+                            {% if form.blog_title.errors %}
+                                <ul>
+                                    {% for error in form.blog_title.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Content Field #}
+                        <div class="mb-3">
+                            {{ form.content.label_tag }}
+                            {{ form.content }}
+                            {% if form.content.errors %}
+                                <ul>
+                                    {% for error in form.content.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Excerpt Field #}
+                        <div class="mb-3">
+                            {{ form.excerpt.label_tag }}
+                            {{ form.excerpt }}
+                            {% if form.excerpt.errors %}
+                                <ul>
+                                    {% for error in form.excerpt.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Featured Image Field #}
+                        <div class="mb-3">
+                            {{ form.featured_image.label_tag }}
+                            {{ form.featured_image }}
+                            {% if form.featured_image.errors %}
+                                <ul>
+                                    {% for error in form.featured_image.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Media Category Field #}
+                        <div class="mb-3">
+                            {{ form.media_category.label_tag }}
+                            {{ form.media_category }}
+                            {% if form.media_category.errors %}
+                                <ul>
+                                    {% for error in form.media_category.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Release Year Field #}
+                        <div class="mb-3">
+                            {{ form.release_year.label_tag }}
+                            {{ form.release_year }}
+                            {% if form.release_year.errors %}
+                                <ul>
+                                    {% for error in form.release_year.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        {# Media Link Field #}
+                        <div class="mb-3">
+                            {{ form.media_link.label_tag }}
+                            {{ form.media_link }}
+                            {% if form.media_link.errors %}
+                                <ul>
+                                    {% for error in form.media_link.errors %}
+                                        <li class="text-danger">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
                         <div class="text-center mt-4">
                             <button type="submit" class="btn btn-primary btn-lg">Save changes</button>
                         </div>
@@ -31,3 +122,7 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block scripts %}
+{{ form.media }}
+{% endblock scripts %}

@@ -12,6 +12,7 @@ from django.http import (
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # - URL handling and view utilities
 from django.urls import reverse_lazy
@@ -51,6 +52,17 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Blogpost
     form_class = BlogpostForm
     template_name = "blogpost_create.html"
+
+    def get_context_data(self, **kwargs):
+        """
+        Add additional context data for template rendering
+
+        Returns:
+            Context dictionary with current year for validation
+        """
+        context = super().get_context_data(**kwargs)
+        context['current_year'] = timezone.now().year
+        return context
 
     def form_valid(self, form):
         """
