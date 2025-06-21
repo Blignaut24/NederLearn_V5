@@ -147,8 +147,10 @@ MESSAGE_TAGS = {
 
 SUMMERNOTE_CONFIG = {
     "iframe": False,  # Use inline display to fix HTML validation issues
+    "theme": "bs5",  # Use Bootstrap 5 theme for compatibility
     "summernote": {
         "width": "100%",  # Makes editor span full container width
+        "height": "300",  # Set a default height for the editor
     },
 }
 
