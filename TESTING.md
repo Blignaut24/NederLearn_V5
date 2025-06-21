@@ -564,8 +564,8 @@ Total number of users who participated in testing: 2
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Logo Name | Redirects to landing page login.html | Clicked on logo | Landing page loads | ✅ |
-| About Us | Redirects to the 'About Us' page with the 'Join the Community' button visible | Clicked on the link 'About Us' | 'About Us' page loads and shows the 'Join the Club' button | ✅ |
-| Join the Community | Redirects to the sign up page and form with a 'Sign Up' button | Clicked on the link 'Join the Club' | Sign-up page loads and the form displays with a 'Sign Up' button | ✅ |
+| About Us | Redirects to the 'About Us' page with the 'START YOUR DUTCH JOURNEY NOW' button visible | Clicked on the link 'About Us' | 'About Us' page loads and shows the 'START YOUR DUTCH JOURNEY NOW' button | ✅ |
+| Join the Community | Redirects to the sign up page and form with a 'SIGN UP' button | Clicked on the link 'SIGN UP' | Sign-up page loads and displays the form with a 'SIGN UP' button | ✅ |
 | | |
 
 &nbsp;
@@ -574,7 +574,7 @@ Total number of users who participated in testing: 2
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| "Join the Community" button | Redirects to the sign up page and form with a 'Sign Up' button | Clicked on the link 'Join the Club' | Sign-up page loads and the form displays with a 'Sign Up' button | ✅ |
+| "Join the Community" button | Redirects to the join us page and form with a 'SIGN UP' button | Clicked on the link 'Join the Club' | Sign-up page loads and the form displays with a 'SIGN UP' button | ✅ |
 | | |
 
 &nbsp;
