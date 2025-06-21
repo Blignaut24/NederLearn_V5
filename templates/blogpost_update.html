@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col card mb-4">
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data" id="blogPostForm">
                         {% csrf_token %}
 
                         {# Blog Title Field #}
@@ -33,6 +33,12 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <div id="blog-title-validation" class="validation-message"></div>
+                            <div class="character-count">
+                                <small class="text-muted">
+                                    <span id="blog-title-count">0</span>/200 characters
+                                </small>
+                            </div>
                         </div>
 
                         {# Content Field #}
@@ -46,6 +52,12 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <div id="content-validation" class="validation-message"></div>
+                            <div class="character-count">
+                                <small class="text-muted">
+                                    <span id="content-count">0</span>/10000 characters
+                                </small>
+                            </div>
                         </div>
 
                         {# Excerpt Field #}
@@ -59,6 +71,12 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <div id="excerpt-validation" class="validation-message"></div>
+                            <div class="character-count">
+                                <small class="text-muted">
+                                    <span id="excerpt-count">0</span>/150 characters
+                                </small>
+                            </div>
                         </div>
 
                         {# Featured Image Field #}
@@ -98,6 +116,12 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <div id="release-year-validation" class="validation-message"></div>
+                            <div class="field-help">
+                                <small class="text-muted">
+                                    Enter a year between 1800 and {{ current_year }}
+                                </small>
+                            </div>
                         </div>
 
                         {# Media Link Field #}
@@ -111,6 +135,12 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
+                            <div id="media-link-validation" class="validation-message"></div>
+                            <div class="field-help">
+                                <small class="text-muted">
+                                    Enter a valid URL (e.g., https://example.com)
+                                </small>
+                            </div>
                         </div>
 
                         <div class="text-center mt-4">
@@ -125,4 +155,355 @@
 
 {% block scripts %}
 {{ form.media }}
+
+<style>
+/* Validation styling */
+.validation-message {
+  margin-top: 5px;
+  font-size: 0.875rem;
+}
+
+.validation-error {
+  color: #dd1c1a;
+  font-weight: 500;
+}
+
+.validation-success {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.character-count {
+  margin-top: 5px;
+}
+
+.character-count .text-muted {
+  color: #ff7b29 !important;
+}
+
+.character-count.warning {
+  color: #ffc107;
+}
+
+.character-count.danger {
+  color: #dd1c1a;
+}
+
+.field-help {
+  margin-top: 5px;
+}
+
+.field-help .text-muted {
+  color: #ff7b29 !important;
+}
+
+.form-control.is-invalid {
+  border-color: #dd1c1a;
+  box-shadow: 0 0 0 0.2rem rgba(221, 28, 26, 0.25);
+}
+
+.form-control.is-valid {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get form elements
+    const form = document.getElementById('blogPostForm');
+    const blogTitle = document.getElementById('id_blog_title');
+    const content = document.getElementById('id_content');
+    const excerpt = document.getElementById('id_excerpt');
+    const releaseYear = document.getElementById('id_release_year');
+    const mediaLink = document.getElementById('id_media_link');
+
+    // Get validation message containers
+    const blogTitleValidation = document.getElementById('blog-title-validation');
+    const contentValidation = document.getElementById('content-validation');
+    const excerptValidation = document.getElementById('excerpt-validation');
+    const releaseYearValidation = document.getElementById('release-year-validation');
+    const mediaLinkValidation = document.getElementById('media-link-validation');
+
+    // Get character count elements
+    const blogTitleCount = document.getElementById('blog-title-count');
+    const contentCount = document.getElementById('content-count');
+    const excerptCount = document.getElementById('excerpt-count');
+
+    // Current year for validation
+    const currentYear = new Date().getFullYear();
+
+    // Validation functions
+    function showValidationMessage(element, message, isError = true) {
+        element.innerHTML = `<span class="${isError ? 'validation-error' : 'validation-success'}">${message}</span>`;
+    }
+
+    function clearValidationMessage(element) {
+        element.innerHTML = '';
+    }
+
+    function updateCharacterCount(input, countElement, maxLength) {
+        const currentLength = input.value.length;
+        countElement.textContent = currentLength;
+
+        const countContainer = countElement.parentElement.parentElement;
+        countContainer.classList.remove('warning', 'danger');
+
+        if (currentLength > maxLength * 0.9) {
+            countContainer.classList.add('warning');
+        }
+        if (currentLength >= maxLength) {
+            countContainer.classList.add('danger');
+        }
+    }
+
+    function setFieldValidation(field, isValid) {
+        field.classList.remove('is-valid', 'is-invalid');
+        field.classList.add(isValid ? 'is-valid' : 'is-invalid');
+    }
+
+    // Blog Title Validation
+    function validateBlogTitle() {
+        const value = blogTitle.value.trim();
+        let isValid = true;
+
+        if (value.length === 0) {
+            showValidationMessage(blogTitleValidation, 'Blog title is required');
+            isValid = false;
+        } else if (value.length < 5) {
+            showValidationMessage(blogTitleValidation, 'Blog title must be at least 5 characters long');
+            isValid = false;
+        } else if (value.length > 200) {
+            showValidationMessage(blogTitleValidation, 'Blog title cannot exceed 200 characters');
+            isValid = false;
+        } else {
+            clearValidationMessage(blogTitleValidation);
+            showValidationMessage(blogTitleValidation, '✓ Valid title', false);
+        }
+
+        setFieldValidation(blogTitle, isValid);
+        updateCharacterCount(blogTitle, blogTitleCount, 200);
+        return isValid;
+    }
+
+    // Content Validation
+    function validateContent() {
+        let value = content.value;
+
+        // Handle Summernote content
+        if (typeof $(content).summernote !== 'undefined') {
+            value = $(content).summernote('code');
+            // Strip HTML tags for character count
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = value;
+            value = tempDiv.textContent || tempDiv.innerText || '';
+        }
+
+        value = value.trim();
+        let isValid = true;
+
+        if (value.length === 0) {
+            showValidationMessage(contentValidation, 'Content is required');
+            isValid = false;
+        } else if (value.length < 50) {
+            showValidationMessage(contentValidation, 'Content must be at least 50 characters long');
+            isValid = false;
+        } else if (value.length > 10000) {
+            showValidationMessage(contentValidation, 'Content cannot exceed 10,000 characters');
+            isValid = false;
+        } else {
+            clearValidationMessage(contentValidation);
+            showValidationMessage(contentValidation, '✓ Valid content', false);
+        }
+
+        setFieldValidation(content, isValid);
+        if (contentCount) {
+            contentCount.textContent = value.length;
+        }
+        return isValid;
+    }
+
+    // Excerpt Validation
+    function validateExcerpt() {
+        const value = excerpt.value.trim();
+        let isValid = true;
+
+        if (value.length === 0) {
+            showValidationMessage(excerptValidation, 'Excerpt is required');
+            isValid = false;
+        } else if (value.length < 10) {
+            showValidationMessage(excerptValidation, 'Excerpt must be at least 10 characters long');
+            isValid = false;
+        } else if (value.length > 150) {
+            showValidationMessage(excerptValidation, 'Excerpt cannot exceed 150 characters');
+            isValid = false;
+        } else {
+            clearValidationMessage(excerptValidation);
+            showValidationMessage(excerptValidation, '✓ Valid excerpt', false);
+        }
+
+        setFieldValidation(excerpt, isValid);
+        updateCharacterCount(excerpt, excerptCount, 150);
+        return isValid;
+    }
+
+    // Release Year Validation
+    function validateReleaseYear() {
+        const value = releaseYear.value.trim();
+        let isValid = true;
+
+        if (value === '') {
+            showValidationMessage(releaseYearValidation, 'Release year is required');
+            isValid = false;
+        } else if (!/^\d{4}$/.test(value)) {
+            showValidationMessage(releaseYearValidation, 'Please enter a valid 4-digit year');
+            isValid = false;
+        } else {
+            const year = parseInt(value);
+            if (year < 1800) {
+                showValidationMessage(releaseYearValidation, 'Year cannot be before 1800');
+                isValid = false;
+            } else if (year > currentYear) {
+                showValidationMessage(releaseYearValidation, `Year cannot be after ${currentYear}`);
+                isValid = false;
+            } else {
+                clearValidationMessage(releaseYearValidation);
+                showValidationMessage(releaseYearValidation, '✓ Valid year', false);
+            }
+        }
+
+        setFieldValidation(releaseYear, isValid);
+        return isValid;
+    }
+
+    // Media Link Validation
+    function validateMediaLink() {
+        const value = mediaLink.value.trim();
+        let isValid = true;
+
+        if (value === '' || value === 'http://www.') {
+            showValidationMessage(mediaLinkValidation, 'Media link is required');
+            isValid = false;
+        } else {
+            // Simple and efficient URL validation
+            try {
+                // Use URL constructor for basic validation
+                const url = new URL(value);
+
+                // Check if protocol is http or https
+                if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+                    showValidationMessage(mediaLinkValidation, 'URL must use http:// or https://');
+                    isValid = false;
+                } else if (!url.hostname || url.hostname.length < 3) {
+                    showValidationMessage(mediaLinkValidation, 'Please enter a valid domain name');
+                    isValid = false;
+                } else {
+                    clearValidationMessage(mediaLinkValidation);
+                    showValidationMessage(mediaLinkValidation, '✓ Valid URL', false);
+                }
+            } catch (error) {
+                // If URL constructor fails, check if it's missing protocol
+                if (!value.startsWith('http://') && !value.startsWith('https://')) {
+                    // Try adding https:// to see if it becomes valid
+                    try {
+                        const urlWithProtocol = new URL('https://' + value);
+                        if (urlWithProtocol.hostname && urlWithProtocol.hostname.length >= 3) {
+                            // Valid domain but missing protocol
+                            showValidationMessage(mediaLinkValidation, 'URL should start with http:// or https://');
+                            isValid = false;
+                        } else {
+                            // Invalid even with protocol
+                            showValidationMessage(mediaLinkValidation, 'Please enter a valid URL');
+                            isValid = false;
+                        }
+                    } catch (secondError) {
+                        // Still invalid with protocol added
+                        showValidationMessage(mediaLinkValidation, 'Please enter a valid URL');
+                        isValid = false;
+                    }
+                } else {
+                    // Has protocol but still invalid
+                    showValidationMessage(mediaLinkValidation, 'Please enter a valid URL');
+                    isValid = false;
+                }
+            }
+        }
+
+        setFieldValidation(mediaLink, isValid);
+        return isValid;
+    }
+
+    // Event listeners for real-time validation
+    if (blogTitle) {
+        blogTitle.addEventListener('input', validateBlogTitle);
+        blogTitle.addEventListener('blur', validateBlogTitle);
+    }
+
+    if (content) {
+        content.addEventListener('input', validateContent);
+        content.addEventListener('blur', validateContent);
+
+        // Handle Summernote events if present
+        if (typeof $ !== 'undefined' && typeof $(content).summernote !== 'undefined') {
+            $(content).on('summernote.change', validateContent);
+        }
+    }
+
+    if (excerpt) {
+        excerpt.addEventListener('input', validateExcerpt);
+        excerpt.addEventListener('blur', validateExcerpt);
+    }
+
+    if (releaseYear) {
+        releaseYear.addEventListener('input', validateReleaseYear);
+        releaseYear.addEventListener('blur', validateReleaseYear);
+    }
+
+    if (mediaLink) {
+        mediaLink.addEventListener('input', validateMediaLink);
+        mediaLink.addEventListener('blur', validateMediaLink);
+    }
+
+    // Form submission validation
+    form.addEventListener('submit', function(e) {
+        let isFormValid = true;
+
+        // Validate all fields
+        if (blogTitle && !validateBlogTitle()) isFormValid = false;
+        if (content && !validateContent()) isFormValid = false;
+        if (excerpt && !validateExcerpt()) isFormValid = false;
+        if (releaseYear && !validateReleaseYear()) isFormValid = false;
+        if (mediaLink && !validateMediaLink()) isFormValid = false;
+
+        if (!isFormValid) {
+            e.preventDefault();
+
+            // Scroll to first error
+            const firstError = document.querySelector('.is-invalid');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.focus();
+            }
+
+            // Show general error message
+            alert('Please correct the errors in the form before submitting.');
+        }
+    });
+
+    // Initialize character counts on page load
+    if (blogTitle && blogTitleCount) updateCharacterCount(blogTitle, blogTitleCount, 200);
+    if (content && contentCount) {
+        // For content, handle both regular textarea and Summernote
+        let contentValue = content.value;
+        if (typeof $(content).summernote !== 'undefined') {
+            contentValue = $(content).summernote('code');
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = contentValue;
+            contentValue = tempDiv.textContent || tempDiv.innerText || '';
+        }
+        contentCount.textContent = contentValue.length;
+    }
+    if (excerpt && excerptCount) updateCharacterCount(excerpt, excerptCount, 150);
+});
+</script>
 {% endblock scripts %}
