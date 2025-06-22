@@ -162,25 +162,25 @@ Performance testing ensures our website runs smoothly and loads quickly. We use 
 
 ## Why Test Performance?
 
-* Makes sure our website loads fast.
-* Helps find things that slow down our pages.
-* Improves user experience.
-* Helps with search engine rankings.
+* Makes sure our website loads fast
+* Helps find things that slow down our pages
+* Improves user experience
+* Helps with search engine rankings
 
 ## How to Run Performance Tests
 
-1. Open Google Chrome in Incognito mode (Ctrl+Shift+N).
-2. Right-click on the page you want to test and select "Inspect".
-3. Click on the "Lighthouse" tab.
-4. Select what you want to test (Performance, Accessibility, etc.).
-5. Click "Generate report".
+1. Open Google Chrome in Incognito mode (Ctrl+Shift+N)
+2. Right-click on the page you want to test and select "Inspect"
+3. Click on the "Lighthouse" tab
+4. Select what you want to test (Performance, Accessibility, etc.)
+5. Click "Generate report"
 
 ## Testing Scope
 
-* Desktop Performance: How the site runs on computers.
-* Mobile Performance: How the site runs on phones and tablets.
-* Loading Speed: How quickly pages appear.
-* Interactive Timing: How fast buttons and links respond.
+* Desktop Performance: How the site runs on computers
+* Mobile Performance: How the site runs on phones and tablets
+* Loading Speed: How quickly pages appear
+* Interactive Timing: How fast buttons and links respond
 
 > **Note**: You can find more details about Lighthouse testing at the official documentation.
 
@@ -333,18 +333,18 @@ I created tests to make sure my database models work correctly. These tests chec
 
 I organized my tests in a simple way:
 
-- I create test data (like a fake user and blog post).
-- I check if everything saves correctly in the database.
-- I verify that all connections between different parts work (like linking comments to posts).
+- I create test data (like a fake user and blog post)
+- I check if everything saves correctly in the database
+- I verify that all connections between different parts work (like linking comments to posts)
 
 ### Main Things I Test
 
 My tests focus on four main areas:
 
-- User Profiles: Making sure new users get their profiles automatically.
-- Media Categories: Checking if I can create different categories for content.
-- Blog Posts: Verifying that posts save with the right title, content, and author.
-- Comments: Ensuring comments connect to the right posts and users.
+- User Profiles: Making sure new users get their profiles automatically
+- Media Categories: Checking if I can create different categories for content
+- Blog Posts: Verifying that posts save with the right title, content, and author
+- Comments: Ensuring comments connect to the right posts and users
 
 I wrote each test to be clear and simple, making it easy for other. developers to understand what I'm testing and why. This helps me catch. problems early and keeps my app running smoothly.
 
@@ -426,8 +426,8 @@ To create a nice visual report:
 
 The report shows you:
 
-- Green lines: Code that's been tested.
-- Red lines: Code that still needs testing.
+- Green lines: Code that's been tested
+- Red lines: Code that still needs testing
 
 My tests have achieved 53% code coverage.
 
@@ -459,17 +459,17 @@ I tried these main things:
 
 I'm happy to report that our security measures worked well! The app successfully:
 
-- Blocks unauthorized access attempts.
-- Redirects to login when needed.
-- Shows appropriate error messages.
+- Blocks unauthorized access attempts
+- Redirects to login when needed
+- Shows appropriate error messages
 
 Now I'll show you the specific tests I ran to check all of this.
 
 | Test Case | Description | Method | Expected Outcome | Actual Outcome | Pass/Fail |
 | --------- | ----------- | ------ | ---------------- | -------------- | --------- |
-| Logout Redirection | Accessing another user's logout URL. | Manual URL manipulation | Redirect to own user's logout page. | Redirected correctly | ✅ |
-| My Posts Redirection | Accessing another user's "My Posts" URL. | Manual URL manipulation | Redirect to own user's "My Posts" page. | Redirected correctly | ✅ |
-| Edit Post Unauthorized Access | Attempting to edit another user's post. | Manual URL manipulation | Receive a 404 error message | 404 error displayed | ✅ |
+| Logout Redirection | Accessing another user's logout URL. | Manual URL manipulation | Redirect to own user's logout page | Redirected correctly | ✅ |
+| My Posts Redirection | Accessing another user's "My Posts" URL. | Manual URL manipulation | Redirect to own user's "My Posts" page | Redirected correctly | ✅ |
+| Edit Post Unauthorized Access | Attempting to edit another user's post | Manual URL manipulation | Receive a 404 error message | 404 error displayed | ✅ |
 | Delete Post Unauthorized Access | Attempting to delete another user's post | Manual URL manipulation | Receive a 404 error message | 404 error displayed | ✅ |
 | Bookmarked Posts Redirection | Accessing another user's bookmarked posts URL | Manual URL manipulation | Redirect to own user's "Bookmarked" page | Redirected correctly | ✅ |
 | Profile Redirection | Accessing another user's profile URL | Manual URL manipulation | Redirect to own user's profile page | Redirected correctly | ✅ |
@@ -484,9 +484,9 @@ Now I'll show you the specific tests I ran to check all of this.
 
 | User Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
-| [User Account Registration (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=registr&pane=issue&itemId=92779487&issue=Blignaut24%7CNederLearn_V5%7C5) | Added a simple signup system that lets new users create accounts. | <details><summary>Screenshot of result</summary>![Result](/static/images/registration_manual.webp)</details> |
-| [Easy Login from Landing Page (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=login&pane=issue&itemId=92779261&issue=Blignaut24%7CNederLearn_V5%7C4) | Added a simple login box on the main page so users can sign in quickly. | <details><summary>Screenshot of result</summary>![Result](/static/images/login_manual.webp)</details> |
-| [Log Out of User Account (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=log&pane=issue&itemId=92779117&issue=Blignaut24%7CNederLearn_V5%7C3) | You can log out of your account by clicking the dropdown menu in the top right corner and selecting "Log out".  | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_manual.webp)</details> |
+| [User Account Registration (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=registr&pane=issue&itemId=92779487&issue=Blignaut24%7CNederLearn_V5%7C5) | Added a simple signup system that lets new users create accounts | <details><summary>Screenshot of result</summary>![Result](/static/images/registration_manual.webp)</details> |
+| [Easy Login from Landing Page (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=login&pane=issue&itemId=92779261&issue=Blignaut24%7CNederLearn_V5%7C4) | Added a simple login box on the main page so users can sign in quickly | <details><summary>Screenshot of result</summary>![Result](/static/images/login_manual.webp)</details> |
+| [Log Out of User Account (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=log&pane=issue&itemId=92779117&issue=Blignaut24%7CNederLearn_V5%7C3) | You can log out of your account by clicking the dropdown menu in the top right corner and selecting "Log out"  | <details><summary>Screenshot of result</summary>![Result](/static/images/logout_manual.webp)</details> |
 | [Create, Update & Delete User Profile (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=profile&pane=issue&itemId=93247380&issue=Blignaut24%7CNederLearn_V5%7C37) | Users can edit their profile by going to "Profile Edit". Here they can change their information and add a profile picture. If no picture is uploaded, a default image will appear. To delete an account, users need to go to the "Manage Account" section. | <details><summary>Screenshot of result</summary>![Result](/static/images/edit_profile_manual.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/delete_confirm_manual.webp)</details> |
 | [Favorite Lists in Personal Bio (COULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=bio&pane=issue&itemId=92795177&issue=Blignaut24%7CNederLearn_V5%7C36) | To manage their profile, users can navigate to the "Profile Edit" section where they can update personal information and upload a profile picture. A default image displays if no picture is uploaded. Account deletion is available through the "Manage Account" section. | <details><summary>Screenshot of result</summary>![Result](/static/images/personal_bio_manual.webp)</details> |
 | [Password Reset (WON'T HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=password&pane=issue&itemId=92778858&issue=Blignaut24%7CNederLearn_V5%7C1) | Users can't reset their passwords on their own right now. Only administrators can change user passwords through the admin dashboard. |

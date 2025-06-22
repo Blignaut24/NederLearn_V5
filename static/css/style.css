@@ -15,7 +15,7 @@
 
   /* Interface Colors 
        Base colors for UI components */
-  --dark-text: #191919; /* Primary dark text */
+  --dark-text: #161616; /* Primary dark text */
   --light-text: #959595; /* Primary light text */
   --dark-grey-text: #959595; /*Dark grey text*/
   --dark-bg: #011627; /* Dark mode background */
@@ -30,7 +30,7 @@
 
   /* Interactive Colors 
        State changes for elements */
-  --hover: #6161ff; /* Hover state */
+  --hover: #ff0000; /* Hover state - changed from #6161ff to red */
 }
 
 /* =================================
@@ -41,7 +41,7 @@
 /* Text Colors*/
 .text-secondary,
 .text-muted {
-  color: var(--dark-text) !important;
+  color: var(--dark-text);
 }
 
 /*Button Styles*/
@@ -87,7 +87,7 @@
 .btn.btn-primary.btn-lg:hover,
 #black-text-home:hover {
   background-color: var(--hover);
-  color: var(--light-text);
+  color: #000000; /* Changed from var(--light-text) to black */
   transform: scale(1.05);
 }
 
@@ -128,11 +128,11 @@ input {
 }
 
 .text-secondary {
-  color: var(--dark-text) !important;
+  color: var(--dark-text);
 }
 
 .text-muted {
-  color: var(--dark-text) !important;
+  color: var(--dark-text);
 }
 
 #submit_btn {
@@ -176,7 +176,7 @@ input {
 .btn.btn-primary.btn-lg:hover,
 #black-text-home:hover {
   background-color: var(--hover);
-  color: var(--light-text);
+  color: #000000; /* Changed from var(--light-text) to black */
   transform: scale(1.05);
 }
 
@@ -361,7 +361,7 @@ body {
 .btn-secondary:hover,
 .btn-danger:hover {
   background-color: var(--hover);
-  color: var(--light-text);
+  color: #000000; /* Changed from var(--light-text) to black */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -830,6 +830,14 @@ textarea {
   font-size: 57px;
   font-weight: 700;
   color: var(--dark-text);
+}
+
+/* Login Button Hover State */
+.btn-primary.login-btn:hover {
+  background-color: var(--black-bg);
+  color: var(--secondary-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* =================================
