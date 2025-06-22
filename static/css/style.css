@@ -11,14 +11,13 @@
        Primary palette defining visual identity */
   --primary-color: #001a73; /* Core UI elements */
   --secondary-color: #ff7b29; /* Action items & emphasis */
-  --accent-color: #c85c86; /* Decorative highlights */
+  --accent-color: #dc87a5; /* Decorative highlights */
 
   /* Interface Colors 
        Base colors for UI components */
   --dark-text: #191919; /* Primary dark text */
-  --light-text: #f5f6f3; /* Primary light text */
-  --light-grey-text: #9198a1; /*Light grey text*/
-  --dark-grey-text: #738a90; /*Dark grey text*/
+  --light-text: #959595; /* Primary light text */
+  --dark-grey-text: #959595; /*Dark grey text*/
   --dark-bg: #011627; /* Dark mode background */
   --black-bg: #000000; /* Base black background */
   --light-bg: #f8fafa; /* Light mode background */
