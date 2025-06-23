@@ -132,10 +132,6 @@ input {
   color: var(--dark-text);
 }
 
-.text-muted {
-  color: var(--dark-text);
-}
-
 #submit_btn {
   background: var(--secondary-color);
 }
