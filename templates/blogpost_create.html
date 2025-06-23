@@ -483,4 +483,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (excerpt && excerptCount) updateCharacterCount(excerpt, excerptCount, 150);
 });
 </script>
+
+<!-- Add this script to fix the missing label for Summernote's code editor -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for Summernote to initialize
+    setTimeout(function() {
+      // Find the codable textarea and add an ID and label
+      const codeEditor = document.querySelector('.note-codable');
+      if (codeEditor) {
+        codeEditor.id = 'code-editor';
+        
+        // Create and insert label before the textarea
+        const label = document.createElement('label');
+        label.setAttribute('for', 'code-editor');
+        label.textContent = 'Code Editor:';
+        label.style.display = 'none'; // Hide visually but keep for screen readers
+        codeEditor.parentNode.insertBefore(label, codeEditor);
+      }
+    }, 1000); // Delay to ensure Summernote is fully loaded
+  });
+</script>
 {% endblock scripts %}
