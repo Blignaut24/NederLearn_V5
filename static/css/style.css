@@ -27,12 +27,12 @@
   --success: #00614a; /* Success indicators */
   --error: #dd1c1a; /* Error messages */
   --warning: #f79818; /* Warning alerts */
+  --help-text: #001a73; /* Help text color */
 
   /* Interactive Colors 
        State changes for elements */
   --hover: #ff0000; /* Hover state */
 }
-
 
 /* =================================
    EDGE CASES
@@ -176,15 +176,6 @@ input {
   color: #000000; /* Changed from var(--light-text) to black */
   transform: scale(1.05);
 }
-/*FIXME: Label for Summernote code editor*/
-/*Color Labels: Create Blog Post*/
-/*
-#blogPostForm label {
-  color: var(--light-text);
-  font-family: 'Raleway', sans-serif;
-  font-weight: 600;
-}
-*/
 
 .alert-container {
   position: absolute;
@@ -222,6 +213,11 @@ h2 {
 
 input {
   color: var(--dark-grey-text);
+}
+
+/* Custom help text class */
+.custom-help-text {
+  color: var(--help-text);
 }
 
 /* =================================
