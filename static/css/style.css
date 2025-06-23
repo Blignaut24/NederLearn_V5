@@ -17,7 +17,7 @@
        Base colors for UI components */
   --dark-text: #161616; /* Primary dark text */
   --light-text: #959595; /* Primary light text */
-  --dark-grey-text: #959595; /*Dark grey text*/
+  --dark-grey-text: #6b747c; /*Dark grey text*/
   --dark-bg: #011627; /* Dark mode background */
   --black-bg: #000000; /* Base black background */
   --light-bg: #f8fafa; /* Light mode background */
@@ -30,19 +30,14 @@
 
   /* Interactive Colors 
        State changes for elements */
-  --hover: #ff0000; /* Hover state - changed from #6161ff to red */
+  --hover: #ff0000; /* Hover state */
 }
+
 
 /* =================================
    EDGE CASES
    Special Circumstances 
    ================================= */
-
-/* Text Colors*/
-.text-secondary,
-.text-muted {
-  color: var(--dark-text);
-}
 
 /*Button Styles*/
 #submit_btn {
@@ -122,6 +117,12 @@ h2,
 label {
   color: var(--light-text);
 }
+
+p {
+  margin-top: 0px;
+  margin-bottom: 1rem;
+}
+
 
 input {
   color: var(--dark-grey-text);
