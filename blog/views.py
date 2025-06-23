@@ -24,7 +24,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic, View
 from django.views.generic import DeleteView, ListView
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 # Application Models and Forms
 # - Custom models and form classes for blog functionality
@@ -107,7 +107,7 @@ class BlogpostCreateView(LoginRequiredMixin, generic.CreateView):
 # ------------------------------------------------------------------------------
 
 
-class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
+class BlogpostUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     """
     Manages the updating of existing blog posts.
 
@@ -148,6 +148,24 @@ class BlogpostUpdateView(LoginRequiredMixin, generic.UpdateView):
         Security measure to prevent unauthorized edits.
         """
         return Blogpost.objects.filter(author=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        """
+        Add additional context data for template rendering
+        
+        Returns:
+            Context dictionary with current year for validation
+        """
+        context = super().get_context_data(**kwargs)
+        context['current_year'] = timezone.now().year
+        return context
+
+    def test_func(self):
+        """
+        Check if the user is the author of the blog post
+        """
+        obj = self.get_object()
+        return obj.author == self.request.user
 
 
 # ------------------------------------------------------
