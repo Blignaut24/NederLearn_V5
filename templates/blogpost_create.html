@@ -4,138 +4,152 @@
 {# Main container with responsive grid #}
 <div class="container">
   <div class="row justify-content-center">
-    {# Responsive column layout - lg: 4 cols, md: 6 cols, sm: 12 cols #}
-    <div class="col-md-6 col-md-6 col-sm-12">
-      {# Form header #}
-      <h2 class="account-heading">Create a New Blog Post</h2>
-
-      {# Post creation form - Note: enctype required for file uploads #}
-      <form method="post" enctype="multipart/form-data" id="blogPostForm">
-        {% csrf_token %}
-
-        {# Blog Title Field #}
-        <div class="mb-3">
-          {{ form.blog_title.label_tag }}
-          {{ form.blog_title }}
-          {% if form.blog_title.errors %}
-          <ul>
-            {% for error in form.blog_title.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <div id="blog-title-validation" class="validation-message"></div>
-          <div class="character-count">
-            <small class="text-muted">
-              <span id="blog-title-count">0</span>/200 characters
-            </small>
+    <div class="col-md-8 col-sm-12">
+      {# Header section with title #}
+      <div class="container card-body">
+        <div class="row g-0">
+          <div class="col-md-12 masthead-text">
+            <h1 class="post-title">Create a New Blog Post</h1>
           </div>
         </div>
+      </div>
+      
+      {# Spacer div to create separation between the two white backgrounds #}
+      <div class="my-4"></div>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          {# Post creation form #}
+          <form method="post" enctype="multipart/form-data" id="blogPostForm">
+            {% csrf_token %}
 
-        {# Content Field #}
-        <div class="mb-3">
-          {{ form.content.label_tag }}
-          {{ form.content }}
-          {% if form.content.errors %}
-          <ul>
-            {% for error in form.content.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <div id="content-validation" class="validation-message"></div>
-          <div class="character-count">
-            <small class="text-muted">
-              <span id="content-count">0</span>/10000 characters
-            </small>
-          </div>
+            {# Blog Title Field #}
+            <div class="mb-3">
+              {{ form.blog_title.label_tag }}
+              {{ form.blog_title }}
+              {% if form.blog_title.errors %}
+              <ul>
+                {% for error in form.blog_title.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div id="blog-title-validation" class="validation-message"></div>
+              <div class="character-count">
+                <small class="custom-help-text">
+                  <span id="blog-title-count">0</span>/200 characters
+                </small>
+              </div>
+            </div>
+
+            {# Content Field #}
+            <div class="mb-3">
+              {{ form.content.label_tag }}
+              {{ form.content }}
+              {% if form.content.errors %}
+              <ul>
+                {% for error in form.content.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div id="content-validation" class="validation-message"></div>
+              <div class="character-count">
+                <small class="custom-help-text">
+                  <span id="content-count">0</span>/10000 characters
+                </small>
+              </div>
+            </div>
+
+            {# Excerpt Field #}
+            <div class="mb-3">
+              {{ form.excerpt.label_tag }}
+              {{ form.excerpt }}
+              {% if form.excerpt.errors %}
+              <ul>
+                {% for error in form.excerpt.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div id="excerpt-validation" class="validation-message"></div>
+              <div class="character-count">
+                <small class="custom-help-text">
+                  <span id="excerpt-count">0</span>/150 characters
+                </small>
+              </div>
+            </div>
+
+            {# Featured Image Field #}
+            <div class="mb-3">
+              {{ form.featured_image.label_tag }}
+              {{ form.featured_image }}
+              {% if form.featured_image.errors %}
+              <ul>
+                {% for error in form.featured_image.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+
+            {# Media Category Field #}
+            <div class="mb-3">
+              {{ form.media_category.label_tag }}
+              {{ form.media_category }}
+              {% if form.media_category.errors %}
+              <ul>
+                {% for error in form.media_category.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+            </div>
+
+            {# Release Year Field #}
+            <div class="mb-3">
+              {{ form.release_year.label_tag }}
+              {{ form.release_year }}
+              {% if form.release_year.errors %}
+              <ul>
+                {% for error in form.release_year.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div id="release-year-validation" class="validation-message"></div>
+              <div class="field-help">
+                <small class="custom-help-text">
+                  Enter a year between 1800 and {{ current_year }}
+                </small>
+              </div>
+            </div>
+
+            {# Media Link Field #}
+            <div class="mb-3">
+              {{ form.media_link.label_tag }}
+              {{ form.media_link }}
+              {% if form.media_link.errors %}
+              <ul>
+                {% for error in form.media_link.errors %}
+                <li class="text-danger">{{ error }}</li>
+                {% endfor %}
+              </ul>
+              {% endif %}
+              <div id="media-link-validation" class="validation-message"></div>
+              <div class="field-help">
+                <small class="custom-help-text">
+                  Enter a valid URL (e.g., https://example.com)
+                </small>
+              </div>
+            </div>
+
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary btn-lg">Create Post</button>
+            </div>
+          </form>
         </div>
-
-        {# Excerpt Field #}
-        <div class="mb-3">
-          {{ form.excerpt.label_tag }}
-          {{ form.excerpt }}
-          {% if form.excerpt.errors %}
-          <ul>
-            {% for error in form.excerpt.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <div id="excerpt-validation" class="validation-message"></div>
-          <div class="character-count">
-            <small class="text-muted">
-              <span id="excerpt-count">0</span>/150 characters
-            </small>
-          </div>
-        </div>
-
-        {# Featured Image Field #}
-        <div class="mb-3">
-          {{ form.featured_image.label_tag }}
-          {{ form.featured_image }}
-          {% if form.featured_image.errors %}
-          <ul>
-            {% for error in form.featured_image.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </div>
-
-        {# Media Category Field #}
-        <div class="mb-3">
-          {{ form.media_category.label_tag }}
-          {{ form.media_category }}
-          {% if form.media_category.errors %}
-          <ul>
-            {% for error in form.media_category.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-        </div>
-
-        {# Release Year Field #}
-        <div class="mb-3">
-          {{ form.release_year.label_tag }}
-          {{ form.release_year }}
-          {% if form.release_year.errors %}
-          <ul>
-            {% for error in form.release_year.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <div id="release-year-validation" class="validation-message"></div>
-          <div class="field-help">
-            <small class="text-muted">
-              Enter a year between 1800 and {{ current_year }}
-            </small>
-          </div>
-        </div>
-
-        {# Media Link Field #}
-        <div class="mb-3">
-          {{ form.media_link.label_tag }}
-          {{ form.media_link }}
-          {% if form.media_link.errors %}
-          <ul>
-            {% for error in form.media_link.errors %}
-            <li class="text-danger">{{ error }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          <div id="media-link-validation" class="validation-message"></div>
-          <div class="field-help">
-            <small class="text-muted">
-              Enter a valid URL (e.g., https://example.com)
-            </small>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Create Post</button>
-      </form>
+      </div>
     </div>
   </div>
 </div>
@@ -143,58 +157,6 @@
 
 {% block scripts %}
 {{ form.media }}
-
-<style>
-/* Validation styling */
-.validation-message {
-  margin-top: 5px;
-  font-size: 0.875rem;
-}
-
-.validation-error {
-  color: #e34443;
-  font-weight: 500;
-}
-
-.validation-success {
-  color: #28a745;
-  font-weight: 500;
-}
-
-.character-count {
-  margin-top: 5px;
-}
-
-.character-count .text-muted {
-  color: #e86f29 !important; /* Changed from #bc5500 to #e86f29 */
-}
-
-.character-count.warning {
-  color: #bc5500;
-}
-
-.character-count.danger {
-  color: #bc5500;
-}
-
-.field-help {
-  margin-top: 5px;
-}
-
-.field-help .text-muted {
-  color: #ff7b29 !important;
-}
-
-.form-control.is-invalid {
-  border-color: #e34443;
-  box-shadow: 0 0 0 0.2rem rgba(227, 68, 67, 0.25);
-}
-
-.form-control.is-valid {
-  border-color: #28a745;
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
