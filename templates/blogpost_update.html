@@ -206,10 +206,39 @@
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Wait for Summernote to initialize
+    setTimeout(function() {
+        // Find the codable textarea and add an ID and label
+        const codeEditor = document.querySelector('.note-codable');
+        if (codeEditor) {
+            codeEditor.id = 'code-editor';
+            codeEditor.setAttribute('aria-label', 'HTML Code Editor');
+            
+            // Create and insert label before the textarea
+            const label = document.createElement('label');
+            label.setAttribute('for', 'code-editor');
+            label.textContent = 'HTML Code Editor';
+            label.className = 'sr-only'; // Visually hidden but available to screen readers
+            codeEditor.parentNode.insertBefore(label, codeEditor);
+        }
+    }, 1000); // Delay to ensure Summernote is fully loaded
+
     // Get form elements
     const form = document.getElementById('blogPostForm');
     const blogTitle = document.getElementById('id_blog_title');

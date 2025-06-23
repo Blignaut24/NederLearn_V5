@@ -88,7 +88,7 @@
 
 /*Color Labels: Create Blog Post*/
 #blogPostForm label {
-  color: var(--light-text);
+  color: var(--dark-text);
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
 }
@@ -176,13 +176,15 @@ input {
   color: #000000; /* Changed from var(--light-text) to black */
   transform: scale(1.05);
 }
-
+/*FIXME: Label for Summernote code editor*/
 /*Color Labels: Create Blog Post*/
+/*
 #blogPostForm label {
   color: var(--light-text);
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
 }
+*/
 
 .alert-container {
   position: absolute;
