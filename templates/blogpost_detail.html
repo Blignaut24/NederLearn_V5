@@ -101,6 +101,7 @@
                                             value="{{blogpost.slug}}"
                                             class="btn-like">
                                             <i class="far fa-heart"></i>
+                                            <span class="sr-only">Like this post</span>
                                         </button>
                                         {% endif %}
                                         {{ blogpost.number_of_likes }}
@@ -122,7 +123,7 @@
             <div class="col card mb-6">
                 <div class="card-body">
                     <h3>Post a comment:</h3>
-                    <p class="text-muted small">Your post will be displayed on
+                    <p class="custom-help-text small">Your post will be displayed on
                         the bottom of the comment section below</p>
                         {# Comment Form #}
                         <form method="post" class="mt-3">
