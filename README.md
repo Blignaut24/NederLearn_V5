@@ -539,15 +539,27 @@ Purpose: Guide for setting up and deploying a Django application on Heroku with 
 Purpose: Initialize your application on Heroku's platform
 1. Create a new app on Heroku dashboard.
 
+<details><summary>Screenshot</summary>
+<img src="static/images/heroku_create_new_app.webp">
+</details>
+
 *For additional information about creating an app using Heroku, refer to their [documentation](https://devcenter.heroku.com/articles/getting-started-with-python).* 
 
 ### 2. Configure Settings
 Purpose: Set up basic application configurations.
 1. Navigate to "Settings" in new app.
+<details><summary>Screenshot</summary>
+<img src="static/images/heroku_configure_settings.webp">
+</details>
+
 
 ### 3. Config Vars Setup
 Purpose: Configure essential environment variables
 1. In "Config Vars," add `PORT` as the key and `8000` as its value
+<details><summary>Screenshot</summary>
+<img src="static/images/heroku_config_var.webp">
+</details>
+
 *For more information, click the [link](https://devcenter.heroku.com/articles/config-vars).* 
 
 ### 4. Add PostgreSQL Database
@@ -586,10 +598,12 @@ Purpose: Set up media file handling
 
 #### 10.1 Cloudinary Account
 Purpose: Create access to cloud storage
-1. Log in to Cloudinary account or create one
+1. Log in to [Cloudinary account](https://cloudinary.com/integrations) or create one
 
 #### 10.2 Copy CLOUDINARY_URL
 Purpose: Obtain connection credentials
+
+[Documentation](https://cloudinary.com/documentation/): Link to CLOUDINARY and ask for help with finding the CLOUDINARY_URL if needed 
 1. Copy `CLOUDINARY_URL`.
 
 #### 10.3 Environment Variable Setup
