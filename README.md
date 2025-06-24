@@ -331,18 +331,18 @@ The wireframes showcase the mobile-first approach used in planning and developin
 The NederLearn color palette reflects careful psychological design choices. Deep blue (#001a73) creates trust and professionalism in the learning environment, while warm orange (#ff7b29) energizes interactive elements to encourage user engagement. Rose pink (#c85c86) provides a softer, approachable accent that balances the authoritative blue. The messaging system uses green (#00614a) to indicate success, red (#dd1c1a) for alerts, and orange (#f79818) for warnings. Both light and dark modes maintain strong contrast for accessibility without compromising the psychological impact of each color.
 
 #### Main Colors
-![Main Colors for NederLearn App](static/images/primary_colors.webp)
+![Main Colors for NederLearn App](static/images/primary_colors_v.webp)
 
 - **Midnight Blue** (`#001a73`): Main color - professional and reminds people of learning and trust
 - **Pumpkin** (`#ff7b29`): Buttons and clickable elements - contrasts well with blue
-- **Magenta** (`#c85c86`): Friendly accent color for small details
+- **Magenta** (`#dc87a5`): Friendly accent color for small details
 
 #### Text and Background Colors
-![Text Colors for NederLearn App](static/images/text_colors.webp)
+![Text Colors for NederLearn App](static/images/text_colors_v.webp)
 
-- **Dark Text** (`#191919`): Primary text color
-- **Light Text** (`#f5f6f3`): Text on dark backgrounds
-- **Gray Variations** (`#9198a1`, `#738a90`): Secondary text
+- **Dark Text** (`#161616`): Primary text color
+- **Light Text** (`#959595`): Text on dark backgrounds
+- **Gray Variation** (`#6b747`): Secondary text
 
 #### Background Options:
 ![Background Colors for NederLearn App](static/images/background_colors.webp)
