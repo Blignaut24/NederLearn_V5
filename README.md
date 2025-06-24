@@ -514,7 +514,7 @@ I've connected bug descriptions to the issues in my documentation to make them e
 
 | Bug Description | Bug Report Link |Bug Type |
 | --- | --- |--- |
-| Hidden Accessibility Errors in Blog Forms| [#43](https://github.com/Blignaut24/NederLearn_V5/issues/42) |♿️ Accessibility Bug |
+| 🐞Hidden Accessibility Errors in Blog Forms| [#43](https://github.com/Blignaut24/NederLearn_V5/issues/42) |♿️ Accessibility Bug |
 
 
 ### Fixed bugs ✅
