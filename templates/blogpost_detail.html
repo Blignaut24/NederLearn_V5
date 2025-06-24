@@ -127,6 +127,7 @@
                         the bottom of the comment section below</p>
                         {# Comment Form #}
                         <form method="post" class="mt-3">
+                        <label for="id_body" class="sr-only">Comment</label>
                         {{ comment_form | crispy }}
                         {% csrf_token %}
                         <button type="submit"
