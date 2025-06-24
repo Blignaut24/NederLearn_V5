@@ -510,9 +510,11 @@ I've added links to the bug reports from my GitHub project in my README.md. Each
 ### Known Bugs ❌ 
 **Known bugs** are issues in the code that still need to be fixed. These include problems that have been identified but require further investigation, resources, or future updates to resolve.
 
+I've connected bug descriptions to the issues in my documentation to make them easier to find. You can click on the issue numbers to see more detailed bug reports.
+
 | Bug Description | Bug Report Link |Bug Type |
 | --- | --- |--- |
-| |  ||  |
+| Hidden Accessibility Errors in Blog Forms| [#43](https://github.com/Blignaut24/NederLearn_V5/issues/42) |♿️ Accessibility Bug |
 
 
 ### Fixed bugs ✅
