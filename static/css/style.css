@@ -220,6 +220,12 @@ input {
   color: var(--help-text);
 }
 
+/* Or if the primary color is used as text color */
+.primary-text-element {
+  color: var(--primary-color);
+  background-color: #ffffff; /* White background for dark blue text */
+}
+
 /* =================================
    BASE LAYOUT
    Core page structure
