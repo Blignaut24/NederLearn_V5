@@ -50,7 +50,7 @@ NederLearn is an exciting companion in your journey to learn the Dutch language 
   - [**Tools:**](#tools)
   - [**Supporting Libraries and Packages**](#supporting-libraries-and-packages)
   - [Database Structure](#database-structure)
-    - [EDR Symbols](#edr-symbols)
+    - [ERD Symbols](#erd-symbols)
   - [Methodology](#methodology)
     - [Agile Project Management with GitHub Project](#agile-project-management-with-github-project)
     - [User Stories as GitHub Issues](#user-stories-as-github-issues)
@@ -122,7 +122,7 @@ Here is a list of the services that the NederLearn app provides to its users:
 - The selected resource material is carefully curated.
 - It offers a summary and an external link to the content.
 - Users can choose from a variety of media formats: books, movies, music, podcasts, and series.
-- Resources can be organized according to the **Common European Framework of Reference (CEFR)**:
+- Resources are organized according to the **Common European Framework of Reference (CEFR)**:
   - A. Beginner Level
     - A1. Beginner
     - A2. Elementary
@@ -168,7 +168,7 @@ Describe the tasks that users can do in their professional and personal lives wi
 - Avoid wasting time searching for quality content
 - Get a quick overview and easy access to each content piece
 - Learn through diverse media formats
-- Follow a clear learning path based on the European Framework for Language Framework Levels
+- Follow a clear learning path based on the European Framework for Language Levels
 
 #### **Gains**
 
@@ -189,7 +189,7 @@ Explain the possible negative outcomes, risks, and problems that could arise fro
 - There might not be enough different types of resources.
 - The summaries might miss some key details.
 - Users might not find their favorite media formats, like games or videos.
-- The European Language Framework Levels might not match some users' real skill levels.
+- The European Language Framework Levels might not match some users' actual skill levels.
 - There might not be enough content for advanced users to continue improving.
 </details>
 
@@ -408,7 +408,7 @@ All fonts are loaded via Google Fonts CDN, ensuring fast loading times and cross
 
 - **Django:** A high-level Python web framework that promotes rapid development and pragmatic, clean design. It adheres to the "don't repeat yourself" (DRY) principle and is built on the model-view-template architectural pattern. It was used to build the NederLearn web app.
 - **Crispy Form:** A Django application that helps you manage and format your Django form output. It allows you to control form rendering in your templates while keeping boilerplate to a minimum. It supports different form styles and integrates seamlessly with Bootstrap 4 and up.
-- **Boostrap v5.0:** Bootstrap is a free tool that helps you build websites that look good on both desktop and mobile. It has templates for different parts of a website, which can save developers time and effort.
+- **Bootstrap v5.0:** Bootstrap is a free tool that helps you build websites that look good on both desktop and mobile. It has templates for different parts of a website, which can save developers time and effort.
 
 ### **Database**
 
@@ -454,7 +454,7 @@ During the planning phase of the NederLearn project, I utilized [**Whimsical**](
 
 ![Entity Relationship Diagram](static/images/edr_diagram.webp)
 
-### EDR Symbols
+### ERD Symbols
 
 ![Entity Relationship Diagram Symbols](static/images/edr_symbols.webp)
 

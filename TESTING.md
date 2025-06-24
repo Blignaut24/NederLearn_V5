@@ -131,7 +131,7 @@ The [W3C Markup Validator](https://validator.w3.org/) was used to validate our H
 
 # Accessibility
 
-For my accessibility testing, I used WAVE **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to evaluate the website. WAVE helps me check if my site meets web accessibility standards and can be used by all visitors. The tool helped me examine important features like:
+For my accessibility testing, I used **WAVE** [Web Accessibility Evaluation Tool](https://wave.webaim.org/) to evaluate the website. WAVE helps me check if my site meets web accessibility standards and can be used by all visitors. The tool helped me examine important features like:
 
 - Screen reader compatibility
 - Color contrast ratios
@@ -143,16 +143,16 @@ Below are the results of my WAVE accessibility tests for each page:
 
 | Page | Accessibility Check | Screenshot | Status |
 | ---- | ------------------- | ---------- | ------ |
-| About Us | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/about_wave.webp)</details> | ✅  |
-| Create New Post | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/create_wave.webp)</details> | ✅ |
-| Edit Profile | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/edit_profile_wave.webp)</details> | ✅ |
-| Latest Posts | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/index_wave.webp)</details> | ✅ |
-| Log Out | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/logout_wave.webp)</details> | ✅ |
-| Login Landing Page | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/login_wave.webp)</details> | ✅ |
-| Manage Account | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/manage_account_wave.webp)</details> | ✅ |
-| Sign Up | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/sign_up_wave.webp)</details> | ✅ |
-| User Profile | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/user_profile_wave.webp)</details> | ✅ |
-| Bookmarked | no errors found | <details><summary>Screenshot of result</summary>![Result](static/images/bookmarked_wave.webp)</details> | ✅ |
+| About Us | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/about_wave.webp)</details> | ✅  |
+| Create New Post | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/create_wave.webp)</details> | ✅ |
+| Edit Profile | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/edit_profile_wave.webp)</details> | ✅ |
+| Latest Posts | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/index_wave.webp)</details> | ✅ |
+| Log Out | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/logout_wave.webp)</details> | ✅ |
+| Login Landing Page | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/login_wave.webp)</details> | ✅ |
+| Manage Account | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/manage_account_wave.webp)</details> | ✅ |
+| Sign Up | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/sign_up_wave.webp)</details> | ✅ |
+| User Profile | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/user_profile_wave.webp)</details> | ✅ |
+| Bookmarked | No errors found | <details><summary>Screenshot of result</summary>![Result](static/images/bookmarked_wave.webp)</details> | ✅ |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
@@ -162,10 +162,10 @@ Performance testing ensures our website runs smoothly and loads quickly. We use 
 
 ## Why Test Performance?
 
-* Makes sure our website loads fast
-* Helps find things that slow down our pages
-* Improves user experience
-* Helps with search engine rankings
+* Ensure our website loads fast
+* Help find things that slow down our pages
+* Improve user experience
+* Help with search engine rankings
 
 ## How to Run Performance Tests
 
@@ -214,7 +214,7 @@ Remember to run these tests regularly as you make changes to the website to main
 |login.html| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/login_l_mobile.jpg)</details> | ✅
 |about.html| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/about_l_mobile.jpg)</details> | ✅
 |signup.html | 92 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_l_mobile.jpg)</details> | ✅
-|index.html| 91 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/lastest_l_mobile.jpg)</details> | ✅
+|index.html| 91 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/latest_l_mobile.jpg)</details> | ✅
 |blogpost_detail.html| 67 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/detail_l_mobile.jpg)</details> | ✅
 |blogpost_create.html| 65 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/create_mobile.jpg)</details> | ✅
 |blogpost_delete.html| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/static/images/confirm_delete_l_mobile.jpg)</details> | ✅
@@ -243,13 +243,13 @@ The website was tested on the following browsers:
 The website was tested on the following devices:
 
 - iPhone 5
-- iPhone8
-- iPhone11
+- iPhone 8
+- iPhone 11
 - iPhone Pro Max
 - iPhone 12/ 12 Pro
 - iPad 7th Gen
-- iPad Pro 11 -inch
-- iPad Pro 12 -inch
+- iPad Pro 11-inch
+- iPad Pro 12-inch
 - Galaxy S9
 - Laptop (1280 x 800px)
 
@@ -274,7 +274,7 @@ I keep all my tests organized in a special folder inside my blog app:
 ```
 blog/
 tests/
-**init**.py
+__init__.py
 test_models.py
 test_urls.py
 test_views.py
@@ -346,7 +346,7 @@ My tests focus on four main areas:
 - Blog Posts: Verifying that posts save with the right title, content, and author
 - Comments: Ensuring comments connect to the right posts and users
 
-I wrote each test to be clear and simple, making it easy for other. developers to understand what I'm testing and why. This helps me catch. problems early and keeps my app running smoothly.
+I wrote each test to be clear and simple, making it easy for other developers to understand what I'm testing and why. This helps me catch problems early and keeps my app running smoothly.
 
 </details>
 
@@ -397,7 +397,7 @@ I've found code coverage to be super helpful in understanding how well my tests 
 
 ### 1. Installation
 
-First, we need to install `Coverage.py` . Just run this in your terminal:
+First, we need to install `Coverage.py`. Just run this in your terminal:
 
 ```bash
 pip install coverage
@@ -431,7 +431,7 @@ The report shows you:
 
 My tests have achieved 53% code coverage.
 
-![Sreenshot: Coverage Report](static/images/coverage_report.webp)
+![Screenshot: Coverage Report](static/images/coverage_report.webp)
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
 
@@ -498,14 +498,14 @@ Now I'll show you the specific tests I ran to check all of this.
 | User Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
 | [User Create, Edit & Delete Blog Posts (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Create&pane=issue&itemId=92789167&issue=Blignaut24%7CNederLearn_V5%7C13) | You can write, change, and remove your blog posts with an easy-to-use text editor. | <details><summary>Screenshot of result</summary>![Result](/static/images/delete_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/edit_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/create_manual_e2.webp)</details> |
-| [Comment Blog Posts (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Comment&pane=issue&itemId=92789030&issue=Blignaut24%7CNederLearn_V5%7C12) | People can leave comments on any blog post. | <details><summary>Screenshot of result</summary>![Result](/static/images/commenting_manaul_e2.webp)</details> |
+| [Comment Blog Posts (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Comment&pane=issue&itemId=92789030&issue=Blignaut24%7CNederLearn_V5%7C12) | People can leave comments on any blog post. | <details><summary>Screenshot of result</summary>![Result](/static/images/commenting_manual_e2.webp)</details> |
 | [Like/Unlike Blog Posts (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=like&pane=issue&itemId=92788879&issue=Blignaut24%7CNederLearn_V5%7C11) | You can show that you like a post by clicking the heart icon. When you like a post, the heart fills with color. When you haven't liked a post, you'll see just the heart outline. | <details><summary>Screenshot of result</summary>![Result](/static/images/like_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/unlike_manual_e2.webp)</details> |
 | [View Other Users' Profiles (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=other&pane=issue&itemId=92780276&issue=Blignaut24%7CNederLearn_V5%7C10) | When you look at someone else's profile, you can see their top selections, but you won't see the "Edit Profile" or "Manage Account" buttons that appear on your own profile. | <details><summary>Screenshot of result</summary>![Result](/static/images/user_profile_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/other_profile_manual_e2.webp)</details> |
-| [See Post Overview (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Post&pane=issue&itemId=92780166&issue=Blignaut24%7CNederLearn_V5%7C9) | You can see a list of the newest posts with short previews, making it easy to choose which ones you want to read in full.  | <details><summary>Screenshot of result</summary>![Result](/static/images/post_overview_manaul_e2.webp)</details> |
+| [See Post Overview (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Post&pane=issue&itemId=92780166&issue=Blignaut24%7CNederLearn_V5%7C9) | You can see a list of the newest posts with short previews, making it easy to choose which ones you want to read in full.  | <details><summary>Screenshot of result</summary>![Result](/static/images/post_overview_manual_e2.webp)</details> |
 | [Read Full Post Detail (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Full&pane=issue&itemId=92780042&issue=Blignaut24%7CNederLearn_V5%7C8) | People can view blog posts with all their details, including any comments and likes. | <details><summary>Screenshot of result</summary>![Result](/static/images/post_detail_manual_e2.webp)</details> |
-| [Bookmark Blog Posts (COULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=bookm&pane=issue&itemId=92779888&issue=Blignaut24%7CNederLearn_V5%7C7) | Users can save blog posts they like by clicking the bookmark button. When a post is bookmarked, the bookmark icon fills with color. When it's not bookmarked, the icon shows just an outline. Users can find all their saved posts in the "Bookmarked" section, and they can easily remove bookmarks when they want. The system shows a message to confirm when posts are bookmarked or unbookmarked. | <details><summary>Screenshot of result</summary>![Result](/static/images/bookmard_one_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/e2)</details> |
+| [Bookmark Blog Posts (COULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=bookm&pane=issue&itemId=92779888&issue=Blignaut24%7CNederLearn_V5%7C7) | Users can save blog posts they like by clicking the bookmark button. When a post is bookmarked, the bookmark icon fills with color. When it's not bookmarked, the icon shows just an outline. Users can find all their saved posts in the "Bookmarked" section, and they can easily remove bookmarks when they want. The system shows a message to confirm when posts are bookmarked or unbookmarked. | <details><summary>Screenshot of result</summary>![Result](/static/images/bookmark_one_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_e2.webp)</details> |
 | [Follow Other Users (WON'T HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=other&pane=issue&itemId=92795048&issue=Blignaut24%7CNederLearn_V5%7C35) | The feature that lets users follow each other will be added in a future update. | No result image |
-| [Receive Validating Messages (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Validating&pane=issue&itemId=92779724&issue=Blignaut24%7CNederLearn_V5%7C6) | The system provides helpful feedback messages to confirm user actions, including successful authentication, post management, profile updates, and bookmark changes. | </details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_login_manual_e2.webp)</details> </details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_logout_manual_e2.webp)</details> </details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_create_blog_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_update_profile_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_added_bookmarked_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/messages_removed_bookmarked_manual.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_blogpost_update_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result]()</details> |
+| [Receive Validating Messages (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Validating&pane=issue&itemId=92779724&issue=Blignaut24%7CNederLearn_V5%7C6) | The system provides helpful feedback messages to confirm user actions, including successful authentication, post management, profile updates, and bookmark changes. | <details><summary>Screenshot of result</summary>![Result](/static/images/message_login_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_logout_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_create_blog_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_update_profile_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_added_bookmarked_manual_e2.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/messages_removed_bookmarked_manual.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/message_blogpost_update_e2.webp)</details> |
 | | | |
 
 &nbsp;
@@ -514,8 +514,8 @@ Now I'll show you the specific tests I ran to check all of this.
 | Site Owner Goals | How this was achieved | Screenshot |
 | --- | --- | --- |
 | [Admin - Full Control Over User Accounts (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/1?filterQuery=Full+Con&pane=issue&itemId=92789774&issue=Blignaut24%7CNederLearn_V5%7C17) | Admins and site owners can use a special control panel to manage all user accounts. From this panel, they can view, edit, and control everything related to user accounts. | <details><summary>Screenshot of result</summary>![Result](/static/images/full_control_manual_testing_e3.webp)</details> |
-| [Admin - Review and Edit User-Submitted Blog Posts and comments (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Review&pane=issue&itemId=92789659&issue=Blignaut24%7CNederLearn_V5%7C16) | Admins can check and manage posts and comments before they appear on the site. | <details><summary>Screenshot of result</summary>![Result](/static/images/review_manual_testing_e3.webp)</details> <details><summary>Screenshot of result</summary>![Result]()</details> |
-| [Admin - Manage and Categorize Blog Posts (COULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Manage+and+Categorize&pane=issue&itemId=92789524&issue=Blignaut24%7CNederLearn_V5%7C15) | Admins can sort and organize blog posts into different categories to help users find content more easily. | <details><summary>Screenshot of result</summary>![Result](/static/images/categories+manual_testing_e3.webp)</details> |
+| [Admin - Review and Edit User-Submitted Blog Posts and Comments (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Review&pane=issue&itemId=92789659&issue=Blignaut24%7CNederLearn_V5%7C16) | Admins can check and manage posts and comments before they appear on the site. | <details><summary>Screenshot of result</summary>![Result](/static/images/review_manual_testing_e3.webp)</details> |
+| [Admin - Manage and Categorize Blog Posts (COULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Manage+and+Categorize&pane=issue&itemId=92789524&issue=Blignaut24%7CNederLearn_V5%7C15) | Admins can sort and organize blog posts into different categories to help users find content more easily. | <details><summary>Screenshot of result</summary>![Result](/static/images/categories_manual_testing_e3.webp)</details> |
 | [Admin - Track User Engagement and Analytics (WON'T HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=User+&pane=issue&itemId=92789386&issue=Blignaut24%7CNederLearn_V5%7C14) | Analytics tracking is currently not available in this version of the app.  | No result image |
 | | | |
 
@@ -526,10 +526,10 @@ Now I'll show you the specific tests I ran to check all of this.
 | --- | --- | --- |
 | [Visually Appealing Landing Page (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Visually+Appealing+&pane=issue&itemId=92790689&issue=Blignaut24%7CNederLearn_V5%7C24) | Created a simple and attractive homepage that makes people want to explore the website. | <details><summary>Screenshot of result</summary>![Result](/static/images/login_manual.webp)</details> |
 | [Navigate to About Us (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Navigate+to+About&pane=issue&itemId=92790517&issue=Blignaut24%7CNederLearn_V5%7C23) | The "About Us" section is easy to find - it's always visible in the top menu bar. On desktop computers, you'll see it on the right side of the menu. On phones and tablets, you can find it in the dropdown menu. | <details><summary>Screenshot of result</summary>![Result](/static/images/about_e4.webp)</details> |
-| [Navigate to Join the Community (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Navigate+to+Join+the+Club+Section&pane=issue&itemId=92790294&issue=Blignaut24%7CNederLearn_V5%7C21) |Added a "Join the Community" button that's easy to find. You can see it in the top menu on the right, or in the dropdown menu on mobile devices. This button only shows up when you're not logged in. | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_e4.webp)</details> |
-| [Navigate through a well-designed website (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Navigate+&pane=issue&itemId=92790143&issue=Blignaut24%7CNederLearn_V5%7C20) | The website is easy to use and navigate. The design features bright, easy-to-spot buttons and yellow links that help users find their way around, including visiting other users' profiles. For convenience, all personal profile options for logged-in users can be found in a dropdown menu on the right side of the screen. | <details><summary>Screenshot of result</summary>![Result](/static/images/lastest_post_e4.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/nav_through_e4.webp)</details> |
+| [Navigate to Join the Community (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Navigate+to+Join+the+Club+Section&pane=issue&itemId=92790294&issue=Blignaut24%7CNederLearn_V5%7C21) | Added a "Join the Community" button that's easy to find. You can see it in the top menu on the right, or in the dropdown menu on mobile devices. This button only shows up when you're not logged in. | <details><summary>Screenshot of result</summary>![Result](/static/images/signup_e4.webp)</details> |
+| [Navigate through a well-designed website (MUST HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Navigate+&pane=issue&itemId=92790143&issue=Blignaut24%7CNederLearn_V5%7C20) | The website is easy to use and navigate. The design features bright, easy-to-spot buttons and yellow links that help users find their way around, including visiting other users' profiles. For convenience, all personal profile options for logged-in users can be found in a dropdown menu on the right side of the screen. | <details><summary>Screenshot of result</summary>![Result](/static/images/latest_post_e4.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/nav_through_e4.webp)</details> |
 | [Site pagination for easy navigation (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Site+pagination&pane=issue&itemId=92790050&issue=Blignaut24%7CNederLearn_V5%7C19) | Added page numbers to make it easier to view multiple blog posts. | <details><summary>Screenshot of result</summary>![Result](/static/images/nav_through_e4.webp)</details> <details><summary>Screenshot of result</summary>![Result](/static/images/bookmarked_e4.webp)</details> |
-| [Receive Page Error Messages (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Error&pane=issue&itemId=92789947&issue=Blignaut24%7CNederLearn_V5%7C18) | If something goes wrong, you'll see a friendly error page that explains the problem. | <details><summary>Screenshot of result</summary>![Result]()</details> <details><summary>Screenshot of result</summary>![Result]()</details> |
+| [Receive Page Error Messages (SHOULD HAVE)](https://github.com/users/Blignaut24/projects/19/views/2?filterQuery=Error&pane=issue&itemId=92789947&issue=Blignaut24%7CNederLearn_V5%7C18) | If something goes wrong, you'll see a friendly error page that explains the problem. | <details><summary>Screenshot of result</summary>![Result](/static/images/error_page_e4.webp)</details> |
 | | | |
 
 
@@ -584,10 +584,10 @@ Total number of users who participated in testing: 2
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Username input | Field is required and should be a valid username format | Tested with an empty field, invalid format | Error message is displayed prompting the user to provide a valid username | ✅ |
-| Email input | Field is optional but should be a valid email format if entered | Tested with an empty field and invalid format | Sign up can be successful without email address. Error message displayed prompting the user to provide a valid email address if user type in the field | ✅ |
+| Email input | Field is optional but should be a valid email format if entered | Tested with an empty field and invalid format | Sign-up can be successful without an email address. Error message displayed prompting the user to provide a valid email address if the user types in the field | ✅ |
 | Password input | Field is required and should meet password criteria | Tested with an empty field, invalid criteria | Error message displayed prompting the user to provide a valid password | ✅ |
-| Password confirmation input | Field is required and should match the entered password | Tested with empty field, mismatched passwords | Error message displayed prompting the user to confirm the password correctly | ✅ |
-| "Sign up" button | If the form is valid, the user is redirected to the blog post overview (index.html) page with a message confirming successful registration. If the form is not valid, an error message is displayed. | Clicked the button with valid and non-valid formats | The button functions as expected, redirecting to the appropriate page and displaying the corresponding messages | ✅ |
+| Password confirmation input | Field is required and should match the entered password | Tested with an empty field, mismatched passwords | Error message displayed prompting the user to confirm the password correctly | ✅ |
+| "Sign up" button | If the form is valid, the user is redirected to the blog post overview (index.html) page with a message confirming successful registration. If the form is not valid, an error message is displayed. | Clicked the button with valid and invalid formats | The button functions as expected, redirecting to the appropriate page and displaying the corresponding messages | ✅ |
 | "Login" text link | Redirects to the login page | Clicked on the "Login" link | The login page and form were successfully loaded | ✅ |
 | "About Us" text link | Redirects to the "About Us" page | Clicked on the "About Us" link | The "About Us" page and form were successfully loaded | ✅ |
 | | |
@@ -600,7 +600,7 @@ Total number of users who participated in testing: 2
 | --- | --- | --- | --- | --- |
 | "Sign up" link on login form | Redirects to the "Join the Club" page and form | Clicked on "Sign Up" link | Sign-up page loads, displaying the editable form with a "Sign Up" button | ✅ |
 | Username input | The user enters a username | Tested with valid and invalid username input | The username field accepts and saves the valid input. If invalid, it displays an error message | ✅ |
-| Password input | The user enters a password | Tested with valid and invalid password input | The password field functions correctly, allowing the user to input a valid password and displays an error message when not valid | ✅ |
+| Password input | The user enters a password | Tested with valid and invalid password input | The password field functions correctly, allowing the user to input a valid password and displays an error message when invalid | ✅ |
 | "Login" button | If the login form is valid, the user is logged in and redirected to the index.html page. If the form is not valid, an error message is displayed. | Tested with valid and invalid login form input | The login button functions correctly, logging in the user with valid credentials and displaying error messages for invalid credentials | ✅ |
 | | |
 
@@ -612,11 +612,11 @@ Total number of users who participated in testing: 2
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Logo name | Redirects to index.html (blog posts) page | Clicked on logo | Index page loads | ✅ |
-| Latests posts | Redirect to index.html (blog posts) page | Clicked on the link "Latest Posts" | Index.html page loads | ✅ |
+| Latest posts | Redirects to index.html (blog posts) page | Clicked on the link "Latest Posts" | Index.html page loads | ✅ |
 | About us | Redirects to the "About Us" page with the "Back to home" button visible | Clicked on the link "About Us" | "About Us" page loads and shows the "Back to home" button | ✅ |
-| Create new post | Redirects to the "Create a New Blog Post" page with the "Create New Post" button visible | Clicked on the link "Create new Post" | "Create a New Blog Post" page loads and shows the "CREATE POST" button | ✅ |
+| Create new post | Redirects to the "Create a New Blog Post" page with the "Create New Post" button visible | Clicked on the link "Create New Post" | "Create a New Blog Post" page loads and shows the "CREATE POST" button | ✅ |
 | Profile icon | Triggers the dropdown menu | Clicked on the icon | The dropdown menu is displayed | ✅ |
-| My posts | Redirects to the page displaying the users created posts | Clicked on the "My Posts" link | "My Posts" page loads, showing the user's created blog posts | ✅ |
+| My posts | Redirects to the page displaying the user's created posts | Clicked on the "My Posts" link | "My Posts" page loads, showing the user's created blog posts | ✅ |
 | Bookmarked | Redirects to the page displaying the user's bookmarked posts | Clicked on the "Bookmarked" link | "Bookmarked" page loads, showing the user's bookmarked blog posts | ✅ |
 | | |
 
@@ -637,7 +637,7 @@ Total number of users who participated in testing: 2
 | --- | --- | --- | --- | --- |
 | My profile | Redirects to the user profile page with the user's information | Clicked on the "My Profile" link | Profile page loads, displaying the user's information | ✅ |
 | Edit profile | Redirects to the page displaying the user's own profile page | Clicked on the "Edit Profile" link | "Edit Profile" page loads, showing the user's profile page | ✅ |
-| Manage account | Redirects to the page where the user can choose to delete their account or go back to previous page | Clicked on the "Manage Account" link | "Manage Account" page loads, displaying the warning about deleting the account and displays button "Delete Account" and "No Go Back" | ✅ |
+| Manage account | Redirects to the page where the user can choose to delete their account or go back to the previous page | Clicked on the "Manage Account" link | "Manage Account" page loads, displaying the warning about deleting the account and displays button "Delete Account" and "No, Go Back" | ✅ |
 | Logout | Redirects the user to a logout confirmation page | Clicked on "Logout" | User is redirected to a page confirming the logout | ✅ |
 | | |
 
@@ -666,7 +666,7 @@ Total number of users who participated in testing: 2
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | "Edit Profile" link | Redirects to the page displaying the user's own profile page | Clicked on the "Edit Profile" link | "Edit Profile" page loads, showing the user's profile page | ✅ |
-| "Manage Account" link | Redirects to the page where the user can choose to delete their account | Clicked on the "Manage Account" link | "Manage Account" page loads, displaying the warning about deleting the account and displays button "DELETE ACCOUNT" and "NO GO BACK" | ✅ |
+| "Manage Account" link | Redirects to the page where the user can choose to delete their account | Clicked on the "Manage Account" link | "Manage Account" page loads, displaying the warning about deleting the account and displays button "DELETE ACCOUNT" and "NO, GO BACK" | ✅ |
 | | |
 
 &nbsp;
@@ -675,7 +675,7 @@ Total number of users who participated in testing: 2
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| "Edit profile" | When changes are made and the "Save changes" button is clicked, the changes should be saved, the user should be redirected to the profile page, and a flash message should confirm the update | Made changes and click on the "Update" button | Changes were successfully saved, redirected to the profile page with the new information displayed, and a flash message confirmed the update | ✅ |
+| "Edit profile" | When changes are made and the "Save changes" button is clicked, the changes should be saved, the user should be redirected to the profile page, and a flash message should confirm the update | Made changes and clicked on the "Update" button | Changes were successfully saved, redirected to the profile page with the new information displayed, and a flash message confirmed the update | ✅ |
 | | |
 
 &nbsp;
@@ -684,7 +684,7 @@ Total number of users who participated in testing: 2
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| "Delete Account" button | When the "Delete Account" button is clicked, the user should be prompted with another extra confirmation button. If confirmed deletion user is deleted and redirected to the login page. | Clicked on the "Delete" button and confirmed the onclick popup confirm button again | Redirected to the login page with no access to the account or user | ✅ |
+| "Delete Account" button | When the "Delete Account" button is clicked, the user should be prompted with another extra confirmation button. If confirmed, the user is deleted and redirected to the login page. | Clicked on the "Delete" button and confirmed the onclick popup confirm button again | Redirected to the login page with no access to the account or user | ✅ |
 | "NO, GO BACK" button | Redirects to the profile page | Clicked on the "NO, GO BACK" button | The profile page loads, displaying the profile information | ✅ |
 | | |
 
@@ -744,7 +744,7 @@ Total number of users who participated in testing: 2
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| "Save Changes" button | When changes are made and the "Save Changes" button is clicked, the changes should be saved, the user should be redirected to the blog post detail page, and a flash message should confirm the update | Made changes and click on the "Save Changes" button | Changes were successfully saved, redirected to the blog post detail page, and a flash message confirmed the update | ✅ |
+| "Save Changes" button | When changes are made and the "Save Changes" button is clicked, the changes should be saved, the user should be redirected to the blog post detail page, and a flash message should confirm the update | Made changes and clicked on the "Save Changes" button | Changes were successfully saved, redirected to the blog post detail page, and a flash message confirmed the update | ✅ |
 | | |
 
 &nbsp;
@@ -766,7 +766,7 @@ Total number of users who participated in testing: 2
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| "RETURN HOME" button | Correct "error message" displays and redirects the user to index.html page where the articles are | Edited a non-URL path in the web browser and then clicked on the "RETURN HOME" button | Correct error handling message was displayed for the user, and when the "Return home"  button was clicked, the user was redirected to the index page where posts are displayed | ✅ |
+| "RETURN HOME" button | Correct "error message" displays and redirects the user to index.html page where the articles are | Edited a non-URL path in the web browser and then clicked on the "RETURN HOME" button | Correct error handling message was displayed for the user, and when the "Return home" button was clicked, the user was redirected to the index page where posts are displayed | ✅ |
 | | |
 
 <p align="right">(<a href="#content">back to top</a>)</p><br>
